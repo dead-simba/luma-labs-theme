@@ -1,0 +1,410 @@
+{% schema %}
+{
+  "name": "Community / Reviews",
+  "tag": "section",
+  "class": "section-community",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Community Love"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Heading",
+      "default": "Why They Switched to Luma"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Text",
+      "default": "4.9/5 Average Rating"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "800px", "label": "Narrow (800px)" },
+        { "value": "1200px", "label": "Standard (1200px)" },
+        { "value": "100%", "label": "Full Width" }
+      ],
+      "default": "1200px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#F9F7F5",
+      "info": "Luma Sand default"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Star/Gold)",
+      "default": "#C5A065"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_fonts",
+      "label": "Override Theme Fonts",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "serif"
+    },
+    {
+      "type": "font_picker",
+      "id": "body_font",
+      "label": "Body Font",
+      "default": "sans-serif"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review Quote",
+          "default": "I hate the feeling of sunscreen. But this? This feels like water."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Zara K."
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show Verified Buyer",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community / Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I hate the feeling of sunscreen. But this? This feels like water. It cools my skin down instantly.",
+            "author": "Zara K."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I sit in front of a laptop for 9 hours a day. Knowing this protects me from screen light gives me peace of mind.",
+            "author": "Alya M."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "No pilling under makeup! It actually works better than my expensive primer. Keeps me matte all day.",
+            "author": "Hania S."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  /* Font Loading */
+  {%- if section.settings.override_fonts -%}
+    {{ section.settings.heading_font | font_face: font_display: 'swap' }}
+    {{ section.settings.body_font | font_face: font_display: 'swap' }}
+  {%- endif -%}
+
+  #shopify-section-{{ section.id }} .community-section {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    color: {{ section.settings.text_color }};
+    
+    /* Body Font */
+    {%- if section.settings.override_fonts and section.settings.body_font != blank -%}
+      font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
+    {%- elsif settings.type_body_font != blank -%}
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    {%- elsif settings.type_base_font != blank -%}
+      font-family: {{ settings.type_base_font.family }}, {{ settings.type_base_font.fallback_families }};
+    {%- else -%}
+      font-family: inherit;
+    {%- endif -%}
+  }
+
+  #shopify-section-{{ section.id }} .community-container {
+    max-width: {{ section.settings.section_width }};
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header Styles */
+  #shopify-section-{{ section.id }} .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 64px auto;
+  }
+
+  #shopify-section-{{ section.id }} .eyebrow {
+    color: {{ section.settings.accent_color }};
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .main-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #374151;
+    
+    /* Heading Font */
+    {%- if section.settings.override_fonts and section.settings.heading_font != blank -%}
+      font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    {%- elsif settings.type_heading_font != blank -%}
+      font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+    {%- else -%}
+      font-family: inherit;
+    {%- endif -%}
+  }
+  
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .main-title {
+        font-size: 36px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .rating-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  #shopify-section-{{ section.id }} .stars {
+    color: {{ section.settings.accent_color }};
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .rating-text {
+    font-size: 12px;
+    color: #6b7280; /* Gray 500 */
+    font-weight: 500;
+  }
+
+  /* Grid Styles */
+  #shopify-section-{{ section.id }} .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .reviews-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Card Styles */
+  #shopify-section-{{ section.id }} .review-card {
+    background-color: {{ section.settings.card_bg_color }};
+    padding: 32px;
+    border-radius: 2px; /* Small rounded */
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #shopify-section-{{ section.id }} .review-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  #shopify-section-{{ section.id }} .quote-icon {
+    position: absolute;
+    top: -16px;
+    left: -8px;
+    font-size: 60px;
+    color: {{ section.settings.accent_color }};
+    opacity: 0.2;
+    font-family: serif;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .review-text {
+    color: #4b5563; /* Gray 600 */
+    font-style: italic;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 10;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .author-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .author-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #e5e7eb;
+  }
+  
+  #shopify-section-{{ section.id }} .author-placeholder {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     background-color: #e5e7eb;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 10px;
+     color: #9ca3af;
+     text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .author-name {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #374151;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .verified-badge {
+    font-size: 10px;
+    color: {{ section.settings.accent_color }};
+    font-weight: 500;
+  }
+
+{%- endstyle -%}
+
+<div class="community-section">
+    <div class="community-container">
+        
+        <div class="section-header">
+            {%- if section.settings.eyebrow != blank -%}
+                <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
+            {%- endif -%}
+            
+            {%- if section.settings.title != blank -%}
+                <h2 class="main-title">{{ section.settings.title | escape }}</h2>
+            {%- endif -%}
+
+            <div class="rating-block">
+                <div class="stars">★★★★★</div>
+                {%- if section.settings.rating_text != blank -%}
+                    <span class="rating-text">{{ section.settings.rating_text | escape }}</span>
+                {%- endif -%}
+            </div>
+        </div>
+
+        <div class="reviews-grid">
+            {%- for block in section.blocks -%}
+                <div class="review-card" {{ block.shopify_attributes }}>
+                    <div class="quote-icon">“</div>
+                    <p class="review-text">"{{ block.settings.quote | escape }}"</p>
+                    
+                    <div class="author-block">
+                        {%- if block.settings.author_image != blank -%}
+                            <img src="{{ block.settings.author_image | image_url: width: 80 }}" 
+                                 alt="{{ block.settings.author }}" 
+                                 class="author-img"
+                                 loading="lazy"
+                                 width="40"
+                                 height="40">
+                        {%- else -%}
+                            <div class="author-placeholder">User</div>
+                        {%- endif -%}
+                        
+                        <div>
+                            <span class="author-name">{{ block.settings.author | escape }}</span>
+                            {%- if block.settings.verified -%}
+                                <span class="verified-badge">Verified Buyer</span>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+
+    </div>
+</div>

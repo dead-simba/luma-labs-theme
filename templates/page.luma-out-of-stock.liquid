@@ -1,0 +1,138 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQT5584S');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sold Out | LUMA LABS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luma: {
+                            gold: '#C5A065',
+                            charcoal: '#1A1A1A',
+                            light: '#F5F5F5',
+                            white: '#FFFFFF',
+                            alert: '#E53E3E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    letterSpacing: {
+                        widest: '.2em',
+                    }
+                }
+            }
+        }
+    </script>
+    {{ content_for_header }}
+</head>
+
+<body class="bg-white text-luma-charcoal selection:bg-luma-gold selection:text-white h-screen flex flex-col">
+
+    <!-- Header (Simplified) -->
+    <header class="py-6 text-center border-b border-gray-100">
+        <a href="/" class="text-2xl font-serif tracking-wide">LUMA LABS</a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="max-w-md w-full text-center">
+
+            <div class="w-16 h-16 bg-luma-light rounded-full flex items-center justify-center mx-auto mb-8">
+                <span class="text-2xl">🔒</span>
+            </div>
+
+            <h1 class="font-serif text-3xl md:text-4xl mb-4">We've Sold Out.</h1>
+            <p class="text-gray-500 font-light mb-8">
+                Due to high demand, the <span id="dynamic-product-name" class="text-luma-charcoal font-medium">this product</span> is currently out of stock. <br><br>
+                We are restocking in <span class="font-bold text-luma-gold">48 hours</span>.
+            </p>
+
+            <div class="bg-gray-50 p-8 border border-gray-100 mb-8">
+                <h2 class="text-xs uppercase tracking-widest font-bold mb-4">Join the Waitlist</h2>
+                
+                {% form 'customer', id: 'waitlist-form' %}
+                    {% if form.posted_successfully? %}
+                        <div class="text-luma-gold text-sm font-medium py-4">
+                            ✓ You've been added to the priority list! We'll notify you the moment we restock.
+                        </div>
+                    {% else %}
+                        {{ form.errors | default_errors }}
+                        <div class="space-y-4">
+                            <input type="hidden" name="contact[tags]" id="dynamic-tags" value="waitlist">
+                            <input type="email" 
+                                name="contact[email]" 
+                                placeholder="Enter your email" 
+                                required
+                                class="w-full bg-white border border-gray-300 p-3 text-sm focus:outline-none focus:border-luma-gold transition-colors">
+                            <button type="submit"
+                                class="w-full bg-luma-charcoal text-white py-3 text-sm uppercase tracking-widest hover:bg-luma-gold transition-colors duration-300">
+                                Notify Me
+                            </button>
+                            <p class="text-[10px] text-gray-400 mt-2">Join 1,200+ others waiting for the drop.</p>
+                        </div>
+                    {% endif %}
+                {% endform %}
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Try to get product from URL params first, then localStorage
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productFromUrl = urlParams.get('product');
+                    const savedProduct = productFromUrl || localStorage.getItem('luma_out_of_stock_product');
+                    
+                    if (savedProduct) {
+                        // 1. Update the Heading
+                        const productNameElement = document.getElementById('dynamic-product-name');
+                        if (productNameElement) {
+                             // Decode URI component just in case it's URL encoded
+                            productNameElement.innerText = decodeURIComponent(savedProduct);
+                        }
+                        
+                        // 2. Update the Form Tags so you know which product they want
+                        const tagInput = document.getElementById('dynamic-tags');
+                        if (tagInput) {
+                            tagInput.value = 'waitlist, restock-' + decodeURIComponent(savedProduct).toLowerCase().replace(/[^a-z0-9]/g, '-');
+                        }
+                    }
+                });
+            </script>
+
+            <a href="/"
+                class="text-xs uppercase tracking-widest border-b border-gray-300 pb-1 hover:text-luma-gold hover:border-luma-gold transition-colors">
+                Continue Shopping
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-[10px] text-gray-400 uppercase tracking-widest">
+        &copy; {{ 'now' | date: "%Y" }} Luma Labs. Clinical Precision.
+    </footer>
+
+</body>
+
+</html>

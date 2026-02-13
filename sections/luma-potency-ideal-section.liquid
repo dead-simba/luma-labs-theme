@@ -1,0 +1,370 @@
+{% schema %}
+{
+  "name": "Potency & Ideal For",
+  "tag": "section",
+  "class": "section-potency-ideal",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Column: Potency"
+    },
+    {
+      "type": "text",
+      "id": "potency_title",
+      "label": "Section Title",
+      "default": "Why It Works"
+    },
+    {
+      "type": "header",
+      "content": "Right Column: Ideal For"
+    },
+    {
+      "type": "text",
+      "id": "ideal_title",
+      "label": "Section Title",
+      "default": "Ideal For"
+    },
+    {
+      "type": "header",
+      "content": "Ideal For Details"
+    },
+    {
+      "type": "text",
+      "id": "skin_type_label",
+      "label": "Label 1 (e.g. Skin Type)",
+      "default": "Skin Type"
+    },
+    {
+      "type": "textarea",
+      "id": "skin_type_text",
+      "label": "Text 1",
+      "default": "Oily, Combination, Sensitive & Acne-Prone."
+    },
+    {
+      "type": "text",
+      "id": "perfect_for_label",
+      "label": "Label 2 (e.g. Perfect For)",
+      "default": "Perfect For"
+    },
+    {
+      "type": "textarea",
+      "id": "perfect_for_text",
+      "label": "Text 2",
+      "default": "People who wear makeup (it acts as a primer) and anyone exposed to screens or sun."
+    },
+    {
+      "type": "text",
+      "id": "concerns_label",
+      "label": "Label 3 (e.g. Targets Concerns)",
+      "default": "Targets Concerns"
+    },
+    {
+      "type": "textarea",
+      "id": "concerns_list",
+      "label": "Concerns (Comma separated)",
+      "default": "Sun Damage,Blue Light,Open Pores,Excess Oil",
+      "info": "Separate tags with commas."
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F9F8F6"
+    },
+    {
+      "type": "range",
+      "id": "bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Background Opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "paragraph",
+      "content": "By default, this section uses your Theme Settings. Check the box below to customize fonts."
+    },
+    {
+      "type": "checkbox",
+      "id": "override_fonts",
+      "label": "Override Theme Fonts",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "serif"
+    },
+    {
+      "type": "font_picker",
+      "id": "body_font",
+      "label": "Body Font",
+      "default": "sans-serif"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1A1A1A"
+    },
+    {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent Color",
+        "default": "#C5A065"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title",
+          "default": "Total Defense"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Benefit Description",
+          "default": "Description of why this matters..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Potency & Ideal For",
+      "blocks": [
+        { "type": "benefit", "settings": { "title": "Total Defense (PA++++)", "text": "PA++++ is the highest grade of protection. It doesn't just block the sun's burning rays; it shields you from the Blue Light emitted by your screens." } },
+        { "type": "benefit", "settings": { "title": "The 'Cooling' Texture", "text": "Formulated with a unique 'Aqua Gel' technology. It breaks down into water upon contact with your skin, providing an instant cooling sensation." } },
+        { "type": "benefit", "settings": { "title": "1% Hyaluronic Acid", "text": "Most sunscreens dry you out. Ours locks moisture in. By holding 1,000x its weight in water, Hyaluronic Acid ensures your skin stays plump and hydrated." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- assign bg_alpha = section.settings.bg_opacity | divided_by: 100.0 -%}
+{%- assign bg_color_rgba = section.settings.bg_color | color_modify: 'alpha', bg_alpha -%}
+
+{%- style -%}
+  /* Font Loading (Only if Override is ON) */
+  {%- if section.settings.override_fonts -%}
+    {{ section.settings.heading_font | font_face: font_display: 'swap' }}
+    {{ section.settings.body_font | font_face: font_display: 'swap' }}
+  {%- endif -%}
+
+  #shopify-section-{{ section.id }} .potency-section {
+    background-color: {{ bg_color_rgba }};
+    padding: 60px 20px;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    color: {{ section.settings.text_color }};
+    
+    /* Body Font Logic: Override -> Global Setting (Body) -> Global Setting (Base) -> Fallback */
+    {%- if section.settings.override_fonts and section.settings.body_font != blank -%}
+      font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
+    {%- elsif settings.type_body_font != blank -%}
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    {%- elsif settings.type_base_font != blank -%}
+      font-family: {{ settings.type_base_font.family }}, {{ settings.type_base_font.fallback_families }};
+    {%- else -%}
+      font-family: inherit;
+    {%- endif -%}
+  }
+
+  /* ...Layout Styles... */
+  #shopify-section-{{ section.id }} .potency-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .potency-col {
+    flex: 1 1 450px; 
+    padding: 20px 0;
+  }
+  
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .potency-col:first-child {
+      border-right: 1px solid #e5e7eb;
+      padding-right: 40px;
+    }
+    #shopify-section-{{ section.id }} .potency-col:last-child {
+      padding-left: 40px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} h3.potency-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    
+    /* Heading Font Logic: Override -> Global Setting (Heading) -> Fallback */
+    {%- if section.settings.override_fonts and section.settings.heading_font != blank -%}
+      font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    {%- elsif settings.type_heading_font != blank -%}
+      font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+    {%- else -%}
+      font-family: inherit;
+    {%- endif -%}
+  }
+
+
+  /* List Styles */
+  #shopify-section-{{ section.id }} ul.potency-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} li.potency-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  #shopify-section-{{ section.id }} .potency-bullet {
+    color: {{ section.settings.accent_color }};
+    font-size: 24px;
+    line-height: 1;
+    margin-top: -4px;
+  }
+
+  #shopify-section-{{ section.id }} .potency-text {
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  
+  #shopify-section-{{ section.id }} .potency-text strong {
+    font-weight: 700;
+    color: inherit;
+  }
+
+  /* Ideal For Styles */
+  #shopify-section-{{ section.id }} .ideal-group {
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .ideal-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+    color: #111;
+  }
+
+  #shopify-section-{{ section.id }} .ideal-text {
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  #shopify-section-{{ section.id }} .ideal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .ideal-tag {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 4px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+  }
+{% endstyle %}
+
+<div class="potency-section">
+    <div class="potency-container">
+        
+        <!-- Left Column: What Makes It Potent -->
+        <div class="potency-col">
+             {%- if section.settings.potency_title != blank -%}
+                <h3 class="potency-title">{{ section.settings.potency_title | escape }}</h3>
+             {%- endif -%}
+
+             <ul class="potency-list">
+                {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                        {%- when 'benefit' -%}
+                            <li class="potency-item" {{ block.shopify_attributes }}>
+                                <span class="potency-bullet">•</span>
+                                <div class="potency-text">
+                                    {%- if block.settings.title != blank -%}
+                                        <strong>{{ block.settings.title | escape }}:</strong>
+                                    {%- endif -%}
+                                    {{ block.settings.text | escape }}
+                                </div>
+                            </li>
+                    {%- endcase -%}
+                {%- endfor -%}
+             </ul>
+        </div>
+
+        <!-- Right Column: Ideal For -->
+        <div class="potency-col">
+            {%- if section.settings.ideal_title != blank -%}
+                <h3 class="potency-title">{{ section.settings.ideal_title | escape }}</h3>
+            {%- endif -%}
+
+            <div class="ideal-wrapper">
+                <!-- Item 1 -->
+                {%- if section.settings.skin_type_text != blank -%}
+                    <div class="ideal-group">
+                        <span class="ideal-label">{{ section.settings.skin_type_label | escape }}</span>
+                        <p class="ideal-text">{{ section.settings.skin_type_text | escape }}</p>
+                    </div>
+                {%- endif -%}
+
+                <!-- Item 2 -->
+                {%- if section.settings.perfect_for_text != blank -%}
+                    <div class="ideal-group">
+                        <span class="ideal-label">{{ section.settings.perfect_for_label | escape }}</span>
+                        <p class="ideal-text">{{ section.settings.perfect_for_text | escape }}</p>
+                    </div>
+                {%- endif -%}
+
+                <!-- Item 3 (Tags) -->
+                {%- if section.settings.concerns_list != blank -%}
+                    <div class="ideal-group">
+                        <span class="ideal-label">{{ section.settings.concerns_label | escape }}</span>
+                        <div class="ideal-tags">
+                            {%- assign concerns = section.settings.concerns_list | split: ',' -%}
+                            {%- for concern in concerns -%}
+                                {%- assign clean_concern = concern | strip -%}
+                                {%- if clean_concern != blank -%}
+                                    <span class="ideal-tag">{{ clean_concern | escape }}</span>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    </div>
+                {%- endif -%}
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,820 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": false,
+            "icons_style": "none",
+            "slideshow_controls_style": "counter",
+            "slideshow_mobile_controls_style": "dots",
+            "thumbnail_position": "right",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "1",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": true,
+            "zoom": false,
+            "video_loop": false,
+            "hide_variants": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_e8V6gq": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.product_subtitle | metafield_tag }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "text_e8V6gq",
+                "price_tVjtKg"
+              ]
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "divider_VJhene",
+            "buy_buttons_eYQEYi",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "luma_potency_ideal_section_WRamzc": {
+      "type": "luma-potency-ideal-section",
+      "blocks": {
+        "benefit_9ihwWx": {
+          "type": "benefit",
+          "settings": {
+            "title": "The \"Master Switch\" (Glutathione)",
+            "text": "Think of your skin’s pigment production like a factory. When it gets stressed (sun/acne), it works overtime, creating dark spots. Glutathione is the manager that walks in and flips the switch from \"Dark Melanin\" to \"Light Melanin,\" safely reducing pigmentation from within."
+          }
+        },
+        "benefit_gHbhzm": {
+          "type": "benefit",
+          "settings": {
+            "title": "Double-Action Brightening",
+            "text": "Most serums use just one active. We combined Glutathione (the long-term corrector) with Vitamin C (the instant glow booster). One fades the past damage; the other protects you from future damage."
+          }
+        },
+        "benefit_Ch6gQh": {
+          "type": "benefit",
+          "settings": {
+            "title": "The \"Anti-Rebound\" Promise",
+            "text": "Cheap whitening creams peel your skin, causing \"rebound pigmentation\" (where spots come back darker). Our formula strengthens your skin barrier while it brightens, ensuring your results last."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_9ihwWx",
+        "benefit_gHbhzm",
+        "benefit_Ch6gQh"
+      ],
+      "name": "Potency & Ideal For",
+      "settings": {
+        "potency_title": "Why It Works",
+        "ideal_title": "Ideal For",
+        "skin_type_label": "Skin Type",
+        "skin_type_text": "All Skin Types (Safe for Sensitive Skin)",
+        "perfect_for_label": "Perfect For",
+        "perfect_for_text": "Anyone recovering from acne breakouts, sun worshippers, or those with \"uneven tan\" lines",
+        "concerns_label": "Targets Concerns",
+        "concerns_list": "Post-Acne Marks (PIH),Melasma / Sun Spots,Dull / Grayish Complexion,Uneven Neck & Face Tone",
+        "bg_color": "#f9f8f6",
+        "bg_opacity": 30,
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065"
+      }
+    },
+    "hero_nwJAq8": {
+      "type": "hero",
+      "blocks": {
+        "group_rkF7GR": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 18,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_VKw7zt": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 6,
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_TVyxEX": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<p>Your skin tone is beautiful. It just needs to be even.</p>",
+                    "width": "100%",
+                    "max_width": "narrow",
+                    "alignment": "center",
+                    "type_preset": "h2",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_TVyxEX"
+              ]
+            },
+            "text_8HAbGd": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>SCIENCE .  SKIN . SOUL</p>",
+                "width": "fit-content",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_VKw7zt",
+            "text_8HAbGd"
+          ]
+        }
+      },
+      "block_order": [
+        "group_rkF7GR"
+      ],
+      "name": "t:names.hero_bottom_aligned",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/Lifestyle_image_-_Final_WEBP.webp",
+        "media_type_2": "image",
+        "stack_media_on_mobile": true,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/1.jpg",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 16,
+        "section_width": "full-width",
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000070",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": true,
+        "reflection_opacity": 20,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "luma_ingredients_section_wEybY9": {
+      "type": "luma-ingredients-section",
+      "blocks": {
+        "ingredient_Tc4NfW": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Glutathione (The Master Antioxidant)",
+            "description": "The gold standard in brightening. It creates a \"depigmenting\" effect by inhibiting the enzyme (Tyrosinase) that produces dark spots. It’s naturally found in your body, making it the safest path to radiance.",
+            "show_plus": true
+          }
+        },
+        "ingredient_mj8KjT": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin C (The Radiance Booster)",
+            "description": "We use a stable form of Vitamin C that won't oxidize (turn brown) quickly. It fades surface dullness and boosts collagen, giving you that \"glass skin\" bounce.",
+            "show_plus": true
+          }
+        },
+        "ingredient_4bHNb6": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hyaluronic Acid (The Cushion)",
+            "description": "Brightening ingredients can sometimes be drying. We added Hyaluronic Acid to ensure your skin stays hydrated and plump while the actives do their work.",
+            "show_plus": true
+          }
+        },
+        "ingredient_BCfQeV": {
+          "type": "ingredient",
+          "settings": {
+            "title": "All Ingredients",
+            "description": "The Brighteners & Actives (The Heavy Lifters): Glutathione, Alpha Arbutin, Arbutin, 3-O-Ethyl Ascorbic Acid (Vit C), Sodium Ascorbyl Phosphate (Vit C), Ascorbyl Palmitate (Vit C), Tocopherol Acetate (Vit E).\n\nThe Superfood Extracts (The Antioxidants): Blueberry Extract, Garden Cress Sprout Extract, Grapefruit Extract, Mulberry Extract, Olive Leaf Extract, Pomegranate Flower Extract, Raspberry Extract, Strawberry Extract.\n\nThe Hydrators & Soothers (The Cushion): Sodium Hyaluronate (Hyaluronic Acid), Allantoin, Betaine, Glycerin, Panthenol (Vit B5), Lecithin, Linoleic Acid, Linolenic Acid, Maltodextrin, Sodium Lactate, Sodium Gluconate.\n\nThe Base & Stabilizers (The Architecture): Purified Water, Propanediol, Alcohol, Heptyl Glucoside, Ethylhexylglycerin, Phenoxyethanol, Potassium Sorbate, Sodium Benzoate, Sodium Hydroxide, Xanthan Gum, Perfume.",
+            "show_plus": true
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_Tc4NfW",
+        "ingredient_mj8KjT",
+        "ingredient_4bHNb6",
+        "ingredient_BCfQeV"
+      ],
+      "name": "Ingredients Accordion",
+      "settings": {
+        "title": "Ingredients",
+        "bg_color": "#ffffff",
+        "bg_opacity": 0,
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065",
+        "section_width": "1200px",
+        "heading_alignment": "left",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_faq_section_qPFBYx": {
+      "type": "luma-faq-section",
+      "blocks": {
+        "faq_item_GTLijJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will this make me \"white\"?",
+            "answer": "No. It restores your skin to its brightest, most natural potential. It fades the tan and spots that make you look darker than you are, but it won't bleach your natural DNA."
+          }
+        },
+        "faq_item_X9VBxe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use this with the Luma Sunscreen?",
+            "answer": "You must! Vitamin C and Sunscreen are best friends. Vitamin C fights free radicals, and Sunscreen blocks UV rays. Using them together doubles your protection against aging."
+          }
+        },
+        "faq_item_Pip8tX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until I see results?",
+            "answer": "This is science, not magic. You will see a \"glow\" in 1 week. Significant fading of dark spots takes 4–6 weeks of consistent use because that is how long your skin cycle takes to renew."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_GTLijJ",
+        "faq_item_X9VBxe",
+        "faq_item_Pip8tX"
+      ],
+      "name": "Luma FAQ Section",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f7f5",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_testimonials_CPLmwH": {
+      "type": "luma-testimonials",
+      "blocks": {
+        "review_44hUgr": {
+          "type": "review",
+          "settings": {
+            "quote": "I had terrible dark spots left after a breakout. I was scared to try anything harsh. This serum is so gentle, and my marks have faded by 50% in just a month.",
+            "author": "Mina H.",
+            "verified": true
+          }
+        },
+        "review_QyrQAV": {
+          "type": "review",
+          "settings": {
+            "quote": "It doesn't feel sticky like other Vitamin C serums. I wake up looking fresh, not oily. My foundation looks so much better now.",
+            "author": "Rabia F.",
+            "verified": true
+          }
+        },
+        "review_4icPXT": {
+          "type": "review",
+          "settings": {
+            "quote": "Finally, a brand that doesn't sell 'Chitta Gora' dreams. It just cleaned up my uneven tone around my mouth and forehead. I feel confident going out without concealer.",
+            "author": "Sana K.",
+            "verified": false
+          }
+        }
+      },
+      "block_order": [
+        "review_44hUgr",
+        "review_QyrQAV",
+        "review_4icPXT"
+      ],
+      "name": "Community / Reviews",
+      "settings": {
+        "eyebrow": "Community Love",
+        "title": "Why They Switched to Luma",
+        "rating_text": "4.9/5 Average Rating",
+        "section_width": "1200px",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "bg_color": "#ffffff",
+        "card_bg_color": "#f9f7f5",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-536fba22-2310-4efd-947d-75fc779babe4",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "luma_potency_ideal_section_WRamzc",
+    "hero_nwJAq8",
+    "luma_ingredients_section_wEybY9",
+    "luma_faq_section_qPFBYx",
+    "luma_testimonials_CPLmwH",
+    "product_recommendations_qggXJq"
+  ]
+}
