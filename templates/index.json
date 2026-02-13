@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>The Science of<br/><em>Safe</em> Glow.</h1>",
+            "text": "<h1>The Science of<br/><em>Safe</em> Glow. test.</h1>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
