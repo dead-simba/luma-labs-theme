@@ -576,6 +576,20 @@
     "luma_faq_section_qPFBYx": {
       "type": "luma-faq-section",
       "blocks": {
+        "faq_item_cTkt7R": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe for pregnancy?",
+            "answer": "(Standard disclaimer) While Lactic Acid is generally considered safe, this formula contains Salicylic Acid. Please consult your doctor before use during pregnancy."
+          }
+        },
+        "faq_item_bXjMnj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use this on my face?",
+            "answer": "We recommend this for the body (legs, arms, back) only. The concentration of acids is optimized for the tougher skin on your body and may be too strong for delicate facial skin."
+          }
+        },
         "faq_item_GTLijJ": {
           "type": "faq_item",
           "settings": {
@@ -586,19 +600,21 @@
         "faq_item_X9VBxe": {
           "type": "faq_item",
           "settings": {
-            "question": "My skin burns when I apply anything. Is this safe?",
-            "answer": "Yes. This formula is designed for \"reactive\" skin. It has no fragrance, dyes, or alcohol. It will soothe the burn, not create it."
+            "question": "Can this treat the dark marks left by waxing (ingrown hairs)",
+            "answer": "Yes. The 2% Tranexamic Acid and Niacinamide specifically target the brown/black spots (hyperpigmentation) left behind by inflammation and ingrown hairs."
           }
         },
         "faq_item_Pip8tX": {
           "type": "faq_item",
           "settings": {
-            "question": "Is this a moisturizer or a treatment?",
-            "answer": "It is both. It moisturizes like a daily cream but treats damaged barriers like a medical ointment (without the sticky feel)."
+            "question": "How long until I see results?",
+            "answer": "You will feel smoother skin within 1–2 uses. Visual reduction of \"strawberry\" dots and dark spots typically takes 4–6 weeks of consistent use."
           }
         }
       },
       "block_order": [
+        "faq_item_cTkt7R",
+        "faq_item_bXjMnj",
         "faq_item_GTLijJ",
         "faq_item_X9VBxe",
         "faq_item_Pip8tX"
