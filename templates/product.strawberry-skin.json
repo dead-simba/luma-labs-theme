@@ -289,37 +289,29 @@
         "benefit_9ihwWx": {
           "type": "benefit",
           "settings": {
-            "title": "The \"Cement\" (5 Ceramides)",
-            "text": "Think of your skin cells as \"bricks\" and Ceramides as the \"cement\" holding them together. Harsh products destroy this cement, causing cracks (sensitivity). We refill those cracks to make your skin strong again."
+            "title": "10% Lactic Acid (The Keratin Dissolver)",
+            "text": "Unlike physical scrubs that cause micro-tears and more dark spots, this large-molecule acid gently unglues the dead cells trapping your hair, smoothing the bump instantly while hydrating."
           }
         },
         "benefit_gHbhzm": {
           "type": "benefit",
           "settings": {
-            "title": "The \"Water Tank\" (Hyaluronic Acid)",
-            "text": "We don't just wet the surface; we hydrate the deep layers. Hyaluronic Acid acts like a sponge, holding 1,000x its weight in water, keeping your skin plump for 72 hours."
+            "title": "Tranexamic Acid (The Pigment Blocker)",
+            "text": "Most KP products only smooth the texture. We added this powerhouse to stop the inflammatory pathway that turns ingrowns into brown spots. It fixes the color, not just the feel."
           }
         },
         "benefit_wLJE7i": {
           "type": "benefit",
           "settings": {
-            "title": "The \"Detox\" Protocol",
-            "text": "Specifically formulated for skin that has been \"burned\" by mercury creams or steroids. It is hypoallergenic and free from fragrance, making it the safest safe-haven for irritated skin."
-          }
-        },
-        "benefit_Ch6gQh": {
-          "type": "benefit",
-          "settings": {
-            "title": "The \"Splash\" Texture",
-            "text": "It applies like a gel but breaks into water upon contact. It disappears into your skin in seconds, leaving a matte, fresh finish. Perfect for our humid summers."
+            "title": "Water-Break Technology",
+            "text": "We know you hate that \"suffocating\" lotion feel. This formula \"breaks\" into a refreshing fluid upon contact, delivering deep hydration (Urea) without the grease trap."
           }
         }
       },
       "block_order": [
         "benefit_9ihwWx",
         "benefit_gHbhzm",
-        "benefit_wLJE7i",
-        "benefit_Ch6gQh"
+        "benefit_wLJE7i"
       ],
       "name": "Potency & Ideal For",
       "settings": {
@@ -328,9 +320,9 @@
         "skin_type_label": "Skin Type",
         "skin_type_text": "Oily, Acne-Prone, Sensitive & Dehydrated Skin.",
         "perfect_for_label": "Perfect For",
-        "perfect_for_text": "Victims of harsh whitening creams, people with \"burning\" sensation, or oily skin haters.",
+        "perfect_for_text": "Strawberry Skin\" (KP) sufferers, Brides-to-be, Humidity-haters, and victims of bad waxing.",
         "concerns_label": "Targets Concerns",
-        "concerns_list": "Compromised Barrier (Redness/Itching), Dehydration (Oily but tight skin), Acne Breakouts,Steroid/Mercury Damage",
+        "concerns_list": "Rough Texture (Chicken Skin), Dark Pores (Ingrowns), Stickiness (Chip-Chip), Hyperpigmentation",
         "bg_color": "#f9f8f6",
         "bg_opacity": 30,
         "override_fonts": false,
@@ -509,6 +501,7 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "flex-end",
+        "mobile_content_alignment": "center",
         "gap": 16,
         "section_width": "full-width",
         "section_height": "medium",
@@ -530,24 +523,24 @@
         "ingredient_Tc4NfW": {
           "type": "ingredient",
           "settings": {
-            "title": "5 Essential Ceramides (The Builders)",
-            "description": "A complex of Ceramide NP, AP, EOP, and others. These are identical to the lipids found naturally in your skin. They rebuild the protective layer to keep irritants out and moisture in.",
+            "title": "10% LACTIC ACID + 1% SALICYLIC ACID (THE EXFOLIATORS)",
+            "description": "A dual-action complex that targets both surface roughness and deep pore congestion. Lactic Acid (AHA) gently dissolves the hard keratin plugs (\"chicken skin\") on the surface to smooth texture instantly. Meanwhile, Salicylic Acid (BHA) is oil-soluble, diving deep into the follicle to clear trapped sebum and prevent the \"red bumps\" (folliculitis) caused by ingrown hairs.",
             "show_plus": true
           }
         },
         "ingredient_mj8KjT": {
           "type": "ingredient",
           "settings": {
-            "title": "Hyaluronic Acid (The Hydrator)",
-            "description": "Multi-molecular weight HA ensures hydration reaches multiple layers of the skin, not just the top. It solves the feeling of \"tightness\" instantly.",
+            "title": "2% TRANEXAMIC ACID + 4% NIACINAMIDE (THE BRIGHTENERS)",
+            "description": "This is your defense against the \"dark dots\" (hyperpigmentation) that scrubs cannot fix. Tranexamic Acid works to inhibit the inflammatory pathway that turns ingrowns into stubborn brown spots. Paired with Niacinamide, it blocks pigment transfer to the surface and repairs the skin barrier, giving legs a \"polished\" and even-toned look.",
             "show_plus": true
           }
         },
         "ingredient_4bHNb6": {
           "type": "ingredient",
           "settings": {
-            "title": "Panthenol + Allantoin (The Soothers)",
-            "description": "These two powerhouses work to instantly calm down redness and the \"burning\" sensation often felt by sensitive skin types.",
+            "title": "5% UREA + CERAMIDES (THE HYDRATORS)",
+            "description": "Urea is a \"double agent\"—it intensely hydrates dry skin while simultaneously softening hard, crusty skin cells so they wash away easily. We added a complex of Ceramides (NP, AP, EOP) to immediately seal the skin barrier after exfoliation. This locks in moisture to prevent the \"ashy\" look, without the sticky or greasy feel of traditional creams.",
             "show_plus": true
           }
         },
@@ -555,7 +548,7 @@
           "type": "ingredient",
           "settings": {
             "title": "All Ingredients",
-            "description": "Ceramide NP, Ceramide AP, Ceramide EOP, Phytosphingosine, Sodium Hyaluronate (HA), Panthenol (Vit B5), Allantoin. The Base: Purified Water, Glycerin, Propanediol, Dimethicone (Breathable Seal), Carbomer, Phenoxyethanol, Ethylhexylglycerin, Cholesterol (Lipid support).",
+            "description": "Key Actives: Lactic Acid (10%), Urea (5%), Niacinamide (4%), Tranexamic Acid (2%), Salicylic Acid (1%), Ceramide Complex.\n\nBase: Purified Water, Propanediol (Humectant), Glycerin, Xanthan Gum (Texture Enhancer), Phenoxyethanol (Preservative), Ethylhexylglycerin.\nFormulated Without: Fragrance, Essential Oils, Sulfates (SLS/SLES), Parabens, or Artificial Dyes.",
             "show_plus": true
           }
         }
