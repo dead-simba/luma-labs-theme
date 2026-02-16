@@ -639,23 +639,32 @@
         "review_44hUgr": {
           "type": "review",
           "settings": {
-            "quote": "I destroyed my skin with a local whitening cream. My face was red and peeling. This gel is the only thing that didn't sting. My barrier healed in 3 weeks.",
-            "author": "Komal J",
+            "quote": "I thought this was another fake Insta brand. I’ve spent thousands on imported CeraVe SA that I couldn't even use because it was so sticky in Lahore's heat. This actually dries matte, and my legs are smoother than they've been since I was 12",
+            "author": "Mahnoor",
             "verified": true
           }
         },
         "review_4icPXT": {
           "type": "review",
           "settings": {
-            "quote": "Better than the expensive imported water gels. It absorbs instantly and my makeup sits so perfectly on top.",
-            "author": "Mahnoor B",
+            "quote": "Used it for 3 weeks before my sister's wedding. The 'kale daane' (dark bumps) are 80% gone. I actually wore a sleeveless kameez without a cover-up for the first time. Best PKR 1,400 I ever spent.",
+            "author": "Zara",
+            "verified": true
+          }
+        },
+        "review_tcrTbN": {
+          "type": "review",
+          "settings": {
+            "quote": "Better than the salon 'skin polish' that burned my arms. That cost me 5k per session; this bottle works while I sleep. No brainer.",
+            "author": "Fatima",
             "verified": true
           }
         }
       },
       "block_order": [
         "review_44hUgr",
-        "review_4icPXT"
+        "review_4icPXT",
+        "review_tcrTbN"
       ],
       "name": "Community / Reviews",
       "settings": {
