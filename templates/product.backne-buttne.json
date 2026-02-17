@@ -485,12 +485,12 @@
       "name": "t:names.hero_bottom_aligned",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/horizontal-straberry-skin.webp",
+        "image_1": "shopify://shop_images/5.webp",
         "media_type_2": "image",
         "stack_media_on_mobile": true,
         "custom_mobile_media": true,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/vertical-strawberry-skin.webp",
+        "image_1_mobile": "shopify://shop_images/6.webp",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -501,10 +501,10 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "flex-end",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "flex-end",
         "gap": 16,
         "section_width": "full-width",
-        "section_height": "medium",
+        "section_height": "large",
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
@@ -579,45 +579,29 @@
         "faq_item_cTkt7R": {
           "type": "faq_item",
           "settings": {
-            "question": "Is it safe for pregnancy?",
-            "answer": "(Standard disclaimer) While Lactic Acid is generally considered safe, this formula contains Salicylic Acid. Please consult your doctor before use during pregnancy."
+            "question": "Will this bleach my colored clothes?",
+            "answer": "No. Unlike PanOxyl or Benzoyl Peroxide, this formula is 100% bleach-free. You can spray it and put on your black shirt immediately."
           }
         },
         "faq_item_bXjMnj": {
           "type": "faq_item",
           "settings": {
-            "question": "Can I use this on my face?",
-            "answer": "We recommend this for the body (legs, arms, back) only. The concentration of acids is optimized for the tougher skin on your body and may be too strong for delicate facial skin."
+            "question": "How do I reach my own back?",
+            "answer": "We used a special 360° Pump. You can turn the bottle completely upside down and it will still spray a fine mist. No help needed."
           }
         },
         "faq_item_GTLijJ": {
           "type": "faq_item",
           "settings": {
-            "question": "Will this make me feel sticky/sweaty in the summer?",
-            "answer": "Absolutely not. We designed this as a \"Water-Gel Serum,\" not a heavy cream. It absorbs in <45 seconds and has a cooling effect, so your skin can breathe."
-          }
-        },
-        "faq_item_X9VBxe": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Can this treat the dark marks left by waxing (ingrown hairs)",
-            "answer": "Yes. The 2% Tranexamic Acid and Niacinamide specifically target the brown/black spots (hyperpigmentation) left behind by inflammation and ingrown hairs."
-          }
-        },
-        "faq_item_Pip8tX": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How long until I see results?",
-            "answer": "You will feel smoother skin within 1–2 uses. Visual reduction of \"strawberry\" dots and dark spots typically takes 4–6 weeks of consistent use."
+            "question": "Is this for heat rash or acne?",
+            "answer": "Both. It contains Salicylic Acid for acne and Piroctone Olamine for the itchy, sweat-induced bumps (fungal acne) common in Pakistani summers."
           }
         }
       },
       "block_order": [
         "faq_item_cTkt7R",
         "faq_item_bXjMnj",
-        "faq_item_GTLijJ",
-        "faq_item_X9VBxe",
-        "faq_item_Pip8tX"
+        "faq_item_GTLijJ"
       ],
       "name": "Luma FAQ Section",
       "settings": {
@@ -639,24 +623,24 @@
         "review_44hUgr": {
           "type": "review",
           "settings": {
-            "quote": "I thought this was another fake Insta brand. I’ve spent thousands on imported CeraVe SA that I couldn't even use because it was so sticky in Lahore's heat. This actually dries matte, and my legs are smoother than they've been since I was 12",
-            "author": "Mahnoor",
+            "quote": "I was panicking because my wedding lehnga had a deep back and my skin was full of dark marks. Used this for 4 weeks. The active pimples dried up in 2 days, and the marks are 90% lighter. Saved my big day",
+            "author": "Sana",
             "verified": true
           }
         },
         "review_4icPXT": {
           "type": "review",
           "settings": {
-            "quote": "Used it for 3 weeks before my sister's wedding. The 'kale daane' (dark bumps) are 80% gone. I actually wore a sleeveless kameez without a cover-up for the first time. Best PKR 1,400 I ever spent.",
-            "author": "Zara",
+            "quote": "I live in gym leggings and always get those painful bumps on my glutes. This spray is a lifesaver because I can actually reach the area upside down. No more bumps.",
+            "author": "Maha J.",
             "verified": true
           }
         },
         "review_tcrTbN": {
           "type": "review",
           "settings": {
-            "quote": "Better than the salon 'skin polish' that burned my arms. That cost me 5k per session; this bottle works while I sleep. No brainer.",
-            "author": "Fatima",
+            "quote": "I ruined three towels with Benzoyl Peroxide creams before finding this. This clear spray actually works on the heat rash ('garmi danay') and hasn't stained a single shirt. Finally.",
+            "author": "Hira Bukhari",
             "verified": true
           }
         }
