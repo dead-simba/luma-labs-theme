@@ -1,0 +1,837 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": false,
+            "icons_style": "none",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 72,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "1",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": true,
+            "zoom": false,
+            "video_loop": false,
+            "hide_variants": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_JNXw3W": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.product_subtitle | metafield_tag }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "text_JNXw3W",
+                "price_tVjtKg"
+              ]
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "divider_VJhene",
+            "buy_buttons_eYQEYi",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "luma_potency_ideal_section_WRamzc": {
+      "type": "luma-potency-ideal-section",
+      "blocks": {
+        "benefit_9ihwWx": {
+          "type": "benefit",
+          "settings": {
+            "title": "10% Lactic Acid (The Keratin Dissolver)",
+            "text": "Unlike physical scrubs that cause micro-tears and more dark spots, this large-molecule acid gently unglues the dead cells trapping your hair, smoothing the bump instantly while hydrating."
+          }
+        },
+        "benefit_gHbhzm": {
+          "type": "benefit",
+          "settings": {
+            "title": "Tranexamic Acid (The Pigment Blocker)",
+            "text": "Most KP products only smooth the texture. We added this powerhouse to stop the inflammatory pathway that turns ingrowns into brown spots. It fixes the color, not just the feel."
+          }
+        },
+        "benefit_wLJE7i": {
+          "type": "benefit",
+          "settings": {
+            "title": "Water-Break Technology",
+            "text": "We know you hate that \"suffocating\" lotion feel. This formula \"breaks\" into a refreshing fluid upon contact, delivering deep hydration (Urea) without the grease trap."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_9ihwWx",
+        "benefit_gHbhzm",
+        "benefit_wLJE7i"
+      ],
+      "name": "Potency & Ideal For",
+      "settings": {
+        "potency_title": "Why It Works",
+        "ideal_title": "Ideal For",
+        "skin_type_label": "Skin Type",
+        "skin_type_text": "Oily, Acne-Prone, Sensitive & Dehydrated Skin.",
+        "perfect_for_label": "Perfect For",
+        "perfect_for_text": "Strawberry Skin\" (KP) sufferers, Brides-to-be, Humidity-haters, and victims of bad waxing.",
+        "concerns_label": "Targets Concerns",
+        "concerns_list": "Rough Texture (Chicken Skin), Dark Pores (Ingrowns), Stickiness (Chip-Chip), Hyperpigmentation",
+        "bg_color": "#f9f8f6",
+        "bg_opacity": 30,
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065"
+      }
+    },
+    "hero_nwJAq8": {
+      "type": "hero",
+      "blocks": {
+        "group_rkF7GR": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 18,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_VKw7zt": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 6,
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_TVyxEX": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<p><strong>Turn \"Strawberry Skin\" Into Glass Skin.</strong></p>",
+                    "width": "100%",
+                    "max_width": "narrow",
+                    "alignment": "center",
+                    "type_preset": "h2",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_TVyxEX"
+              ]
+            },
+            "text_8HAbGd": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Dissolve rough bumps & fade dark pores with Pakistan’s first non-sticky body serum.</p>",
+                "width": "fit-content",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_VKw7zt",
+            "text_8HAbGd"
+          ]
+        }
+      },
+      "block_order": [
+        "group_rkF7GR"
+      ],
+      "name": "t:names.hero_bottom_aligned",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/horizontal-straberry-skin.webp",
+        "media_type_2": "image",
+        "stack_media_on_mobile": true,
+        "custom_mobile_media": true,
+        "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/vertical-strawberry-skin.webp",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "mobile_content_alignment": "center",
+        "gap": 16,
+        "section_width": "full-width",
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#000000ab",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": true,
+        "reflection_opacity": 20,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "luma_ingredients_section_wEybY9": {
+      "type": "luma-ingredients-section",
+      "blocks": {
+        "ingredient_Tc4NfW": {
+          "type": "ingredient",
+          "settings": {
+            "title": "10% LACTIC ACID + 1% SALICYLIC ACID (THE EXFOLIATORS)",
+            "description": "A dual-action complex that targets both surface roughness and deep pore congestion. Lactic Acid (AHA) gently dissolves the hard keratin plugs (\"chicken skin\") on the surface to smooth texture instantly. Meanwhile, Salicylic Acid (BHA) is oil-soluble, diving deep into the follicle to clear trapped sebum and prevent the \"red bumps\" (folliculitis) caused by ingrown hairs.",
+            "show_plus": true
+          }
+        },
+        "ingredient_mj8KjT": {
+          "type": "ingredient",
+          "settings": {
+            "title": "2% TRANEXAMIC ACID + 4% NIACINAMIDE (THE BRIGHTENERS)",
+            "description": "This is your defense against the \"dark dots\" (hyperpigmentation) that scrubs cannot fix. Tranexamic Acid works to inhibit the inflammatory pathway that turns ingrowns into stubborn brown spots. Paired with Niacinamide, it blocks pigment transfer to the surface and repairs the skin barrier, giving legs a \"polished\" and even-toned look.",
+            "show_plus": true
+          }
+        },
+        "ingredient_4bHNb6": {
+          "type": "ingredient",
+          "settings": {
+            "title": "5% UREA + CERAMIDES (THE HYDRATORS)",
+            "description": "Urea is a \"double agent\"—it intensely hydrates dry skin while simultaneously softening hard, crusty skin cells so they wash away easily. We added a complex of Ceramides (NP, AP, EOP) to immediately seal the skin barrier after exfoliation. This locks in moisture to prevent the \"ashy\" look, without the sticky or greasy feel of traditional creams.",
+            "show_plus": true
+          }
+        },
+        "ingredient_BCfQeV": {
+          "type": "ingredient",
+          "settings": {
+            "title": "All Ingredients",
+            "description": "Key Actives: Lactic Acid (10%), Urea (5%), Niacinamide (4%), Tranexamic Acid (2%), Salicylic Acid (1%), Ceramide Complex.\n\nBase: Purified Water, Propanediol (Humectant), Glycerin, Xanthan Gum (Texture Enhancer), Phenoxyethanol (Preservative), Ethylhexylglycerin.\nFormulated Without: Fragrance, Essential Oils, Sulfates (SLS/SLES), Parabens, or Artificial Dyes.",
+            "show_plus": true
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_Tc4NfW",
+        "ingredient_mj8KjT",
+        "ingredient_4bHNb6",
+        "ingredient_BCfQeV"
+      ],
+      "name": "Ingredients Accordion",
+      "settings": {
+        "title": "Ingredients",
+        "bg_color": "#ffffff",
+        "bg_opacity": 0,
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065",
+        "section_width": "1200px",
+        "heading_alignment": "left",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_faq_section_qPFBYx": {
+      "type": "luma-faq-section",
+      "blocks": {
+        "faq_item_cTkt7R": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe for pregnancy?",
+            "answer": "(Standard disclaimer) While Lactic Acid is generally considered safe, this formula contains Salicylic Acid. Please consult your doctor before use during pregnancy."
+          }
+        },
+        "faq_item_bXjMnj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use this on my face?",
+            "answer": "We recommend this for the body (legs, arms, back) only. The concentration of acids is optimized for the tougher skin on your body and may be too strong for delicate facial skin."
+          }
+        },
+        "faq_item_GTLijJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will this make me feel sticky/sweaty in the summer?",
+            "answer": "Absolutely not. We designed this as a \"Water-Gel Serum,\" not a heavy cream. It absorbs in <45 seconds and has a cooling effect, so your skin can breathe."
+          }
+        },
+        "faq_item_X9VBxe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can this treat the dark marks left by waxing (ingrown hairs)",
+            "answer": "Yes. The 2% Tranexamic Acid and Niacinamide specifically target the brown/black spots (hyperpigmentation) left behind by inflammation and ingrown hairs."
+          }
+        },
+        "faq_item_Pip8tX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until I see results?",
+            "answer": "You will feel smoother skin within 1–2 uses. Visual reduction of \"strawberry\" dots and dark spots typically takes 4–6 weeks of consistent use."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_cTkt7R",
+        "faq_item_bXjMnj",
+        "faq_item_GTLijJ",
+        "faq_item_X9VBxe",
+        "faq_item_Pip8tX"
+      ],
+      "name": "Luma FAQ Section",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f7f5",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_testimonials_CPLmwH": {
+      "type": "luma-testimonials",
+      "blocks": {
+        "review_44hUgr": {
+          "type": "review",
+          "settings": {
+            "quote": "I thought this was another fake Insta brand. I’ve spent thousands on imported CeraVe SA that I couldn't even use because it was so sticky in Lahore's heat. This actually dries matte, and my legs are smoother than they've been since I was 12",
+            "author": "Mahnoor",
+            "verified": true
+          }
+        },
+        "review_4icPXT": {
+          "type": "review",
+          "settings": {
+            "quote": "Used it for 3 weeks before my sister's wedding. The 'kale daane' (dark bumps) are 80% gone. I actually wore a sleeveless kameez without a cover-up for the first time. Best PKR 1,400 I ever spent.",
+            "author": "Zara",
+            "verified": true
+          }
+        },
+        "review_tcrTbN": {
+          "type": "review",
+          "settings": {
+            "quote": "Better than the salon 'skin polish' that burned my arms. That cost me 5k per session; this bottle works while I sleep. No brainer.",
+            "author": "Fatima",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_44hUgr",
+        "review_4icPXT",
+        "review_tcrTbN"
+      ],
+      "name": "Community / Reviews",
+      "settings": {
+        "eyebrow": "Community Love",
+        "title": "Why They Switched to Luma",
+        "rating_text": "4.9/5 Average Rating",
+        "section_width": "1200px",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "bg_color": "#ffffff",
+        "card_bg_color": "#f9f7f5",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-536fba22-2310-4efd-947d-75fc779babe4",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "luma_potency_ideal_section_WRamzc",
+    "hero_nwJAq8",
+    "luma_ingredients_section_wEybY9",
+    "luma_faq_section_qPFBYx",
+    "luma_testimonials_CPLmwH",
+    "product_recommendations_qggXJq"
+  ]
+}
