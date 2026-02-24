@@ -12,11 +12,50 @@
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
+        "luma_pill_jPCJWM": {
+          "type": "luma-pill",
+          "name": "Luma Pill",
+          "settings": {
+            "text": "Science-Backed",
+            "icon_preset": "ph-sparkle",
+            "icon": "",
+            "style": "outline",
+            "alignment": "flex-start",
+            "alignment_mobile": "center",
+            "bg_color": "#ffffff",
+            "border_color": "#c5a065",
+            "text_color": "#b77f26",
+            "font_size": 12,
+            "font_size_mobile": 11,
+            "bold": true,
+            "uppercase": true,
+            "padding_y": 8,
+            "padding_x": 16
+          },
+          "blocks": {}
+        },
+        "luma_heading_AKLkPj": {
+          "type": "luma-heading",
+          "name": "Luma Heading",
+          "settings": {
+            "title": "Skincare that speaks [your skin's language.]",
+            "tag": "h1",
+            "font_family": "serif",
+            "color": "#2C2C2C",
+            "alignment": "flex-start",
+            "alignment_mobile": "center",
+            "font_size": 64,
+            "font_size_mobile": 44,
+            "line_height": "1.1",
+            "max_width": 600
+          },
+          "blocks": {}
+        },
         "text_YLPk4p": {
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>The Science of<br/><em>Safe</em> Glow.</h1>",
+            "text": "",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -42,7 +81,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>End your toxic relationship with 'formula' creams. We swapped dangerous bleach for <strong>Bio-Active Glutathione</strong> and <strong>Water-Break Ceramides</strong>.</p>",
+            "text": "<p>Advanced clinical actives formulated to seamlessly mirror your skin's natural biology. </p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -81,6 +120,8 @@
         }
       },
       "block_order": [
+        "luma_pill_jPCJWM",
+        "luma_heading_AKLkPj",
         "text_YLPk4p",
         "text_R4djqp",
         "button_H9gpTf"
@@ -104,15 +145,14 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "mobile_content_alignment": "flex-start",
         "gap": 32,
         "section_width": "page-width",
-        "section_height": "full-screen",
+        "section_height": "large",
         "section_height_custom": 100,
         "color_scheme": "scheme-2",
-        "toggle_overlay": false,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
+        "toggle_overlay": true,
+        "overlay_color": "#ffffff66",
+        "overlay_style": "gradient",
         "gradient_direction": "to top",
         "blurred_reflection": true,
         "reflection_opacity": 30,
