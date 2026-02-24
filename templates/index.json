@@ -21,7 +21,7 @@
             "icon": "",
             "style": "outline",
             "alignment": "flex-start",
-            "alignment_mobile": "center",
+            "alignment_mobile": "flex-start",
             "bg_color": "#ffffff",
             "border_color": "#c5a065",
             "text_color": "#b77f26",
@@ -41,11 +41,11 @@
             "title": "Skincare that speaks [your skin's language.]",
             "tag": "h1",
             "font_family": "serif",
-            "color": "#2C2C2C",
+            "color": "#2c2c2c",
             "alignment": "flex-start",
-            "alignment_mobile": "center",
+            "alignment_mobile": "flex-start",
             "font_size": 64,
-            "font_size_mobile": 44,
+            "font_size_mobile": 46,
             "line_height": "1.1",
             "max_width": 600
           },
@@ -107,7 +107,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Start your Skin Rehab",
+            "label": "Shop All Products",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
@@ -117,6 +117,20 @@
             "custom_width_mobile": 100
           },
           "blocks": {}
+        },
+        "luma_reviews_Yxqxg9": {
+          "type": "luma-reviews",
+          "name": "Luma Reviews",
+          "settings": {
+            "text": "Loved by [120+ customers]",
+            "star_color": "#D4A340",
+            "alignment": "flex-start",
+            "alignment_mobile": "flex-start",
+            "avatar_1": "shopify://shop_images/im2.webp",
+            "avatar_2": "shopify://shop_images/img1.webp",
+            "avatar_3": "shopify://shop_images/img3.webp"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -124,17 +138,18 @@
         "luma_heading_AKLkPj",
         "text_YLPk4p",
         "text_R4djqp",
-        "button_H9gpTf"
+        "button_H9gpTf",
+        "luma_reviews_Yxqxg9"
       ],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Desktop_Banner_1.webp",
+        "image_1": "shopify://shop_images/Desktop_Banner_1_48873afe-fa11-4588-9dfd-d0d3eb7325e9.webp",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/Mobile_Banner_1.webp",
+        "image_1_mobile": "shopify://shop_images/Banner_Shopify_-_Mobile.webp",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -144,14 +159,14 @@
         "vertical_alignment": "flex-end",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-start",
         "gap": 32,
         "section_width": "page-width",
-        "section_height": "large",
+        "section_height": "full-screen",
         "section_height_custom": 100,
         "color_scheme": "scheme-2",
         "toggle_overlay": true,
-        "overlay_color": "#ffffff66",
+        "overlay_color": "#ffffffb1",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
         "blurred_reflection": true,
