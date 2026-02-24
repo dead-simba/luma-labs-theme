@@ -1,3 +1,8 @@
+{%- doc -%}
+  Identifiably Luma Customer Reviews Block.
+  Displays a stack of customer avatars with star ratings and social proof text.
+{%- enddoc -%}
+
 <div class="luma-reviews luma-reviews--{{ block.id }}" {{ block.shopify_attributes }}>
   <div class="luma-reviews__avatars">
     {%- if block.settings.avatar_1 != blank -%}
