@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign media_count = 0
   assign media_count_mobile = 0
@@ -520,7 +518,10 @@
           render 'overlay', settings: section.settings
         endif
       %}
+      <div class="luma-hero-gradient" data-testid="luma-hero-gradient"></div>
       {{ media }}
+      <div class="luma-bg-orb luma-bg-orb--1 animate-blob"></div>
+      <div class="luma-bg-orb luma-bg-orb--2 animate-blob" style="animation-delay: 2s;"></div>
     </div>
     <div
       class="

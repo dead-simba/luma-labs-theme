@@ -89,7 +89,13 @@
   </div>
 {% elsif plain_text != blank %}
   <{{ element }} {{ attributes | strip_newlines | strip }}>
-    {{ block.settings.text }}
+    {% liquid
+      assign output_text = block.settings.text
+      if block_settings.use_luma_gradient
+        assign output_text = output_text | replace: '[', '<span class="italic text-gradient-gold">' | replace: ']', '</span>'
+      endif
+      echo output_text
+    %}
   </{{ element }}>
 {% endif %}
 
