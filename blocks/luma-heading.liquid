@@ -1,0 +1,147 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign heading_text = block_settings.title
+  assign styled_text = heading_text | replace: '[', '<span class="italic text-gradient-gold">' | replace: ']', '</span>'
+-%}
+
+<div class="luma-heading-wrapper luma-heading--{{ block.id }}" {{ block.shopify_attributes }}>
+  <{{ block_settings.tag }} class="luma-heading font-{{ block_settings.font_family }}">
+    {{ styled_text }}
+  </{{ block_settings.tag }}>
+</div>
+
+<style>
+  .luma-heading--{{ block.id }} {
+    --heading-max-width: {{ block_settings.max_width }}px;
+    --heading-font-size: {{ block_settings.font_size }}px;
+    --heading-mobile-font-size: {{ block_settings.font_size_mobile }}px;
+    --heading-line-height: {{ block_settings.line_height }};
+    --heading-color: {{ block_settings.color }};
+
+    max-width: var(--heading-max-width);
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .luma-heading {
+    font-size: var(--heading-font-size);
+    line-height: var(--heading-line-height);
+    color: var(--heading-color);
+    margin: 0;
+  }
+
+  .luma-heading.font-serif {
+    font-family: var(--font-heading--family), serif;
+  }
+
+  .luma-heading.font-sans {
+    font-family: var(--font-body--family), sans-serif;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(to right, #D4A340, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  @media screen and (max-width: 768px) {
+    .luma-heading--{{ block.id }} {
+      --heading-font-size: var(--heading-mobile-font-size);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Luma Heading",
+  "tag": null,
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Heading Text",
+      "default": "Skincare that speaks \n [your skin's language.]",
+      "info": "Use [brackets] for gradient gold text."
+    },
+    {
+      "type": "select",
+      "id": "tag",
+      "label": "HTML Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "font_family",
+      "label": "Font Family",
+      "options": [
+        { "value": "serif", "label": "Serif (Playfair Display)" },
+        { "value": "sans", "label": "Sans (Inter)" }
+      ],
+      "default": "serif"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "header",
+      "content": "Sizing & Layout"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop Font Size",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Font Size",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "line_height",
+      "label": "Line Height",
+      "default": "1.1"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 200,
+      "max": 1200,
+      "step": 10,
+      "unit": "px",
+      "label": "Max Width",
+      "default": 600
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Heading"
+    }
+  ]
+}
+{% endschema %}

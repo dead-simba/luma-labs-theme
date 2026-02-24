@@ -1,0 +1,186 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign text_style = ''
+  if block_settings.bold
+    assign text_style = text_style | append: 'font-weight: 700;'
+  endif
+  if block_settings.uppercase
+    assign text_style = text_style | append: 'text-transform: uppercase; letter-spacing: 0.05em;'
+  endif
+-%}
+
+<div class="luma-pill-wrapper luma-pill--{{ block.id }}" {{ block.shopify_attributes }}>
+  <div class="luma-pill {% if block_settings.style == 'outline' %}luma-pill--outline{% else %}luma-pill--solid{% endif %}">
+    {%- if block_settings.icon != blank -%}
+      <i class="ph-fill {{ block_settings.icon }} luma-pill__icon"></i>
+    {%- endif -%}
+    <span class="luma-pill__text" style="{{ text_style }}">
+      {{ block_settings.text }}
+    </span>
+  </div>
+</div>
+
+<style>
+  .luma-pill--{{ block.id }} {
+    --pill-bg: {{ block_settings.bg_color }};
+    --pill-border: {{ block_settings.border_color }};
+    --pill-text: {{ block_settings.text_color }};
+    --pill-font-size: {{ block_settings.font_size }}px;
+    --pill-mobile-font-size: {{ block_settings.font_size | times: 0.85 | round }}px;
+    --pill-padding-y: {{ block_settings.padding_y }}px;
+    --pill-padding-x: {{ block_settings.padding_x }}px;
+
+    display: {{ block_settings.display }};
+    margin: 0 auto;
+  }
+
+  .luma-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--pill-padding-y) var(--pill-padding-x);
+    border-radius: 9999px;
+    font-size: var(--pill-font-size);
+    color: var(--pill-text);
+    transition: all 0.3s ease;
+  }
+
+  .luma-pill--solid {
+    background-color: var(--pill-bg);
+    border: 1px solid var(--pill-bg);
+  }
+
+  .luma-pill--outline {
+    background-color: transparent;
+    border: 1px solid var(--pill-border);
+  }
+
+  .luma-pill__icon {
+    font-size: 1.2em;
+  }
+
+  @media screen and (max-width: 768px) {
+    .luma-pill--{{ block.id }} {
+      --pill-font-size: var(--pill-mobile-font-size);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Luma Pill",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Pill Text",
+      "default": "Science-Backed"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Phosphor Icon Class",
+      "info": "Example: ph-flask, ph-sparkle",
+      "default": "ph-sparkle"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Visual Style",
+      "options": [
+        { "value": "solid", "label": "Solid Background" },
+        { "value": "outline", "label": "Outline" }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "select",
+      "id": "display",
+      "label": "Display Align",
+      "options": [
+        { "value": "block", "label": "Center" },
+        { "value": "inline-block", "label": "Inline" }
+      ],
+      "default": "block"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#E0EDF8"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "bold",
+      "label": "Bold Text",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "label": "Uppercase",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Horizontal Padding",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Pill"
+    }
+  ]
+}
+{% endschema %}

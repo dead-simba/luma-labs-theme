@@ -1,0 +1,158 @@
+<div class="luma-reviews luma-reviews--{{ block.id }}" {{ block.shopify_attributes }}>
+  <div class="luma-reviews__avatars">
+    {%- if block.settings.avatar_1 != blank -%}
+      <div class="luma-reviews__avatar">
+        {{ block.settings.avatar_1 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
+      </div>
+    {%- else -%}
+      <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
+    {%- endif -%}
+
+    {%- if block.settings.avatar_2 != blank -%}
+      <div class="luma-reviews__avatar">
+        {{ block.settings.avatar_2 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
+      </div>
+    {%- else -%}
+      <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
+    {%- endif -%}
+
+    {%- if block.settings.avatar_3 != blank -%}
+      <div class="luma-reviews__avatar">
+        {{ block.settings.avatar_3 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
+      </div>
+    {%- else -%}
+      <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="luma-reviews__content">
+    <div class="luma-reviews__stars">
+      {%- for i in (1..5) -%}
+        <i class="ph-fill ph-star"></i>
+      {%- endfor -%}
+    </div>
+    <div class="luma-reviews__text">
+      {{ block.settings.text | replace: '[', '<strong>' | replace: ']', '</strong>' }}
+    </div>
+  </div>
+</div>
+
+<style>
+  .luma-reviews--{{ block.id }} {
+    --star-color: {{ block_settings.star_color | default: '#D4A340' }};
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .luma-reviews__avatars {
+    display: flex;
+    margin-right: -12px;
+  }
+
+  .luma-reviews__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    border: 2px solid white;
+    overflow: hidden;
+    margin-left: -12px;
+    background-color: #f0f0f0;
+  }
+
+  .luma-reviews__avatar:first-child {
+    margin-left: 0;
+  }
+
+  .luma-reviews__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .luma-reviews__avatar--placeholder {
+    background: linear-gradient(135deg, #eee, #ddd);
+  }
+
+  .luma-reviews__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .luma-reviews__stars {
+    display: flex;
+    gap: 2px;
+    color: var(--star-color);
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .luma-reviews__text {
+    font-family: var(--font-body--family), sans-serif;
+    font-size: 12px;
+    color: rgba(44, 44, 44, 0.8);
+    line-height: 1.2;
+  }
+
+  .luma-reviews__text strong {
+    color: #2C2C2C;
+  }
+
+  @media screen and (max-width: 480px) {
+    .luma-reviews--{{ block.id }} {
+      gap: 12px;
+    }
+    .luma-reviews__avatar {
+      width: 36px;
+      height: 36px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Luma Reviews",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Review Text",
+      "default": "Loved by [10,000+ customers]",
+      "info": "Use [brackets] for bold text."
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#D4A340"
+    },
+    {
+      "type": "header",
+      "content": "Avatars"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_1",
+      "label": "Avatar 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_2",
+      "label": "Avatar 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_3",
+      "label": "Avatar 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Reviews"
+    }
+  ]
+}
+{% endschema %}
