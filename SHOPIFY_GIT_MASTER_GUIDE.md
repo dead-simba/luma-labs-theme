@@ -45,10 +45,19 @@ Test complex changes without your live customers seeing them.
 ## 4. Theme Updates (New Vendor Versions)
 How to upgrade the theme without losing custom code.
 
-1.  **Pull the Version**: `shopify theme pull --theme NEW_THEME_ID`
-2.  **Commit the "Base"**: Commit the new files to a dedicated branch.
-3.  **Re-Merge**: Merge your `main` branch (your custom code) into the new version branch.
-4.  **Save Settings**: Ensure `config/settings_data.json` is preserved to keep your photos and fonts.
+1.  **Create a Remote Backup**:
+    ```bash
+    git checkout main
+    git pull origin main
+    git checkout -b backup/ver-BEFORE-UPDATE-$(date +%Y%m%d)
+    git push origin backup/ver-BEFORE-UPDATE-$(date +%Y%m%d)
+    git checkout main
+    ```
+2.  **Pull the Version**: `shopify theme pull --theme NEW_THEME_ID --path . --nodelete`
+3.  **Commit the "Base"**: Commit the new files to a dedicated branch (e.g., `upgrade/ver-3.4.0`).
+4.  **Re-Merge**: Merge your `main` branch (your custom code) into the new version branch.
+5.  **Save Settings**: Ensure `config/settings_data.json` and critical custom Liquid files are preserved/restored if overwritten.
+
 
 ---
 
