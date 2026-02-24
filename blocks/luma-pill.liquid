@@ -1,6 +1,6 @@
 {%- doc -%}
   Identifiably Luma Pill Block.
-  Provides a versatile badge/pill that can be solid or outlined.
+  Provides a versatile badge/pill that can be solid, outlined, or text-only.
   Supports Phosphor icons and granular typography/color control.
 {%- enddoc -%}
 
@@ -13,12 +13,17 @@
   if block_settings.uppercase
     assign text_style = text_style | append: 'text-transform: uppercase; letter-spacing: 0.05em;'
   endif
+
+  assign icon_class = block_settings.icon
+  if block_settings.icon_preset != 'custom'
+    assign icon_class = block_settings.icon_preset
+  endif
 -%}
 
 <div class="luma-pill-wrapper luma-pill--{{ block.id }}" {{ block.shopify_attributes }}>
-  <div class="luma-pill {% if block_settings.style == 'outline' %}luma-pill--outline{% else %}luma-pill--solid{% endif %}">
-    {%- if block_settings.icon != blank -%}
-      <i class="ph-fill {{ block_settings.icon }} luma-pill__icon"></i>
+  <div class="luma-pill luma-pill--style-{{ block_settings.style }}">
+    {%- if icon_class != blank -%}
+      <i class="ph-fill {{ icon_class }} luma-pill__icon"></i>
     {%- endif -%}
     <span class="luma-pill__text" style="{{ text_style }}">
       {{ block_settings.text }}
@@ -32,12 +37,14 @@
     --pill-border: {{ block_settings.border_color }};
     --pill-text: {{ block_settings.text_color }};
     --pill-font-size: {{ block_settings.font_size }}px;
-    --pill-mobile-font-size: {{ block_settings.font_size | times: 0.85 | round }}px;
+    --pill-mobile-font-size: {{ block_settings.font_size_mobile }}px;
     --pill-padding-y: {{ block_settings.padding_y }}px;
     --pill-padding-x: {{ block_settings.padding_x }}px;
 
-    display: {{ block_settings.display }};
-    margin: 0 auto;
+    display: flex;
+    justify-content: {{ block_settings.alignment }};
+    width: 100%;
+    margin: 0;
   }
 
   .luma-pill {
@@ -49,25 +56,34 @@
     font-size: var(--pill-font-size);
     color: var(--pill-text);
     transition: all 0.3s ease;
+    line-height: 1;
   }
 
-  .luma-pill--solid {
+  .luma-pill--style-solid {
     background-color: var(--pill-bg);
     border: 1px solid var(--pill-bg);
   }
 
-  .luma-pill--outline {
+  .luma-pill--style-outline {
     background-color: transparent;
     border: 1px solid var(--pill-border);
   }
 
+  .luma-pill--style-none {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .luma-pill__icon {
-    font-size: 1.2em;
+    font-size: 1.25em;
   }
 
   @media screen and (max-width: 768px) {
     .luma-pill--{{ block.id }} {
       --pill-font-size: var(--pill-mobile-font-size);
+      justify-content: {{ block_settings.alignment_mobile }};
     }
   }
 </style>
@@ -84,11 +100,27 @@
       "default": "Science-Backed"
     },
     {
+      "type": "select",
+      "id": "icon_preset",
+      "label": "Icon Selection",
+      "options": [
+        { "value": "", "label": "No Icon" },
+        { "value": "ph-sparkle", "label": "Sparkle" },
+        { "value": "ph-flask", "label": "Flask / Science" },
+        { "value": "ph-star", "label": "Star" },
+        { "value": "ph-check-circle", "label": "Check Circle" },
+        { "value": "ph-leaf", "label": "Leaf / Natural" },
+        { "value": "ph-shield-check", "label": "Shield / Safe" },
+        { "value": "custom", "label": "Custom Phosphor Class" }
+      ],
+      "default": "ph-sparkle"
+    },
+    {
       "type": "text",
       "id": "icon",
-      "label": "Phosphor Icon Class",
-      "info": "Example: ph-flask, ph-sparkle",
-      "default": "ph-sparkle"
+      "label": "Custom Phosphor Class",
+      "info": "Only used if 'Custom' is selected above. Example: ph-heart",
+      "visible_if": "{{ block.settings.icon_preset == 'custom' }}"
     },
     {
       "type": "select",
@@ -96,19 +128,36 @@
       "label": "Visual Style",
       "options": [
         { "value": "solid", "label": "Solid Background" },
-        { "value": "outline", "label": "Outline" }
+        { "value": "outline", "label": "Outline" },
+        { "value": "none", "label": "Text Only (No Color)" }
       ],
       "default": "solid"
     },
     {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
       "type": "select",
-      "id": "display",
-      "label": "Display Align",
+      "id": "alignment",
+      "label": "Desktop Alignment",
       "options": [
-        { "value": "block", "label": "Center" },
-        { "value": "inline-block", "label": "Inline" }
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
       ],
-      "default": "block"
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "alignment_mobile",
+      "label": "Mobile Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
     },
     {
       "type": "header",
@@ -143,8 +192,18 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "label": "Font Size",
+      "label": "Desktop Font Size",
       "default": 12
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Font Size",
+      "default": 11
     },
     {
       "type": "checkbox",
@@ -165,8 +224,8 @@
     {
       "type": "range",
       "id": "padding_y",
-      "min": 2,
-      "max": 20,
+      "min": 0,
+      "max": 30,
       "step": 1,
       "unit": "px",
       "label": "Vertical Padding",
@@ -175,8 +234,8 @@
     {
       "type": "range",
       "id": "padding_x",
-      "min": 4,
-      "max": 40,
+      "min": 0,
+      "max": 60,
       "step": 2,
       "unit": "px",
       "label": "Horizontal Padding",
