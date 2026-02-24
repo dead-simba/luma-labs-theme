@@ -450,29 +450,6 @@
   {% endif %}
 {% endcapture %}
 
-<style>
-  @media screen and (max-width: 749px) {
-    #Hero-{{ section.id }} .hero__container {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: {{ section.settings.mobile_content_alignment }} !important;
-      align-items: center !important;
-      min-height: var(--hero-min-height) !important;
-    }
-    #Hero-{{ section.id }} .hero__content-wrapper {
-      position: relative !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      width: 100% !important;
-      height: auto !important;
-      margin: 0 !important;
-      padding: 40px 20px !important;
-      box-sizing: border-box !important;
-    }
-  }
-</style>
-
 <div
   id="Hero-{{ section.id }}"
   class="hero color-{{ section.settings.color_scheme }}{% if section.blocks.size == 0 and section.settings.section_height == 'auto' %} hero--no-blocks-auto-height{% endif %}{% if section.settings.stack_media_on_mobile %} hero--stack-mobile{% endif %}"
@@ -767,8 +744,6 @@
       }
     }
   }
-
-  /* Custom Mobile Alignment will be handled by section-specific style tag above for higher specificity */
 {% endstylesheet %}
 
 {% schema %}
@@ -1094,26 +1069,6 @@
       ],
       "default": "center",
       "visible_if": "{{ section.settings.content_direction == 'column' }}"
-    },
-    {
-      "type": "select",
-      "id": "mobile_content_alignment",
-      "label": "Mobile Content Position",
-      "options": [
-        {
-          "value": "flex-start",
-          "label": "Top"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "flex-end",
-          "label": "Bottom"
-        }
-      ],
-      "default": "center"
     },
     {
       "type": "range",

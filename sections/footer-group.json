@@ -29,19 +29,11 @@
             "heading": "Newsletter",
             "text": "Subscribe for priority access to new launches."
           }
-        },
-        "link_list_r98cNK": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick Links",
-            "menu": "footer"
-          }
         }
       },
       "block_order": [
         "brand_information_r6VDnj",
-        "newsletter_jYPNKm",
-        "link_list_r98cNK"
+        "newsletter_jYPNKm"
       ],
       "name": "Luma Custom Footer",
       "settings": {

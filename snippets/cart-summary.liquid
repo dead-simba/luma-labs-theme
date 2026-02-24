@@ -602,3 +602,15 @@
     }
   }
 {% endstylesheet %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const checkoutBtn = document.getElementById('checkout');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = '/checkout';
+      });
+    }
+  });
+</script>

@@ -119,26 +119,26 @@
     {
       "name": "Luma FAQ Section",
       "blocks": [
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "Will this leave a white cast on darker skin tones?",
-            "answer": "Absolutely not. The 'Zero White Cast' claim is tested on real skin. The gel formula goes on clear and dries into a natural, matte finish."
-          }
+        { 
+          "type": "faq_item", 
+          "settings": { 
+            "question": "Will this leave a white cast on darker skin tones?", 
+            "answer": "Absolutely not. The 'Zero White Cast' claim is tested on real skin. The gel formula goes on clear and dries into a natural, matte finish." 
+          } 
         },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "Does it protect against Blue Light from devices?",
-            "answer": "Yes. The PA++++ rating confirms protection against High Energy Visible (HEV) light, which comes from the sun and your electronic devices."
-          }
+        { 
+          "type": "faq_item", 
+          "settings": { 
+            "question": "Does it protect against Blue Light from devices?", 
+            "answer": "Yes. The PA++++ rating confirms protection against High Energy Visible (HEV) light, which comes from the sun and your electronic devices." 
+          } 
         },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is it suitable for acne-prone skin?",
-            "answer": "Yes. It is non-comedogenic (won't clog pores) and oil-free. The Hyaluronic Acid hydrates without adding grease, making it safe for acne-prone skin."
-          }
+        { 
+          "type": "faq_item", 
+          "settings": { 
+            "question": "Is it suitable for acne-prone skin?", 
+            "answer": "Yes. It is non-comedogenic (won't clog pores) and oil-free. The Hyaluronic Acid hydrates without adding grease, making it safe for acne-prone skin." 
+          } 
         }
       ]
     }
@@ -159,7 +159,7 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
     color: {{ section.settings.text_color }};
     border-bottom: 1px solid #e5e7eb;
-
+    
     /* Body Font Logic */
     {%- if section.settings.override_fonts and section.settings.body_font != blank -%}
       font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
@@ -185,7 +185,7 @@
     font-weight: 400;
     text-align: center;
     line-height: 1.2;
-
+    
     /* Heading Font Logic */
     {%- if section.settings.override_fonts and section.settings.heading_font != blank -%}
       font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
@@ -220,6 +220,7 @@
   #shopify-section-{{ section.id }} .faq-question {
     font-size: 14px;
     font-weight: 700;
+    text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 8px;
     color: #374151; /* Luma Charcoal approx */
@@ -236,6 +237,7 @@
 
 <div class="faq-section">
   <div class="faq-container">
+    
     {%- if section.settings.title != blank -%}
       <h2 class="faq-title">{{ section.settings.title | escape }}</h2>
     {%- endif -%}
@@ -248,5 +250,6 @@
         </div>
       {%- endfor -%}
     </div>
+
   </div>
 </div>
