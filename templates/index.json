@@ -144,7 +144,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Desktop_Banner_1_48873afe-fa11-4588-9dfd-d0d3eb7325e9.webp",
+        "image_1": "shopify://shop_images/Desktop_Banner_1.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
@@ -184,8 +184,8 @@
           "settings": {
             "text": "Paraben Free",
             "icon_preset": "ph-leaf",
-            "icon_color": "#D4A340",
-            "text_color": "#2C2C2C",
+            "icon_color": "#d4a340",
+            "text_color": "#2c2c2c",
             "font_size": 13
           },
           "blocks": {}
@@ -196,8 +196,8 @@
           "settings": {
             "text": "0% Steroids",
             "icon_preset": "ph-flask",
-            "icon_color": "#D4A340",
-            "text_color": "#2C2C2C",
+            "icon_color": "#d4a340",
+            "text_color": "#2c2c2c",
             "font_size": 13
           },
           "blocks": {}
@@ -208,8 +208,8 @@
           "settings": {
             "text": "0% Mercury",
             "icon_preset": "ph-drop",
-            "icon_color": "#D4A340",
-            "text_color": "#2C2C2C",
+            "icon_color": "#d4a340",
+            "text_color": "#2c2c2c",
             "font_size": 13
           },
           "blocks": {}
@@ -220,8 +220,8 @@
           "settings": {
             "text": "Cruelty Free",
             "icon_preset": "ph-paw-print",
-            "icon_color": "#D4A340",
-            "text_color": "#2C2C2C",
+            "icon_color": "#d4a340",
+            "text_color": "#2c2c2c",
             "font_size": 13
           },
           "blocks": {}
@@ -232,8 +232,8 @@
           "settings": {
             "text": "Halal Certified",
             "icon_preset": "ph-check-circle",
-            "icon_color": "#D4A340",
-            "text_color": "#2C2C2C",
+            "icon_color": "#d4a340",
+            "text_color": "#2c2c2c",
             "font_size": 13
           },
           "blocks": {}
