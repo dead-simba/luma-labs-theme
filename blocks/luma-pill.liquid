@@ -23,7 +23,7 @@
 <div class="luma-pill-wrapper luma-pill--{{ block.id }}" {{ block.shopify_attributes }}>
   <div class="luma-pill luma-pill--style-{{ block_settings.style }}">
     {%- if icon_class != blank -%}
-      <i class="ph-fill {{ icon_class }} luma-pill__icon"></i>
+      <i class="ph {{ icon_class }} luma-pill__icon"></i>
     {%- endif -%}
     <span class="luma-pill__text" style="{{ text_style }}">
       {{ block_settings.text }}
