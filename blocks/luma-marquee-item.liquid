@@ -1,0 +1,107 @@
+{%- doc -%}
+  Luma Marquee Item Block.
+  A single item for use in the Marquee (rolling ticker) section.
+  Features a Phosphor icon + text with Luma gold styling.
+{%- enddoc -%}
+
+{%- liquid
+  assign block_settings = block.settings
+  assign icon_class = block_settings.icon_preset
+-%}
+
+<span class="luma-marquee-item luma-marquee-item--{{ block.id }}" {{ block.shopify_attributes }}>
+  {%- if icon_class != blank -%}
+    <i class="ph {{ icon_class }} luma-marquee-item__icon"></i>
+  {%- endif -%}
+  <span class="luma-marquee-item__text">{{ block_settings.text }}</span>
+</span>
+
+<style>
+  .luma-marquee-item--{{ block.id }} {
+    --item-icon-color: {{ block_settings.icon_color }};
+    --item-text-color: {{ block_settings.text_color }};
+    --item-font-size: {{ block_settings.font_size }}px;
+  }
+</style>
+
+{% stylesheet %}
+  .luma-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    font-size: var(--item-font-size, 12px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--item-text-color, currentColor);
+  }
+
+  .luma-marquee-item__icon {
+    font-size: 1.4em;
+    color: var(--item-icon-color, currentColor);
+    flex-shrink: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Luma Marquee Item",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Halal Certified"
+    },
+    {
+      "type": "select",
+      "id": "icon_preset",
+      "label": "Icon",
+      "options": [
+        { "value": "", "label": "No Icon" },
+        { "value": "ph-check-circle", "label": "Check Circle" },
+        { "value": "ph-paw-print", "label": "Paw Print (Cruelty Free)" },
+        { "value": "ph-shield-check", "label": "Shield Check" },
+        { "value": "ph-drop", "label": "Drop (Mercury Free)" },
+        { "value": "ph-flask", "label": "Flask (No Steroids)" },
+        { "value": "ph-leaf", "label": "Leaf (Paraben Free)" },
+        { "value": "ph-star", "label": "Star" },
+        { "value": "ph-sparkle", "label": "Sparkle" },
+        { "value": "ph-heart", "label": "Heart" },
+        { "value": "ph-certificate", "label": "Certificate" },
+        { "value": "ph-test-tube", "label": "Test Tube" }
+      ],
+      "default": "ph-check-circle"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#D4A340"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Marquee Item"
+    }
+  ]
+}
+{% endschema %}
