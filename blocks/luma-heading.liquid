@@ -7,7 +7,7 @@
 {%- liquid
   assign block_settings = block.settings
   assign heading_text = block_settings.title
-  assign styled_text = heading_text | replace: '[', '<span class="italic text-gradient-gold">' | replace: ']', '</span>'
+  assign styled_text = heading_text | newline_to_br | replace: '[', '<span class="italic text-gradient-gold">' | replace: ']', '</span>'
 -%}
 
 <div class="luma-heading-wrapper luma-heading--{{ block.id }}" {{ block.shopify_attributes }}>
@@ -26,8 +26,9 @@
 
     max-width: var(--heading-max-width);
     width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: {% if block_settings.alignment == 'flex-start' %}auto{% elsif block_settings.alignment == 'center' %}auto{% else %}0{% endif %};
+    margin-left: {% if block_settings.alignment == 'flex-end' %}auto{% elsif block_settings.alignment == 'center' %}auto{% else %}0{% endif %};
+    text-align: {{ block_settings.alignment | replace: 'flex-start', 'left' | replace: 'flex-end', 'right' }};
   }
 
   .luma-heading {
@@ -59,6 +60,9 @@
   @media screen and (max-width: 768px) {
     .luma-heading--{{ block.id }} {
       --heading-font-size: var(--heading-mobile-font-size);
+      text-align: {{ block_settings.alignment_mobile | replace: 'flex-start', 'left' | replace: 'flex-end', 'right' }};
+      margin-right: {% if block_settings.alignment_mobile == 'flex-start' %}auto{% elsif block_settings.alignment_mobile == 'center' %}auto{% else %}0{% endif %};
+      margin-left: {% if block_settings.alignment_mobile == 'flex-end' %}auto{% elsif block_settings.alignment_mobile == 'center' %}auto{% else %}0{% endif %};
     }
   }
 </style>
@@ -102,6 +106,32 @@
       "id": "color",
       "label": "Text Color",
       "default": "#2C2C2C"
+    },
+    {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Desktop Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "select",
+      "id": "alignment_mobile",
+      "label": "Mobile Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start"
     },
     {
       "type": "header",

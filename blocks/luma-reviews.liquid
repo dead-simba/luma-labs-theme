@@ -4,51 +4,60 @@
 {%- enddoc -%}
 
 <div class="luma-reviews luma-reviews--{{ block.id }}" {{ block.shopify_attributes }}>
-  <div class="luma-reviews__avatars">
-    {%- if block.settings.avatar_1 != blank -%}
-      <div class="luma-reviews__avatar">
-        {{ block.settings.avatar_1 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
-      </div>
-    {%- else -%}
-      <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
-    {%- endif -%}
+  <div class="luma-reviews__container">
+    <div class="luma-reviews__avatars">
+      {%- if block.settings.avatar_1 != blank -%}
+        <div class="luma-reviews__avatar">
+          {{ block.settings.avatar_1 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- else -%}
+        <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
+      {%- endif -%}
 
-    {%- if block.settings.avatar_2 != blank -%}
-      <div class="luma-reviews__avatar">
-        {{ block.settings.avatar_2 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
-      </div>
-    {%- else -%}
-      <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
-    {%- endif -%}
+      {%- if block.settings.avatar_2 != blank -%}
+        <div class="luma-reviews__avatar">
+          {{ block.settings.avatar_2 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- else -%}
+        <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
+      {%- endif -%}
 
-    {%- if block.settings.avatar_3 != blank -%}
-      <div class="luma-reviews__avatar">
-        {{ block.settings.avatar_3 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
-      </div>
-    {%- else -%}
-      <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
-    {%- endif -%}
-  </div>
-
-  <div class="luma-reviews__content">
-    <div class="luma-reviews__stars">
-      {%- for i in (1..5) -%}
-        <i class="ph-fill ph-star"></i>
-      {%- endfor -%}
+      {%- if block.settings.avatar_3 != blank -%}
+        <div class="luma-reviews__avatar">
+          {{ block.settings.avatar_3 | image_url: width: 80, height: 80 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- else -%}
+        <div class="luma-reviews__avatar luma-reviews__avatar--placeholder"></div>
+      {%- endif -%}
     </div>
-    <div class="luma-reviews__text">
-      {{ block.settings.text | replace: '[', '<strong>' | replace: ']', '</strong>' }}
+
+    <div class="luma-reviews__content">
+      <div class="luma-reviews__stars">
+        {%- for i in (1..5) -%}
+          <i class="ph-fill ph-star"></i>
+        {%- endfor -%}
+      </div>
+      <div class="luma-reviews__text">
+        {{ block.settings.text | replace: '[', '<strong>' | replace: ']', '</strong>' }}
+      </div>
     </div>
   </div>
 </div>
 
 <style>
   .luma-reviews--{{ block.id }} {
-    --star-color: {{ block_settings.star_color | default: '#D4A340' }};
+    --star-color: {{ block.settings.star_color | default: '#D4A340' }};
+    width: 100%;
+    display: flex;
+    justify-content: {{ block.settings.alignment }};
+  }
+
+  .luma-reviews__container {
     display: flex;
     align-items: center;
     gap: 16px;
     margin-bottom: 24px;
+    text-align: left;
   }
 
   .luma-reviews__avatars {
@@ -105,8 +114,11 @@
     color: #2C2C2C;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
     .luma-reviews--{{ block.id }} {
+      justify-content: {{ block.settings.alignment_mobile }};
+    }
+    .luma-reviews__container {
       gap: 12px;
     }
     .luma-reviews__avatar {
@@ -133,6 +145,32 @@
       "id": "star_color",
       "label": "Star Color",
       "default": "#D4A340"
+    },
+    {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Desktop Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "select",
+      "id": "alignment_mobile",
+      "label": "Mobile Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start"
     },
     {
       "type": "header",
