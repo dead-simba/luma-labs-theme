@@ -873,6 +873,34 @@ strong {
 }
 
 /* ============================================
+   LUMA HERO V2 - Custom Styles
+   ============================================ */
+:root {
+  --luma-gold: #D4A340;
+  --luma-charcoal: #2C2C2C;
+  --luma-lightGray: #E5E5E5;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to right, #D4A340, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.luma-hero-v2 .font-serif {
+  font-family: var(--font-heading--family), serif;
+}
+
+.luma-hero-v2 .font-sans {
+  font-family: var(--font-body--family), sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* ============================================
    UTILITY CLASSES
    ============================================ */
 .text-center {

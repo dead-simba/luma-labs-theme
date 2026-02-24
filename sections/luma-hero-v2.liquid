@@ -1,0 +1,142 @@
+<section
+  class="relative w-full min-h-[85vh] lg:min-h-[85vh] flex items-center bg-white overflow-hidden py-24 lg:py-0 border-b border-luma-lightGray luma-hero-v2"
+  {{ section.shopify_attributes }}
+>
+  {%- if section.settings.image != blank -%}
+    <div class="absolute inset-0 z-0">
+      {{
+        section.settings.image
+        | image_url: width: 2000
+        | image_tag: class: 'w-full h-full object-cover object-[70%_top] lg:object-right', loading: 'eager'
+      }}
+    </div>
+  {%- endif -%}
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+    <div class="max-w-xl">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h1
+              class="font-serif text-5xl md:text-6xl lg:text-[4.5rem] text-luma-charcoal leading-[1.05] mb-8"
+              {{ block.shopify_attributes }}
+            >
+              {{
+                block.settings.title
+                | replace: '[', '<span class="italic text-gradient-gold">'
+                | replace: ']', '</span>'
+              }}
+            </h1>
+
+          {%- when 'subheading' -%}
+            <p
+              class="font-sans text-lg md:text-xl text-luma-charcoal/80 mb-12 leading-relaxed md:pr-12 font-light"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.text }}
+            </p>
+
+          {%- when 'buttons' -%}
+            <div class="flex flex-col sm:flex-row gap-5 mb-12" {{ block.shopify_attributes }}>
+              {%- if block.settings.button_1_label != blank -%}
+                <a
+                  href="{{ block.settings.button_1_link }}"
+                  class="bg-luma-charcoal text-white font-sans font-medium px-8 py-4 rounded text-center hover:bg-luma-gold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  {{ block.settings.button_1_label }}
+                  <i class="ph ph-arrow-right"></i>
+                </a>
+              {%- endif -%}
+              {%- if block.settings.button_2_label != blank -%}
+                <a
+                  href="{{ block.settings.button_2_link }}"
+                  class="bg-transparent border border-luma-charcoal/30 text-luma-charcoal font-sans font-medium px-8 py-4 rounded text-center hover:bg-luma-gold hover:text-white hover:border-luma-gold transition duration-300"
+                >
+                  {{ block.settings.button_2_label }}
+                </a>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Luma Hero V2 - Custom",
+  "tag": "section",
+  "class": "luma-hero-v2-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Heading",
+          "default": "Skincare that speaks \n [your skin's language.]",
+          "info": "Use [brackets] for gradient gold text."
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Subheading",
+          "default": "Advanced clinical actives formulated to seamlessly mirror your skin's natural biology. Experience deep barrier repair and vibrant brightening without the irritation."
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_1_label",
+          "label": "Button 1 Label",
+          "default": "Shop All Products"
+        },
+        {
+          "type": "url",
+          "id": "button_1_link",
+          "label": "Button 1 Link"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "label": "Button 2 Label",
+          "default": "Take the Skin Quiz"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "Button 2 Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Hero V2 - Custom",
+      "blocks": [{ "type": "heading" }, { "type": "subheading" }, { "type": "buttons" }]
+    }
+  ]
+}
+{% endschema %}
