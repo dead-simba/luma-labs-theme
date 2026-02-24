@@ -17,7 +17,7 @@
           "name": "Luma Pill",
           "settings": {
             "text": "Science-Backed",
-            "icon_preset": "ph-sparkle",
+            "icon_preset": "ph-flask",
             "icon": "",
             "style": "outline",
             "alignment": "flex-start",
@@ -123,7 +123,7 @@
           "name": "Luma Reviews",
           "settings": {
             "text": "Loved by [120+ customers]",
-            "star_color": "#D4A340",
+            "star_color": "#d4a340",
             "alignment": "flex-start",
             "alignment_mobile": "flex-start",
             "avatar_1": "shopify://shop_images/im2.webp",
@@ -166,7 +166,7 @@
         "section_height_custom": 100,
         "color_scheme": "scheme-2",
         "toggle_overlay": true,
-        "overlay_color": "#ffffffb1",
+        "overlay_color": "#ffffffb0",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
         "blurred_reflection": true,
