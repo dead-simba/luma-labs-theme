@@ -507,7 +507,9 @@
         "group_KLVi7K"
       ],
       "name": "t:names.collections_grid",
-      "custom_css": ".image-block, .collection-card__image, .collection-card.collection-card--image-bg { border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; }",
+      "custom_css": [
+        ".image-block, .collection-card__image, .collection-card.collection-card--image-bg { border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; }"
+      ],
       "settings": {
         "collection_list": [
           "damaged-barrier",
