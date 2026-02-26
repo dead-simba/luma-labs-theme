@@ -26,6 +26,7 @@
         "vip_title": "Your VIP Perk",
         "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
         "vip_button_label": "Review & Unlock",
+        "vip_button_link": "shopify://pages/luma-vip-review",
         "vip_bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)"
       }
     },
