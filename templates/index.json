@@ -681,6 +681,9 @@
       ],
       "settings": {
         "background_image": "shopify://shop_images/Explore_Ingredients_2_Compressed.webp",
+        "image_opacity": 70,
+        "overlay_color": "#1a1a1a",
+        "overlay_opacity": 0,
         "eyebrow": "Complete Transparency",
         "heading": "Explore the Ingredient Directory",
         "description": "We believe skintellectuals deserve to know exactly what they are applying, why it was chosen, and how it functions biologically. Dive into the deep clinical science behind our active complexes.",
@@ -688,17 +691,6 @@
         "button_link": "",
         "padding_top": 128,
         "padding_bottom": 128
-      }
-    },
-    "custom_liquid_pMxFAJ": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<style>\n  /* Luma Labs Philosophy Section Styling */\n  .luma-philosophy-wrapper {\n    background-color: #F5F5F5; /* Matches luma-light */\n    padding: 80px 20px;\n    text-align: center;\n    overflow: hidden;\n  }\n\n  .luma-philosophy-inner {\n    max-width: 800px;\n    margin: 0 auto;\n  }\n\n  .luma-philosophy-eyebrow {\n    display: block;\n    color: #C5A065; /* Luma Gold */\n    text-transform: uppercase;\n    letter-spacing: 0.3em;\n    font-size: 12px;\n    font-weight: 700;\n    margin-bottom: 24px;\n    font-family: 'Inter', sans-serif;\n  }\n\n  .luma-philosophy-headline {\n    font-family: 'Playfair Display', serif;\n    font-size: 32px;\n    line-height: 1.2;\n    margin-bottom: 32px;\n    color: #1A1A1A;\n  }\n\n  /* Highlight Effect */\n  .luma-philosophy-highlight {\n    color: #C5A065;\n    font-style: italic;\n  }\n\n  .luma-philosophy-body {\n    color: #6B7280;\n    font-size: 16px;\n    line-height: 1.8;\n    font-family: 'Inter', sans-serif;\n    font-weight: 300;\n    margin-bottom: 24px;\n  }\n\n  /* Mobile Responsive Tweaks */\n  @media (max-width: 767px) {\n    .luma-philosophy-wrapper {\n      padding: 60px 15px;\n    }\n    .luma-philosophy-headline {\n      font-size: 28px;\n    }\n    .luma-philosophy-body {\n      font-size: 14px;\n    }\n  }\n\n  /* Desktop Large Headline */\n  @media (min-width: 1024px) {\n    .luma-philosophy-headline {\n      font-size: 48px;\n    }\n  }\n</style>\n\n<section class=\"luma-philosophy-wrapper\">\n  <div class=\"luma-philosophy-inner\">\n    <span class=\"luma-philosophy-eyebrow\">Our Philosophy</span>\n    <h2 class=\"luma-philosophy-headline\">\n      \"We Don't Guess. <span class=\"luma-philosophy-highlight\">We Ask.</span>\"\n    </h2>\n    <p class=\"luma-philosophy-body\">\n      Most brands build for a shelf. We build for a sisterhood. We realized that 'International Best Sellers' often feel heavy, sticky, or wrong in our humidity. So we stopped looking at spreadsheets and started looking at the sky.\n    </p>\n    <p class=\"luma-philosophy-body\">\n      Our code is simple: Data > Assumptions. We listen to you first, then we go to the lab. The result? Textures that feel like a cool breeze, not a heavy mask.\n    </p>\n  </div>\n</section>",
-        "color_scheme": "scheme-536fba22-2310-4efd-947d-75fc779babe4",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
       }
     },
     "product_list_fa6P9H": {
@@ -948,176 +940,6 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "section_pYTFy3": {
-      "type": "section",
-      "blocks": {
-        "image_6B3Fc3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ingredient_cica_leaves_1770713642978.jpg",
-            "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "group_az4nc3": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "custom",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_FDPDmx": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Traditional Wisdom.<br/>Clinical Potency.</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_FYQiVB": {
-              "type": "text",
-              "settings": {
-                "text": "<p>We bridge the gap between ancient Eastern beauty rituals and modern dermatology. By combining time-tested ingredients like <strong>Rice Water</strong> and <strong>Glutathione</strong> with scientifically proven actives like <strong>Niacinamide</strong> and <strong>Ceramides</strong>, we create formulas that are safe, effective, and transformative.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "button_y9HY4J": {
-              "type": "button",
-              "settings": {
-                "label": "Explore our ingredients",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_FDPDmx",
-            "text_FYQiVB",
-            "button_y9HY4J"
-          ]
-        }
-      },
-      "block_order": [
-        "image_6B3Fc3",
-        "group_az4nc3"
-      ],
-      "name": "t:names.image_with_text",
-      "settings": {
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
     }
   },
   "order": [
@@ -1128,8 +950,6 @@
     "luma_scroll_stopper_NEW",
     "luma_science_pillars_C3RyAH",
     "luma_ingredient_teaser_NEW",
-    "custom_liquid_pMxFAJ",
-    "product_list_fa6P9H",
-    "section_pYTFy3"
+    "product_list_fa6P9H"
   ]
 }
