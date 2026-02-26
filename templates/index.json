@@ -15,6 +15,7 @@
         "luma_pill_jPCJWM": {
           "type": "luma-pill",
           "name": "Luma Pill",
+          "disabled": true,
           "settings": {
             "text": "Science-Backed",
             "icon_preset": "ph-flask",
@@ -121,6 +122,7 @@
         "luma_reviews_Yxqxg9": {
           "type": "luma-reviews",
           "name": "Luma Reviews",
+          "disabled": true,
           "settings": {
             "text": "Loved by [120+ customers]",
             "star_color": "#d4a340",
