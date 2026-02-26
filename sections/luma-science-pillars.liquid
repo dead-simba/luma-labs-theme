@@ -261,6 +261,16 @@
     gap: 8px;
   }
 
+  .luma-science__card-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+
   .luma-science__card-link::after {
     content: "→";
     font-size: 14px;
@@ -313,8 +323,8 @@
             <h3 class="luma-science__card-title">{{ block.settings.title }}</h3>
             <p class="luma-science__card-text">{{ block.settings.text }}</p>
 
-            {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
-              <a href="{{ block.settings.button_link }}" class="luma-science__card-link">
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link | default: '#' }}" class="luma-science__card-link">
                 {{ block.settings.button_label }}
               </a>
             {%- endif -%}
