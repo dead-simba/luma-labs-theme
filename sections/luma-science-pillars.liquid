@@ -4,7 +4,6 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
     background-color: {{ section.settings.background_color | default: '#FAFAFA' }};
     position: relative;
-    overflow: hidden;
     border-bottom: 1px solid rgba(44, 44, 44, 0.05); /* luma-lightGray equivalent */
   }
 
@@ -16,6 +15,14 @@
   }
 
   /* Decorative Background Elements */
+  .luma-science__decor-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .luma-science__decor-1 {
     position: absolute;
     top: 0;
@@ -27,8 +34,6 @@
     mix-blend-mode: multiply;
     filter: blur(100px);
     opacity: 0.15;
-    z-index: 1;
-    pointer-events: none;
   }
 
   .luma-science__decor-2 {
@@ -42,8 +47,6 @@
     mix-blend-mode: multiply;
     filter: blur(100px);
     opacity: 0.15;
-    z-index: 1;
-    pointer-events: none;
   }
 
   .luma-science__container {
@@ -255,8 +258,10 @@
 {%- endstyle -%}
 
 <div class="luma-science luma-science-{{ section.id }}" {{ section.shopify_attributes }}>
-  <div class="luma-science__decor-1"></div>
-  <div class="luma-science__decor-2"></div>
+  <div class="luma-science__decor-wrapper">
+    <div class="luma-science__decor-1"></div>
+    <div class="luma-science__decor-2"></div>
+  </div>
 
   <div class="luma-science__container">
     <div class="luma-science__sticky-panel">
