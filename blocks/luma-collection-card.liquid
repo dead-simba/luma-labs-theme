@@ -1,0 +1,146 @@
+{%- liquid
+  assign product = block.settings.product
+  assign bg_image = block.settings.background_image | default: product.featured_image
+  assign gradient_preset = block.settings.gradient_preset
+  assign overlay_opacity = block.settings.overlay_opacity | divided_by: 100.0
+  assign badge_text = block.settings.badge_text
+  assign info_opacity = block.settings.info_opacity | divided_by: 100.0
+  assign card_link = block.settings.card_link | default: product.url | default: '#'
+-%}
+
+<a
+  href="{{ card_link }}"
+  class="luma-card luma-card--{{ gradient_preset }} luma-card-container luma-card-{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if bg_image != blank -%}
+    <div class="luma-card__image-wrapper">
+      {{
+        bg_image
+        | image_url: width: 800
+        | image_tag: loading: 'lazy', class: 'luma-card__image', sizes: '(min-width: 1024px) 33vw, 100vw'
+      }}
+    </div>
+  {%- endif -%}
+
+  <div
+    class="luma-card__overlay luma-card__overlay--{{ gradient_preset }}"
+    style="opacity: {{ overlay_opacity }};"
+  ></div>
+  <div class="luma-card__texture"></div>
+
+  <div class="luma-card__content">
+    <div class="luma-card__badge-wrapper">
+      {%- if badge_text != blank -%}
+        <span class="luma-card__badge">
+          {{ badge_text }}
+        </span>
+      {%- endif -%}
+    </div>
+
+    <div class="luma-card__info" style="background: rgba(255, 255, 255, {{ info_opacity }});">
+      <h3 class="luma-card__title">
+        {{ block.settings.custom_title | default: product.title | default: 'Product Title' }}
+      </h3>
+      <div class="luma-card__desc">
+        {{ block.settings.custom_description | default: product.description | strip_html | truncatewords: 25 }}
+      </div>
+      <span class="luma-card__cta">
+        {{ block.settings.cta_text | default: 'Explore Formulation' }}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"/><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+
+{% schema %}
+{
+  "name": "Luma Collection Card",
+  "tag": null,
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "url",
+      "id": "card_link",
+      "label": "Card Link Destination",
+      "info": "Overrides the default product redirect. Useful for custom landing pages."
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Defaults to product featured image."
+    },
+    {
+      "type": "select",
+      "id": "gradient_preset",
+      "label": "Gradient Overlay Style",
+      "options": [
+        { "value": "none", "label": "None (Image Only)" },
+        { "value": "barrier", "label": "Barrier (Blue/Purple)" },
+        { "value": "brightening", "label": "Brightening (Peach/Orange)" },
+        { "value": "sunscreen", "label": "Sunscreen (Yellow/White)" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Gradient Overlay Opacity",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "info_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Content Box Opacity",
+      "info": "Controls the opacity of the white box containing the title & description.",
+      "default": 80
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Key Benefit"
+    },
+    {
+      "type": "header",
+      "content": "Content Overrides"
+    },
+    {
+      "type": "text",
+      "id": "custom_title",
+      "label": "Override Title"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_description",
+      "label": "Override Description"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Explore Formulation"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Collection Card"
+    }
+  ]
+}
+{% endschema %}
