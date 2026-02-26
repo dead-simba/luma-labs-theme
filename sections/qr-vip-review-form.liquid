@@ -204,6 +204,26 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productParam = urlParams.get('product');
+
+    if (productParam) {
+      // Safely decode the product name (e.g. from Barrier%20Renew)
+      const productName = decodeURIComponent(productParam);
+
+      // Inject product name into Shopify's hidden email payload field
+      const productInput = document.getElementById('DynamicProductInput');
+      if (productInput) productInput.value = productName;
+
+      // Dynamically personalize the user experience
+      const textArea = document.getElementById('ContactFormMessage');
+      if (textArea) textArea.placeholder = `How has ${productName} transformed your skin?`;
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "QR VIP Review Flow",
