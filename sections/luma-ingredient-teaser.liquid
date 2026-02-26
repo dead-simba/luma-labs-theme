@@ -29,7 +29,6 @@
     z-index: 0;
     {%- if section.settings.background_image != blank -%}
       opacity: {{ section.settings.image_opacity | divided_by: 100.0 }};
-      mix-blend-mode: luminosity;
     {%- else -%}
       display: none;
     {%- endif -%}
