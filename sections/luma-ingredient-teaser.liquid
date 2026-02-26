@@ -28,7 +28,7 @@
     object-fit: cover;
     z-index: 0;
     {%- if section.settings.background_image != blank -%}
-      opacity: 0.7;
+      opacity: {{ section.settings.image_opacity | divided_by: 100.0 }};
       mix-blend-mode: luminosity;
     {%- else -%}
       display: none;
@@ -36,16 +36,21 @@
   }
 
   /* Heavy Charcoal Gradient Overlay */
+  {%- assign overlay_rgb = section.settings.overlay_color | color_to_rgb | remove: 'rgb(' | remove: ')' -%}
+  {%- assign peak_opacity = section.settings.overlay_opacity | divided_by: 100.0 -%}
+  {%- assign mid_opacity = peak_opacity | times: 0.6 -%}
+  {%- assign end_opacity = peak_opacity | times: 0.2 -%}
+
   .luma-ingredient__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(26,26,26, 0.95) 0%, rgba(26,26,26, 0.6) 50%, rgba(26,26,26, 0.2) 100%);
+    background: linear-gradient(to right, rgba({{ overlay_rgb }}, {{ peak_opacity }}) 0%, rgba({{ overlay_rgb }}, {{ mid_opacity }}) 50%, rgba({{ overlay_rgb }}, {{ end_opacity }}) 100%);
     z-index: 1;
   }
 
   @media screen and (max-width: 1023px) {
     .luma-ingredient__overlay {
-      background: linear-gradient(to bottom, rgba(26,26,26, 0.95) 0%, rgba(26,26,26, 0.6) 100%);
+      background: linear-gradient(to bottom, rgba({{ overlay_rgb }}, {{ peak_opacity }}) 0%, rgba({{ overlay_rgb }}, {{ mid_opacity }}) 100%);
     }
   }
 
@@ -321,6 +326,33 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "Organic Background Image"
+    },
+    {
+      "type": "range",
+      "id": "image_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Opacity",
+      "default": 70
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Peak Opacity (Left Side)",
+      "default": 95,
+      "info": "Controls the darkest part of the gradient over the text to ensure legibility."
     },
     {
       "type": "text",
