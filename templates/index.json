@@ -508,7 +508,7 @@
       ],
       "name": "t:names.collections_grid",
       "custom_css": [
-        ".image-block, .collection-card__image, .collection-card.collection-card--image-bg { border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; }"
+        ".image-block, .collection-card__image, .collection-card.collection-card--image-bg { border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; width: 75% !important; max-width: 220px !important; margin: 0 auto !important; }"
       ],
       "settings": {
         "collection_list": [
