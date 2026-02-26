@@ -228,6 +228,61 @@
         "gap_between_elements": 64
       }
     },
+    "luma_collection_qJ4QcA": {
+      "type": "luma-collection",
+      "blocks": {
+        "product_3hhJCb": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "background_image": "shopify://shop_images/Barrier_Renew_Moisturizer.webp",
+            "gradient_preset": "barrier",
+            "overlay_opacity": 100,
+            "badge_text": "Triple Ceramides + Peptides",
+            "custom_title": "",
+            "custom_description": "",
+            "cta_text": "Explore Formulation"
+          }
+        },
+        "product_BP8863": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "gradient_preset": "brightening",
+            "overlay_opacity": 80,
+            "badge_text": "5-Pathway Brightening",
+            "custom_title": "",
+            "custom_description": "",
+            "cta_text": "Explore Formulation"
+          }
+        },
+        "product_PCrJEn": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "gradient_preset": "sunscreen",
+            "overlay_opacity": 80,
+            "badge_text": "Broad-Spectrum Hydrogel",
+            "custom_title": "",
+            "custom_description": "",
+            "cta_text": "Explore Formulation"
+          }
+        }
+      },
+      "block_order": [
+        "product_3hhJCb",
+        "product_BP8863",
+        "product_PCrJEn"
+      ],
+      "name": "Luma Collection",
+      "settings": {
+        "card_radius": 16,
+        "eyebrow": "Clinically Validated Actives",
+        "icon_preset": "ph-drop",
+        "title": "The [Luma] Collection",
+        "description": "Engineered to work synergistically with your skin's natural biological pathways."
+      }
+    },
     "collection_list_BXKL36": {
       "type": "collection-list",
       "blocks": {
@@ -829,8 +884,10 @@
   "order": [
     "hero_jVaWmY",
     "marquee_QkgDJU",
+    "luma_collection_qJ4QcA",
     "collection_list_BXKL36",
     "custom_liquid_pMxFAJ",
+    "product_list_fa6P9H",
     "section_pYTFy3"
   ]
 }
