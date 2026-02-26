@@ -1,142 +1,160 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "hero": {
-            "type": "luma-collection-empathy-hero",
-            "settings": {
-                "badge_text": "Targeted Solutions",
-                "badge_icon": "ph-band-aid",
-                "badge_icon_color": "#1e40af",
-                "heading": "Repair & <em>Protect</em>",
-                "description": "Formulated specifically for compromised, sensitive, or deeply dehydrated skin requiring structural reconstruction.",
-                "cta_text": "Shop the Solution",
-                "cta_link": "#solution",
-                "bg_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
-            }
-        },
-        "education": {
-            "type": "luma-collection-education",
-            "settings": {
-                "icon_class": "ph-shield-warning",
-                "icon_color": "#1e40af",
-                "icon_bg_color": "#eff6ff",
-                "heading": "Why is my barrier damaged?",
-                "text": "A compromised stratum corneum occurs when your skin's natural lipid ratio is stripped away by harsh active ingredients, over-exfoliation, or environmental stressors. Our barrier collection replenishes these exact physiological lipids to instantly halt trans-epidermal water loss and soothe inflammation.",
-                "quote_text": "I ruined my skin with harsh peeling acids. This liquid-crystal formula stopped the stinging and redness in exactly 48 hours.",
-                "quote_author": "Sarah T., Verified Buyer"
-            }
-        },
-        "featured": {
-            "type": "luma-collection-featured",
-            "settings": {
-                "heading": "The Primary Solution",
-                "eyebrow": "Targeted Treatment",
-                "badge": "Best Seller",
-                "volume_text": "50 ml / 1.7 fl oz",
-                "review_count": "128",
-                "fallback_title": "Barrier Renew Moisturizer",
-                "fallback_desc": "Our clinical masterpiece. A liquid-crystal emulsion delivering physiological lipids and Matrixyl 3000™ peptides to deeply reconstruct compromised barriers without clogging pores.",
-                "image_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
-            },
-            "blocks": {
-                "prop_1": {
-                    "type": "value_prop",
-                    "settings": {
-                        "prop_text": "3:1:1 Ceramide Ratio"
-                    }
-                },
-                "prop_2": {
-                    "type": "value_prop",
-                    "settings": {
-                        "prop_text": "Liquid-Crystal Delivery"
-                    }
-                },
-                "prop_3": {
-                    "type": "value_prop",
-                    "settings": {
-                        "prop_text": "Contains Matrixyl 3000™"
-                    }
-                },
-                "prop_4": {
-                    "type": "value_prop",
-                    "settings": {
-                        "prop_text": "5% Niacinamide"
-                    }
-                }
-            },
-            "block_order": [
-                "prop_1",
-                "prop_2",
-                "prop_3",
-                "prop_4"
-            ]
-        },
-        "routine": {
-            "type": "luma-collection-routine",
-            "settings": {
-                "eyebrow": "Maximum Synergy",
-                "heading": "The Complete Luma Protocol.",
-                "description": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection. Combine all three of our master formulas for complete skin transformation.",
-                "show_bundle": true,
-                "btn_text": "Unlock The Complete Protocol",
-                "bundle_price": "$95.00",
-                "original_price": "$120.00",
-                "savings_text": "Save $25 when you buy the system"
-            },
-            "blocks": {
-                "step_1": {
-                    "type": "step",
-                    "settings": {
-                        "heading": "Target & Brighten",
-                        "heading_color": "#ffffff",
-                        "product_name": "2% Alpha Arbutin Serum",
-                        "description": "Apply to damp skin. Halts melanin production at the source through 5 biological pathways.",
-                        "circle_bg": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-                        "circle_border": "rgba(255,255,255,0.2)",
-                        "number_color": "#1A1A1A",
-                        "enable_glow": false,
-                        "opacity": 0.9
-                    }
-                },
-                "step_2": {
-                    "type": "step",
-                    "settings": {
-                        "heading": "Seal & Repair",
-                        "heading_color": "#D4A340",
-                        "product_name": "Barrier Renew Gel-Cream",
-                        "description": "Layer immediately over the serum to physically fuse micro-tears and trap hydration deep in the dermis.",
-                        "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-                        "circle_border": "#D4A340",
-                        "number_color": "#1A1A1A",
-                        "enable_glow": true,
-                        "opacity": 1
-                    }
-                },
-                "step_3": {
-                    "type": "step",
-                    "settings": {
-                        "heading": "Hydrate & Defend",
-                        "heading_color": "#ffffff",
-                        "product_name": "Hyaluronic Aqua Gel SPF 50",
-                        "description": "The non-negotiable final step. Prevents UV/HEV damage and regulates sebum without any white cast.",
-                        "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
-                        "circle_border": "rgba(255,255,255,0.2)",
-                        "number_color": "#1A1A1A",
-                        "enable_glow": false,
-                        "opacity": 0.9
-                    }
-                }
-            },
-            "block_order": [
-                "step_1",
-                "step_2",
-                "step_3"
-            ]
-        }
+  "sections": {
+    "hero": {
+      "type": "luma-collection-empathy-hero",
+      "settings": {
+        "bg_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+        "badge_text": "Targeted Solutions",
+        "badge_icon": "ph-band-aid",
+        "badge_icon_color": "#1e40af",
+        "heading": "Repair &amp; <em>Protect</em>",
+        "description": "Formulated specifically for compromised, sensitive, or deeply dehydrated skin requiring structural reconstruction.",
+        "cta_text": "Shop the Solution",
+        "cta_link": "#solution"
+      }
     },
-    "order": [
-        "hero",
-        "education",
-        "featured",
-        "routine"
-    ]
+    "education": {
+      "type": "luma-collection-education",
+      "settings": {
+        "icon_class": "ph-shield-warning",
+        "icon_color": "#1e40af",
+        "icon_bg_color": "#eff6ff",
+        "heading": "Why is my barrier damaged?",
+        "text": "A compromised stratum corneum occurs when your skin's natural lipid ratio is stripped away by harsh active ingredients, over-exfoliation, or environmental stressors. Our barrier collection replenishes these exact physiological lipids to instantly halt trans-epidermal water loss and soothe inflammation.",
+        "quote_text": "I ruined my skin with harsh peeling acids. This liquid-crystal formula stopped the stinging and redness in exactly 48 hours.",
+        "quote_author": "Sarah T., Verified Buyer"
+      }
+    },
+    "featured": {
+      "type": "luma-collection-featured",
+      "blocks": {
+        "prop_1": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "3:1:1 Ceramide Ratio",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        },
+        "prop_2": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "Liquid-Crystal Delivery",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        },
+        "prop_3": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "Contains Matrixyl 3000™",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        },
+        "prop_4": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "5% Niacinamide",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        }
+      },
+      "block_order": [
+        "prop_1",
+        "prop_2",
+        "prop_3",
+        "prop_4"
+      ],
+      "settings": {
+        "heading": "The Primary Solution",
+        "eyebrow": "Targeted Treatment",
+        "featured_product": "ceramide-hyaluronic-water-gel",
+        "image_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+        "badge": "Best Seller",
+        "volume_text": "50 ml / 1.7 fl oz",
+        "review_count": "128",
+        "fallback_title": "Barrier Renew Moisturizer",
+        "fallback_desc": "Our clinical masterpiece. A liquid-crystal emulsion delivering physiological lipids and Matrixyl 3000™ peptides to deeply reconstruct compromised barriers without clogging pores."
+      }
+    },
+    "routine": {
+      "type": "luma-collection-routine",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "heading": "Target & Brighten",
+            "heading_color": "#ffffff",
+            "product_name": "2% Alpha Arbutin Serum",
+            "description": "Apply to damp skin. Halts melanin production at the source through 5 biological pathways.",
+            "circle_bg": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
+            "circle_border": "#ffffff33",
+            "number_color": "#1a1a1a",
+            "enable_glow": false,
+            "opacity": 0.9
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "heading": "Seal & Repair",
+            "heading_color": "#d4a340",
+            "product_name": "Barrier Renew Gel-Cream",
+            "description": "Layer immediately over the serum to physically fuse micro-tears and trap hydration deep in the dermis.",
+            "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "circle_border": "#d4a340",
+            "number_color": "#1a1a1a",
+            "enable_glow": true,
+            "opacity": 1
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "heading": "Hydrate & Defend",
+            "heading_color": "#ffffff",
+            "product_name": "Hyaluronic Aqua Gel SPF 50",
+            "description": "The non-negotiable final step. Prevents UV/HEV damage and regulates sebum without any white cast.",
+            "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+            "circle_border": "#ffffff33",
+            "number_color": "#1a1a1a",
+            "enable_glow": false,
+            "opacity": 0.9
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "eyebrow": "Maximum Synergy",
+        "heading": "The Complete Luma Protocol.",
+        "description": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection. Combine all three of our master formulas for complete skin transformation.",
+        "show_bundle": true,
+        "btn_text": "Unlock The Complete Protocol",
+        "bundle_price": "$95.00",
+        "original_price": "$120.00",
+        "savings_text": "Save $25 when you buy the system"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "education",
+    "featured",
+    "routine"
+  ]
 }
