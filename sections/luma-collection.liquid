@@ -244,20 +244,35 @@
   style="--card-radius: {{ section.settings.card_radius }}px;"
 >
   <div class="luma-collection__inner">
-    {%- assign has_header_blocks = false -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type != 'product' -%}
-        {%- assign has_header_blocks = true -%}
-      {%- endif -%}
-    {%- endfor -%}
-
-    {%- if has_header_blocks -%}
+    {%- if section.settings.title != blank
+      or section.settings.eyebrow != blank
+      or section.settings.description != blank
+    -%}
       <div class="luma-collection__header">
-        {%- for block in section.blocks -%}
-          {%- if block.type != 'product' -%}
-            {% render block %}
-          {%- endif -%}
-        {%- endfor -%}
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="luma-collection__eyebrow">
+            {%- if section.settings.icon_preset != blank -%}
+              <i class="ph-fill {{ section.settings.icon_preset }}"></i>
+            {%- endif -%}
+            {{ section.settings.eyebrow }}
+          </span>
+        {%- endif -%}
+
+        {%- if section.settings.title != blank -%}
+          <h2 class="luma-collection__title">
+            {{
+              section.settings.title
+              | replace: '[', '<span class="italic text-gradient-gold">'
+              | replace: ']', '</span>'
+            }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="luma-collection__description">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
 
@@ -347,15 +362,39 @@
       "unit": "px",
       "label": "Card Corner Radius",
       "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Clinically Validated Actives"
+    },
+    {
+      "type": "text",
+      "id": "icon_preset",
+      "label": "Icon (Phosphor Class)",
+      "default": "ph-drop",
+      "info": "Example: ph-drop, ph-flask"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "The [Luma] Collection",
+      "info": "Use [brackets] for italic gold text."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Engineered to work synergistically with your skin's natural biological pathways."
     }
   ],
   "blocks": [
-    {
-      "type": "@theme"
-    },
-    {
-      "type": "@app"
-    },
     {
       "type": "product",
       "name": "Product Card",
