@@ -444,7 +444,7 @@
           "static": true,
           "settings": {
             "placement": "below_image",
-            "horizontal_alignment": "flex-start",
+            "horizontal_alignment": "center",
             "vertical_alignment": "flex-end",
             "collection_card_gap": 8,
             "inherit_color_scheme": true,
@@ -506,10 +506,10 @@
       "block_order": [
         "group_KLVi7K"
       ],
-      "name": "t:names.collections_grid",
       "custom_css": [
-        ".image-block, .collection-card__image, .collection-card.collection-card--image-bg { border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; width: 75% !important; max-width: 220px !important; margin: 0 auto !important; }"
+        ".image-block,.collection-card__image,.collection-card.collection-card--image-bg {border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; width: 75% !important; max-width: 220px !important; margin: 0 auto !important;}"
       ],
+      "name": "t:names.collections_grid",
       "settings": {
         "collection_list": [
           "damaged-barrier",
