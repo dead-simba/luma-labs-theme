@@ -248,6 +248,7 @@
         "luma_marquee_item_bPFQxz",
         "luma_marquee_item_EEeGiX"
       ],
+      "disabled": true,
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
