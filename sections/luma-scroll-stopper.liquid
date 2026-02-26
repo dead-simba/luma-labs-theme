@@ -1,0 +1,362 @@
+{%- style -%}
+  .luma-scroll-stopper-{{ section.id }} {
+    position: relative;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: var(--color-background, #2C2C2C);
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      {% if section.settings.parallax %}
+        background-attachment: fixed;
+      {% endif %}
+    {% endif %}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .luma-scroll-stopper__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 1;
+  }
+
+  .luma-scroll-stopper__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .luma-scroll-stopper__box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 64px 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Star styling */
+  .luma-scroll-stopper__stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    color: #D4A340; /* Luma Gold */
+    font-size: 24px;
+  }
+
+  /* Quote */
+  .luma-scroll-stopper__quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #ffffff;
+    line-height: 1.4;
+    margin: 0 0 32px 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-scroll-stopper__quote {
+      font-size: 40px;
+    }
+    .luma-scroll-stopper__box {
+      padding: 64px;
+    }
+  }
+
+  /* Author */
+  .luma-scroll-stopper__author {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+  }
+
+  /* Product Chip */
+  .luma-scroll-stopper__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffff;
+    border-radius: 9999px;
+    padding: 8px 32px 8px 8px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+
+  .luma-scroll-stopper__chip:hover {
+    background-color: #FAFAFA;
+    transform: scale(1.02);
+  }
+
+  .luma-scroll-stopper__chip-image-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    flex-shrink: 0;
+    border: 1px solid #E5E5E5;
+  }
+
+  .luma-scroll-stopper__chip-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .luma-scroll-stopper__chip-text-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+  }
+
+  .luma-scroll-stopper__chip-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(44, 44, 44, 0.6); /* Luma Charcoal */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+
+  .luma-scroll-stopper__chip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2C2C2C; /* Luma Charcoal */
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .luma-scroll-stopper__chip:hover .luma-scroll-stopper__chip-title {
+    color: #D4A340; /* Luma Gold */
+  }
+
+  /* Floating Badge */
+  .luma-scroll-stopper__badge {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+  }
+
+  @media screen and (max-width: 767px) {
+    .luma-scroll-stopper__badge {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<div class="luma-scroll-stopper luma-scroll-stopper-{{ section.id }}">
+  <div class="luma-scroll-stopper__overlay"></div>
+
+  <div class="luma-scroll-stopper__content">
+    <div class="luma-scroll-stopper__box">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'stars' -%}
+            <div class="luma-scroll-stopper__stars" {{ block.shopify_attributes }}>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+            </div>
+
+          {%- when 'quote' -%}
+            <h3 class="luma-scroll-stopper__quote" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </h3>
+
+          {%- when 'author' -%}
+            <p class="luma-scroll-stopper__author" {{ block.shopify_attributes }}>— {{ block.settings.name }}</p>
+
+          {%- when 'product_chip' -%}
+            {%- assign product = block.settings.product -%}
+            <a href="{{ product.url | default: '#' }}" class="luma-scroll-stopper__chip" {{ block.shopify_attributes }}>
+              <div class="luma-scroll-stopper__chip-image-wrapper">
+                {%- if product != blank and product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 120
+                    | image_tag: class: 'luma-scroll-stopper__chip-image', loading: 'lazy'
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'luma-scroll-stopper__chip-image' }}
+                {%- endif -%}
+              </div>
+              <div class="luma-scroll-stopper__chip-text-group">
+                <span class="luma-scroll-stopper__chip-eyebrow">
+                  {{- block.settings.eyebrow_text | default: 'Shop The Texture' -}}
+                </span>
+                <span class="luma-scroll-stopper__chip-title">
+                  {%- if product != blank -%}
+                    {{ product.title }}
+                  {%- else -%}
+                    Select a Product
+                  {%- endif -%}
+                </span>
+              </div>
+            </a>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- if section.settings.floating_badge_text != blank -%}
+    <div class="luma-scroll-stopper__badge">
+      <i class="ph-fill ph-drop" style="color: #D4A340; font-size: 18px;"></i>
+      {{ section.settings.floating_badge_text }}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Luma Scroll-Stopper",
+  "tag": "section",
+  "class": "section luma-section-scroll-stopper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "Enable Parallax Effect",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "floating_badge_text",
+      "label": "Floating Badge Text (Desktop)",
+      "default": "Liquid-Crystal Delivery System"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 128
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 128
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stars",
+      "name": "Star Rating",
+      "limit": 1
+    },
+    {
+      "type": "quote",
+      "name": "Quote",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonial Text",
+          "default": "\"Most heavy clinical creams sit on the surface like grease. This liquid-crystal gel melted in instantly. My compromised barrier was rebuilt in two weeks.\""
+        }
+      ]
+    },
+    {
+      "type": "author",
+      "name": "Author",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Author Name",
+          "default": "Sarah M., Verified Buyer"
+        }
+      ]
+    },
+    {
+      "type": "product_chip",
+      "name": "Product Chip",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow_text",
+          "label": "Eyebrow Text",
+          "default": "Shop The Texture"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Scroll-Stopper",
+      "blocks": [{ "type": "stars" }, { "type": "quote" }, { "type": "author" }, { "type": "product_chip" }]
+    }
+  ]
+}
+{% endschema %}

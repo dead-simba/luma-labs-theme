@@ -963,6 +963,46 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "luma_scroll_stopper_NEW": {
+      "type": "luma-scroll-stopper",
+      "blocks": {
+        "stars_1": {
+          "type": "stars"
+        },
+        "quote_1": {
+          "type": "quote",
+          "settings": {
+            "text": "\"Most heavy clinical creams sit on the surface like grease. This liquid-crystal gel melted in instantly. My compromised barrier was rebuilt in two weeks.\""
+          }
+        },
+        "author_1": {
+          "type": "author",
+          "settings": {
+            "name": "Sarah M., Verified Buyer"
+          }
+        },
+        "product_chip_1": {
+          "type": "product_chip",
+          "settings": {
+            "product": "barrier-renew-moisturizer",
+            "eyebrow_text": "Shop The Texture"
+          }
+        }
+      },
+      "block_order": [
+        "stars_1",
+        "quote_1",
+        "author_1",
+        "product_chip_1"
+      ],
+      "settings": {
+        "parallax": true,
+        "overlay_opacity": 40,
+        "floating_badge_text": "Liquid-Crystal Delivery System",
+        "padding_top": 128,
+        "padding_bottom": 128
+      }
     }
   },
   "order": [
@@ -970,6 +1010,7 @@
     "marquee_QkgDJU",
     "luma_collection_6qMAFE",
     "collection_list_BXKL36",
+    "luma_scroll_stopper_NEW",
     "custom_liquid_pMxFAJ",
     "product_list_fa6P9H",
     "section_pYTFy3"
