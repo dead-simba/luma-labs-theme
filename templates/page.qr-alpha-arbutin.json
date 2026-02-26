@@ -27,7 +27,7 @@
         "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
         "vip_button_label": "Review & Unlock",
         "vip_button_link": "/pages/luma-vip-review?product=2%25+Alpha+Arbutin",
-        "vip_bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)"
+        "vip_bg_gradient": "linear-gradient(135deg, rgba(248, 245, 224, 1), rgba(255, 205, 136, 1) 100%)"
       }
     },
     "secrets": {
