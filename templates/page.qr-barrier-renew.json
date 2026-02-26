@@ -11,7 +11,9 @@
   "sections": {
     "header": {
       "type": "qr-app-header",
-      "settings": {}
+      "settings": {
+        "logo_image": "shopify://shop_images/Main_Logo_-_Horizontal_f5e74301-ff58-44ea-9b0b-317e58eb7010.png"
+      }
     },
     "hero": {
       "type": "qr-auth-hero",
@@ -113,7 +115,7 @@
         "wa_button_label": "Text the Lab",
         "cross_heading": "Clinical Pairings",
         "cross_body": "Barrier Renew is the ultimate hydration seal. To actively fade stubborn dark spots, layer it directly over our 5-pathway brightening complex.",
-        "cross_product": "",
+        "cross_product": "glutathione-vitamin-c-serum",
         "vip_heading": "Unlock Your Next Formula",
         "vip_body": "As a verified owner, your clinical feedback shapes our lab. Tell us how Barrier Renew feels, and we'll immediately grant you 15% off...",
         "vip_btn_label": "Review & Unlock 15% Off",
