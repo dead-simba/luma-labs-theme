@@ -8,40 +8,47 @@
     justify-content: center;
     border-bottom: 1px solid #E5E5E5;
     overflow: hidden;
+    background: {{ section.settings.bg_gradient | default: 'linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)' }};
   }
   @media (min-width: 768px) {
     .luma-empathy-hero { padding: 8rem 1.5rem; }
   }
-  .luma-empathy-hero--gradient {
-    background: {{ section.settings.bg_gradient | default: 'linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)' }};
+
+  /* Full-strength background image — rendered as a positioned <img> */
+  .luma-empathy-hero__bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    opacity: {{ section.settings.bg_image_opacity | default: 0.85 }};
+    display: block;
   }
+
+  /* Gradient tint layered on top of the image for text legibility */
+  .luma-empathy-hero__tint {
+    position: absolute;
+    inset: 0;
+    background: {{ section.settings.bg_gradient | default: 'linear-gradient(135deg, rgba(224,237,248,0.55) 0%, rgba(230,222,242,0.55) 100%)' }};
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Subtle texture layer */
   .luma-empathy-hero__texture {
     position: absolute;
     inset: 0;
     background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-    opacity: 0.05;
-    mix-blend-mode: overlay;
+    opacity: 0.04;
+    z-index: 2;
     pointer-events: none;
-    z-index: 1;
   }
 
-  {% if section.settings.bg_image != blank %}
-  .luma-empathy-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('{{ section.settings.bg_image | image_url: width: 2400 }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    mix-blend-mode: overlay;
-    opacity: {{ section.settings.bg_image_opacity | default: 0.5 }};
-    z-index: 0;
-  }
-  {% endif %}
   .luma-empathy-hero__content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     text-align: center;
     max-width: 56rem;
     margin: 0 auto;
@@ -60,7 +67,8 @@
     border-radius: 9999px;
     margin-bottom: 1.5rem;
     backdrop-filter: blur(4px);
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.4);
+    font-family: 'Inter', sans-serif;
   }
   .luma-empathy-hero__heading {
     font-family: 'Playfair Display', serif;
@@ -106,14 +114,24 @@
   }
 {% endstyle %}
 
-<section class="luma-empathy-hero luma-empathy-hero--gradient">
+<section class="luma-empathy-hero">
+  {% if section.settings.bg_image != blank %}
+    {{
+      section.settings.bg_image
+      | image_url: width: 2400
+      | image_tag: class: 'luma-empathy-hero__bg-img', loading: 'eager', fetchpriority: 'high'
+    }}
+  {% endif %}
+
+  <div class="luma-empathy-hero__tint"></div>
   <div class="luma-empathy-hero__texture"></div>
+
   <div class="luma-empathy-hero__content">
     {% if section.settings.badge_text != blank %}
       <span class="luma-empathy-hero__badge">
         {% if section.settings.badge_icon != blank %}
           <i
-            class="ph-fill {{ section.settings.badge_icon }} text-blue-800"
+            class="ph-fill {{ section.settings.badge_icon }}"
             style="color: {{ section.settings.badge_icon_color }};"
           ></i>
         {% endif %}
@@ -143,24 +161,34 @@
   "name": "Collection Empathy Hero",
   "settings": [
     {
-      "type": "text",
-      "id": "bg_gradient",
-      "label": "Background Gradient",
-      "default": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
+      "type": "header",
+      "content": "Background"
     },
     {
       "type": "image_picker",
       "id": "bg_image",
-      "label": "Background Image Overlay"
+      "label": "Background Image"
     },
     {
       "type": "range",
       "id": "bg_image_opacity",
-      "label": "Image Overlay Opacity",
+      "label": "Image Opacity",
       "min": 0,
       "max": 1,
-      "step": 0.1,
-      "default": 0.5
+      "step": 0.05,
+      "default": 0.85,
+      "info": "1 = fully visible, 0 = invisible"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_gradient",
+      "label": "Gradient Tint Overlay",
+      "default": "linear-gradient(135deg, rgba(224,237,248,0.55) 0%, rgba(230,222,242,0.55) 100%)",
+      "info": "Applied on top of the image. Use transparency (rgba) to let the image show through."
+    },
+    {
+      "type": "header",
+      "content": "Badge"
     },
     {
       "type": "text",
@@ -181,6 +209,10 @@
       "default": "#1e40af"
     },
     {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "html",
       "id": "heading",
       "label": "Heading",
@@ -191,6 +223,10 @@
       "id": "description",
       "label": "Description",
       "default": "Formulated specifically for compromised, sensitive, or deeply dehydrated skin requiring structural reconstruction."
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
     },
     {
       "type": "text",
