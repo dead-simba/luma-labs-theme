@@ -806,10 +806,10 @@
         "padding-block-end": 48
       }
     },
-    "1772102976535d161e": {
+    "1772103083ff2dd1a0": {
       "type": "_blocks",
       "blocks": {
-        "judge_me_reviews_review_widget_H4q9hm": {
+        "judge_me_reviews_review_widget_3PWE4Y": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
@@ -820,7 +820,7 @@
         }
       },
       "block_order": [
-        "judge_me_reviews_review_widget_H4q9hm"
+        "judge_me_reviews_review_widget_3PWE4Y"
       ],
       "settings": {
         "content_direction": "column",
@@ -859,6 +859,6 @@
     "luma_faq_section_qPFBYx",
     "luma_testimonials_CPLmwH",
     "product_recommendations_qggXJq",
-    "1772102976535d161e"
+    "1772103083ff2dd1a0"
   ]
 }
