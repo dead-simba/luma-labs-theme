@@ -1,5 +1,11 @@
 {%- liquid
-  assign block_count = section.blocks.size
+  assign block_count = 0
+  for block in section.blocks
+    if block.type == 'product'
+      assign block_count = block_count | plus: 1
+    endif
+  endfor
+
   assign grid_class = 'luma-collection__grid--3'
   if block_count == 2
     assign grid_class = 'luma-collection__grid--2'
@@ -24,61 +30,13 @@
     margin: 0 auto;
   }
 
+  /* Header (for native blocks) */
   .luma-collection__header {
-    text-align: center;
     margin-bottom: 64px;
-  }
-
-  .luma-collection__eyebrow {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 12px;
-    font-weight: 700;
-    color: #d4a340; /* Luma Gold */
-    margin-bottom: 20px;
-  }
-
-  .luma-collection__title {
-    font-family: var(--font-heading--family), serif;
-    font-size: 36px;
-    color: #1a1a1a;
-    margin: 0 0 24px;
-    line-height: 1.2;
-  }
-  @media (min-width: 768px) {
-    .luma-collection__title {
-      font-size: 56px;
-    }
-  }
-
-  .luma-collection__title .italic {
-    font-style: italic;
-  }
-
-  .luma-collection__title .text-gradient-gold {
-    background: linear-gradient(to right, #d4a340, #b8860b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .luma-collection__description {
-    font-family: var(--font-body--family), sans-serif;
-    color: #4a4a4a;
-    max-width: 768px;
-    margin: 0 auto;
-    font-size: 16px;
-    line-height: 1.6;
-    font-weight: 300;
-  }
-  @media (min-width: 768px) {
-    .luma-collection__description {
-      font-size: 18px;
-    }
+    text-align: center;
   }
 
   /* Grid Layout */
@@ -104,13 +62,14 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border-radius: 32px;
+    border-radius: var(--card-radius, 32px);
     overflow: hidden;
     height: 500px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.6);
     text-decoration: none;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background: #f5f5f5;
   }
   @media (min-width: 768px) {
     .luma-card {
@@ -122,18 +81,24 @@
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
-  /* Gradients */
-  .luma-card--barrier {
-    background: linear-gradient(135deg, #e0edf8 0%, #e6def2 100%);
+  /* Image Area */
+  .luma-card__image-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
   }
-  .luma-card--brightening {
-    background: linear-gradient(135deg, #fdf0c8 0%, #f9c3b1 100%);
+  .luma-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
   }
-  .luma-card--sunscreen {
-    background: linear-gradient(135deg, #fef7e6 0%, #f0f4f8 100%);
-  }
-  .luma-card--none {
-    background: #f5f5f5;
+  .luma-card:hover .luma-card__image {
+    transform: scale(1.05);
   }
 
   /* Texture Overlay */
@@ -144,31 +109,28 @@
     opacity: 0.1;
     mix-blend-mode: overlay;
     pointer-events: none;
+    z-index: 3;
   }
 
-  /* Image Area */
-  .luma-card__image-wrapper {
+  /* Gradient Overlay */
+  .luma-card__overlay {
     position: absolute;
-    right: 0;
-    top: 10%;
-    width: 100%;
-    height: 85%;
-    border-top-left-radius: 50%;
-    overflow: hidden;
-    transition: transform 0.7s ease;
-  }
-  .luma-card:hover .luma-card__image-wrapper {
-    transform: scale(1.05);
-  }
-  .luma-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .luma-card__image--blend {
-    opacity: 0.4;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
     mix-blend-mode: multiply;
+  }
+  .luma-card__overlay--barrier {
+    background: linear-gradient(135deg, #e0edf8 0%, #e6def2 100%);
+  }
+  .luma-card__overlay--brightening {
+    background: linear-gradient(135deg, #fdf0c8 0%, #f9c3b1 100%);
+  }
+  .luma-card__overlay--sunscreen {
+    background: linear-gradient(135deg, #fef7e6 0%, #f0f4f8 100%);
+  }
+  .luma-card__overlay--none {
+    background: transparent;
   }
 
   /* Content Overlay */
@@ -202,19 +164,19 @@
     border-radius: 9999px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   }
-  .luma-card--barrier .luma-card__badge {
+  .luma-card__overlay--barrier ~ .luma-card__content .luma-card__badge {
     color: #1e3a8a;
   } /* blue-900 */
-  .luma-card--brightening .luma-card__badge {
+  .luma-card__overlay--brightening ~ .luma-card__content .luma-card__badge {
     color: #7c2d12;
   } /* orange-900 */
-  .luma-card--sunscreen .luma-card__badge {
+  .luma-card__overlay--sunscreen ~ .luma-card__content .luma-card__badge {
     color: #713f12;
   } /* yellow-900 */
 
   /* Info Box */
   .luma-card__info {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 24px;
@@ -276,38 +238,28 @@
   }
 </style>
 
-<div class="luma-collection" id="luma-collection-{{ section.id }}">
+<div
+  class="luma-collection"
+  id="luma-collection-{{ section.id }}"
+  style="--card-radius: {{ section.settings.card_radius }}px;"
+>
   <div class="luma-collection__inner">
-    <div class="luma-collection__header">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'header' -%}
-          {%- if block.settings.eyebrow != blank -%}
-            <span class="luma-collection__eyebrow">
-              {%- if block.settings.icon_preset != blank -%}
-                <i class="ph-fill {{ block.settings.icon_preset }}"></i>
-              {%- endif -%}
-              {{ block.settings.eyebrow }}
-            </span>
-          {%- endif -%}
+    {%- assign has_header_blocks = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type != 'product' -%}
+        {%- assign has_header_blocks = true -%}
+      {%- endif -%}
+    {%- endfor -%}
 
-          {%- if block.settings.title != blank -%}
-            <h2 class="luma-collection__title">
-              {{
-                block.settings.title
-                | replace: '[', '<span class="italic text-gradient-gold">'
-                | replace: ']', '</span>'
-              }}
-            </h2>
+    {%- if has_header_blocks -%}
+      <div class="luma-collection__header">
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'product' -%}
+            {% render block %}
           {%- endif -%}
-
-          {%- if block.settings.description != blank -%}
-            <div class="luma-collection__description">
-              {{ block.settings.description }}
-            </div>
-          {%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
 
     <div class="luma-collection__grid {{ grid_class }}">
       {%- for block in section.blocks -%}
@@ -316,6 +268,7 @@
             assign product = block.settings.product
             assign bg_image = block.settings.background_image | default: product.featured_image
             assign gradient_preset = block.settings.gradient_preset
+            assign overlay_opacity = block.settings.overlay_opacity | divided_by: 100.0
             assign badge_text = block.settings.badge_text
           -%}
 
@@ -324,8 +277,6 @@
             class="luma-card luma-card--{{ gradient_preset }}"
             {{ block.shopify_attributes }}
           >
-            <div class="luma-card__texture"></div>
-
             {%- if bg_image != blank -%}
               <div class="luma-card__image-wrapper">
                 {{
@@ -335,6 +286,12 @@
                 }}
               </div>
             {%- endif -%}
+
+            <div
+              class="luma-card__overlay luma-card__overlay--{{ gradient_preset }}"
+              style="opacity: {{ overlay_opacity }};"
+            ></div>
+            <div class="luma-card__texture"></div>
 
             <div class="luma-card__content">
               <div class="luma-card__badge-wrapper">
@@ -372,69 +329,32 @@
   </div>
 </div>
 
-<script>
-  // Add mix-blend-mode to image if it's nested in a gradient card.
-  // It handles the class application via JS if needed, but native CSS handles it better above.
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.luma-card');
-    cards.forEach((card) => {
-      const gradientClass = Array.from(card.classList).find(
-        (c) => c.startsWith('luma-card--') && c !== 'luma-card--none'
-      );
-      if (gradientClass) {
-        const img = card.querySelector('.luma-card__image');
-        if (img) {
-          img.classList.add('luma-card__image--blend');
-        }
-      }
-    });
-  });
-</script>
-
 {% schema %}
 {
   "name": "Luma Collection",
   "class": "luma-collection-section",
-  "max_blocks": 5,
   "settings": [
     {
       "type": "header",
       "content": "Section Layout"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Card Corner Radius",
+      "default": 32
     }
   ],
   "blocks": [
     {
-      "type": "header",
-      "name": "Section Header",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "eyebrow",
-          "label": "Eyebrow Text",
-          "default": "Clinically Validated Actives"
-        },
-        {
-          "type": "text",
-          "id": "icon_preset",
-          "label": "Icon (Phosphor Class)",
-          "default": "ph-drop",
-          "info": "Example: ph-drop, ph-flask"
-        },
-        {
-          "type": "textarea",
-          "id": "title",
-          "label": "Title",
-          "default": "The [Luma] Collection",
-          "info": "Use [brackets] for italic gold text."
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Engineered to work synergistically with your skin's natural biological pathways."
-        }
-      ]
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
     },
     {
       "type": "product",
@@ -454,7 +374,7 @@
         {
           "type": "select",
           "id": "gradient_preset",
-          "label": "Gradient / Overlay Style",
+          "label": "Gradient Overlay Style",
           "options": [
             { "value": "none", "label": "None (Image Only)" },
             { "value": "barrier", "label": "Barrier (Blue/Purple)" },
@@ -462,6 +382,16 @@
             { "value": "sunscreen", "label": "Sunscreen (Yellow/White)" }
           ],
           "default": "none"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Gradient Overlay Opacity",
+          "default": 80
         },
         {
           "type": "text",
@@ -496,18 +426,21 @@
     {
       "name": "Luma Collection",
       "blocks": [
-        { "type": "header" },
         {
           "type": "product",
-          "settings": { "gradient_preset": "barrier", "badge_text": "Triple Ceramides + Peptides" }
+          "settings": {
+            "gradient_preset": "barrier",
+            "badge_text": "Triple Ceramides + Peptides",
+            "overlay_opacity": 80
+          }
         },
         {
           "type": "product",
-          "settings": { "gradient_preset": "brightening", "badge_text": "5-Pathway Brightening" }
+          "settings": { "gradient_preset": "brightening", "badge_text": "5-Pathway Brightening", "overlay_opacity": 80 }
         },
         {
           "type": "product",
-          "settings": { "gradient_preset": "sunscreen", "badge_text": "Broad-Spectrum Hydrogel" }
+          "settings": { "gradient_preset": "sunscreen", "badge_text": "Broad-Spectrum Hydrogel", "overlay_opacity": 80 }
         }
       ]
     }
