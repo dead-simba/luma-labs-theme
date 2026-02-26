@@ -162,7 +162,8 @@
                 placeholder="Full Name"
                 required
                 autocomplete="name"
-                class="w-full bg-white/5 border border-white/10 px-5 py-3.5 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition"
+                class="w-full !bg-white/5 !border-white/10 px-5 py-3.5 rounded-xl text-sm !text-white !placeholder-white/40 focus:outline-none focus:!border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition"
+                style="background-color: rgba(255,255,255,0.05) !important; color: white !important;"
               >
             </div>
             <div>
@@ -173,17 +174,20 @@
                 placeholder="Email Address"
                 required
                 autocomplete="email"
-                class="w-full bg-white/5 border border-white/10 px-5 py-3.5 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition shadow-inner"
+                class="w-full !bg-white/5 !border-white/10 px-5 py-3.5 rounded-xl text-sm !text-white !placeholder-white/40 focus:outline-none focus:!border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition shadow-inner"
+                style="background-color: rgba(255,255,255,0.05) !important; color: white !important;"
               >
             </div>
             <div>
+              <input type="hidden" name="contact[Reviewed_Formula]" id="DynamicProductInput" value="General Product">
               <textarea
                 name="contact[body]"
                 id="ContactFormMessage"
-                placeholder="How has Barrier Renew transformed your skin?"
+                placeholder="How has this formula transformed your skin?"
                 required
                 rows="5"
-                class="w-full bg-white/5 border border-white/10 px-5 py-3.5 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition resize-none shadow-inner"
+                class="w-full !bg-white/5 !border-white/10 px-5 py-3.5 rounded-xl text-sm !text-white !placeholder-white/40 focus:outline-none focus:!border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition resize-none shadow-inner"
+                style="background-color: rgba(255,255,255,0.05) !important; color: white !important;"
               ></textarea>
             </div>
           </div>
