@@ -577,6 +577,58 @@
         "padding_bottom": 128
       }
     },
+    "luma_science_pillars_C3RyAH": {
+      "type": "luma-science-pillars",
+      "blocks": {
+        "pillar_Rj3K97": {
+          "type": "pillar",
+          "settings": {
+            "icon": "dna",
+            "color_theme": "barrier",
+            "title": "Corneotherapy & Liquid Crystals",
+            "text": "Our moisturizers utilize a 3:1:1 golden ratio of Ceramides, Cholesterol, and Phytosphingosine. Suspended in a biomimetic Olivem 1000 emulsion, this complex physically mirrors the skin's intercellular lipid layers for instant integration.",
+            "button_label": "Explore Barrier Formulations",
+            "button_link": ""
+          }
+        },
+        "pillar_HTHGWa": {
+          "type": "pillar",
+          "settings": {
+            "icon": "target",
+            "color_theme": "brightening",
+            "title": "5-Pathway Melanin Inhibition",
+            "text": "We don't just bleach the surface. Our clinical serums block pigmentation at every stage: enzyme inhibition (Alpha Arbutin), signal interruption (TXA), melanosome transfer blocking (Niacinamide), and oxidative defense (Vitamin C).",
+            "button_label": "Explore Brightening Formulas",
+            "button_link": ""
+          }
+        },
+        "pillar_gDPYQD": {
+          "type": "pillar",
+          "settings": {
+            "icon": "shield-check",
+            "color_theme": "sunscreen",
+            "title": "6-Filter Exposome Shield",
+            "text": "Moving beyond simple UV blocks, we utilize a cross-patent system of 6 organic filters (including Mexoryl SX and Tinosorb M) paired with Capsicum Annuum extract to defend against UV, HEV blue light, and oxidative stress.",
+            "button_label": "Explore Suncare Formulas",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "pillar_Rj3K97",
+        "pillar_HTHGWa",
+        "pillar_gDPYQD"
+      ],
+      "name": "Luma Science Pillars",
+      "settings": {
+        "background_color": "#fafafa",
+        "eyebrow": "Inside The Lab",
+        "heading": "The Science of Biomimicry",
+        "description": "We formulate with physiological actives that seamlessly mirror your skin's own lipid architecture and biological signaling pathways. No aggressive resurfacing—just total structural reconstruction.",
+        "padding_top": 128,
+        "padding_bottom": 128
+      }
+    },
     "custom_liquid_pMxFAJ": {
       "type": "custom-liquid",
       "name": "t:names.custom_liquid",
@@ -1013,7 +1065,7 @@
     "luma_collection_6qMAFE",
     "collection_list_BXKL36",
     "luma_scroll_stopper_NEW",
-    "luma_science_pillars_NEW",
+    "luma_science_pillars_C3RyAH",
     "custom_liquid_pMxFAJ",
     "product_list_fa6P9H",
     "section_pYTFy3"
