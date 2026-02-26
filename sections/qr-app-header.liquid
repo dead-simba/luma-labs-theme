@@ -4,17 +4,32 @@
     class="font-serif text-xl font-medium tracking-tight"
     style="color: #1A1A1A; text-decoration: none; display: flex; align-items: center; gap: 6px;"
   >
-    <i class="ph-fill ph-sparkle" style="color: #D4A340; font-size: 1.125rem;"></i>
-    Luma<span style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.875rem; margin-top: 2px;"
-      >Labs</span
-    >
+    {%- if section.settings.logo_image != blank -%}
+      {{
+        section.settings.logo_image
+        | image_url: width: 300
+        | image_tag: style: 'height: 32px; width: auto; object-fit: contain;', alt: shop.name
+      }}
+    {%- else -%}
+      <i class="ph-fill ph-sparkle" style="color: #D4A340; font-size: 1.125rem;"></i>
+      Luma<span style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.875rem; margin-top: 2px;"
+        >Labs</span
+      >
+    {%- endif -%}
   </a>
 </header>
 
 {% schema %}
 {
   "name": "QR App Header",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Custom Logo Image",
+      "info": "Upload your original brand logo here to override the text."
+    }
+  ],
   "presets": [
     {
       "name": "QR App Header"
