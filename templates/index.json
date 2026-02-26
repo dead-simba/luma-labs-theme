@@ -228,59 +228,135 @@
         "gap_between_elements": 64
       }
     },
-    "luma_collection_qJ4QcA": {
+    "luma_collection_6qMAFE": {
       "type": "luma-collection",
       "blocks": {
-        "product_3hhJCb": {
-          "type": "product",
+        "luma_pill_GpwQkF": {
+          "type": "luma-pill",
           "settings": {
-            "product": "",
+            "text": "Clinically Validated Actives",
+            "icon_preset": "ph-sparkle",
+            "icon": "",
+            "style": "none",
+            "alignment": "center",
+            "alignment_mobile": "center",
+            "bg_color": "#E0EDF8",
+            "border_color": "#c5a065",
+            "text_color": "#c5a065",
+            "font_size": 12,
+            "font_size_mobile": 11,
+            "bold": true,
+            "uppercase": true,
+            "padding_y": 8,
+            "padding_x": 16
+          },
+          "blocks": {}
+        },
+        "luma_heading_9i7DtT": {
+          "type": "luma-heading",
+          "name": "Luma Heading",
+          "settings": {
+            "title": "The [Luma] Collection",
+            "tag": "h2",
+            "font_family": "serif",
+            "color": "#2C2C2C",
+            "alignment": "center",
+            "alignment_mobile": "center",
+            "font_size": 48,
+            "font_size_mobile": 36,
+            "line_height": "1.1",
+            "max_width": 1200
+          },
+          "blocks": {}
+        },
+        "text_HYgJxP": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Engineered to work synergistically with your skin's natural biological pathways. Each formula is built with optimal concentrations of proven actives to reconstruct, protect, and perfect your barrier.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "luma_collection_card_Yhawbn": {
+          "type": "luma-collection-card",
+          "settings": {
+            "product": "ceramide-hyaluronic-water-gel",
+            "card_link": "",
             "background_image": "shopify://shop_images/Barrier_Renew_Moisturizer.webp",
-            "gradient_preset": "barrier",
-            "overlay_opacity": 100,
-            "badge_text": "Triple Ceramides + Peptides",
+            "gradient_preset": "none",
+            "overlay_opacity": 30,
+            "info_opacity": 50,
+            "badge_text": "Key Benefit",
             "custom_title": "",
             "custom_description": "",
             "cta_text": "Explore Formulation"
-          }
+          },
+          "blocks": {}
         },
-        "product_BP8863": {
-          "type": "product",
+        "luma_collection_card_VDGiza": {
+          "type": "luma-collection-card",
+          "settings": {
+            "product": "glutathione-vitamin-c-serum",
+            "card_link": "",
+            "background_image": "shopify://shop_images/2_Alpha_Arbutin.webp",
+            "gradient_preset": "none",
+            "overlay_opacity": 80,
+            "info_opacity": 50,
+            "badge_text": "Key Benefit",
+            "custom_title": "",
+            "custom_description": "",
+            "cta_text": "Explore Formulation"
+          },
+          "blocks": {}
+        },
+        "luma_collection_card_zCGGkK": {
+          "type": "luma-collection-card",
           "settings": {
             "product": "",
-            "gradient_preset": "brightening",
+            "card_link": "",
+            "background_image": "shopify://shop_images/Matte_UV.webp",
+            "gradient_preset": "none",
             "overlay_opacity": 80,
-            "badge_text": "5-Pathway Brightening",
+            "info_opacity": 50,
+            "badge_text": "Key Benefit",
             "custom_title": "",
             "custom_description": "",
             "cta_text": "Explore Formulation"
-          }
-        },
-        "product_PCrJEn": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "gradient_preset": "sunscreen",
-            "overlay_opacity": 80,
-            "badge_text": "Broad-Spectrum Hydrogel",
-            "custom_title": "",
-            "custom_description": "",
-            "cta_text": "Explore Formulation"
-          }
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "product_3hhJCb",
-        "product_BP8863",
-        "product_PCrJEn"
+        "luma_pill_GpwQkF",
+        "luma_heading_9i7DtT",
+        "text_HYgJxP",
+        "luma_collection_card_Yhawbn",
+        "luma_collection_card_VDGiza",
+        "luma_collection_card_zCGGkK"
       ],
-      "name": "Luma Collection",
+      "name": "Luma Collection Grid",
       "settings": {
-        "card_radius": 16,
-        "eyebrow": "Clinically Validated Actives",
-        "icon_preset": "ph-drop",
-        "title": "The [Luma] Collection",
-        "description": "Engineered to work synergistically with your skin's natural biological pathways."
+        "card_radius": 32,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "collection_list_BXKL36": {
@@ -884,7 +960,7 @@
   "order": [
     "hero_jVaWmY",
     "marquee_QkgDJU",
-    "luma_collection_qJ4QcA",
+    "luma_collection_6qMAFE",
     "collection_list_BXKL36",
     "custom_liquid_pMxFAJ",
     "product_list_fa6P9H",
