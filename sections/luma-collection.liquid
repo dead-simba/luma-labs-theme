@@ -3,8 +3,6 @@
   Acts as a container for `@theme` blocks (like luma-pill, headings) and `luma-collection-card` blocks.
 {%- endcomment -%}
 
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -25,9 +23,11 @@
 
   /* Core Layout */
   .luma-collection__blocks {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 24px;
+    row-gap: 16px;
     max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 16px;
@@ -35,31 +35,36 @@
 
   @media screen and (min-width: 750px) {
     .luma-collection__blocks {
-      gap: 32px;
+      column-gap: 32px;
       padding: 0 50px;
     }
   }
 
-  @media (min-width: 1024px) {
-    .luma-collection__blocks {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  /* Hide raw style and script tags aggressively */
+  .luma-collection__blocks > style,
+  .luma-collection__blocks > script {
+    display: none !important;
   }
 
   /* Any block that isn't a custom card spans full width for headers */
-  .luma-collection__blocks > * {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+  .luma-collection__blocks > *:not(.luma-card-container):not(style):not(script) {
+    width: 100%;
+    /* We DO NOT force flex or center alignment here so native blocks respect their own settings */
   }
 
   /* Keep the cards in the track */
   .luma-collection__blocks > .luma-card-container,
   .luma-collection__blocks > *:has(.luma-card-container) {
-    grid-column: auto;
-    display: block; /* reset flex from above */
-    text-align: left; /* reset text align */
+    display: block;
+    width: 100%;
+    margin-top: 16px; /* Separation from header */
+  }
+
+  @media (min-width: 1024px) {
+    .luma-collection__blocks > .luma-card-container,
+    .luma-collection__blocks > *:has(.luma-card-container) {
+      width: calc((100% - 64px) / 3);
+    }
   }
 
   /* Luma Card Styles */
