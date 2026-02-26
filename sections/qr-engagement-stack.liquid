@@ -1,0 +1,252 @@
+<div style="background-color: #FAFAFA; padding-bottom: 2rem;">
+  <!-- SECTION 3.5: The Progress Check-in (Email Capture Form) -->
+  <section class="px-6 py-4 mt-2">
+    <div
+      class="bg-[#1A1A1A] rounded-3xl p-6 relative overflow-hidden shadow-lg border border-[#1A1A1A]"
+      {{ section.shopify_attributes }}
+    >
+      <!-- Subtle BG elements -->
+      <div
+        class="absolute top-0 right-[-10%] w-32 h-32 bg-[#E6F0F9] rounded-full mix-blend-overlay filter blur-[40px] opacity-40"
+      ></div>
+
+      <div class="relative z-10 text-white">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-serif text-xl">{{ section.settings.email_heading }}</h2>
+          <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+            <i class="ph-fill ph-calendar-check text-[#D4A340] text-xl"></i>
+          </div>
+        </div>
+        <p class="font-sans text-xs text-white/70 mb-5 leading-relaxed font-light">
+          {{ section.settings.email_body }}
+        </p>
+
+        {% form 'customer', class: 'flex flex-col gap-3' %}
+          {{ form.errors | default_errors }}
+
+          {%- if form.posted_successfully? -%}
+            <p class="text-sm text-green-400 mb-2 font-bold text-center bg-green-900/40 py-2 rounded-xl">
+              Opt-in Confirmed! We'll be in touch.
+            </p>
+          {%- else -%}
+            <input type="hidden" name="contact[tags]" value="newsletter, QR Scan Opt-in">
+            <input
+              type="email"
+              name="contact[email]"
+              id="Email"
+              placeholder="Enter your email address"
+              required
+              class="w-full bg-white/10 border border-white/20 px-4 py-3 rounded-xl text-sm text-white placeholder-white/50 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition shadow-inner"
+            >
+            <button
+              type="submit"
+              class="w-full bg-[#D4A340] text-white font-sans font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl hover:bg-white hover:text-[#1A1A1A] transition shadow-md"
+            >
+              {{ section.settings.email_button_label }}
+            </button>
+            <p class="text-[9px] text-white/40 text-center mt-3 uppercase tracking-widest font-semibold">
+              No spam. Just skincare science.
+            </p>
+          {%- endif -%}
+        {% endform %}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: The Embrace (Skin Concierge) -->
+  <section class="px-6 py-4 mt-2">
+    <div class="bg-gradient-to-br from-green-50 to-white border border-green-100 rounded-3xl p-6 relative overflow-hidden shadow-sm">
+      <div class="absolute right-[-5%] bottom-[-10%] opacity-10 text-green-600">
+        <i class="ph-fill ph-whatsapp-logo text-[8rem]"></i>
+      </div>
+
+      <h2 class="font-serif text-xl text-[#1A1A1A] mb-2 relative z-10">{{ section.settings.wa_heading }}</h2>
+      <p class="text-xs text-[#1A1A1A]/70 mb-5 max-w-[250px] relative z-10 leading-relaxed">
+        {{ section.settings.wa_body }}
+      </p>
+
+      <a
+        href="{{ section.settings.wa_link }}"
+        target="_blank"
+        class="inline-flex items-center gap-2 bg-green-500 text-white font-sans font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-full hover:bg-green-600 transition shadow-md relative z-10"
+      >
+        <i class="ph-bold ph-chat-circle-dots text-base"></i> {{ section.settings.wa_button_label }}
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION 4.5: The Cross-Sell -->
+  <section class="px-6 py-4 mt-2">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-serif text-xl text-[#1A1A1A]">{{ section.settings.cross_heading }}</h2>
+      <span class="text-[9px] uppercase tracking-widest font-bold text-orange-700 bg-orange-50 px-2 py-1 rounded"
+        >Synergy</span
+      >
+    </div>
+    <p class="font-sans text-xs text-[#1A1A1A]/70 mb-5 leading-relaxed">{{ section.settings.cross_body }}</p>
+
+    {%- assign product = section.settings.cross_product -%}
+    {%- if product != blank -%}
+      <a
+        href="{{ product.url }}"
+        class="block border border-[#E5E5E5] rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition relative overflow-hidden group"
+      >
+        <div
+          class="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-orange-50 rounded-bl-full opacity-40 group-hover:scale-110 transition-transform duration-500"
+        ></div>
+
+        <div class="flex gap-4 items-center relative z-10">
+          <div class="w-20 h-20 shrink-0 rounded-xl overflow-hidden bg-[#FAFAFA] border border-white shadow-sm">
+            {{ product.featured_image | image_url: width: 200 | image_tag: class: 'w-full h-full object-cover' }}
+          </div>
+          <div class="flex-grow">
+            <h4 class="font-serif text-base text-[#1A1A1A] leading-tight mb-1">{{ product.title }}</h4>
+            <p class="text-[10px] text-[#1A1A1A]/60 mb-2 truncate">{{ product.vendor }}</p>
+
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-serif font-medium text-sm text-[#1A1A1A]">{{ product.price | money }}</span>
+              <span class="bg-[#1A1A1A] text-white text-[10px] font-bold px-4 py-2 rounded-full group-hover:bg-[#D4A340] transition flex items-center gap-1">
+                Add <i class="ph-bold ph-plus"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    {%- endif -%}
+  </section>
+
+  <!-- SECTION 5: The VIP Reward -->
+  <section class="px-6 py-8 border-t border-[#E5E5E5] mt-6">
+    <div class="text-center bg-gradient-to-br from-[#E0EDF8] to-[#E6DEF2] rounded-3xl p-8 border border-white shadow-sm relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none"
+      ></div>
+
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-[#D4A340] mb-4 shadow-sm relative z-10">
+        <i class="ph-fill ph-crown text-2xl"></i>
+      </div>
+      <h2 class="font-serif text-2xl text-[#1A1A1A] mb-2 relative z-10">{{ section.settings.vip_heading }}</h2>
+      <p class="font-sans text-xs text-[#1A1A1A]/70 leading-relaxed mb-6 relative z-10">
+        {{ section.settings.vip_body }}
+      </p>
+
+      <a
+        href="{{ section.settings.vip_link }}"
+        class="block w-full bg-white text-[#1A1A1A] font-sans font-bold text-sm py-4 rounded-xl hover:bg-[#1A1A1A] hover:text-white transition duration-300 shadow-md relative z-10 border border-[#E5E5E5]"
+      >
+        {{ section.settings.vip_btn_label }}
+      </a>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "QR Engagement Stack",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Email Capture Module"
+    },
+    {
+      "type": "text",
+      "id": "email_heading",
+      "label": "Heading",
+      "default": "Let's Track Your Progress"
+    },
+    {
+      "type": "textarea",
+      "id": "email_body",
+      "label": "Body",
+      "default": "Real clinical results require patience. Enter your email and our lab team will check in with you at Week 2 and Week 8..."
+    },
+    {
+      "type": "text",
+      "id": "email_button_label",
+      "label": "Button Label",
+      "default": "Activate Weekly Check-ins"
+    },
+    {
+      "type": "header",
+      "content": "WhatsApp Concierge Module"
+    },
+    {
+      "type": "text",
+      "id": "wa_heading",
+      "label": "Heading",
+      "default": "Routine Doubts?"
+    },
+    {
+      "type": "textarea",
+      "id": "wa_body",
+      "label": "Body",
+      "default": "Not sure how to layer this with your current retinol or vitamin C? Don't guess. Text our formulation experts directly..."
+    },
+    {
+      "type": "url",
+      "id": "wa_link",
+      "label": "WhatsApp Link (e.g. wa.me/number)"
+    },
+    {
+      "type": "text",
+      "id": "wa_button_label",
+      "label": "Button Label",
+      "default": "Text the Lab"
+    },
+    {
+      "type": "header",
+      "content": "Cross-Sell Module"
+    },
+    {
+      "type": "text",
+      "id": "cross_heading",
+      "label": "Heading",
+      "default": "Clinical Pairings"
+    },
+    {
+      "type": "textarea",
+      "id": "cross_body",
+      "label": "Body",
+      "default": "Barrier Renew is the ultimate hydration seal. To actively fade stubborn dark spots, layer it directly over our 5-pathway brightening complex."
+    },
+    {
+      "type": "product",
+      "id": "cross_product",
+      "label": "Recommend Product"
+    },
+    {
+      "type": "header",
+      "content": "VIP Reward Module"
+    },
+    {
+      "type": "text",
+      "id": "vip_heading",
+      "label": "Heading",
+      "default": "Unlock Your Next Formula"
+    },
+    {
+      "type": "textarea",
+      "id": "vip_body",
+      "label": "Body",
+      "default": "As a verified owner, your clinical feedback shapes our lab. Tell us how Barrier Renew feels, and we'll immediately grant you 15% off..."
+    },
+    {
+      "type": "text",
+      "id": "vip_btn_label",
+      "label": "Button Label",
+      "default": "Review & Unlock 15% Off"
+    },
+    {
+      "type": "url",
+      "id": "vip_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "QR Engagement Stack"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+{
+    "sections": {
+        "header": {
+            "type": "qr-app-header"
+        },
+        "hero": {
+            "type": "qr-auth-hero"
+        },
+        "secrets": {
+            "type": "qr-formulation-secrets"
+        },
+        "timeline": {
+            "type": "qr-skin-timeline"
+        },
+        "engagement": {
+            "type": "qr-engagement-stack"
+        }
+    },
+    "order": [
+        "header",
+        "hero",
+        "secrets",
+        "timeline",
+        "engagement"
+    ]
+}

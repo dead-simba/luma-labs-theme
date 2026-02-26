@@ -1,0 +1,134 @@
+<style>
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<div class="px-6 py-4" style="background-color: #FAFAFA;">
+  <h2 class="font-serif text-xl text-[#1A1A1A] mb-2">{{ section.settings.heading }}</h2>
+  <p class="text-xs text-[#1A1A1A]/60 mb-6 font-medium">{{ section.settings.description }}</p>
+
+  <div class="flex gap-4 overflow-x-auto hide-scrollbar snap-x pb-4">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.highlighted -%}
+        <div
+          class="bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-2xl p-5 min-w-[240px] snap-start shadow-md relative overflow-hidden shrink-0"
+          {{ block.shopify_attributes }}
+        >
+          <div class="absolute right-[-10%] top-[-10%] opacity-10"><i class="ph-fill ph-sparkle text-7xl"></i></div>
+          <span class="text-[#D4A340] text-xs font-bold uppercase tracking-widest mb-2 block relative z-10">
+            {{- block.settings.timeline_label -}}
+          </span>
+          <h4 class="font-serif text-lg mb-2 relative z-10">{{ block.settings.title }}</h4>
+          <p class="text-xs text-white/70 leading-relaxed relative z-10 w-full whitespace-normal break-words">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      {%- else -%}
+        <div
+          class="bg-white border border-[#E5E5E5] rounded-2xl p-5 min-w-[240px] snap-start shadow-sm shrink-0"
+          {{ block.shopify_attributes }}
+        >
+          <span class="text-[#D4A340] text-xs font-bold uppercase tracking-widest mb-2 block">
+            {{- block.settings.timeline_label -}}
+          </span>
+          <h4 class="font-serif text-lg text-[#1A1A1A] mb-2">{{ block.settings.title }}</h4>
+          <p class="text-xs text-[#1A1A1A]/70 leading-relaxed w-full whitespace-normal break-words">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "QR Skin Timeline",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Skin's Timeline"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "True clinical repair takes consistency. Here is what is happening on a cellular level."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "timeline_step",
+      "name": "Timeline Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "timeline_label",
+          "label": "Timeline Label (e.g. Day 1-3)",
+          "default": "Day X"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Instant Relief"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Description of cellular events..."
+        },
+        {
+          "type": "checkbox",
+          "id": "highlighted",
+          "label": "Highlight Block (Dark Mode)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "QR Skin Timeline",
+      "blocks": [
+        {
+          "type": "timeline_step",
+          "settings": {
+            "timeline_label": "Day 1-3",
+            "title": "Instant Relief",
+            "text": "The Olivem 1000 liquid crystals melt into the skin, instantly alleviating tightness, flaking, and severe dehydration.",
+            "highlighted": false
+          }
+        },
+        {
+          "type": "timeline_step",
+          "settings": {
+            "timeline_label": "Week 2-3",
+            "title": "Barrier Sealed",
+            "text": "The 5% Niacinamide accelerates your skin's own ceramide production. Redness and irritation significantly subside.",
+            "highlighted": false
+          }
+        },
+        {
+          "type": "timeline_step",
+          "settings": {
+            "timeline_label": "Week 8+",
+            "title": "Matrix Remodeling",
+            "text": "Matrixyl 3000™ peptides reach peak efficacy, visibly firming the skin, plumping fine lines, and restoring bounce.",
+            "highlighted": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
