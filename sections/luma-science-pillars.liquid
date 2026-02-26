@@ -1,0 +1,439 @@
+{%- style -%}
+  .luma-science-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    background-color: {{ section.settings.background_color | default: '#FAFAFA' }};
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.05); /* luma-lightGray equivalent */
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-science-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Decorative Background Elements */
+  .luma-science__decor-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30rem;
+    height: 30rem;
+    background-color: var(--color-barrier, #8EC5E3);
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .luma-science__decor-2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30rem;
+    height: 30rem;
+    background-color: var(--color-brightening, #FDB882);
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .luma-science__container {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Desktop 2-Column Grid Layout */
+  @media screen and (min-width: 1024px) {
+    .luma-science__container {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: start; /* CRITICAL for sticky */
+    }
+  }
+
+  /* Sticky Panel */
+  .luma-science__sticky-panel {
+    margin-bottom: 4rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .luma-science__sticky-panel {
+      position: sticky;
+      top: var(--header-height, 120px); /* Adjust based on your header size */
+      margin-bottom: 0;
+      padding-right: 2rem;
+    }
+  }
+
+  .luma-science__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #D4A340; /* Luma Gold */
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .luma-science__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #2C2C2C; /* Luma Charcoal */
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-science__heading {
+      font-size: 48px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .luma-science__heading {
+      font-size: 60px;
+    }
+  }
+
+  .luma-science__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(44, 44, 44, 0.7);
+    font-weight: 300;
+  }
+
+  /* Cards List */
+  .luma-science__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .luma-science__cards {
+      gap: 3rem;
+    }
+  }
+
+  /* Individual Card */
+  .luma-science__card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-science__card {
+      padding: 48px;
+    }
+  }
+
+  .luma-science__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+    border-color: rgba(212, 163, 64, 0.3); /* Subtle gold border on hover */
+  }
+
+  /* Hover Gradient Fill */
+  .luma-science__card-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+  }
+
+  .luma-science__card:hover .luma-science__card-bg {
+    opacity: 0.15;
+  }
+
+  .luma-science__card--barrier .luma-science__card-bg {
+    background: linear-gradient(135deg, #a8d5e2 0%, #dcd1e5 100%);
+  }
+  .luma-science__card--brightening .luma-science__card-bg {
+    background: linear-gradient(135deg, #FFB88C 0%, #DE6262 100%);
+  }
+  .luma-science__card--sunscreen .luma-science__card-bg {
+    background: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
+  }
+
+  /* Card Content */
+  .luma-science__card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .luma-science__icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease;
+  }
+
+  .luma-science__card:hover .luma-science__icon-wrapper {
+    transform: scale(1.05) rotate(-3deg);
+  }
+
+  .luma-science__card--barrier .luma-science__icon-wrapper {
+    background: linear-gradient(135deg, #a8d5e2 0%, #dcd1e5 100%);
+    color: #1E3A8A; /* Blue 900 */
+  }
+  .luma-science__card--brightening .luma-science__icon-wrapper {
+    background: linear-gradient(135deg, #FFB88C 0%, #DE6262 100%);
+    color: #7C2D12; /* Orange 900 */
+  }
+  .luma-science__card--sunscreen .luma-science__icon-wrapper {
+    background: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
+    color: #713F12; /* Yellow 900 */
+  }
+
+  .luma-science__card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #2C2C2C;
+    margin: 0 0 16px 0;
+  }
+
+  .luma-science__card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(44, 44, 44, 0.7);
+    font-weight: 300;
+    margin: 0 0 24px 0;
+  }
+
+  .luma-science__card-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #D4A340;
+    text-decoration: none;
+    border-bottom: 1px solid #D4A340;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    margin-top: auto;
+  }
+
+  .luma-science__card-link:hover {
+    color: #2C2C2C;
+    border-color: transparent;
+  }
+{%- endstyle -%}
+
+<div class="luma-science luma-science-{{ section.id }}" {{ section.shopify_attributes }}>
+  <div class="luma-science__decor-1"></div>
+  <div class="luma-science__decor-2"></div>
+
+  <div class="luma-science__container">
+    <div class="luma-science__sticky-panel">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="luma-science__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="luma-science__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="luma-science__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="luma-science__cards">
+      {%- for block in section.blocks -%}
+        <div
+          class="luma-science__card luma-science__card--{{ block.settings.color_theme }}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="luma-science__card-bg"></div>
+          <div class="luma-science__card-content">
+            <div class="luma-science__icon-wrapper">
+              <i class="ph-fill ph-{{ block.settings.icon | default: 'flask' }}"></i>
+            </div>
+
+            <h3 class="luma-science__card-title">{{ block.settings.title }}</h3>
+            <p class="luma-science__card-text">{{ block.settings.text }}</p>
+
+            {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+              <a href="{{ block.settings.button_link }}" class="luma-science__card-link">
+                {{ block.settings.button_label }}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Luma Science Pillars",
+  "tag": "section",
+  "class": "section luma-section-science",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Inside The Lab"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Science of Biomimicry"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We formulate with physiological actives that seamlessly mirror your skin's own lipid architecture and biological signaling pathways. No aggressive resurfacing—just total structural reconstruction."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 128
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 128
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Science Pillar",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Phosphor Icon Name (e.g. 'dna', 'target')",
+          "default": "dna"
+        },
+        {
+          "type": "select",
+          "id": "color_theme",
+          "label": "Color Theme",
+          "options": [
+            { "value": "barrier", "label": "Barrier Blue" },
+            { "value": "brightening", "label": "Brightening Peach" },
+            { "value": "sunscreen", "label": "Sunscreen Yellow" }
+          ],
+          "default": "barrier"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Corneotherapy & Liquid Crystals"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description Text",
+          "default": "Our moisturizers utilize a 3:1:1 golden ratio of Ceramides, Cholesterol, and Phytosphingosine. Suspended in a biomimetic emulsion, this complex physically mirrors the skin's layers for instant integration."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Explore Formulations"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Science Pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Corneotherapy & Liquid Crystals",
+            "icon": "dna",
+            "color_theme": "barrier",
+            "text": "Our moisturizers utilize a 3:1:1 golden ratio of Ceramides, Cholesterol, and Phytosphingosine. Suspended in a biomimetic Olivem 1000 emulsion, this complex physically mirrors the skin's intercellular lipid layers for instant integration.",
+            "button_label": "Explore Barrier Formulations"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "5-Pathway Melanin Inhibition",
+            "icon": "target",
+            "color_theme": "brightening",
+            "text": "We don't just bleach the surface. Our clinical serums block pigmentation at every stage: enzyme inhibition (Alpha Arbutin), signal interruption (TXA), melanosome transfer blocking (Niacinamide), and oxidative defense (Vitamin C).",
+            "button_label": "Explore Brightening Formulas"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "6-Filter Exposome Shield",
+            "icon": "shield-check",
+            "color_theme": "sunscreen",
+            "text": "Moving beyond simple UV blocks, we utilize a cross-patent system of 6 organic filters (including Mexoryl SX and Tinosorb M) paired with Capsicum Annuum extract to defend against UV, HEV blue light, and oxidative stress.",
+            "button_label": "Explore Suncare Formulas"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
