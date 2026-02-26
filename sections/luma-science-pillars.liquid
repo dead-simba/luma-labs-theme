@@ -5,6 +5,11 @@
     background-color: {{ section.settings.background_color | default: '#FAFAFA' }};
     position: relative;
     border-bottom: 1px solid rgba(44, 44, 44, 0.05); /* luma-lightGray equivalent */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
 
   @media screen and (min-width: 768px) {
@@ -243,17 +248,34 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #D4A340;
+    color: #2C2C2C; /* Luma Charcoal */
+    background-color: transparent;
+    border: 1px solid rgba(44, 44, 44, 0.2);
+    border-radius: 99px;
+    padding: 10px 24px;
     text-decoration: none;
-    border-bottom: 1px solid #D4A340;
-    padding-bottom: 2px;
-    transition: color 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s ease;
     margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .luma-science__card-link::after {
+    content: "→";
+    font-size: 14px;
+    transition: transform 0.3s ease;
   }
 
   .luma-science__card-link:hover {
-    color: #2C2C2C;
-    border-color: transparent;
+    background-color: #D4A340; /* Luma Gold */
+    color: #ffffff;
+    border-color: #D4A340;
+    box-shadow: 0 4px 12px rgba(212, 163, 64, 0.3);
+  }
+
+  .luma-science__card-link:hover::after {
+    transform: translateX(4px);
   }
 {%- endstyle -%}
 
