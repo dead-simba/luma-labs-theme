@@ -15,7 +15,6 @@
         "luma_pill_jPCJWM": {
           "type": "luma-pill",
           "name": "Luma Pill",
-          "disabled": true,
           "settings": {
             "text": "Science-Backed",
             "icon_preset": "ph-flask",
@@ -38,7 +37,6 @@
         "luma_heading_AKLkPj": {
           "type": "luma-heading",
           "name": "Luma Heading",
-          "disabled": true,
           "settings": {
             "title": "Skincare that speaks [your skin's language.]",
             "tag": "h1",
@@ -50,32 +48,6 @@
             "font_size_mobile": 46,
             "line_height": "1.1",
             "max_width": 600
-          },
-          "blocks": {}
-        },
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Skincare that speaks your skin language</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h1",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -123,7 +95,6 @@
         "luma_reviews_Yxqxg9": {
           "type": "luma-reviews",
           "name": "Luma Reviews",
-          "disabled": true,
           "settings": {
             "text": "Loved by [120+ customers]",
             "star_color": "#d4a340",
@@ -139,7 +110,6 @@
       "block_order": [
         "luma_pill_jPCJWM",
         "luma_heading_AKLkPj",
-        "text_YLPk4p",
         "text_R4djqp",
         "button_H9gpTf",
         "luma_reviews_Yxqxg9"
@@ -249,7 +219,6 @@
         "luma_marquee_item_bPFQxz",
         "luma_marquee_item_EEeGiX"
       ],
-      "disabled": true,
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
