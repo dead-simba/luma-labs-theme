@@ -15,7 +15,17 @@
     },
     "hero": {
       "type": "qr-auth-hero",
-      "settings": {}
+      "settings": {
+        "heading": "Authentication",
+        "subheading": "Successful.",
+        "welcome_text": "Welcome to the Luma family.",
+        "description": "You are now holding our most advanced barrier-repair technology. Prepare for a total skin reset.",
+        "product_bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)",
+        "vip_title": "Your VIP Perk",
+        "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
+        "vip_button_label": "Review & Unlock",
+        "vip_bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)"
+      }
     },
     "secrets": {
       "type": "qr-formulation-secrets",
@@ -24,8 +34,8 @@
           "type": "secret",
           "settings": {
             "icon": "ph-drop",
-            "icon_color": "#2563EB",
-            "bg_color": "#E5F0FA",
+            "icon_color": "#2563eb",
+            "bg_color": "#e5f0fa",
             "title": "The 'Damp Skin' Rule",
             "text": "Never apply to completely dry skin. The Hyaluronic Acid acts as a sponge—applying it to slightly damp skin pulls that moisture deep into the epidermis."
           }
@@ -34,8 +44,8 @@
           "type": "secret",
           "settings": {
             "icon": "ph-warning-circle",
-            "icon_color": "#F97316",
-            "bg_color": "#FFF7ED",
+            "icon_color": "#f97316",
+            "bg_color": "#fff7ed",
             "title": "The Acid Buffer",
             "text": "Using strong AHA/BHA exfoliants? Wait 10 minutes before applying this cream to ensure the Matrixyl 3000™ peptides remain perfectly stable."
           }
@@ -45,7 +55,10 @@
         "secret_1",
         "secret_2"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Formulation Hacks",
+        "description": "To unlock 100% of this formula's potential, skip the standard advice and follow our lab protocols:"
+      }
     },
     "timeline": {
       "type": "qr-skin-timeline",
@@ -83,11 +96,29 @@
         "step_2",
         "step_3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Your Skin's Timeline",
+        "description": "True clinical repair takes consistency. Here is what is happening on a cellular level."
+      }
     },
     "engagement": {
       "type": "qr-engagement-stack",
-      "settings": {}
+      "settings": {
+        "email_heading": "Let's Track Your Progress",
+        "email_body": "Real clinical results require patience. Enter your email and our lab team will check in with you at Week 2 and Week 8...",
+        "email_button_label": "Activate Weekly Check-ins",
+        "wa_heading": "Routine Doubts?",
+        "wa_body": "Not sure how to layer this with your current retinol or vitamin C? Don't guess. Text our formulation experts directly...",
+        "wa_link": "",
+        "wa_button_label": "Text the Lab",
+        "cross_heading": "Clinical Pairings",
+        "cross_body": "Barrier Renew is the ultimate hydration seal. To actively fade stubborn dark spots, layer it directly over our 5-pathway brightening complex.",
+        "cross_product": "",
+        "vip_heading": "Unlock Your Next Formula",
+        "vip_body": "As a verified owner, your clinical feedback shapes our lab. Tell us how Barrier Renew feels, and we'll immediately grant you 15% off...",
+        "vip_btn_label": "Review & Unlock 15% Off",
+        "vip_link": "https://lumalabs.store/products/ceramide-hyaluronic-water-gel#judgeme"
+      }
     }
   },
   "order": [
