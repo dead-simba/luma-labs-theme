@@ -510,9 +510,9 @@
       "settings": {
         "collection_list": [
           "damaged-barrier",
-          "acne-and-pores",
           "dullness",
-          "sun-damage"
+          "sun-damage",
+          "acne-and-pores"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
