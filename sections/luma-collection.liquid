@@ -19,6 +19,11 @@
   /* Section Variables */
   .luma-collection-{{ section.id }} {
     --luma-card-radius: {{ section.settings.card_radius }}px;
+    --gap-mobile: {{ section.settings.gap_mobile }}px;
+    --gap-desktop: {{ section.settings.gap_desktop }}px;
+    --header-gap: {{ section.settings.header_gap }}px;
+    --aspect-ratio-mobile: {{ section.settings.card_aspect_ratio_mobile }};
+    --aspect-ratio-desktop: {{ section.settings.card_aspect_ratio_desktop }};
   }
 
   /* Core Layout */
@@ -26,8 +31,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 24px;
-    row-gap: 32px;
+    column-gap: var(--gap-mobile);
+    row-gap: var(--gap-mobile);
     max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 16px;
@@ -35,7 +40,8 @@
 
   @media screen and (min-width: 750px) {
     .luma-collection__blocks {
-      column-gap: 32px;
+      column-gap: var(--gap-desktop);
+      row-gap: var(--gap-desktop);
       padding: 0 50px;
     }
   }
@@ -57,7 +63,7 @@
   .luma-collection__blocks > *:has(.luma-card-container) {
     display: block;
     width: 100%;
-    margin-top: 48px; /* Separation from header */
+    margin-top: var(--header-gap); /* Separation from header */
   }
 
   @media (min-width: 1024px) {
@@ -73,7 +79,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: var(--aspect-ratio-mobile);
     border-radius: var(--luma-card-radius);
     overflow: hidden;
     text-decoration: none;
@@ -86,7 +92,7 @@
 
   @media (min-width: 768px) {
     .luma-card {
-      aspect-ratio: 10 / 14;
+      aspect-ratio: var(--aspect-ratio-desktop);
     }
   }
 
@@ -256,6 +262,72 @@
       "unit": "px",
       "label": "Card Corner Radius",
       "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Layout Gaps"
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap Between Blocks (Desktop)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap Between Blocks (Mobile)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap Below Header Area",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Card Dimensions"
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio_desktop",
+      "label": "Card Aspect Ratio (Desktop)",
+      "options": [
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 5", "label": "Standard (4:5)" },
+        { "value": "3 / 4", "label": "Tall (3:4)" },
+        { "value": "10 / 14", "label": "Extra Tall (10:14)" },
+        { "value": "2 / 3", "label": "Ultra Tall (2:3)" },
+        { "value": "9 / 16", "label": "Vertical (9:16)" }
+      ],
+      "default": "10 / 14"
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio_mobile",
+      "label": "Card Aspect Ratio (Mobile)",
+      "options": [
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 5", "label": "Standard (4:5)" },
+        { "value": "3 / 4", "label": "Tall (3:4)" },
+        { "value": "7 / 10", "label": "Extra Tall (7:10)" },
+        { "value": "2 / 3", "label": "Ultra Tall (2:3)" },
+        { "value": "9 / 16", "label": "Vertical (9:16)" }
+      ],
+      "default": "3 / 4"
     },
     {
       "type": "header",
