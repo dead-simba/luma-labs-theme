@@ -228,6 +228,56 @@
         "gap_between_elements": 64
       }
     },
+    "luma_collection_L7w": {
+      "type": "luma-collection",
+      "blocks": {
+        "header_Mnd8": {
+          "type": "header",
+          "settings": {
+            "eyebrow": "Clinically Validated Actives",
+            "icon_preset": "ph-drop",
+            "title": "The [Luma] Collection",
+            "description": "Engineered to work synergistically with your skin's natural biological pathways. Each formula is built with optimal concentrations of proven actives to reconstruct, protect, and perfect your barrier."
+          }
+        },
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product": "barrier-renew-moisturizer",
+            "gradient_preset": "barrier",
+            "badge_text": "Triple Ceramides + Peptides",
+            "custom_description": "A liquid-crystal emulsion delivering Matrixyl 3000™ and biomimetic lipids to deeply reconstruct compromised barriers."
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product": "2-alpha-arbutin-vit-c",
+            "gradient_preset": "brightening",
+            "badge_text": "5-Pathway Brightening",
+            "custom_description": "Attacks melanin production through 5 distinct biological mechanisms using a rare, hydroquinone-free clinical cocktail."
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product": "advanced-hydrating-sunscreen",
+            "gradient_preset": "sunscreen",
+            "badge_text": "Broad-Spectrum Hydrogel",
+            "custom_description": "Next-generation photoprotection. 5 advanced UV filters paired with Niacinamide and HA for zero white-cast defense."
+          }
+        }
+      },
+      "block_order": [
+        "header_Mnd8",
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
     "collection_list_BXKL36": {
       "type": "collection-list",
       "blocks": {
@@ -829,9 +879,9 @@
   "order": [
     "hero_jVaWmY",
     "marquee_QkgDJU",
+    "luma_collection_L7w",
     "collection_list_BXKL36",
     "custom_liquid_pMxFAJ",
-    "product_list_fa6P9H",
     "section_pYTFy3"
   ]
 }

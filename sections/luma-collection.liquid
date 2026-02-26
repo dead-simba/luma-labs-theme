@@ -1,0 +1,273 @@
+{% liquid
+  assign block_count = section.blocks.size
+  assign grid_cols = 'lg:grid-cols-3'
+  if block_count == 2
+    assign grid_cols = 'lg:grid-cols-2'
+  elsif block_count == 1
+    assign grid_cols = 'lg:grid-cols-1'
+  endif
+%}
+
+<div class="luma-collection-section py-24 md:py-32 bg-white" id="luma-collection-{{ section.id }}">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 md:mb-24">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'header' -%}
+          {%- if block.settings.eyebrow != blank -%}
+            <span class="uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold text-luma-gold mb-5 flex items-center justify-center gap-2">
+              {%- if block.settings.icon_preset != blank -%}
+                <i class="ph-fill {{ block.settings.icon_preset }} text-lg"></i>
+              {%- endif -%}
+              {{ block.settings.eyebrow }}
+            </span>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-luma-charcoal mb-6">
+              {{
+                block.settings.title
+                | replace: '[', '<span class="italic text-gradient-gold">'
+                | replace: ']', '</span>'
+              }}
+            </h2>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <div class="font-sans text-luma-charcoal/70 max-w-3xl mx-auto text-base md:text-lg leading-relaxed font-light">
+              {{ block.settings.description }}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="grid grid-cols-1 {{ grid_cols }} gap-8 md:gap-10">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'product' -%}
+          {%- liquid
+            assign product = block.settings.product
+            assign bg_image = block.settings.background_image | default: product.featured_image
+            assign gradient_preset = block.settings.gradient_preset
+            assign badge_text = block.settings.badge_text
+
+            case gradient_preset
+              when 'barrier'
+                assign gradient_class = 'bg-gradient-barrier'
+                assign badge_color = 'text-blue-900'
+              when 'brightening'
+                assign gradient_class = 'bg-gradient-brightening'
+                assign badge_color = 'text-orange-900'
+              when 'sunscreen'
+                assign gradient_class = 'bg-gradient-sunscreen'
+                assign badge_color = 'text-yellow-900'
+              else
+                assign gradient_class = ''
+                assign badge_color = 'text-luma-charcoal'
+            endcase
+          -%}
+
+          <a
+            href="{{ product.url | default: '#' }}"
+            class="luma-collection-card group block relative rounded-[2rem] overflow-hidden {{ gradient_class }} h-[500px] md:h-[600px] shadow-lg border border-white/60 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+            {{ block.shopify_attributes }}
+          >
+            <!-- Pattern Overlay -->
+            <div
+              class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"
+            ></div>
+
+            {%- if bg_image != blank -%}
+              <div class="absolute right-0 top-[10%] w-[100%] h-[85%] {% if gradient_preset != 'none' %}opacity-40 mix-blend-multiply{% endif %} rounded-tl-full overflow-hidden blur-[1px] group-hover:scale-105 transition-transform duration-700">
+                {{
+                  bg_image
+                  | image_url: width: 1200
+                  | image_tag:
+                    loading: 'lazy',
+                    class: 'w-full h-full object-cover',
+                    sizes: '(min-width: 1024px) 33vw, 100vw'
+                }}
+              </div>
+            {%- endif -%}
+
+            <div class="relative z-10 p-6 md:p-8 h-full flex flex-col">
+              <div class="mb-auto">
+                {%- if badge_text != blank -%}
+                  <span class="bg-white/80 backdrop-blur-md {{ badge_color }} border border-white text-[9px] md:text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-4 inline-block shadow-sm">
+                    {{ badge_text }}
+                  </span>
+                {%- endif -%}
+              </div>
+
+              <div class="mt-auto bg-white/60 backdrop-blur-xl p-6 md:p-8 rounded-2xl border border-white/60 shadow-sm transition-transform duration-500 group-hover:-translate-y-2">
+                <h3 class="font-serif text-2xl md:text-3xl text-luma-charcoal mb-3">
+                  {{ block.settings.custom_title | default: product.title | default: 'Product Title' }}
+                </h3>
+                <div class="font-sans text-luma-charcoal/80 text-sm mb-6 leading-relaxed">
+                  {{ block.settings.custom_description | default: product.description | truncatewords: 25 }}
+                </div>
+                <span class="inline-flex items-center text-luma-charcoal font-semibold text-sm group-hover:text-luma-gold transition border-b border-transparent group-hover:border-luma-gold pb-0.5">
+                  {{ block.settings.cta_text | default: 'Explore Formulation' }}
+                  <i class="ph ph-arrow-right ml-2"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  #luma-collection-{{ section.id }} .bg-gradient-barrier {
+    background: linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%);
+  }
+  #luma-collection-{{ section.id }} .bg-gradient-brightening {
+    background: linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%);
+  }
+  #luma-collection-{{ section.id }} .bg-gradient-sunscreen {
+    background: linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%);
+  }
+
+  .italic { font-style: italic; }
+  .text-gradient-gold {
+    background: linear-gradient(to right, #D4A340, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .luma-collection-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Luma Collection",
+  "class": "luma-collection-container",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Section Header",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow Text",
+          "default": "Clinically Validated Actives"
+        },
+        {
+          "type": "text",
+          "id": "icon_preset",
+          "label": "Icon (Phosphor Class)",
+          "default": "ph-drop",
+          "info": "Example: ph-drop, ph-flask"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "The [Luma] Collection",
+          "info": "Use [brackets] for italic gold text."
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Engineered to work synergistically with your skin's natural biological pathways."
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image",
+          "info": "Defaults to product featured image."
+        },
+        {
+          "type": "select",
+          "id": "gradient_preset",
+          "label": "Gradient / Overlay Style",
+          "options": [
+            { "value": "none", "label": "None (Image Only)" },
+            { "value": "barrier", "label": "Barrier (Blue/Purple)" },
+            { "value": "brightening", "label": "Brightening (Peach/Orange)" },
+            { "value": "sunscreen", "label": "Sunscreen (Yellow/White)" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "Key Benefit"
+        },
+        {
+          "type": "header",
+          "content": "Content Overrides"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Override Title"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_description",
+          "label": "Override Description"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Explore Formulation"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Collection",
+      "blocks": [
+        { "type": "header" },
+        {
+          "type": "product",
+          "settings": { "gradient_preset": "barrier", "badge_text": "Triple Ceramides + Peptides" }
+        },
+        {
+          "type": "product",
+          "settings": { "gradient_preset": "brightening", "badge_text": "5-Pathway Brightening" }
+        },
+        {
+          "type": "product",
+          "settings": { "gradient_preset": "sunscreen", "badge_text": "Broad-Spectrum Hydrogel" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
