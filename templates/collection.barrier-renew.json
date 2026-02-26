@@ -99,10 +99,7 @@
             "product_name": "2% Alpha Arbutin Serum",
             "description": "Apply to damp skin. Halts melanin production at the source through 5 biological pathways.",
             "circle_bg": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-            "circle_border": "#ffffff33",
-            "number_color": "#1a1a1a",
-            "enable_glow": false,
-            "opacity": 0.9
+            "enable_border": false
           }
         },
         "step_2": {
@@ -113,10 +110,7 @@
             "product_name": "Barrier Renew Gel-Cream",
             "description": "Layer immediately over the serum to physically fuse micro-tears and trap hydration deep in the dermis.",
             "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-            "circle_border": "#d4a340",
-            "number_color": "#1a1a1a",
-            "enable_glow": true,
-            "opacity": 1
+            "enable_border": false
           }
         },
         "step_3": {
@@ -127,10 +121,7 @@
             "product_name": "Hyaluronic Aqua Gel SPF 50",
             "description": "The non-negotiable final step. Prevents UV/HEV damage and regulates sebum without any white cast.",
             "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
-            "circle_border": "#ffffff33",
-            "number_color": "#1a1a1a",
-            "enable_glow": false,
-            "opacity": 0.9
+            "enable_border": false
           }
         }
       },
@@ -140,9 +131,11 @@
         "step_3"
       ],
       "settings": {
-        "eyebrow": "Maximum Synergy",
         "heading": "The Complete Luma Protocol.",
         "description": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection. Combine all three of our master formulas for complete skin transformation.",
+        "bundle_product_1": "glutathione-vitamin-c-serum",
+        "bundle_product_2": "ceramide-hyaluronic-water-gel",
+        "bundle_product_3": "strawberry-skin-eraser",
         "show_bundle": true,
         "btn_text": "Unlock The Complete Protocol",
         "bundle_price": "$95.00",
