@@ -22,7 +22,23 @@
     opacity: 0.05;
     mix-blend-mode: overlay;
     pointer-events: none;
+    z-index: 1;
   }
+
+  {% if section.settings.bg_image != blank %}
+  .luma-empathy-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ section.settings.bg_image | image_url: width: 2400 }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    opacity: {{ section.settings.bg_image_opacity | default: 0.5 }};
+    z-index: 0;
+  }
+  {% endif %}
   .luma-empathy-hero__content {
     position: relative;
     z-index: 1;
@@ -131,6 +147,20 @@
       "id": "bg_gradient",
       "label": "Background Gradient",
       "default": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image Overlay"
+    },
+    {
+      "type": "range",
+      "id": "bg_image_opacity",
+      "label": "Image Overlay Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
     },
     {
       "type": "text",
