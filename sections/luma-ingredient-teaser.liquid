@@ -28,7 +28,7 @@
     object-fit: cover;
     z-index: 0;
     {%- if section.settings.background_image != blank -%}
-      opacity: 0.4;
+      opacity: 0.7;
       mix-blend-mode: luminosity;
     {%- else -%}
       display: none;
@@ -39,13 +39,13 @@
   .luma-ingredient__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(26,26,26, 0.98) 0%, rgba(26,26,26, 0.85) 50%, rgba(26,26,26, 0.4) 100%);
+    background: linear-gradient(to right, rgba(26,26,26, 0.95) 0%, rgba(26,26,26, 0.6) 50%, rgba(26,26,26, 0.2) 100%);
     z-index: 1;
   }
 
   @media screen and (max-width: 1023px) {
     .luma-ingredient__overlay {
-      background: linear-gradient(to bottom, rgba(26,26,26, 0.98) 0%, rgba(26,26,26, 0.85) 50%, rgba(26,26,26, 0.6) 100%);
+      background: linear-gradient(to bottom, rgba(26,26,26, 0.95) 0%, rgba(26,26,26, 0.6) 100%);
     }
   }
 
@@ -148,14 +148,14 @@
   .luma-ingredient__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .luma-ingredient__card {
     background-color: #242424;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 32px;
-    border-radius: 24px;
+    padding: 16px;
+    border-radius: 20px;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -165,14 +165,18 @@
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
-  /* Stagger Effect */
   @media screen and (min-width: 768px) {
+    .luma-ingredient__card {
+      padding: 32px;
+      border-radius: 24px;
+    }
+  }
+
+  /* Stagger Effect */
+  @media screen and (min-width: 1024px) {
     .luma-ingredient__card:nth-child(even) {
       margin-top: 2.5rem;
       margin-bottom: -2.5rem;
-    }
-    .luma-ingredient__card {
-      padding: 32px;
     }
   }
 
@@ -182,40 +186,63 @@
   }
 
   .luma-ingredient__symbol {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     transition: all 0.4s ease;
     color: #D4A340; /* Default */
   }
 
+  @media screen and (min-width: 768px) {
+    .luma-ingredient__symbol {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 24px;
+    }
+  }
+
   .luma-ingredient__symbol span {
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-ingredient__symbol span { font-size: 20px; }
   }
 
   .luma-ingredient__card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
+    font-size: 16px;
     color: #ffffff;
     margin: 0 0 4px 0;
+    line-height: 1.2;
+    word-wrap: break-word; /* Prevent spill on mobile */
+    hyphens: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-ingredient__card-title { font-size: 24px; }
   }
 
   .luma-ingredient__card-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-ingredient__card-subtitle { font-size: 10px; }
   }
 
   /* Color Theme Accents */
