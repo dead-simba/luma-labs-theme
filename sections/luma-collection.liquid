@@ -27,7 +27,7 @@
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 24px;
-    row-gap: 16px;
+    row-gap: 32px;
     max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 16px;
@@ -57,7 +57,7 @@
   .luma-collection__blocks > *:has(.luma-card-container) {
     display: block;
     width: 100%;
-    margin-top: 16px; /* Separation from header */
+    margin-top: 48px; /* Separation from header */
   }
 
   @media (min-width: 1024px) {
@@ -73,7 +73,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
     border-radius: var(--luma-card-radius);
     overflow: hidden;
     text-decoration: none;
@@ -86,7 +86,7 @@
 
   @media (min-width: 768px) {
     .luma-card {
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 10 / 14;
     }
   }
 
@@ -160,24 +160,17 @@
   }
 
   .luma-card__badge {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: #1a1a1a;
     padding: 6px 14px;
     border-radius: 9999px;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-  }
-
-  .luma-card--brightening .luma-card__badge,
-  .luma-card--sunscreen .luma-card__badge {
-    color: #1F2937;
-    background: rgba(255, 255, 255, 0.4);
-    border-color: rgba(255, 255, 255, 0.6);
   }
 
   /* Info Box (Bottom) */
@@ -225,7 +218,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     gap: 8px;
-    transition: gap 0.3s ease;
+    transition: gap 0.3s ease, color 0.3s ease;
   }
 
   .luma-card__cta svg {
@@ -236,6 +229,10 @@
 
   .luma-card:hover .luma-card__cta {
     gap: 12px;
+    color: #c5a065;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
   }
 {%- endstyle -%}
 
