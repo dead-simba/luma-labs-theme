@@ -1,0 +1,407 @@
+{% style %}
+  .luma-routine {
+    padding: 6rem 1.5rem;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .luma-routine {
+      padding: 8rem 2rem;
+    }
+  }
+  .luma-routine__glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40rem;
+    height: 40rem;
+    background-color: #1e3a8a;
+    border-radius: 9999px;
+    mix-blend-mode: overlay;
+    filter: blur(100px);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  .luma-routine__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+  .luma-routine__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .luma-routine__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #d4a340;
+    margin-bottom: 1rem;
+    display: block;
+    font-family: 'Inter', sans-serif;
+  }
+  .luma-routine__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .luma-routine__heading {
+      font-size: 3rem;
+    }
+  }
+  .luma-routine__desc {
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 42rem;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.625;
+  }
+
+  .luma-routine__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    position: relative;
+  }
+  @media (min-width: 768px) {
+    .luma-routine__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .luma-routine__grid {
+      gap: 4rem;
+    }
+  }
+
+  .luma-routine__connector {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+  @media (min-width: 768px) {
+    .luma-routine__connector {
+      display: block;
+    }
+  }
+
+  .luma-routine__step {
+    text-align: center;
+    position: relative;
+  }
+  .luma-routine__circle-wrapper {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .luma-routine__number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+  }
+
+  .luma-routine__step-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .luma-routine__step-product {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #d4a340;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .luma-routine__step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    padding: 0 1rem;
+    line-height: 1.625;
+  }
+
+  .luma-routine__bundle {
+    margin-top: 4rem;
+    text-align: center;
+  }
+  .luma-routine__btn {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: none;
+    cursor: pointer;
+  }
+  .luma-routine__btn:hover {
+    background-color: #d4a340;
+    color: #ffffff;
+  }
+  .luma-routine__btn-price {
+    font-weight: 700;
+  }
+  .luma-routine__btn-original {
+    font-size: 0.875rem;
+    color: rgba(26, 26, 26, 0.4);
+    text-decoration: line-through;
+    transition: color 0.3s ease;
+  }
+  .luma-routine__btn:hover .luma-routine__btn-original {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .luma-routine__savings {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+  .luma-routine__savings i {
+    margin-right: 0.25rem;
+  }
+{% endstyle %}
+
+<section class="luma-routine">
+  <div class="luma-routine__glow"></div>
+  <div class="luma-routine__container">
+    <div class="luma-routine__header">
+      <span class="luma-routine__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="luma-routine__heading">{{ section.settings.heading }}</h2>
+      <p class="luma-routine__desc">{{ section.settings.description }}</p>
+    </div>
+
+    <div class="luma-routine__grid">
+      <div class="luma-routine__connector"></div>
+
+      {% for block in section.blocks %}
+        <div class="luma-routine__step">
+          <div
+            class="luma-routine__circle-wrapper"
+            style="
+              background: {{ block.settings.circle_bg }};
+              border: 2px solid {{ block.settings.circle_border }};
+              {% if block.settings.enable_glow %}box-shadow: 0 0 30px rgba(212,163,64,0.3);{% endif %}
+              opacity: {{ block.settings.opacity }};
+            "
+          >
+            <span
+              class="luma-routine__number"
+              style="
+                color: {{ block.settings.number_color }};
+                font-weight: {% if block.settings.enable_glow %}700{% else %}400{% endif %};
+              "
+              >0{{ forloop.index -}}
+            </span>
+          </div>
+          <h3 class="luma-routine__step-heading" style="color: {{ block.settings.heading_color }};">
+            {{ block.settings.heading }}
+          </h3>
+          <p class="luma-routine__step-product">{{ block.settings.product_name }}</p>
+          <p class="luma-routine__step-desc">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_bundle %}
+      <div class="luma-routine__bundle">
+        <button class="luma-routine__btn">
+          <span>
+            {{- section.settings.btn_text }} &mdash;
+            <strong class="luma-routine__btn-price">{{ section.settings.bundle_price }}</strong></span
+          >
+          <span class="luma-routine__btn-original">{{ section.settings.original_price }}</span>
+        </button>
+        <p class="luma-routine__savings"><i class="ph-fill ph-tag"></i> {{ section.settings.savings_text }}</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Routine",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Maximum Synergy"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Complete Luma Protocol."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection."
+    },
+    {
+      "type": "header",
+      "content": "Bundle CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bundle",
+      "label": "Show Bundle CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Unlock The Complete Protocol"
+    },
+    {
+      "type": "text",
+      "id": "bundle_price",
+      "label": "Bundle Price",
+      "default": "$95.00"
+    },
+    {
+      "type": "text",
+      "id": "original_price",
+      "label": "Original Price",
+      "default": "$120.00"
+    },
+    {
+      "type": "text",
+      "id": "savings_text",
+      "label": "Savings Text",
+      "default": "Save $25 when you buy the system"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Routine Step",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Target & Brighten"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "2% Alpha Arbutin Serum"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Apply to damp skin. Halts melanin production at the source through 5 biological pathways."
+        },
+        {
+          "type": "text",
+          "id": "circle_bg",
+          "label": "Circle Background",
+          "default": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)"
+        },
+        {
+          "type": "color",
+          "id": "circle_border",
+          "label": "Circle Border",
+          "default": "rgba(255,255,255,0.2)"
+        },
+        {
+          "type": "color",
+          "id": "number_color",
+          "label": "Number Color",
+          "default": "#1A1A1A"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_glow",
+          "label": "Enable Golden Glow",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "opacity",
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+          "label": "Circle Opacity",
+          "default": 0.9
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Routine",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": { "heading": "Target & Brighten", "product_name": "2% Alpha Arbutin", "enable_glow": false }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "heading": "Seal & Repair",
+            "heading_color": "#D4A340",
+            "product_name": "Barrier Renew Gel-Cream",
+            "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "circle_border": "#D4A340",
+            "enable_glow": true,
+            "opacity": 1
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "heading": "Hydrate & Defend",
+            "product_name": "Hyaluronic Aqua Gel SPF",
+            "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+            "enable_glow": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

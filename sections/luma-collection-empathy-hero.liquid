@@ -1,0 +1,183 @@
+{% style %}
+  .luma-empathy-hero {
+    position: relative;
+    padding: 6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #E5E5E5;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .luma-empathy-hero { padding: 8rem 1.5rem; }
+  }
+  .luma-empathy-hero--gradient {
+    background: {{ section.settings.bg_gradient | default: 'linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)' }};
+  }
+  .luma-empathy-hero__texture {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+  .luma-empathy-hero__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+  .luma-empathy-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(26,26,26,0.2);
+    color: #1A1A1A;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(4px);
+    background: rgba(255,255,255,0.3);
+  }
+  .luma-empathy-hero__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    line-height: 1.1;
+    color: #1A1A1A;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .luma-empathy-hero__heading { font-size: 3.75rem; }
+  }
+  .luma-empathy-hero__heading em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .luma-empathy-hero__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    color: rgba(26,26,26,0.7);
+    font-weight: 300;
+    letter-spacing: 0.025em;
+    max-width: 42rem;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+  }
+  .luma-empathy-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .luma-empathy-hero__cta:hover {
+    background-color: #D4A340;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+{% endstyle %}
+
+<section class="luma-empathy-hero luma-empathy-hero--gradient">
+  <div class="luma-empathy-hero__texture"></div>
+  <div class="luma-empathy-hero__content">
+    {% if section.settings.badge_text != blank %}
+      <span class="luma-empathy-hero__badge">
+        {% if section.settings.badge_icon != blank %}
+          <i
+            class="ph-fill {{ section.settings.badge_icon }} text-blue-800"
+            style="color: {{ section.settings.badge_icon_color }};"
+          ></i>
+        {% endif %}
+        {{ section.settings.badge_text }}
+      </span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h1 class="luma-empathy-hero__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="luma-empathy-hero__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    {% if section.settings.cta_text != blank %}
+      <a href="{{ section.settings.cta_link | default: '#solution' }}" class="luma-empathy-hero__cta">
+        {{ section.settings.cta_text }}
+        <i class="ph ph-arrow-down"></i>
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Empathy Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bg_gradient",
+      "label": "Background Gradient",
+      "default": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Targeted Solutions"
+    },
+    {
+      "type": "text",
+      "id": "badge_icon",
+      "label": "Phosphor Icon Class",
+      "default": "ph-band-aid"
+    },
+    {
+      "type": "color",
+      "id": "badge_icon_color",
+      "label": "Badge Icon Color",
+      "default": "#1e40af"
+    },
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Repair & <em>Protect</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Formulated specifically for compromised, sensitive, or deeply dehydrated skin requiring structural reconstruction."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Shop the Solution"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Empathy Hero"
+    }
+  ]
+}
+{% endschema %}
