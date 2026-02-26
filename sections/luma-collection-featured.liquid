@@ -81,7 +81,7 @@
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
-    z-index: 20;
+    z-index: 2;
     background-color: #1e3a8a;
     color: #FFFFFF;
     font-size: 0.625rem;
@@ -100,7 +100,7 @@
     opacity: 0.9;
     transition: transform 0.7s ease;
     position: relative;
-    z-index: 10;
+    z-index: 1;
   }
   .luma-featured__card:hover .luma-featured__img {
     transform: scale(1.05);
@@ -224,22 +224,27 @@
   .luma-featured__btn-view:hover { background-color: #FAFAFA; }
 
   .luma-featured__btn-add {
-    background-color: #1A1A1A;
-    color: #FFFFFF;
+    background-color: #1A1A1A !important;
+    color: #FFFFFF !important;
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    border: none;
+    padding: 0.75rem 2rem !important;
+    border-radius: 9999px !important;
+    border: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    white-space: nowrap !important;
+    width: auto !important;
+    min-width: max-content;
   }
   .luma-featured__btn-add:hover { background-color: #D4A340; }
   .luma-featured__btn-add i { font-size: 1rem; }
@@ -270,6 +275,8 @@
             src="{{ section.settings.fallback_image | default: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop' }}"
             alt="Featured Solution"
             class="luma-featured__img"
+            width="1000"
+            height="1000"
             loading="lazy"
           >
         {% endif %}
@@ -296,7 +303,12 @@
         <div class="luma-featured__props">
           {% for block in section.blocks %}
             <div class="luma-featured__prop">
-              <i class="ph-fill ph-check-circle" style="color: #D4A340; font-size: 1.125rem;"></i>
+              {% if block.settings.icon != blank %}
+                <i
+                  class="ph-fill {{ block.settings.icon }}"
+                  style="color: {{ block.settings.icon_color | default: '#D4A340' }}; font-size: 1.125rem;"
+                ></i>
+              {% endif %}
               {{ block.settings.prop_text }}
             </div>
           {% endfor %}
@@ -387,6 +399,18 @@
           "type": "text",
           "id": "prop_text",
           "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Phosphor Icon Class",
+          "default": "ph-check-circle"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon Color",
+          "default": "#D4A340"
         }
       ]
     }
