@@ -1,0 +1,437 @@
+{%- style -%}
+  .luma-ingredient-{{ section.id }} {
+    position: relative;
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    background-color: #1A1A1A; /* Base Dark Fallback */
+    overflow: hidden;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-ingredient-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Absolute Background Image */
+  .luma-ingredient__bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    {%- if section.settings.background_image != blank -%}
+      opacity: 0.4;
+      mix-blend-mode: luminosity;
+    {%- else -%}
+      display: none;
+    {%- endif -%}
+  }
+
+  /* Heavy Charcoal Gradient Overlay */
+  .luma-ingredient__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(26,26,26, 0.98) 0%, rgba(26,26,26, 0.85) 50%, rgba(26,26,26, 0.4) 100%);
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .luma-ingredient__overlay {
+      background: linear-gradient(to bottom, rgba(26,26,26, 0.98) 0%, rgba(26,26,26, 0.85) 50%, rgba(26,26,26, 0.6) 100%);
+    }
+  }
+
+  .luma-ingredient__container {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .luma-ingredient__container {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+  }
+
+  /* Left Content */
+  .luma-ingredient__content {
+    color: #ffffff;
+  }
+
+  .luma-ingredient__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #D4A340; /* Luma Gold */
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .luma-ingredient__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+
+  @media screen and (min-width: 768px) {
+    .luma-ingredient__heading { font-size: 60px; }
+  }
+  @media screen and (min-width: 1024px) {
+    .luma-ingredient__heading { font-size: 72px; }
+  }
+
+  .luma-ingredient__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    margin: 0 0 3rem 0;
+    max-width: 32rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+
+  .luma-ingredient__btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #D4A340;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px -10px rgba(212, 163, 64, 0.5);
+  }
+
+  .luma-ingredient__btn:hover {
+    background-color: #ffffff;
+    color: #1A1A1A;
+    box-shadow: 0 15px 30px -10px rgba(255, 255, 255, 0.3);
+  }
+
+  .luma-ingredient__btn::after {
+    content: "→";
+    margin-left: 12px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .luma-ingredient__btn:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* Right Grid (Periodic Table Cards) */
+  .luma-ingredient__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .luma-ingredient__card {
+    background-color: #242424;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 32px;
+    border-radius: 24px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Stagger Effect */
+  @media screen and (min-width: 768px) {
+    .luma-ingredient__card:nth-child(even) {
+      margin-top: 2.5rem;
+      margin-bottom: -2.5rem;
+    }
+    .luma-ingredient__card {
+      padding: 32px;
+    }
+  }
+
+  .luma-ingredient__card:hover {
+    transform: translateY(-8px);
+    background-color: #2A2A2A;
+  }
+
+  .luma-ingredient__symbol {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: all 0.4s ease;
+    color: #D4A340; /* Default */
+  }
+
+  .luma-ingredient__symbol span {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .luma-ingredient__card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+  }
+
+  .luma-ingredient__card-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+  }
+
+  /* Color Theme Accents */
+  .luma-ingredient-card--barrier:hover { border-color: rgba(142, 197, 227, 0.3); box-shadow: 0 20px 40px rgba(142, 197, 227, 0.05); }
+  .luma-ingredient-card--barrier:hover .luma-ingredient__symbol { border-color: #8EC5E3; color: #8EC5E3; box-shadow: 0 0 20px rgba(142, 197, 227, 0.2); }
+
+  .luma-ingredient-card--brightening:hover { border-color: rgba(253, 184, 130, 0.3); box-shadow: 0 20px 40px rgba(253, 184, 130, 0.05); }
+  .luma-ingredient-card--brightening:hover .luma-ingredient__symbol { border-color: #FDB882; color: #FDB882; box-shadow: 0 0 20px rgba(253, 184, 130, 0.2); }
+
+  .luma-ingredient-card--sunscreen:hover { border-color: rgba(255, 226, 89, 0.3); box-shadow: 0 20px 40px rgba(255, 226, 89, 0.05); }
+  .luma-ingredient-card--sunscreen:hover .luma-ingredient__symbol { border-color: #FFE259; color: #FFE259; box-shadow: 0 0 20px rgba(255, 226, 89, 0.2); }
+
+  .luma-ingredient-card--peptide:hover { border-color: rgba(216, 180, 226, 0.3); box-shadow: 0 20px 40px rgba(216, 180, 226, 0.05); }
+  .luma-ingredient-card--peptide:hover .luma-ingredient__symbol { border-color: #D8B4E2; color: #D8B4E2; box-shadow: 0 0 20px rgba(216, 180, 226, 0.2); }
+
+  .luma-ingredient-card--gold:hover { border-color: rgba(212, 163, 64, 0.3); box-shadow: 0 20px 40px rgba(212, 163, 64, 0.05); }
+  .luma-ingredient-card--gold:hover .luma-ingredient__symbol { border-color: #D4A340; color: #D4A340; box-shadow: 0 0 20px rgba(212, 163, 64, 0.2); }
+{%- endstyle -%}
+
+<div class="luma-ingredient luma-ingredient-{{ section.id }}" {{ section.shopify_attributes }}>
+  {%- if section.settings.background_image != blank -%}
+    {{ section.settings.background_image | image_url: width: 2500 | image_tag: class: 'luma-ingredient__bg-image' }}
+  {%- endif -%}
+  <div class="luma-ingredient__overlay"></div>
+
+  <div class="luma-ingredient__container">
+    <!-- Left Column: Copy & CTA -->
+    <div class="luma-ingredient__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="luma-ingredient__eyebrow">
+          <i class="ph-fill ph-book-open"></i> {{ section.settings.eyebrow }}
+        </span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="luma-ingredient__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p class="luma-ingredient__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="luma-ingredient__btn">
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <!-- Right Column: Periodic Grid -->
+    <div class="luma-ingredient__grid">
+      {%- for block in section.blocks -%}
+        <a
+          href="{{ block.settings.link | default: '#' }}"
+          class="luma-ingredient__card luma-ingredient-card--{{ block.settings.color_theme }}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="luma-ingredient__symbol">
+            <span>{{ block.settings.symbol }}</span>
+          </div>
+          <h4 class="luma-ingredient__card-title">{{ block.settings.title }}</h4>
+          <p class="luma-ingredient__card-subtitle">{{ block.settings.subtitle }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Luma Ingredient Teaser",
+  "tag": "section",
+  "class": "section luma-section-ingredient",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Organic Background Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Complete Transparency"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore the Ingredient Directory"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We believe skintellectuals deserve to know exactly what they are applying, why it was chosen, and how it functions biologically. Dive into the deep clinical science behind our active complexes."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Enter the Glossary"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 128
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 128
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient Card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "symbol",
+          "label": "Atomic Symbol (e.g. 'Ce', 'Vc')",
+          "default": "Ce"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Name",
+          "default": "Ceramides"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Function / Characteristic",
+          "default": "Biomimetic Lipids"
+        },
+        {
+          "type": "select",
+          "id": "color_theme",
+          "label": "Hover Characteristic Color",
+          "options": [
+            { "value": "barrier", "label": "Barrier Blue (Hydration)" },
+            { "value": "brightening", "label": "Brightening Peach (Radiance)" },
+            { "value": "sunscreen", "label": "Sunscreen Yellow (Defense)" },
+            { "value": "peptide", "label": "Peptide Lilac (Anti-Aging)" },
+            { "value": "gold", "label": "Luma Gold (Premium)" }
+          ],
+          "default": "gold"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Ingredient Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luma Ingredient Teaser",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "symbol": "Ce",
+            "title": "Ceramides",
+            "subtitle": "Biomimetic Lipids",
+            "color_theme": "barrier"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "symbol": "Mx",
+            "title": "Matrixyl 3000™",
+            "subtitle": "Signal Peptides",
+            "color_theme": "peptide"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "symbol": "Aa",
+            "title": "Alpha Arbutin",
+            "subtitle": "Enzyme Inhibitor",
+            "color_theme": "brightening"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "symbol": "Na",
+            "title": "Niacinamide",
+            "subtitle": "Vitamin B3",
+            "color_theme": "sunscreen"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
