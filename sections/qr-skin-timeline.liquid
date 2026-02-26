@@ -16,7 +16,7 @@
     {%- for block in section.blocks -%}
       {%- if block.settings.highlighted -%}
         <div
-          class="bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-2xl p-5 min-w-[240px] snap-start shadow-md relative overflow-hidden shrink-0"
+          class="bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-2xl p-5 w-[280px] sm:w-[320px] snap-start shadow-md relative overflow-hidden shrink-0"
           {{ block.shopify_attributes }}
         >
           <div class="absolute right-[-10%] top-[-10%] opacity-10"><i class="ph-fill ph-sparkle text-7xl"></i></div>
@@ -24,20 +24,20 @@
             {{- block.settings.timeline_label -}}
           </span>
           <h4 class="font-serif text-lg mb-2 relative z-10">{{ block.settings.title }}</h4>
-          <p class="text-xs text-white/70 leading-relaxed relative z-10 w-full whitespace-normal break-words">
+          <p class="text-xs text-white/70 leading-relaxed relative z-10">
             {{ block.settings.text }}
           </p>
         </div>
       {%- else -%}
         <div
-          class="bg-white border border-[#E5E5E5] rounded-2xl p-5 min-w-[240px] snap-start shadow-sm shrink-0"
+          class="bg-white border border-[#E5E5E5] rounded-2xl p-5 w-[280px] sm:w-[320px] snap-start shadow-sm shrink-0"
           {{ block.shopify_attributes }}
         >
           <span class="text-[#D4A340] text-xs font-bold uppercase tracking-widest mb-2 block">
             {{- block.settings.timeline_label -}}
           </span>
           <h4 class="font-serif text-lg text-[#1A1A1A] mb-2">{{ block.settings.title }}</h4>
-          <p class="text-xs text-[#1A1A1A]/70 leading-relaxed w-full whitespace-normal break-words">
+          <p class="text-xs text-[#1A1A1A]/70 leading-relaxed">
             {{ block.settings.text }}
           </p>
         </div>
