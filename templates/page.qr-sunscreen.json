@@ -8,126 +8,127 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "header": {
-            "type": "qr-app-header",
-            "settings": {
-                "logo_image": "shopify:\/\/shop_images\/Main_Logo_-_Horizontal_f5e74301-ff58-44ea-9b0b-317e58eb7010.png"
-            }
-        },
-        "hero": {
-            "type": "qr-auth-hero",
-            "settings": {
-                "heading": "Authentication",
-                "subheading": "Successful.",
-                "welcome_text": "Welcome to the Luma family.",
-                "description": "You are now holding our 6-filter Hyaluronic Aqua Gel. Prepare for total UV and HEV blue light defense.",
-                "product_bg_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
-                "vip_title": "Your VIP Perk",
-                "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
-                "vip_button_label": "Review & Unlock",
-                "vip_button_link": "\/pages\/luma-vip-review?product=Defense+Aqua+SPF"
-            }
-        },
-        "secrets": {
-            "type": "qr-formulation-secrets",
-            "blocks": {
-                "secret_1": {
-                    "type": "secret",
-                    "settings": {
-                        "icon": "ph-drop",
-                        "icon_color": "#ca8a04",
-                        "bg_color": "#fefce8",
-                        "title": "The Moisturizer Swap",
-                        "text": "If you have oily or combination skin, skip your morning moisturizer. The Aquaxyl™ complex and Sodium Hyaluronate provide comprehensive 4-tier hydration on their own."
-                    }
-                },
-                "secret_2": {
-                    "type": "secret",
-                    "settings": {
-                        "icon": "ph-desktop",
-                        "icon_color": "#3b82f6",
-                        "bg_color": "#eff6ff",
-                        "title": "The Indoor Rule",
-                        "text": "Apply this even when working from home. The Capsicum Annuum extract actively shields your dermal collagen from the epigenetic damage caused by HEV blue light from screens."
-                    }
-                }
-            },
-            "block_order": [
-                "secret_1",
-                "secret_2"
-            ],
-            "settings": {
-                "heading": "Formulation Hacks",
-                "description": "This is a hybrid skincare treatment. Use these lab hacks to maximize its potential:"
-            }
-        },
-        "timeline": {
-            "type": "qr-skin-timeline",
-            "blocks": {
-                "step_1": {
-                    "type": "timeline_step",
-                    "settings": {
-                        "timeline_label": "Immediate",
-                        "title": "Invisible Plumping",
-                        "text": "Zero white cast. The Hyaluronic Acid binds surface moisture, giving your skin an immediate, dewy bounce.",
-                        "highlighted": false
-                    }
-                },
-                "step_2": {
-                    "type": "timeline_step",
-                    "settings": {
-                        "timeline_label": "Weeks 2-4",
-                        "title": "Calmer, Clearer Skin",
-                        "text": "The Niacinamide begins regulating sebum production, reducing afternoon greasiness and minimizing UV-induced redness.",
-                        "highlighted": false
-                    }
-                },
-                "step_3": {
-                    "type": "timeline_step",
-                    "settings": {
-                        "timeline_label": "Long-Term",
-                        "title": "True Age Prevention",
-                        "text": "By blocking UV-induced collagen degradation (MMPs), you are actively preventing new wrinkles and hyperpigmentation from forming.",
-                        "highlighted": true
-                    }
-                }
-            },
-            "block_order": [
-                "step_1",
-                "step_2",
-                "step_3"
-            ],
-            "settings": {
-                "heading": "Your Skin's Timeline",
-                "description": "Daily protection translates to compounding anti-aging benefits over time."
-            }
-        },
-        "engagement": {
-            "type": "qr-engagement-stack",
-            "settings": {
-                "email_heading": "Let's Track Your Progress",
-                "email_body": "SPF is the foundation of clinical skincare. Enter your email and our lab team will check in with you to ensure your barrier remains healthy and to offer seasonal routine adjustments.",
-                "email_button_label": "Activate Check-ins",
-                "wa_heading": "Routine Doubts?",
-                "wa_body": "Have questions about reapplication or layering this with makeup? Don't guess. Text our formulation experts directly.",
-                "wa_link": "https:\/\/wa.me\/923001234567",
-                "wa_button_label": "Text the Lab",
-                "cross_heading": "Clinical Pairings",
-                "cross_body": "While SPF prevents new dark spots, it cannot erase old ones. Pair your daily defense with our 5-pathway clinical brightening serum to reverse past UV damage.",
-                "cross_product": "",
-                "vip_heading": "Unlock Your Next Formula",
-                "vip_body": "As a verified owner, your clinical feedback physically shapes our lab. Tell us how this SPF feels, and we'll immediately grant you 15% off your next purchase.",
-                "vip_btn_label": "Review & Unlock 15% Off",
-                "vip_link": "\/pages\/luma-vip-review?product=Defense+Aqua+SPF"
-            }
-        }
+  "sections": {
+    "header": {
+      "type": "qr-app-header",
+      "settings": {
+        "logo_image": "shopify://shop_images/Main_Logo_-_Horizontal_f5e74301-ff58-44ea-9b0b-317e58eb7010.png"
+      }
     },
-    "order": [
-        "header",
-        "hero",
-        "secrets",
-        "timeline",
-        "engagement"
-    ]
+    "hero": {
+      "type": "qr-auth-hero",
+      "settings": {
+        "heading": "Authentication",
+        "subheading": "Successful.",
+        "welcome_text": "Welcome to the Luma family.",
+        "description": "You are now holding our 6-filter Hyaluronic Aqua Gel. Prepare for total UV and HEV blue light defense.",
+        "product_bg_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+        "vip_title": "Your VIP Perk",
+        "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
+        "vip_button_label": "Review & Unlock",
+        "vip_button_link": "/pages/luma-vip-review?product=Defense+Aqua+SPF",
+        "vip_bg_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
+      }
+    },
+    "secrets": {
+      "type": "qr-formulation-secrets",
+      "blocks": {
+        "secret_1": {
+          "type": "secret",
+          "settings": {
+            "icon": "ph-drop",
+            "icon_color": "#ca8a04",
+            "bg_color": "#fefce8",
+            "title": "The Moisturizer Swap",
+            "text": "If you have oily or combination skin, skip your morning moisturizer. The Aquaxyl™ complex and Sodium Hyaluronate provide comprehensive 4-tier hydration on their own."
+          }
+        },
+        "secret_2": {
+          "type": "secret",
+          "settings": {
+            "icon": "ph-desktop",
+            "icon_color": "#3b82f6",
+            "bg_color": "#eff6ff",
+            "title": "The Indoor Rule",
+            "text": "Apply this even when working from home. The Capsicum Annuum extract actively shields your dermal collagen from the epigenetic damage caused by HEV blue light from screens."
+          }
+        }
+      },
+      "block_order": [
+        "secret_1",
+        "secret_2"
+      ],
+      "settings": {
+        "heading": "Formulation Hacks",
+        "description": "This is a hybrid skincare treatment. Use these lab hacks to maximize its potential:"
+      }
+    },
+    "timeline": {
+      "type": "qr-skin-timeline",
+      "blocks": {
+        "step_1": {
+          "type": "timeline_step",
+          "settings": {
+            "timeline_label": "Immediate",
+            "title": "Invisible Plumping",
+            "text": "Zero white cast. The Hyaluronic Acid binds surface moisture, giving your skin an immediate, dewy bounce.",
+            "highlighted": false
+          }
+        },
+        "step_2": {
+          "type": "timeline_step",
+          "settings": {
+            "timeline_label": "Weeks 2-4",
+            "title": "Calmer, Clearer Skin",
+            "text": "The Niacinamide begins regulating sebum production, reducing afternoon greasiness and minimizing UV-induced redness.",
+            "highlighted": false
+          }
+        },
+        "step_3": {
+          "type": "timeline_step",
+          "settings": {
+            "timeline_label": "Long-Term",
+            "title": "True Age Prevention",
+            "text": "By blocking UV-induced collagen degradation (MMPs), you are actively preventing new wrinkles and hyperpigmentation from forming.",
+            "highlighted": true
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "Your Skin's Timeline",
+        "description": "Daily protection translates to compounding anti-aging benefits over time."
+      }
+    },
+    "engagement": {
+      "type": "qr-engagement-stack",
+      "settings": {
+        "email_heading": "Let's Track Your Progress",
+        "email_body": "SPF is the foundation of clinical skincare. Enter your email and our lab team will check in with you to ensure your barrier remains healthy and to offer seasonal routine adjustments.",
+        "email_button_label": "Activate Check-ins",
+        "wa_heading": "Routine Doubts?",
+        "wa_body": "Have questions about reapplication or layering this with makeup? Don't guess. Text our formulation experts directly.",
+        "wa_link": "https://wa.me/923001234567",
+        "wa_button_label": "Text the Lab",
+        "cross_heading": "Clinical Pairings",
+        "cross_body": "While SPF prevents new dark spots, it cannot erase old ones. Pair your daily defense with our 5-pathway clinical brightening serum to reverse past UV damage.",
+        "cross_product": "glutathione-vitamin-c-serum",
+        "vip_heading": "Unlock Your Next Formula",
+        "vip_body": "As a verified owner, your clinical feedback physically shapes our lab. Tell us how this SPF feels, and we'll immediately grant you 15% off your next purchase.",
+        "vip_btn_label": "Review & Unlock 15% Off",
+        "vip_link": "/pages/luma-vip-review?product=Defense+Aqua+SPF"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "hero",
+    "secrets",
+    "timeline",
+    "engagement"
+  ]
 }
