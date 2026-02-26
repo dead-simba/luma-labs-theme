@@ -38,6 +38,7 @@
         "luma_heading_AKLkPj": {
           "type": "luma-heading",
           "name": "Luma Heading",
+          "disabled": true,
           "settings": {
             "title": "Skincare that speaks [your skin's language.]",
             "tag": "h1",
@@ -56,7 +57,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "",
+            "text": "<p>Skincare that speaks your skin language</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
