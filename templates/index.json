@@ -507,6 +507,7 @@
         "group_KLVi7K"
       ],
       "name": "t:names.collections_grid",
+      "custom_css": ".image-block, .collection-card__image, .collection-card.collection-card--image-bg { border-radius: 50% !important; aspect-ratio: 1 / 1 !important; overflow: hidden; }",
       "settings": {
         "collection_list": [
           "damaged-barrier",
@@ -516,7 +517,6 @@
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "circular_images": true,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",

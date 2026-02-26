@@ -15,18 +15,6 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 
-{% if section.settings.circular_images %}
-  <style>
-    #shopify-section-{{ section.id }} .image-block,
-    #shopify-section-{{ section.id }} .collection-card__image,
-    #shopify-section-{{ section.id }} .collection-card.collection-card--image-bg {
-      border-radius: 50% !important;
-      aspect-ratio: 1 / 1 !important;
-      overflow: hidden;
-    }
-  </style>
-{% endif %}
-
 <div
   class="
     section
@@ -160,12 +148,6 @@
       "label": "t:settings.carousel_on_mobile",
       "default": false,
       "visible_if": "{{ section.settings.layout_type != 'carousel' }}"
-    },
-    {
-      "type": "checkbox",
-      "id": "circular_images",
-      "label": "Enable Circular Images",
-      "default": false
     },
     {
       "type": "range",
