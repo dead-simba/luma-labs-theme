@@ -85,9 +85,12 @@
         <p class="font-sans text-[10px] text-[#1A1A1A]/70 leading-tight mb-2 pr-2" style="margin: 0 0 8px 0;">
           {{ section.settings.vip_description }}
         </p>
-        <button class="bg-white text-[#1A1A1A] text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full hover:bg-[#1A1A1A] hover:text-white transition shadow-sm border border-[#E5E5E5] w-max">
+        <a
+          href="{{ section.settings.vip_button_link | default: '#' }}"
+          class="inline-block bg-white text-[#1A1A1A] text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full hover:bg-[#1A1A1A] hover:text-white transition shadow-sm border border-[#E5E5E5] w-max"
+        >
           {{ section.settings.vip_button_label }}
-        </button>
+        </a>
       </div>
     </div>
   </section>
@@ -150,6 +153,11 @@
       "id": "vip_button_label",
       "label": "VIP Button Label",
       "default": "Review & Unlock"
+    },
+    {
+      "type": "url",
+      "id": "vip_button_link",
+      "label": "VIP Button Link"
     },
     {
       "type": "color_background",
