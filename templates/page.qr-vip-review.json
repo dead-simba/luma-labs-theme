@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "review": {
+            "type": "qr-vip-review-form",
+            "settings": {}
+        }
+    },
+    "order": [
+        "review"
+    ]
+}

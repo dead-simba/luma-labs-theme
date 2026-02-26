@@ -1,0 +1,232 @@
+<style>
+  .qr-review-bg {
+    background-color: #1a1a1a;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem;
+  }
+
+  /* Reverse pure CSS star rating logic */
+  .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .star-rating input {
+    display: none;
+  }
+  .star-rating label {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .star-rating input:checked ~ label {
+    color: #d4a340;
+  }
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    color: #d4a340;
+  }
+
+  .animate-pop-in {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  @keyframes popIn {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="qr-review-bg relative">
+  <!-- Interactive background elements -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div
+      class="absolute top-[-10%] right-[-10%] w-64 h-64 bg-[#D4A340]/10 rounded-full mix-blend-overlay filter blur-[50px]"
+    ></div>
+    <div
+      class="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-green-500/10 rounded-full mix-blend-overlay filter blur-[50px]"
+    ></div>
+  </div>
+
+  <div class="max-w-md mx-auto relative z-10 pt-4">
+    <!-- Header Logo -->
+    <a href="{{ routes.root_url }}" class="flex justify-center mb-10 text-white hover:text-[#D4A340] transition">
+      <i class="ph-fill ph-sparkle text-3xl"></i>
+    </a>
+
+    {% form 'contact', id: 'vip_review_form' %}
+      {%- if form.posted_successfully? -%}
+        <!-- SUCCESS STATE: The Gate is Unlocked -->
+        <div class="text-center bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl animate-pop-in">
+          <div class="w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(34,197,94,0.4)] border-4 border-white/10">
+            <i class="ph-bold ph-check text-3xl"></i>
+          </div>
+          <h2 class="font-serif text-3xl mb-2 text-white">Review Verified.</h2>
+          <p class="font-sans text-sm text-white/70 mb-8 font-light leading-relaxed">
+            Your clinical feedback has been securely deposited. As promised, here is your 15% VIP access code for your
+            next routine upgrade:
+          </p>
+
+          <div
+            class="bg-[#1A1A1A] border-2 border-dashed border-[#D4A340] rounded-2xl p-5 mb-4 relative group cursor-pointer hover:bg-white/5 transition"
+            onclick="navigator.clipboard.writeText('{{ section.settings.discount_code }}'); alert('VIP Code Copied to Clipboard!');"
+          >
+            <span class="font-sans text-3xl text-[#D4A340] font-bold tracking-widest">
+              {{- section.settings.discount_code -}}
+            </span>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition backdrop-blur-sm bg-black/40 rounded-xl">
+              <span class="text-white text-[10px] font-bold uppercase tracking-widest"
+                ><i class="ph-bold ph-copy"></i> Click to Copy</span
+              >
+            </div>
+          </div>
+
+          <p class="text-[9px] text-white/40 uppercase tracking-widest font-semibold mb-8">
+            Ready to be applied at checkout
+          </p>
+
+          <a
+            href="{{ routes.all_products_collection_url }}"
+            class="block w-full bg-white text-[#1A1A1A] font-sans font-bold text-sm uppercase tracking-wider py-4 rounded-xl hover:bg-[#D4A340] hover:text-white transition shadow-lg"
+          >
+            Shop the Lab
+          </a>
+        </div>
+
+        <!-- Embedded fireworks/confetti script effect -->
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+        <script>
+          setTimeout(() => {
+            confetti({
+              particleCount: 150,
+              spread: 80,
+              origin: { y: 0.6 },
+              colors: ['#D4A340', '#FFFFFF', '#22C55E'],
+            });
+          }, 300);
+        </script>
+
+      {%- else -%}
+        <!-- INPUT STATE: The Submission Gate -->
+        <div class="text-center mb-8 animate-pop-in">
+          <h1 class="font-serif text-3xl md:text-4xl leading-tight mb-3 text-white">
+            Your Clinical <span class="italic text-[#D4A340]">Review.</span>
+          </h1>
+          <p class="font-sans text-xs text-white/70 font-light leading-relaxed px-4">
+            {{ section.settings.description }}
+          </p>
+        </div>
+
+        <div
+          class="bg-white/5 backdrop-blur-md rounded-[2rem] p-6 md:p-8 border border-white/10 shadow-2xl animate-pop-in"
+          style="animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards;"
+        >
+          {%- if form.errors -%}
+            <div class="bg-red-500/10 border border-red-500/20 text-red-400 text-xs p-4 rounded-xl mb-6">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="mb-8 text-center bg-black/20 py-4 rounded-2xl border border-white/5 shadow-inner">
+            <label class="block font-sans text-[10px] font-bold uppercase tracking-widest text-[#D4A340] mb-2"
+              >Rate the Formula</label
+            >
+            <div class="star-rating">
+              <input type="radio" id="star5" name="contact[rating]" value="5" required>
+              <label for="star5" title="text"><i class="ph-fill ph-star"></i></label>
+              <input type="radio" id="star4" name="contact[rating]" value="4">
+              <label for="star4" title="text"><i class="ph-fill ph-star"></i></label>
+              <input type="radio" id="star3" name="contact[rating]" value="3">
+              <label for="star3" title="text"><i class="ph-fill ph-star"></i></label>
+              <input type="radio" id="star2" name="contact[rating]" value="2">
+              <label for="star2" title="text"><i class="ph-fill ph-star"></i></label>
+              <input type="radio" id="star1" name="contact[rating]" value="1">
+              <label for="star1" title="text"><i class="ph-fill ph-star"></i></label>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <input
+                type="text"
+                name="contact[name]"
+                id="ContactFormName"
+                placeholder="Full Name"
+                required
+                autocomplete="name"
+                class="w-full bg-white/5 border border-white/10 px-5 py-3.5 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition"
+              >
+            </div>
+            <div>
+              <input
+                type="email"
+                name="contact[email]"
+                id="ContactFormEmail"
+                placeholder="Email Address"
+                required
+                autocomplete="email"
+                class="w-full bg-white/5 border border-white/10 px-5 py-3.5 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition shadow-inner"
+              >
+            </div>
+            <div>
+              <textarea
+                name="contact[body]"
+                id="ContactFormMessage"
+                placeholder="How has Barrier Renew transformed your skin?"
+                required
+                rows="5"
+                class="w-full bg-white/5 border border-white/10 px-5 py-3.5 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A340] focus:ring-1 focus:ring-[#D4A340] transition resize-none shadow-inner"
+              ></textarea>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-[#D4A340] text-[#1A1A1A] font-sans font-bold text-sm uppercase tracking-wider py-4 mt-8 rounded-xl hover:bg-white transition shadow-[0_0_20px_rgba(212,163,64,0.3)]"
+          >
+            Submit & Unlock 15%
+          </button>
+
+          <p class="text-center text-[10px] text-white/30 uppercase tracking-widest font-semibold mt-6">
+            By submitting, you consent to this review being strictly utilized to advance Luma formulations.
+          </p>
+        </div>
+      {%- endif -%}
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "QR VIP Review Flow",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Your feedback physically shapes our lab. Submit your authentic review to instantly unhide your 15% VIP access code."
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "The Reward Discount Code",
+      "default": "VIP15QR",
+      "info": "This secretly reveals ONLY after they submit the review."
+    }
+  ],
+  "presets": [
+    {
+      "name": "QR VIP Review Flow"
+    }
+  ]
+}
+{% endschema %}
