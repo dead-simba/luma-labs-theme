@@ -638,7 +638,8 @@
             "symbol": "Ce",
             "title": "Ceramides",
             "subtitle": "Biomimetic Lipids",
-            "color_theme": "barrier"
+            "color_theme": "barrier",
+            "link": ""
           }
         },
         "ingredient_2": {
@@ -647,7 +648,8 @@
             "symbol": "Mx",
             "title": "Matrixyl 3000™",
             "subtitle": "Signal Peptides",
-            "color_theme": "peptide"
+            "color_theme": "peptide",
+            "link": ""
           }
         },
         "ingredient_3": {
@@ -656,7 +658,8 @@
             "symbol": "Aa",
             "title": "Alpha Arbutin",
             "subtitle": "Enzyme Inhibitor",
-            "color_theme": "brightening"
+            "color_theme": "brightening",
+            "link": ""
           }
         },
         "ingredient_4": {
@@ -665,7 +668,8 @@
             "symbol": "Na",
             "title": "Niacinamide",
             "subtitle": "Vitamin B3",
-            "color_theme": "sunscreen"
+            "color_theme": "sunscreen",
+            "link": ""
           }
         }
       },
@@ -676,10 +680,12 @@
         "ingredient_4"
       ],
       "settings": {
+        "background_image": "shopify://shop_images/Explore_Ingredients_2_Compressed.webp",
         "eyebrow": "Complete Transparency",
         "heading": "Explore the Ingredient Directory",
         "description": "We believe skintellectuals deserve to know exactly what they are applying, why it was chosen, and how it functions biologically. Dive into the deep clinical science behind our active complexes.",
         "button_label": "Enter the Glossary",
+        "button_link": "",
         "padding_top": 128,
         "padding_bottom": 128
       }
