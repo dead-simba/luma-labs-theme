@@ -1,0 +1,124 @@
+{
+    "sections": {
+        "header": {
+            "type": "qr-app-header",
+            "settings": {
+                "logo_image": "shopify:\/\/shop_images\/Main_Logo_-_Horizontal_f5e74301-ff58-44ea-9b0b-317e58eb7010.png"
+            }
+        },
+        "hero": {
+            "type": "qr-auth-hero",
+            "settings": {
+                "heading": "Authentication",
+                "subheading": "Successful.",
+                "welcome_text": "Welcome to the Luma family.",
+                "description": "You are now holding our 5-pathway clinical brightening complex. Prepare for visibly radiant, even skin.",
+                "product_bg_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
+                "vip_title": "Your VIP Perk",
+                "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
+                "vip_button_label": "Review & Unlock",
+                "vip_button_link": "\/pages\/luma-vip-review?product=2%25+Alpha+Arbutin"
+            }
+        },
+        "secrets": {
+            "type": "qr-formulation-secrets",
+            "blocks": {
+                "secret_1": {
+                    "type": "secret",
+                    "settings": {
+                        "icon": "ph-sun-dim",
+                        "icon_color": "#f97316",
+                        "bg_color": "#fff7ed",
+                        "title": "The Non-Negotiable SPF",
+                        "text": "UV radiation triggers the exact enzymes this serum is trying to block. Applying this without SPF 50+ in the morning is scientifically counterproductive."
+                    }
+                },
+                "secret_2": {
+                    "type": "secret",
+                    "settings": {
+                        "icon": "ph-lock-key",
+                        "icon_color": "#2563eb",
+                        "bg_color": "#eff6ff",
+                        "title": "The Moisture Seal",
+                        "text": "This is a fast-absorbing treatment serum. Always lock it in with a ceramide-rich moisturizer immediately after it absorbs to prevent evaporation."
+                    }
+                }
+            },
+            "block_order": [
+                "secret_1",
+                "secret_2"
+            ],
+            "settings": {
+                "heading": "Formulation Hacks",
+                "description": "To unlock 100% of this formula's depigmenting power, follow our lab protocols:"
+            }
+        },
+        "timeline": {
+            "type": "qr-skin-timeline",
+            "blocks": {
+                "step_1": {
+                    "type": "timeline_step",
+                    "settings": {
+                        "timeline_label": "Weeks 1-2",
+                        "title": "Hydration & Glow",
+                        "text": "The stable Vitamin C (EAA) immediately begins scavenging free radicals, boosting overall luminosity and skin hydration.",
+                        "highlighted": false
+                    }
+                },
+                "step_2": {
+                    "type": "timeline_step",
+                    "settings": {
+                        "timeline_label": "Weeks 4-6",
+                        "title": "Fading Initiates",
+                        "text": "Alpha Arbutin and TXA actively block tyrosinase and plasmin pathways. New pigment is stopped; older surface spots begin to visibly lighten.",
+                        "highlighted": false
+                    }
+                },
+                "step_3": {
+                    "type": "timeline_step",
+                    "settings": {
+                        "timeline_label": "Weeks 8-12",
+                        "title": "Deep Correction",
+                        "text": "The 5-pathway complex reaches peak saturation. Stubborn dark spots, melasma, and post-acne marks show significant, measurable fading.",
+                        "highlighted": true
+                    }
+                }
+            },
+            "block_order": [
+                "step_1",
+                "step_2",
+                "step_3"
+            ],
+            "settings": {
+                "heading": "Your Skin's Timeline",
+                "description": "Fading hyperpigmentation is a biological process. Here is your cellular timeline."
+            }
+        },
+        "engagement": {
+            "type": "qr-engagement-stack",
+            "settings": {
+                "email_heading": "Let's Track Your Progress",
+                "email_body": "Real pigment correction requires patience. Enter your email and our lab team will check in with you at Week 4 and Week 8 to track your fading progress and adjust your routine.",
+                "email_button_label": "Activate Weekly Check-ins",
+                "wa_heading": "Routine Doubts?",
+                "wa_body": "Not sure how to layer this with your current retinol or AHA? Don't guess. Text our formulation experts directly.",
+                "wa_link": "https:\/\/wa.me\/923001234567",
+                "wa_button_label": "Text the Lab",
+                "cross_heading": "Clinical Pairings",
+                "cross_body": "Brightening actives perform best in a healthy, hydrated environment. Seal in the 5-pathway complex with our biomimetic ceramide matrix.",
+                "cross_product": "",
+                "vip_heading": "Unlock Your Next Formula",
+                "vip_body": "As a verified owner, your clinical feedback physically shapes our lab. Tell us how this serum feels, and we'll immediately grant you 15% off your next purchase.",
+                "vip_btn_label": "Review & Unlock 15% Off",
+                "vip_link": "\/pages\/luma-vip-review?product=2%25+Alpha+Arbutin"
+            }
+        }
+    },
+    "order": [
+        "header",
+        "hero",
+        "secrets",
+        "timeline",
+        "engagement"
+    ]
+}
