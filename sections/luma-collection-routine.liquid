@@ -1,72 +1,78 @@
 {% style %}
   .luma-routine {
     padding: 6rem 1.5rem;
-    background-color: #1a1a1a;
+    background-color: #0a0a0a;
     color: #ffffff;
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   @media (min-width: 768px) {
     .luma-routine {
       padding: 8rem 2rem;
     }
   }
+
   .luma-routine__glow {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 40rem;
-    height: 40rem;
-    background-color: #1e3a8a;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50rem;
+    height: 25rem;
+    background-color: rgba(212, 163, 64, 0.05);
     border-radius: 9999px;
-    mix-blend-mode: overlay;
+    mix-blend-mode: screen;
     filter: blur(100px);
-    opacity: 0.2;
     pointer-events: none;
+    z-index: 0;
   }
+
   .luma-routine__container {
     max-width: 80rem;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 10;
   }
+
   .luma-routine__header {
     text-align: center;
-    margin-bottom: 4rem;
-  }
-  .luma-routine__eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #d4a340;
-    margin-bottom: 1rem;
-    display: block;
-    font-family: 'Inter', sans-serif;
+    max-width: 48rem;
+    margin: 0 auto 5rem;
   }
   .luma-routine__heading {
     font-family: 'Playfair Display', serif;
     font-size: 2.25rem;
     margin-bottom: 1.5rem;
+    color: #ffffff;
   }
   @media (min-width: 768px) {
     .luma-routine__heading {
       font-size: 3rem;
     }
   }
+  @media (min-width: 1024px) {
+    .luma-routine__heading {
+      font-size: 3.75rem;
+    }
+  }
   .luma-routine__desc {
     font-family: 'Inter', sans-serif;
     color: rgba(255, 255, 255, 0.6);
-    max-width: 42rem;
-    margin: 0 auto;
+    font-size: 1rem;
     font-weight: 300;
     line-height: 1.625;
+  }
+  @media (min-width: 768px) {
+    .luma-routine__desc {
+      font-size: 1.125rem;
+    }
   }
 
   .luma-routine__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
     position: relative;
   }
   @media (min-width: 768px) {
@@ -75,20 +81,16 @@
       gap: 2rem;
     }
   }
-  @media (min-width: 1024px) {
-    .luma-routine__grid {
-      gap: 4rem;
-    }
-  }
 
   .luma-routine__connector {
     display: none;
     position: absolute;
-    top: 3rem;
-    left: 15%;
-    right: 15%;
+    top: 6.25rem;
+    left: 16.66%;
+    right: 16.66%;
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    z-index: 0;
   }
   @media (min-width: 768px) {
     .luma-routine__connector {
@@ -99,96 +101,191 @@
   .luma-routine__step {
     text-align: center;
     position: relative;
+    z-index: 10;
   }
-  .luma-routine__circle-wrapper {
-    width: 6rem;
-    height: 6rem;
-    margin: 0 auto 1.5rem auto;
-    border-radius: 9999px;
+  .luma-routine__visual {
+    position: relative;
+    height: 12rem;
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
   }
-  .luma-routine__number {
+  @media (min-width: 768px) {
+    .luma-routine__visual {
+      height: 14rem;
+    }
+  }
+
+  .luma-routine__visual-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    opacity: 0.2;
+    filter: blur(12px);
+  }
+  .luma-routine__visual-base {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 9999px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  .luma-routine__visual-img {
+    position: relative;
+    z-index: 10;
+    height: 120%;
+    width: auto;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: lumaFloat 6s ease-in-out infinite;
+  }
+  .luma-routine__visual-img--delay-1 {
+    animation-delay: 1s;
+  }
+  .luma-routine__visual-img--delay-2 {
+    animation-delay: 2s;
+  }
+
+  @keyframes lumaFloat {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .luma-routine__badge {
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0a0a0a;
+    color: #d4a340;
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(212, 163, 64, 0.5);
+    z-index: 20;
+    box-shadow: 0 0 15px rgba(212, 163, 64, 0.2);
   }
 
   .luma-routine__step-heading {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   .luma-routine__step-product {
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     color: #d4a340;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
   .luma-routine__step-desc {
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.6);
     font-weight: 300;
-    padding: 0 1rem;
     line-height: 1.625;
+    max-width: 20rem;
+    margin: 0 auto;
   }
 
   .luma-routine__bundle {
-    margin-top: 4rem;
+    margin-top: 5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  @media (min-width: 768px) {
+    .luma-routine__bundle {
+      margin-top: 6rem;
+    }
+  }
+
   .luma-routine__btn {
+    width: 100%;
     background-color: #ffffff;
-    color: #1a1a1a;
+    color: #0a0a0a;
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 1.25rem 2rem;
     border-radius: 9999px;
-    text-decoration: none;
+    border: none;
+    cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    border: none;
-    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+  }
+  @media (min-width: 640px) {
+    .luma-routine__btn {
+      width: auto;
+      font-size: 1rem;
+      padding: 1.5rem 3rem;
+    }
   }
   .luma-routine__btn:hover {
     background-color: #d4a340;
     color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(212, 163, 64, 0.2);
   }
   .luma-routine__btn-price {
     font-weight: 700;
   }
   .luma-routine__btn-original {
-    font-size: 0.875rem;
-    color: rgba(26, 26, 26, 0.4);
+    color: rgba(10, 10, 10, 0.4);
     text-decoration: line-through;
+    font-weight: 500;
     transition: color 0.3s ease;
   }
   .luma-routine__btn:hover .luma-routine__btn-original {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
   }
   .luma-routine__savings {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.5);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   .luma-routine__savings i {
-    margin-right: 0.25rem;
+    font-size: 1rem;
+    color: #d4a340;
   }
 {% endstyle %}
 
@@ -196,7 +293,6 @@
   <div class="luma-routine__glow"></div>
   <div class="luma-routine__container">
     <div class="luma-routine__header">
-      <span class="luma-routine__eyebrow">{{ section.settings.eyebrow }}</span>
       <h2 class="luma-routine__heading">{{ section.settings.heading }}</h2>
       <p class="luma-routine__desc">{{ section.settings.description }}</p>
     </div>
@@ -206,24 +302,34 @@
 
       {% for block in section.blocks %}
         <div class="luma-routine__step">
-          <div
-            class="luma-routine__circle-wrapper"
-            style="
-              background: {{ block.settings.circle_bg }};
-              border: 2px solid {{ block.settings.circle_border }};
-              {% if block.settings.enable_glow %}box-shadow: 0 0 30px rgba(212,163,64,0.3);{% endif %}
-              opacity: {{ block.settings.opacity }};
-            "
-          >
-            <span
-              class="luma-routine__number"
-              style="
-                color: {{ block.settings.number_color }};
-                font-weight: {% if block.settings.enable_glow %}700{% else %}400{% endif %};
-              "
-              >0{{ forloop.index -}}
-            </span>
+          <div class="luma-routine__visual">
+            <div class="luma-routine__visual-glow" style="background: {{ block.settings.circle_bg }};"></div>
+            <div
+              class="luma-routine__visual-base"
+              style="{% if block.settings.enable_border %}border-color: rgba(212,163,64,0.3); box-shadow: 0 0 30px rgba(212,163,64,0.1);{% endif %}"
+            ></div>
+
+            {% if block.settings.product_image != blank %}
+              {{
+                block.settings.product_image
+                | image_url: width: 600
+                | image_tag: class: 'luma-routine__visual-img luma-routine__visual-img--delay-'
+                | append: forloop.index0, loading: 'lazy'
+              }}
+            {% else %}
+              <img
+                src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=300&auto=format&fit=crop"
+                class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
+                width="300"
+                height="400"
+                loading="lazy"
+                alt="Product Mockup"
+              >
+            {% endif %}
+
+            <div class="luma-routine__badge">0{{ forloop.index }}</div>
           </div>
+
           <h3 class="luma-routine__step-heading" style="color: {{ block.settings.heading_color }};">
             {{ block.settings.heading }}
           </h3>
@@ -235,29 +341,88 @@
 
     {% if section.settings.show_bundle %}
       <div class="luma-routine__bundle">
-        <button class="luma-routine__btn">
+        <button onclick="addProtocolToCart()" class="luma-routine__btn" id="lumaProtocolBtn">
           <span>
             {{- section.settings.btn_text }} &mdash;
             <strong class="luma-routine__btn-price">{{ section.settings.bundle_price }}</strong></span
           >
           <span class="luma-routine__btn-original">{{ section.settings.original_price }}</span>
         </button>
-        <p class="luma-routine__savings"><i class="ph-fill ph-tag"></i> {{ section.settings.savings_text }}</p>
+        <p class="luma-routine__savings">
+          <i class="ph-fill ph-tag"></i> <span>{{ section.settings.savings_text }}</span>
+        </p>
       </div>
     {% endif %}
   </div>
 </section>
 
+{% if section.settings.show_bundle %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Collect Variant IDs dynamically from the schema's assigned products
+      const bundleVariants = [];
+      {% if section.settings.bundle_product_1 != blank %}bundleVariants.push({ id: {{ section.settings.bundle_product_1.variants.first.id }}, quantity: 1 });{% endif %}
+      {% if section.settings.bundle_product_2 != blank %}bundleVariants.push({ id: {{ section.settings.bundle_product_2.variants.first.id }}, quantity: 1 });{% endif %}
+      {% if section.settings.bundle_product_3 != blank %}bundleVariants.push({ id: {{ section.settings.bundle_product_3.variants.first.id }}, quantity: 1 });{% endif %}
+
+      window.addProtocolToCart = function() {
+        const btn = document.getElementById('lumaProtocolBtn');
+        if (!btn) return;
+
+        if(bundleVariants.length === 0) {
+          alert("Please map products in the Shopify Customizer to use the Complete Protocol Add-to-Cart functionality.");
+          return;
+        }
+
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Adding to Cart... <i class="ph-bold ph-spinner luma-spin" style="animation: spin 1s linear infinite;"></i> <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>';
+        btn.style.pointerEvents = 'none';
+
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ items: bundleVariants })
+        })
+        .then(response => {
+            if(response.ok) return response.json();
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            btn.innerHTML = 'Added to Cart! <i class="ph-bold ph-check"></i>';
+            btn.style.backgroundColor = '#16a34a'; // tailwind green-600 equivalent
+            btn.style.color = '#FFFFFF';
+
+            // Trigger Dawn's cart refresh or any global cart update
+            document.documentElement.dispatchEvent(new CustomEvent('cart:refresh'));
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.style.pointerEvents = 'auto';
+            }, 2500);
+        })
+        .catch((error) => {
+            console.error('Error adding bundle:', error);
+            btn.innerHTML = 'Error Adding Items <i class="ph-bold ph-warning"></i>';
+            btn.style.backgroundColor = '#dc2626'; // tailwind red-600
+            btn.style.color = '#FFFFFF';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.style.pointerEvents = 'auto';
+            }, 2500);
+        });
+      }
+    });
+  </script>
+{% endif %}
+
 {% schema %}
 {
   "name": "Collection Routine",
   "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow Text",
-      "default": "Maximum Synergy"
-    },
     {
       "type": "text",
       "id": "heading",
@@ -268,7 +433,26 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection."
+      "default": "While each formula is powerful alone, true clinical results require 360° exposome protection. Combine our three master formulas for complete skin transformation."
+    },
+    {
+      "type": "header",
+      "content": "Bundle Products Selection"
+    },
+    {
+      "type": "product",
+      "id": "bundle_product_1",
+      "label": "Bundle Product 1"
+    },
+    {
+      "type": "product",
+      "id": "bundle_product_2",
+      "label": "Bundle Product 2"
+    },
+    {
+      "type": "product",
+      "id": "bundle_product_3",
+      "label": "Bundle Product 3"
     },
     {
       "type": "header",
@@ -312,6 +496,11 @@
       "limit": 3,
       "settings": [
         {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Cutout Image (Transparent PNG)"
+        },
+        {
           "type": "text",
           "id": "heading",
           "label": "Heading",
@@ -338,35 +527,14 @@
         {
           "type": "text",
           "id": "circle_bg",
-          "label": "Circle Background",
+          "label": "Circle Glow Gradient",
           "default": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)"
         },
         {
-          "type": "color",
-          "id": "circle_border",
-          "label": "Circle Border",
-          "default": "rgba(255,255,255,0.2)"
-        },
-        {
-          "type": "color",
-          "id": "number_color",
-          "label": "Number Color",
-          "default": "#1A1A1A"
-        },
-        {
           "type": "checkbox",
-          "id": "enable_glow",
-          "label": "Enable Golden Glow",
+          "id": "enable_border",
+          "label": "Enable Golden Border",
           "default": false
-        },
-        {
-          "type": "range",
-          "id": "opacity",
-          "min": 0,
-          "max": 1,
-          "step": 0.1,
-          "label": "Circle Opacity",
-          "default": 0.9
         }
       ]
     }
@@ -377,7 +545,13 @@
       "blocks": [
         {
           "type": "step",
-          "settings": { "heading": "Target & Brighten", "product_name": "2% Alpha Arbutin", "enable_glow": false }
+          "settings": {
+            "heading": "Target & Brighten",
+            "heading_color": "#ffffff",
+            "product_name": "2% Alpha Arbutin Serum",
+            "enable_border": false,
+            "circle_bg": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)"
+          }
         },
         {
           "type": "step",
@@ -385,19 +559,18 @@
             "heading": "Seal & Repair",
             "heading_color": "#D4A340",
             "product_name": "Barrier Renew Gel-Cream",
-            "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-            "circle_border": "#D4A340",
-            "enable_glow": true,
-            "opacity": 1
+            "enable_border": true,
+            "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
           }
         },
         {
           "type": "step",
           "settings": {
             "heading": "Hydrate & Defend",
-            "product_name": "Hyaluronic Aqua Gel SPF",
-            "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
-            "enable_glow": false
+            "heading_color": "#ffffff",
+            "product_name": "Hyaluronic Aqua Gel SPF 50",
+            "enable_border": false,
+            "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)"
           }
         }
       ]
