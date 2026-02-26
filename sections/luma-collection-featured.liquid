@@ -171,7 +171,7 @@
 
   .luma-featured__props {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     row-gap: 0.75rem;
     column-gap: 1.5rem;
     margin-bottom: 2.5rem;
@@ -179,10 +179,19 @@
     color: rgba(26,26,26,0.8);
     font-weight: 500;
   }
+  @media (min-width: 480px) {
+    .luma-featured__props {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   .luma-featured__prop {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
+  }
+  .luma-featured__prop i {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
   }
 
   .luma-featured__footer {
@@ -190,8 +199,16 @@
     padding-top: 1.5rem;
     border-top: 1px solid #E5E5E5;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  @media (min-width: 480px) {
+    .luma-featured__footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
   .luma-featured__price {
     font-family: 'Playfair Display', serif;
@@ -200,7 +217,23 @@
   }
   .luma-featured__actions {
     display: flex;
+    flex-direction: column;
     gap: 0.75rem;
+    width: 100%;
+  }
+  @media (min-width: 480px) {
+    .luma-featured__actions {
+      flex-direction: row;
+      width: auto;
+    }
+  }
+  .luma-featured__actions form {
+    width: 100%;
+  }
+  @media (min-width: 480px) {
+    .luma-featured__actions form {
+      width: auto;
+    }
   }
   .luma-featured__btn-view {
     display: none;
@@ -217,9 +250,13 @@
     border-radius: 9999px;
     text-decoration: none;
     transition: all 0.3s ease;
+    width: 100%;
   }
   @media (min-width: 640px) {
-    .luma-featured__btn-view { display: flex; }
+    .luma-featured__btn-view {
+      display: flex;
+      width: auto;
+    }
   }
   .luma-featured__btn-view:hover { background-color: #FAFAFA; }
 
@@ -243,8 +280,13 @@
     gap: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     white-space: nowrap !important;
-    width: auto !important;
-    min-width: max-content;
+    width: 100% !important;
+  }
+  @media (min-width: 480px) {
+    .luma-featured__btn-add {
+      width: auto !important;
+      min-width: max-content;
+    }
   }
   .luma-featured__btn-add:hover { background-color: #D4A340; }
   .luma-featured__btn-add i { font-size: 1rem; }
