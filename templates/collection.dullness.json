@@ -12,13 +12,13 @@
     "hero": {
       "type": "luma-collection-empathy-hero",
       "settings": {
-        "bg_image": "shopify://shop_images/Sunscreen_1.webp",
+        "bg_image": "shopify://shop_images/Brightening_Serum_1.webp",
         "bg_image_opacity": 1,
-        "bg_gradient": "linear-gradient(135deg, rgba(253, 194, 110, 0) 4%, rgba(245, 206, 79, 0.53) 100%)",
+        "bg_gradient": "linear-gradient(135deg, rgba(249, 195, 177, 0.7) 4%, rgba(253, 240, 200, 0.8) 100%)",
         "badge_text": "Targeted Solutions",
         "badge_icon": "ph-band-aid",
         "badge_icon_color": "#1e40af",
-        "heading": "Hydrate &amp; <em>Defend</em>",
+        "heading": "Fade &amp; <em>Illuminate</em>",
         "description": "A multi-functional 6-filter matrix that provides broad-spectrum UV/HEV protection while regulating sebum and repairing the barrier.",
         "cta_text": "Shop the Solution",
         "cta_link": "#solution"
