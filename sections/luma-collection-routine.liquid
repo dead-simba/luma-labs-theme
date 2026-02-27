@@ -301,6 +301,15 @@
       <div class="luma-routine__connector"></div>
 
       {% for block in section.blocks %}
+        {% comment %} Auto-pick the product image from the mapped bundle products {% endcomment %}
+        {% if forloop.index == 1 %}
+          {% assign step_product = section.settings.bundle_product_1 %}
+        {% elsif forloop.index == 2 %}
+          {% assign step_product = section.settings.bundle_product_2 %}
+        {% else %}
+          {% assign step_product = section.settings.bundle_product_3 %}
+        {% endif %}
+
         <div class="luma-routine__step">
           <div class="luma-routine__visual">
             <div class="luma-routine__visual-glow" style="background: {{ block.settings.circle_bg }};"></div>
@@ -309,13 +318,24 @@
               style="{% if block.settings.enable_border %}border-color: rgba(212,163,64,0.3); box-shadow: 0 0 30px rgba(212,163,64,0.1);{% endif %}"
             ></div>
 
-            {% if block.settings.product_image != blank %}
-              {{
-                block.settings.product_image
-                | image_url: width: 600
-                | image_tag: class: 'luma-routine__visual-img luma-routine__visual-img--delay-'
-                | append: forloop.index0, loading: 'lazy'
-              }}
+            {% if step_product != blank and step_product.featured_image != blank %}
+              <img
+                src="{{ step_product.featured_image | image_url: width: 600 }}"
+                class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
+                width="300"
+                height="400"
+                loading="lazy"
+                alt="{{ step_product.title | escape }}"
+              >
+            {% elsif block.settings.product_image != blank %}
+              <img
+                src="{{ block.settings.product_image | image_url: width: 600 }}"
+                class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
+                width="300"
+                height="400"
+                loading="lazy"
+                alt="{{ block.settings.heading | escape }}"
+              >
             {% else %}
               <img
                 src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=300&auto=format&fit=crop"
