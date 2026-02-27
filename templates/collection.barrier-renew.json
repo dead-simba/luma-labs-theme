@@ -12,9 +12,9 @@
     "hero": {
       "type": "luma-collection-empathy-hero",
       "settings": {
-        "bg_image": "shopify://shop_images/Barrier_Repair_Testimonial_BG.webp",
+        "bg_image": "shopify://shop_images/Barrier_Renew_1.webp",
         "bg_image_opacity": 1,
-        "bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 0.54), rgba(230, 222, 242, 1) 100%)",
+        "bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 0.54), rgba(199, 204, 244, 0.53) 100%)",
         "badge_text": "Targeted Solutions",
         "badge_icon": "ph-band-aid",
         "badge_icon_color": "#1e40af",
@@ -96,6 +96,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "product_image": "shopify://shop_images/2_Alpha_Arbutin_b3b0b81a-65ca-452c-8f46-b59debd00b34.webp",
             "heading": "Target & Brighten",
             "heading_color": "#ffffff",
             "product_name": "2% Alpha Arbutin Serum",
@@ -107,17 +108,19 @@
         "step_2": {
           "type": "step",
           "settings": {
+            "product_image": "shopify://shop_images/Barrier_Reneww.webp",
             "heading": "Seal & Repair",
             "heading_color": "#d4a340",
             "product_name": "Barrier Renew Gel-Cream",
             "description": "Layer immediately over the serum to physically fuse micro-tears and trap hydration deep in the dermis.",
             "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-            "enable_border": false
+            "enable_border": true
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
+            "product_image": "shopify://shop_images/Matte_UV_Defense.webp",
             "heading": "Hydrate & Defend",
             "heading_color": "#ffffff",
             "product_name": "Hyaluronic Aqua Gel SPF 50",
@@ -140,9 +143,9 @@
         "bundle_product_3": "strawberry-skin-eraser",
         "show_bundle": true,
         "btn_text": "Unlock The Complete Protocol",
-        "bundle_price": "$95.00",
-        "original_price": "$120.00",
-        "savings_text": "Save $25 when you buy the system"
+        "bundle_price": "Rs 4,100",
+        "original_price": "Rs 4960",
+        "savings_text": "Save Rs.860 when you buy the system"
       }
     }
   },
