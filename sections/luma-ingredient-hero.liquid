@@ -1,0 +1,259 @@
+{% style %}
+  .luma-ingredient-hero {
+    position: relative;
+    padding: 6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1A1A1A;
+    overflow: hidden;
+    min-height: 24rem;
+  }
+  @media (min-width: 768px) {
+    .luma-ingredient-hero {
+      padding: 8rem 1.5rem;
+      min-height: 32rem;
+    }
+  }
+
+  /* Full Bleed Organic Background */
+  .luma-ingredient-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .luma-ingredient-hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: {{ section.settings.bg_opacity | default: 0.6 }};
+    mix-blend-mode: luminosity;
+  }
+
+  /* Rich Dark Gradient Overlay */
+  .luma-ingredient-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(26,26,26,0.8) 0%, rgba(26,26,26,0.6) 50%, rgba(26,26,26,1) 100%);
+    z-index: 1;
+  }
+
+  .luma-ingredient-hero__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 56rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .luma-ingredient-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(212, 163, 64, 0.5);
+    color: #D4A340;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.3);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .luma-ingredient-hero__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    line-height: 1.1;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+  }
+  @media (min-width: 640px) {
+    .luma-ingredient-hero__heading { font-size: 3rem; }
+  }
+  @media (min-width: 768px) {
+    .luma-ingredient-hero__heading { font-size: 3.75rem; }
+  }
+  @media (min-width: 1024px) {
+    .luma-ingredient-hero__heading { font-size: 4.5rem; }
+  }
+
+  .luma-ingredient-hero__heading em {
+    font-style: italic;
+    font-weight: 300;
+    background: linear-gradient(to right, #D4A340, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .luma-ingredient-hero__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+    letter-spacing: 0.025em;
+    max-width: 42rem;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+  }
+  @media (min-width: 768px) {
+    .luma-ingredient-hero__description { font-size: 1.25rem; }
+  }
+
+  .luma-ingredient-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+  }
+  .luma-ingredient-hero__cta:hover {
+    background-color: #D4A340;
+    color: #FFFFFF;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+{% endstyle %}
+
+<section class="luma-ingredient-hero">
+  <div class="luma-ingredient-hero__bg">
+    {% if section.settings.bg_image != blank %}
+      {{
+        section.settings.bg_image
+        | image_url: width: 2500
+        | image_tag: class: 'luma-ingredient-hero__img', loading: 'eager', fetchpriority: 'high'
+      }}
+    {% else %}
+      <img
+        src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=2500&auto=format&fit=crop"
+        class="luma-ingredient-hero__img"
+        loading="eager"
+        alt="Lush Botanicals"
+      >
+    {% endif %}
+    <div class="luma-ingredient-hero__overlay"></div>
+  </div>
+
+  <div class="luma-ingredient-hero__content">
+    {% if section.settings.badge_text != blank %}
+      <span class="luma-ingredient-hero__badge">
+        {% if section.settings.badge_icon != blank %}
+          <i class="ph-fill {{ section.settings.badge_icon }}"></i>
+        {% endif %}
+        {{ section.settings.badge_text }}
+      </span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h1 class="luma-ingredient-hero__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="luma-ingredient-hero__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    {% if section.settings.cta_text != blank %}
+      <a href="{{ section.settings.cta_link | default: '#directory' }}" class="luma-ingredient-hero__cta">
+        {{ section.settings.cta_text }}
+        <i class="ph ph-arrow-down"></i>
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Visual"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "bg_opacity",
+      "label": "Image Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.6,
+      "info": "Values closer to 0 make the image darker and blend more into charcoal."
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Bio-Clinical Chemistry"
+    },
+    {
+      "type": "text",
+      "id": "badge_icon",
+      "label": "Phosphor Icon Class",
+      "default": "ph-leaf"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Nature engineered it. <br><em>Our lab perfected it.</em>",
+      "info": "Use <em> for the gold gradient text."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We bridge the gap between organic botanical sources and highly stabilized, clinical-grade science. Explore the directory of physiological actives that power Luma Labs."
+    },
+    {
+      "type": "header",
+      "content": "Call-to-Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Explore the Glossary"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link",
+      "info": "Defaults to #directory to scroll to the periodic table."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Hero"
+    }
+  ]
+}
+{% endschema %}
