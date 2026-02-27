@@ -318,16 +318,8 @@
               style="{% if block.settings.enable_border %}border-color: rgba(212,163,64,0.3); box-shadow: 0 0 30px rgba(212,163,64,0.1);{% endif %}"
             ></div>
 
-            {% if step_product != blank and step_product.featured_image != blank %}
-              <img
-                src="{{ step_product.featured_image | image_url: width: 600 }}"
-                class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
-                width="300"
-                height="400"
-                loading="lazy"
-                alt="{{ step_product.title | escape }}"
-              >
-            {% elsif block.settings.product_image != blank %}
+            {% if block.settings.product_image != blank %}
+              {% comment %} Priority 1: Transparent PNG cutout uploaded directly to the block {% endcomment %}
               <img
                 src="{{ block.settings.product_image | image_url: width: 600 }}"
                 class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
@@ -336,7 +328,18 @@
                 loading="lazy"
                 alt="{{ block.settings.heading | escape }}"
               >
+            {% elsif step_product != blank and step_product.featured_image != blank %}
+              {% comment %} Priority 2: Auto-pulled from the mapped bundle product's featured image {% endcomment %}
+              <img
+                src="{{ step_product.featured_image | image_url: width: 600 }}"
+                class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
+                width="300"
+                height="400"
+                loading="lazy"
+                alt="{{ step_product.title | escape }}"
+              >
             {% else %}
+              {% comment %} Priority 3: Generic placeholder {% endcomment %}
               <img
                 src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=300&auto=format&fit=crop"
                 class="luma-routine__visual-img luma-routine__visual-img--delay-{{ forloop.index0 }}"
