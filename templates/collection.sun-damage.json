@@ -14,7 +14,7 @@
       "settings": {
         "bg_image": "shopify://shop_images/Sunscreen_1.webp",
         "bg_image_opacity": 1,
-        "bg_gradient": "linear-gradient(135deg, rgba(253, 194, 110, 0.25) 4%, rgba(245, 206, 79, 0.53) 100%)",
+        "bg_gradient": "linear-gradient(135deg, rgba(253, 194, 110, 0) 4%, rgba(245, 206, 79, 0.53) 100%)",
         "badge_text": "Targeted Solutions",
         "badge_icon": "ph-band-aid",
         "badge_icon_color": "#1e40af",
