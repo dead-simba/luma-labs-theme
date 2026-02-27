@@ -1,198 +1,226 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "hero": {
-            "type": "luma-ingredient-hero",
-            "settings": {
-                "bg_opacity": 0.6,
-                "badge_text": "Bio-Clinical Chemistry",
-                "badge_icon": "ph-leaf",
-                "heading": "Nature engineered it. <br><em>Our lab perfected it.</em>",
-                "description": "We bridge the gap between organic botanical sources and highly stabilized, clinical-grade science. Explore the directory of physiological actives that power Luma Labs.",
-                "cta_text": "Explore the Glossary",
-                "cta_link": "#directory"
-            }
-        },
-        "directory": {
-            "type": "luma-ingredient-directory",
-            "blocks": {
-                "arbutin": {
-                    "type": "ingredient_card",
-                    "settings": {
-                        "number": "01",
-                        "symbol": "Aa",
-                        "name": "Alpha Arbutin",
-                        "subtitle": "Tyrosinase Inhibitor",
-                        "hover_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-                        "anchor_id": "arbutin"
-                    }
-                },
-                "ceramides": {
-                    "type": "ingredient_card",
-                    "settings": {
-                        "number": "02",
-                        "symbol": "Ce",
-                        "name": "Ceramides",
-                        "subtitle": "Barrier Reconstructor",
-                        "hover_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-                        "anchor_id": "ceramides"
-                    }
-                },
-                "vitaminc": {
-                    "type": "ingredient_card",
-                    "settings": {
-                        "number": "03",
-                        "symbol": "Vc",
-                        "name": "Vitamin C (EAA)",
-                        "subtitle": "Antioxidant Shield",
-                        "hover_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-                        "anchor_id": "vitaminc"
-                    }
-                },
-                "niacinamide": {
-                    "type": "ingredient_card",
-                    "settings": {
-                        "number": "04",
-                        "symbol": "Na",
-                        "name": "Niacinamide",
-                        "subtitle": "Cellular Communicator",
-                        "hover_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
-                        "anchor_id": "niacinamide"
-                    }
-                },
-                "licorice": {
-                    "type": "ingredient_card",
-                    "settings": {
-                        "number": "05",
-                        "symbol": "Lc",
-                        "name": "Licorice Root",
-                        "subtitle": "Botanical Soother",
-                        "hover_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-                        "anchor_id": "licorice"
-                    }
-                },
-                "matrixyl": {
-                    "type": "ingredient_card",
-                    "settings": {
-                        "number": "06",
-                        "symbol": "Mx",
-                        "name": "Matrixyl 3000™",
-                        "subtitle": "Dermal Peptides",
-                        "hover_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-                        "anchor_id": "matrixyl"
-                    }
-                }
-            },
-            "block_order": [
-                "arbutin",
-                "ceramides",
-                "vitaminc",
-                "niacinamide",
-                "licorice",
-                "matrixyl"
-            ],
-            "settings": {}
-        },
-        "dossier": {
-            "type": "luma-ingredient-dossier",
-            "blocks": {
-                "arbutin_dossier": {
-                    "type": "ingredient_dossier",
-                    "settings": {
-                        "anchor_id": "arbutin",
-                        "visual_label": "Organic Source: Bearberry",
-                        "symbol_1": "Aa",
-                        "heading": "Alpha Arbutin",
-                        "subtitle": "Tyrosinase Inhibitor",
-                        "text_block_1_title": "Nature Meets Lab",
-                        "text_block_1_content": "<p>Extracted organically from the lush leaves of the Bearberry plant, Arbutin is nature's most effective pigment fader. However, raw extracts are notoriously unstable. In the Luma Lab, we isolate the specific <em>Alpha</em> glycoside form, structurally engineering it to be highly stable and dramatically more effective than natural forms.</p>",
-                        "text_block_2_title": "Biological Pathway",
-                        "text_block_2_content": "<p>It physically binds to the tyrosinase enzyme in your melanocytes, halting the conversion of tyrosine into melanin. It shuts dark spot production down at the cellular source without the toxicity of hydroquinone.</p>",
-                        "pairing_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-                        "color_primary_light": "#fff7ed",
-                        "color_primary_dark": "#ea580c",
-                        "color_primary_border": "#ffedd5",
-                        "color_secondary_light": "#fff7ed",
-                        "color_secondary_dark": "#7c2d12",
-                        "color_secondary_border": "#ffedd5"
-                    }
-                },
-                "ceramides_dossier": {
-                    "type": "ingredient_dossier",
-                    "settings": {
-                        "anchor_id": "ceramides",
-                        "visual_label": "Organic Source: Bio-Fermented Yeast",
-                        "symbol_1": "Ce",
-                        "heading": "The Lipid Matrix",
-                        "subtitle": "Ceramides NP, AP, EOP",
-                        "text_block_1_title": "Nature Meets Lab",
-                        "text_block_1_content": "<p>We categorically reject animal-derived lipids and heavy synthetic waxes. Our Ceramides are sustainably bio-fermented from organic plant yeast. Through advanced bio-engineering, we refine this natural extract into a lipid structure that is 100% bio-identical to human skin, achieving the physiological 3:1:1 golden ratio.</p>",
-                        "text_block_2_title": "Biological Pathway",
-                        "text_block_2_content": "<p>When applied, these lipids do not just sit on the surface like traditional creams. They physically slip into the micro-tears of a damaged stratum corneum, acting as the \"mortar\" to your skin cell \"bricks,\" permanently fusing the barrier shut.</p>",
-                        "pairing_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
-                        "color_primary_light": "#eff6ff",
-                        "color_primary_dark": "#2563eb",
-                        "color_primary_border": "#dbeafe",
-                        "color_secondary_light": "#eff6ff",
-                        "color_secondary_dark": "#1e3a8a",
-                        "color_secondary_border": "#dbeafe"
-                    }
-                },
-                "vitaminc_dossier": {
-                    "type": "ingredient_dossier",
-                    "settings": {
-                        "anchor_id": "vitaminc",
-                        "visual_label": "Organic Source: Botanical Extracts",
-                        "symbol_1": "Vc",
-                        "symbol_2": "Lc",
-                        "heading": "Stabilized Antioxidants",
-                        "subtitle": "Ethyl Ascorbic Acid & Licorice",
-                        "text_block_1_title": "Nature Meets Lab",
-                        "text_block_1_content": "<p>Raw Vitamin C (L-Ascorbic Acid) from nature oxidizes rapidly, turning brown and irritating the skin. We use Ethyl Ascorbic Acid—a structurally modified molecule that delivers the potent antioxidant power of nature, but remains perfectly clear and stable in our lab.</p>",
-                        "text_block_2_title": "Biological Pathway",
-                        "text_block_2_content": "<p>We pair this highly stable Vitamin C with pure Licorice Root extract, an ancient botanical known to naturally disperse existing pigment. Together, they form an impenetrable shield against UV-induced free radicals while boosting luminosity.</p>",
-                        "pairing_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-                        "color_primary_light": "#fefce8",
-                        "color_primary_dark": "#ca8a04",
-                        "color_primary_border": "#fef9c3",
-                        "color_secondary_light": "#fff7ed",
-                        "color_secondary_dark": "#854d0e",
-                        "color_secondary_border": "#ffedd5"
-                    }
-                },
-                "niacinamide_dossier": {
-                    "type": "ingredient_dossier",
-                    "settings": {
-                        "anchor_id": "niacinamide",
-                        "visual_label": "Format: Organic Hydrogel Matrix",
-                        "symbol_1": "Na",
-                        "heading": "Photostable Defense",
-                        "subtitle": "Niacinamide + Organic UV Filters",
-                        "text_block_1_title": "Nature Meets Lab",
-                        "text_block_1_content": "<p>In clinical suncare, \"organic\" refers to carbon-based chemical filters. Unlike heavy mineral zinc derived from earth that leaves a chalky white cast, our next-generation organic filters dissolve seamlessly into a water-light, aloe-like hydrogel matrix.</p>",
-                        "text_block_2_title": "Biological Pathway",
-                        "text_block_2_content": "<p>We supercharge this matrix with Niacinamide (Vitamin B3) to actively repair the cellular inflammation caused by the sun while you wear it. It regulates midday sebum production and instantly soothes UV-induced redness.</p>",
-                        "pairing_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
-                        "color_primary_light": "#f0fdf4",
-                        "color_primary_dark": "#16a34a",
-                        "color_primary_border": "#dcfce7",
-                        "color_secondary_light": "#f0fdf4",
-                        "color_secondary_dark": "#14532d",
-                        "color_secondary_border": "#dcfce7"
-                    }
-                }
-            },
-            "block_order": [
-                "arbutin_dossier",
-                "ceramides_dossier",
-                "vitaminc_dossier",
-                "niacinamide_dossier"
-            ],
-            "settings": {}
-        }
+  "sections": {
+    "hero": {
+      "type": "luma-ingredient-hero",
+      "settings": {
+        "bg_opacity": 0.6,
+        "badge_text": "Bio-Clinical Chemistry",
+        "badge_icon": "ph-leaf",
+        "heading": "Nature engineered it. <br><em>Our lab perfected it.</em>",
+        "description": "We bridge the gap between organic botanical sources and highly stabilized, clinical-grade science. Explore the directory of physiological actives that power Luma Labs.",
+        "cta_text": "Explore the Glossary",
+        "cta_link": "#directory"
+      }
     },
-    "order": [
-        "hero",
-        "directory",
-        "dossier"
-    ]
+    "directory": {
+      "type": "luma-ingredient-directory",
+      "blocks": {
+        "arbutin": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "01",
+            "symbol": "Aa",
+            "name": "Alpha Arbutin",
+            "subtitle": "Tyrosinase Inhibitor",
+            "hover_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
+            "anchor_id": "arbutin"
+          }
+        },
+        "ceramides": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "02",
+            "symbol": "Ce",
+            "name": "Ceramides",
+            "subtitle": "Barrier Reconstructor",
+            "hover_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)",
+            "anchor_id": "ceramides"
+          }
+        },
+        "vitaminc": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "03",
+            "symbol": "Vc",
+            "name": "Vitamin C (EAA)",
+            "subtitle": "Antioxidant Shield",
+            "hover_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
+            "anchor_id": "vitaminc"
+          }
+        },
+        "ingredient_card_8QrqQw": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "01",
+            "symbol": "Aa",
+            "name": "Alpha Arbutin",
+            "subtitle": "Tyrosinase Inhibitor",
+            "hover_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
+            "anchor_id": "arbutin"
+          }
+        },
+        "niacinamide": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "symbol": "Na",
+            "name": "Niacinamide",
+            "subtitle": "Cellular Communicator",
+            "hover_gradient": "linear-gradient(135deg, rgba(254, 247, 230, 1), rgba(240, 244, 248, 1) 100%)",
+            "anchor_id": "niacinamide"
+          }
+        },
+        "licorice": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "05",
+            "symbol": "Lc",
+            "name": "Licorice Root",
+            "subtitle": "Botanical Soother",
+            "hover_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
+            "anchor_id": "licorice"
+          }
+        },
+        "matrixyl": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "06",
+            "symbol": "Mx",
+            "name": "Matrixyl 3000™",
+            "subtitle": "Dermal Peptides",
+            "hover_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "anchor_id": "matrixyl"
+          }
+        }
+      },
+      "block_order": [
+        "arbutin",
+        "ceramides",
+        "vitaminc",
+        "ingredient_card_8QrqQw",
+        "niacinamide",
+        "licorice",
+        "matrixyl"
+      ],
+      "settings": {}
+    },
+    "dossier": {
+      "type": "luma-ingredient-dossier",
+      "blocks": {
+        "arbutin_dossier": {
+          "type": "ingredient_dossier",
+          "settings": {
+            "anchor_id": "arbutin",
+            "visual_label": "Organic Source: Bearberry",
+            "symbol_1": "Aa",
+            "symbol_2": "",
+            "heading": "Alpha Arbutin",
+            "subtitle": "Tyrosinase Inhibitor",
+            "text_block_1_title": "Nature Meets Lab",
+            "text_block_1_content": "<p>Extracted organically from the lush leaves of the Bearberry plant, Arbutin is nature's most effective pigment fader. However, raw extracts are notoriously unstable. In the Luma Lab, we isolate the specific <em>Alpha</em> glycoside form, structurally engineering it to be highly stable and dramatically more effective than natural forms.</p>",
+            "text_block_2_title": "Biological Pathway",
+            "text_block_2_content": "<p>It physically binds to the tyrosinase enzyme in your melanocytes, halting the conversion of tyrosine into melanin. It shuts dark spot production down at the cellular source without the toxicity of hydroquinone.</p>",
+            "pairing_product": "glutathione-vitamin-c-serum",
+            "pairing_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
+            "color_primary_light": "#fff7ed",
+            "color_primary_dark": "#ea580c",
+            "color_primary_border": "#ffedd5",
+            "color_secondary_light": "#fff7ed",
+            "color_secondary_dark": "#c5a065",
+            "color_secondary_border": "#ffedd5"
+          }
+        },
+        "ceramides_dossier": {
+          "type": "ingredient_dossier",
+          "settings": {
+            "anchor_id": "ceramides",
+            "visual_label": "Organic Source: Bio-Fermented Yeast",
+            "symbol_1": "Ce",
+            "symbol_2": "",
+            "heading": "The Lipid Matrix",
+            "subtitle": "Ceramides NP, AP, EOP",
+            "text_block_1_title": "Nature Meets Lab",
+            "text_block_1_content": "<p>We categorically reject animal-derived lipids and heavy synthetic waxes. Our Ceramides are sustainably bio-fermented from organic plant yeast. Through advanced bio-engineering, we refine this natural extract into a lipid structure that is 100% bio-identical to human skin, achieving the physiological 3:1:1 golden ratio.</p>",
+            "text_block_2_title": "Biological Pathway",
+            "text_block_2_content": "<p>When applied, these lipids do not just sit on the surface like traditional creams. They physically slip into the micro-tears of a damaged stratum corneum, acting as the \"mortar\" to your skin cell \"bricks,\" permanently fusing the barrier shut.</p>",
+            "pairing_product": "",
+            "pairing_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "color_primary_light": "#eff6ff",
+            "color_primary_dark": "#2563eb",
+            "color_primary_border": "#dbeafe",
+            "color_secondary_light": "#eff6ff",
+            "color_secondary_dark": "#1e3a8a",
+            "color_secondary_border": "#dbeafe"
+          }
+        },
+        "vitaminc_dossier": {
+          "type": "ingredient_dossier",
+          "settings": {
+            "anchor_id": "vitaminc",
+            "visual_label": "Organic Source: Botanical Extracts",
+            "symbol_1": "Vc",
+            "symbol_2": "Lc",
+            "heading": "Stabilized Antioxidants",
+            "subtitle": "Ethyl Ascorbic Acid & Licorice",
+            "text_block_1_title": "Nature Meets Lab",
+            "text_block_1_content": "<p>Raw Vitamin C (L-Ascorbic Acid) from nature oxidizes rapidly, turning brown and irritating the skin. We use Ethyl Ascorbic Acid—a structurally modified molecule that delivers the potent antioxidant power of nature, but remains perfectly clear and stable in our lab.</p>",
+            "text_block_2_title": "Biological Pathway",
+            "text_block_2_content": "<p>We pair this highly stable Vitamin C with pure Licorice Root extract, an ancient botanical known to naturally disperse existing pigment. Together, they form an impenetrable shield against UV-induced free radicals while boosting luminosity.</p>",
+            "pairing_product": "",
+            "pairing_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
+            "color_primary_light": "#fefce8",
+            "color_primary_dark": "#ca8a04",
+            "color_primary_border": "#fef9c3",
+            "color_secondary_light": "#fff7ed",
+            "color_secondary_dark": "#854d0e",
+            "color_secondary_border": "#ffedd5"
+          }
+        },
+        "niacinamide_dossier": {
+          "type": "ingredient_dossier",
+          "settings": {
+            "anchor_id": "niacinamide",
+            "visual_label": "Format: Organic Hydrogel Matrix",
+            "symbol_1": "Na",
+            "symbol_2": "",
+            "heading": "Photostable Defense",
+            "subtitle": "Niacinamide + Organic UV Filters",
+            "text_block_1_title": "Nature Meets Lab",
+            "text_block_1_content": "<p>In clinical suncare, \"organic\" refers to carbon-based chemical filters. Unlike heavy mineral zinc derived from earth that leaves a chalky white cast, our next-generation organic filters dissolve seamlessly into a water-light, aloe-like hydrogel matrix.</p>",
+            "text_block_2_title": "Biological Pathway",
+            "text_block_2_content": "<p>We supercharge this matrix with Niacinamide (Vitamin B3) to actively repair the cellular inflammation caused by the sun while you wear it. It regulates midday sebum production and instantly soothes UV-induced redness.</p>",
+            "pairing_product": "",
+            "pairing_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+            "color_primary_light": "#f0fdf4",
+            "color_primary_dark": "#16a34a",
+            "color_primary_border": "#dcfce7",
+            "color_secondary_light": "#f0fdf4",
+            "color_secondary_dark": "#14532d",
+            "color_secondary_border": "#dcfce7"
+          }
+        }
+      },
+      "block_order": [
+        "arbutin_dossier",
+        "ceramides_dossier",
+        "vitaminc_dossier",
+        "niacinamide_dossier"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "directory",
+    "dossier"
+  ]
 }
