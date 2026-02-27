@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "luma-collection-empathy-hero",
+      "settings": {
+        "bg_image": "shopify://shop_images/Sunscreen_1.webp",
+        "bg_image_opacity": 1,
+        "bg_gradient": "linear-gradient(135deg, rgba(253, 194, 110, 0.25) 4%, rgba(245, 206, 79, 0.53) 100%)",
+        "badge_text": "Targeted Solutions",
+        "badge_icon": "ph-band-aid",
+        "badge_icon_color": "#1e40af",
+        "heading": "Hydrate &amp; <em>Defend</em>",
+        "description": "A multi-functional 6-filter matrix that provides broad-spectrum UV/HEV protection while regulating sebum and repairing the barrier.",
+        "cta_text": "Shop the Solution",
+        "cta_link": "#solution"
+      }
+    },
+    "education": {
+      "type": "luma-collection-education",
+      "settings": {
+        "icon_class": "ph-shield-check",
+        "icon_color": "#af931e",
+        "icon_bg_color": "#fff8ef",
+        "heading": "Why is daily SPF non-negotiable?",
+        "text": "The \"exposome\" (UV rays, HEV blue light, and pollution) is responsible for 80% of visible facial aging. Our cross-ecosystem 6-filter shield quenches this energy before it triggers inflammation. Combined with Zinc PCA and Aquaxyl™, it actively treats oily skin while defending it.",
+        "quote_text": "\"Finally, a sunscreen that acts like an acne-treatment serum. The Zinc PCA stopped my afternoon shine, and there's zero white cast.\"",
+        "quote_author": "Jessica M., Verified Buyer"
+      }
+    },
+    "featured": {
+      "type": "luma-collection-featured",
+      "blocks": {
+        "prop_1": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "SPF 50 PA++++",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        },
+        "prop_2": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "Zinc PCA Sebum Control",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        },
+        "prop_3": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "6-Filter UV Shield",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        },
+        "prop_4": {
+          "type": "value_prop",
+          "settings": {
+            "prop_text": "HEV Blue Light Defense",
+            "icon": "ph-check-circle",
+            "icon_color": "#d4a340"
+          }
+        }
+      },
+      "block_order": [
+        "prop_1",
+        "prop_2",
+        "prop_3",
+        "prop_4"
+      ],
+      "settings": {
+        "heading": "The Primary Solution",
+        "eyebrow": "Targeted Treatment",
+        "featured_product": "targeted-rescue-mist",
+        "image_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+        "badge": "Best Seller",
+        "volume_text": "50 ml / 1.7 fl oz",
+        "review_count": "35",
+        "fallback_title": "Barrier Renew Moisturizer",
+        "fallback_desc": "A breakthrough in UV protection. Utilizing 6 advanced filters (including Mexoryl SX and Tinosorb M), this non-comedogenic aqua gel provides broad-spectrum defense while actively regulating sebum with Zinc PCA."
+      }
+    },
+    "routine": {
+      "type": "luma-collection-routine",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "product_image": "shopify://shop_images/2_Alpha_Arbutin_b3b0b81a-65ca-452c-8f46-b59debd00b34.webp",
+            "heading": "Target & Brighten",
+            "heading_color": "#ffffff",
+            "product_name": "2% Alpha Arbutin Serum",
+            "description": "Apply to damp skin. Halts melanin production at the source through 5 biological pathways.",
+            "circle_bg": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
+            "enable_border": false
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "product_image": "shopify://shop_images/Barrier_Reneww.webp",
+            "heading": "Seal & Repair",
+            "heading_color": "#ffffff",
+            "product_name": "Barrier Renew Gel-Cream",
+            "description": "Layer immediately over the serum to physically fuse micro-tears and trap hydration deep in the dermis.",
+            "circle_bg": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "enable_border": false
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "product_image": "shopify://shop_images/Matte_UV_Defense.webp",
+            "heading": "Hydrate & Defend",
+            "heading_color": "#d4a340",
+            "product_name": "Hyaluronic Aqua Gel SPF 50",
+            "description": "The non-negotiable final step. Prevents UV/HEV damage and regulates sebum without any white cast.",
+            "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+            "enable_border": true
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "The Complete Luma Protocol.",
+        "description": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection. Combine all three of our master formulas for complete skin transformation.",
+        "bundle_product_1": "glutathione-vitamin-c-serum",
+        "bundle_product_2": "ceramide-hyaluronic-water-gel",
+        "bundle_product_3": "strawberry-skin-eraser",
+        "show_bundle": true,
+        "btn_text": "Unlock The Complete Protocol",
+        "bundle_price": "Rs 4,100",
+        "original_price": "Rs 4960",
+        "savings_text": "Save Rs.860 when you buy the system"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "education",
+    "featured",
+    "routine"
+  ]
+}
