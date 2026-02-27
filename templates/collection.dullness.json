@@ -85,7 +85,7 @@
         "image_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
         "badge": "Best Seller",
         "volume_text": "50 ml / 1.7 fl oz",
-        "review_count": "35",
+        "review_count": "76",
         "fallback_title": "Barrier Renew Moisturizer",
         "fallback_desc": "A breakthrough in UV protection. Utilizing 6 advanced filters (including Mexoryl SX and Tinosorb M), this non-comedogenic aqua gel provides broad-spectrum defense while actively regulating sebum with Zinc PCA."
       }
@@ -98,11 +98,11 @@
           "settings": {
             "product_image": "shopify://shop_images/2_Alpha_Arbutin_b3b0b81a-65ca-452c-8f46-b59debd00b34.webp",
             "heading": "Target & Brighten",
-            "heading_color": "#ffffff",
+            "heading_color": "#d4a340",
             "product_name": "2% Alpha Arbutin Serum",
             "description": "Apply to damp skin. Halts melanin production at the source through 5 biological pathways.",
             "circle_bg": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
-            "enable_border": false
+            "enable_border": true
           }
         },
         "step_2": {
@@ -122,7 +122,7 @@
           "settings": {
             "product_image": "shopify://shop_images/Matte_UV_Defense.webp",
             "heading": "Hydrate & Defend",
-            "heading_color": "#d4a340",
+            "heading_color": "#ffffff",
             "product_name": "Hyaluronic Aqua Gel SPF 50",
             "description": "The non-negotiable final step. Prevents UV/HEV damage and regulates sebum without any white cast.",
             "circle_bg": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
