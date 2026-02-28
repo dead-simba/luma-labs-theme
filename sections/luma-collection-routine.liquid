@@ -418,7 +418,24 @@
               btn.innerHTML = 'Added to Cart! <i class="ph-bold ph-check"></i>';
               btn.style.backgroundColor = '#16a34a';
               btn.style.color = '#FFFFFF';
-              document.documentElement.dispatchEvent(new CustomEvent('cart:refresh'));
+
+              // --- Horizon theme cart refresh ---
+              // 1. Dispatch Horizon's native CartUpdateEvent
+              document.documentElement.dispatchEvent(
+                new CustomEvent('cart:update', { bubbles: true })
+              );
+              // 2. Also dispatch the event Horizon AI themes use
+              document.dispatchEvent(
+                new CustomEvent('CartUpdateEvent', { bubbles: true })
+              );
+              // 3. Manually fetch /cart.js and update the cart count badge
+              fetch('/cart.js')
+                .then(function(r) { return r.json(); })
+                .then(function(cart) {
+                  var badges = document.querySelectorAll('[data-cart-count], .cart-count, .cart__count, [aria-label*="cart"] .count');
+                  badges.forEach(function(el) { el.textContent = cart.item_count; });
+                });
+
               setTimeout(function () {
                 btn.innerHTML = originalHTML;
                 btn.style.backgroundColor = '';
