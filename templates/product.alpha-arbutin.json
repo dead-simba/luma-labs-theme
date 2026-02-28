@@ -242,11 +242,26 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "luma_bundle_selector_1": {
+              "type": "luma-bundle-selector",
+              "settings": {}
+            },
+            "luma_trust_guarantee_1": {
+              "type": "luma-trust-guarantee",
+              "settings": {}
+            },
+            "luma_product_bullets_1": {
+              "type": "luma-product-bullets",
+              "settings": {}
             }
           },
           "block_order": [
             "group_icgrde",
+            "luma_product_bullets_1",
             "divider_VJhene",
+            "luma_bundle_selector_1",
+            "luma_trust_guarantee_1",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "text_aEtTtq"
