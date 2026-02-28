@@ -413,15 +413,16 @@
       "type": "luma-hero-banner",
       "name": "Luma Hero Banner",
       "settings": {
+        "image_desktop": "shopify://shop_images/Alpha_Arbutin_Lifestyle.webp",
         "min_height_desktop": 400,
         "min_height_mobile": 350,
-        "heading": "Turn Sun Protection into<br><span class=\"luma-hero-highlight\">Skin Optimization.</span>",
-        "subheading": "Zero white cast. Zero stickiness. 100% defense.",
-        "overlay_color": "#FFFFFF",
-        "overlay_opacity": 25,
+        "heading": "Shut Melanin Down<br><span class=\"luma-hero-highlight\">At The Source.</span>",
+        "subheading": "Safe for daily use. No hydroquinone.",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 45,
         "overlay_blur": 2,
-        "text_color": "#1A1A1A",
-        "highlight_color": "#C5A065"
+        "text_color": "#333333",
+        "highlight_color": "#997500"
       }
     },
     "luma_clinical_stats": {
