@@ -16,15 +16,16 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
-            "slideshow_controls_style": "counter",
-            "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
-            "thumbnail_width": 44,
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 63,
+            "thumbnail_radius": 8,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
@@ -71,7 +72,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -99,6 +99,9 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -121,6 +124,32 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_hiR9BA": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.product_subtitle | metafield_tag }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -156,18 +185,33 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "text_hiR9BA",
                 "price_tVjtKg"
               ]
             },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
               "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -189,6 +233,7 @@
               "settings": {
                 "stacking": true,
                 "show_pickup_availability": false,
+                "gift_card_form": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -218,39 +263,70 @@
               },
               "block_order": []
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
+            "luma_bundle_selector_1": {
+              "type": "luma-bundle-selector",
               "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "title": "Select Your Protocol",
+                "opt1_product": "",
+                "opt1_title": "1 Bottle",
+                "opt1_subtitle": "Try it out.",
+                "opt2_product": "test-bundle",
+                "opt2_title": "2 Bottles (2 Month Supply)",
+                "opt2_subtitle": "Free Shipping Unlocked",
+                "opt2_subtitle_color": "#15803d",
+                "opt2_badge": "Most Popular (Save 15%)",
+                "opt3_product": "test-bundle",
+                "opt3_title": "3 Bottles (Save 20%)",
+                "opt3_subtitle": "Never run out."
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "luma_product_bullets_1": {
+              "type": "luma-product-bullets",
+              "settings": {
+                "margin_top": 24,
+                "margin_bottom": 0,
+                "bullet1_bold": "Instantly Stops Stinging",
+                "bullet1_text": "Liquid-crystal matrix melts into skin, immediately halting redness and irritation.",
+                "bullet2_bold": "Structural Repair",
+                "bullet2_text": "3:1:1 Golden Ratio of bio-fermented lipids permanently patches micro-tears.",
+                "bullet3_bold": "Dermal Remodeling",
+                "bullet3_text": "Matrixyl 3000™ peptides trick fibroblasts into producing fresh collagen."
+              },
+              "blocks": {}
+            },
+            "luma_trust_guarantee_1": {
+              "type": "luma-trust-guarantee",
+              "settings": {
+                "title": "30-Day Clinical Guarantee",
+                "text": "Don't love the texture or results? We'll refund you 100%. Zero risk.",
+                "margin_top": 16,
+                "margin_bottom": 24
               },
               "blocks": {}
             }
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
+            "text_aEtTtq",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "luma_bundle_selector_1",
+            "divider_VJhene",
+            "luma_product_bullets_1",
+            "luma_trust_guarantee_1"
           ]
         }
       },
@@ -260,9 +336,372 @@
         "equal_columns": false,
         "limit_details_width": false,
         "gap": 48,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "luma_potency": {
+      "type": "luma-potency-ideal-section",
+      "blocks": {
+        "benefit_kjkbUT": {
+          "type": "benefit",
+          "settings": {
+            "title": "Cross-Ecosystem Filters:",
+            "text": "L'Oréal-patented Mexoryl SX + BASF Tinosorb M. 6-filter shield absorbs, reflects, and scatters UV without degrading."
+          }
+        },
+        "benefit_VhAbw9": {
+          "type": "benefit",
+          "settings": {
+            "title": "Sebum Regulation at the Source:",
+            "text": "Zinc PCA inhibits 5-alpha reductase, stopping excess oil and acne congestion."
+          }
+        },
+        "benefit_pM6drf": {
+          "type": "benefit",
+          "settings": {
+            "title": "4-Tier Hydration Replacement:",
+            "text": "Aquaxyl™ + Sodium Hyaluronate — oily skin types can skip morning moisturizer entirely."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_kjkbUT",
+        "benefit_VhAbw9",
+        "benefit_pM6drf"
+      ],
+      "settings": {
+        "potency_title": "Why It Works",
+        "center_image": "",
+        "center_image_quote": "\"Skin that doesn't need to hide.\"",
+        "center_image_caption": "Luma Labs Aqua Gel SPF 50",
+        "ideal_title": "Ideal For",
+        "skin_type_label": "Skin Type",
+        "skin_type_text": "Oily, Acne-Prone, Combination.",
+        "perfect_for_label": "Texture",
+        "perfect_for_text": "Water-light, cooling aqua gel. Absorbs instantly, dries to a clear semi-matte velvet finish.",
+        "concerns_label": "Skin Concerns",
+        "concerns_list": "Premature Aging & UV Damage\nExcessive Sebum & Greasiness\nWhite-cast from traditional SPFs\nMakeup Pilling during wear",
+        "bg_color": "#ffffff",
+        "bg_opacity": 100,
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065"
+      }
+    },
+    "luma_ingredients": {
+      "type": "luma-ingredients-section",
+      "blocks": {
+        "ingredient_KF3hzC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "The 6-Filter Cross-Ecosystem",
+            "description": "We combined L'Oréal-patented Mexoryl SX (water-soluble UVA filter) with BASF's Tinosorb M (hybrid particulate filter). Along with 4 other organic filters, this creates a \"zero gap\" shield covering 280nm–400nm without degrading in sunlight. Fewer than 20 products globally use this exact combination."
+          }
+        },
+        "ingredient_aHGjYC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Zinc PCA & Niacinamide",
+            "description": "Zinc PCA directly inhibits the 5-alpha reductase enzyme, stopping testosterone from triggering excess oil production. Paired with 2% Niacinamide, it turns this SPF into an active daily acne-prevention and sebum-regulating treatment."
+          }
+        },
+        "ingredient_Vyqmni": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Aquaxyl™ 4-Tier Hydration",
+            "description": "A patented complex of plant-derived sugars that boosts your skin's own hyaluronic acid and ceramide synthesis. This allows the Aqua Gel to function as a standalone moisturizer for oily/combination skin types."
+          }
+        },
+        "ingredient_Jpzyr8": {
+          "type": "ingredient",
+          "settings": {
+            "title": "All Ingredients",
+            "description": "Aqua, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Butyl Methoxydibenzoylmethane, Phenylbenzimidazole Sulfonic Acid, Glycerin, Ethylhexyl Methoxycinnamate, Caprylic/Capric Triglyceride, Triethanolamine, Tapioca Starch, Ammonium Acryloyldimethyltaurate/VP Copolymer, Ethylhexyl Salicylate, Methylene Bis-Benzotriazolyl Tetramethylbutylphenol, Decyl Glucoside, Xanthan Gum, Sodium Hyaluronate, Niacinamide, Xylitylglucoside, Anhydroxylitol, Xylitol, Capsicum Annuum Fruit Extract, Zinc PCA, Sodium Gluconate, Tocopheryl Acetate, BHT."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_KF3hzC",
+        "ingredient_aHGjYC",
+        "ingredient_Vyqmni",
+        "ingredient_Jpzyr8"
+      ],
+      "settings": {
+        "title": "Ingredients",
+        "bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "section_width": "1280px",
+        "heading_alignment": "left",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_hero_banner_CMfQR8": {
+      "type": "luma-hero-banner",
+      "name": "Luma Hero Banner",
+      "settings": {
+        "image_desktop": "",
+        "min_height_desktop": 400,
+        "min_height_mobile": 350,
+        "heading": "Turn Sun Protection into<br><span class=\"luma-hero-highlight\">Skin Optimization.</span>",
+        "subheading": "Zero white cast. Zero stickiness. 100% defense.",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 45,
+        "overlay_blur": 2,
+        "text_color": "#333333",
+        "highlight_color": "#997500"
+      }
+    },
+    "luma_comparison": {
+      "type": "luma-comparison",
+      "blocks": {
+        "comparison_row_r868jG": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "White Cast",
+            "our_value": "100% Clear",
+            "competitor_value": "Chalky/Purple"
+          }
+        },
+        "comparison_row_6xLXPg": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Sebum Control",
+            "our_value": "Yes (Zinc PCA)",
+            "competitor_value": "Causes Greasiness"
+          }
+        },
+        "comparison_row_JDp7VY": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "UV Filter Quality",
+            "our_value": "6 Filters (Mexoryl/Tinosorb)",
+            "competitor_value": "Older, irritating filters"
+          }
+        },
+        "comparison_row_AcneSafe": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Acne Safe",
+            "our_value": "Non-Comedogenic",
+            "competitor_value": "Clogs Pores"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_r868jG",
+        "comparison_row_6xLXPg",
+        "comparison_row_JDp7VY",
+        "comparison_row_AcneSafe"
+      ],
+      "settings": {
+        "title": "Why you're replacing your current SPF.",
+        "subtitle": "Traditional sunscreens are thick, cause breakouts, and leave a purple cast. We engineered the exact opposite.",
+        "our_product_name": "Luma Aqua Gel",
+        "competitor_name": "Standard SPFs",
+        "competitor_sub": "",
+        "bg_color": "#ffffff",
+        "table_bg": "#f9f8f6"
+      }
+    },
+    "luma_clinical_stats": {
+      "type": "luma-clinical-stats",
+      "blocks": {
+        "stat_3gMTgq": {
+          "type": "stat",
+          "settings": {
+            "number": "98",
+            "symbol": "%",
+            "label": "Agreed their skin was less oily",
+            "text": "by 4:00 PM compared to their previous SPF."
+          }
+        },
+        "stat_UPAB3X": {
+          "type": "stat",
+          "settings": {
+            "number": "100",
+            "symbol": "%",
+            "label": "Reported zero white cast",
+            "text": "across all Fitzpatrick skin tones (I–VI)."
+          }
+        },
+        "stat_bFcH4a": {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "symbol": "",
+            "label": "New breakouts reported",
+            "text": "after 30 days of continuous daily use."
+          }
+        }
+      },
+      "block_order": [
+        "stat_3gMTgq",
+        "stat_UPAB3X",
+        "stat_bFcH4a"
+      ],
+      "settings": {
+        "title": "Backed by Biological Data.",
+        "subtitle": "",
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_faq": {
+      "type": "luma-faq-section",
+      "blocks": {
+        "faq_item_iGCR7M": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will this leave a white cast on dark skin?",
+            "answer": "No. Because we use advanced organic (chemical) and hybrid filters rather than heavy mineral zinc oxide, the aqua gel absorbs completely clear on all Fitzpatrick skin types without any ashy or purple residue."
+          }
+        },
+        "faq_item_JFpHKK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to wear a moisturizer under this?",
+            "answer": "If you have oily or combination skin, absolutely not. The Aquaxyl™ complex and Sodium Hyaluronate provide 4 tiers of deep hydration, allowing this to function as your standalone morning moisturizer and SPF in one."
+          }
+        },
+        "faq_item_9VknjL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it cause makeup to pill?",
+            "answer": "No. Our LexFilm Sun technology (Polyester-7) acts as a water-resistant film-former. Allow it 60 seconds to set and it creates a velvet canvas that works as an exceptional makeup primer."
+          }
+        },
+        "faq_item_i7j737": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this safe for acne-prone skin?",
+            "answer": "Yes — entirely non-comedogenic. The inclusion of Zinc PCA provides potent antimicrobial action against C. acnes bacteria, meaning it actively helps prevent breakouts while protecting your skin."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_iGCR7M",
+        "faq_item_JFpHKK",
+        "faq_item_9VknjL",
+        "faq_item_i7j737"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_how_to_use": {
+      "type": "luma-how-to-use",
+      "blocks": {
+        "step_CPHBGt": {
+          "type": "step",
+          "settings": {
+            "image": "",
+            "step_label": "Step 01",
+            "title": "Cleanse & Pat Dry",
+            "text": "Apply to clean, dry skin every morning."
+          }
+        },
+        "step_HH7p8P": {
+          "type": "step",
+          "settings": {
+            "image": "",
+            "step_label": "Step 02",
+            "title": "Apply 2 Finger Lengths",
+            "text": "Dot across face. Blend outward gently."
+          }
+        },
+        "step_XTDwcy": {
+          "type": "step",
+          "settings": {
+            "image": "",
+            "step_label": "Step 03",
+            "title": "Wait 60s, Then Makeup",
+            "text": "Acts as a gripping primer base."
+          }
+        }
+      },
+      "block_order": [
+        "step_CPHBGt",
+        "step_HH7p8P",
+        "step_XTDwcy"
+      ],
+      "settings": {
+        "title": "How To Use",
+        "bg_color": "#f9f8f6",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_reviews": {
+      "type": "luma-testimonials",
+      "blocks": {
+        "review_kd3GyW": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"The only SPF that doesn't break me out.\"",
+            "quote": "\"The Zinc PCA is a game changer. My skin is actually less oily at 4 PM than when I woke up. It's totally replaced my morning moisturizer.\"",
+            "author": "Aisha M.",
+            "verified": true
+          }
+        },
+        "review_y3Mpkb": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"No purple cast at all.\"",
+            "quote": "\"I have very deep skin, and every 'clear' SPF still made me look ashy until this one. It truly dries invisible and leaves a nice satin finish.\"",
+            "author": "Fatima K.",
+            "verified": true
+          }
+        },
+        "review_RyVKc9": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Perfect under makeup.\"",
+            "quote": "\"It grips my foundation so well it doubles as my primer. Plus, my pores look smaller where I used to get so congested wearing sunscreen every day.\"",
+            "author": "Sara V.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_kd3GyW",
+        "review_y3Mpkb",
+        "review_RyVKc9"
+      ],
+      "settings": {
+        "eyebrow": "Community Love",
+        "title": "Why They Switched to Luma",
+        "rating_text": "Based on 1,240+ Reviews",
+        "section_width": "1280px",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
       }
     },
     "product_recommendations_qggXJq": {
@@ -409,6 +848,14 @@
   },
   "order": [
     "main",
+    "luma_potency",
+    "luma_ingredients",
+    "luma_hero_banner_CMfQR8",
+    "luma_comparison",
+    "luma_clinical_stats",
+    "luma_faq",
+    "luma_how_to_use",
+    "luma_reviews",
     "product_recommendations_qggXJq"
   ]
 }
