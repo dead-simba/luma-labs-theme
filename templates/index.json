@@ -588,7 +588,7 @@
             "title": "Corneotherapy & Liquid Crystals",
             "text": "Our moisturizers utilize a 3:1:1 golden ratio of Ceramides, Cholesterol, and Phytosphingosine. Suspended in a biomimetic Olivem 1000 emulsion, this complex physically mirrors the skin's intercellular lipid layers for instant integration.",
             "button_label": "Explore Barrier Formulations",
-            "button_link": ""
+            "button_link": "shopify://pages/ingredient-hub"
           }
         },
         "pillar_HTHGWa": {
@@ -599,7 +599,7 @@
             "title": "5-Pathway Melanin Inhibition",
             "text": "We don't just bleach the surface. Our clinical serums block pigmentation at every stage: enzyme inhibition (Alpha Arbutin), signal interruption (TXA), melanosome transfer blocking (Niacinamide), and oxidative defense (Vitamin C).",
             "button_label": "Explore Brightening Formulas",
-            "button_link": ""
+            "button_link": "shopify://pages/ingredient-hub"
           }
         },
         "pillar_gDPYQD": {
@@ -610,7 +610,7 @@
             "title": "6-Filter Exposome Shield",
             "text": "Moving beyond simple UV blocks, we utilize a cross-patent system of 6 organic filters (including Mexoryl SX and Tinosorb M) paired with Capsicum Annuum extract to defend against UV, HEV blue light, and oxidative stress.",
             "button_label": "Explore Suncare Formulas",
-            "button_link": ""
+            "button_link": "shopify://pages/ingredient-hub"
           }
         }
       },
