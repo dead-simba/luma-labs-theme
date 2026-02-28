@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */ {
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -24,6 +25,7 @@
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
+            "thumbnail_radius": 0,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
@@ -70,7 +72,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -98,6 +99,9 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -158,18 +162,6 @@
                 "price_tVjtKg"
               ]
             },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -188,6 +180,7 @@
               "settings": {
                 "stacking": true,
                 "show_pickup_availability": false,
+                "gift_card_form": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -217,6 +210,33 @@
               },
               "block_order": []
             },
+            "luma_bundle_selector_1": {
+              "type": "luma-bundle-selector",
+              "settings": {
+                "title": "Select Your Protocol",
+                "opt1_title": "1 Bottle",
+                "opt1_subtitle": "Try it out.",
+                "opt2_title": "2 Bottles (2 Month Supply)",
+                "opt2_subtitle": "Free Shipping Unlocked",
+                "opt2_subtitle_color": "#15803d",
+                "opt2_badge": "Most Popular (Save 15%)",
+                "opt3_title": "3 Bottles (Save 20%)",
+                "opt3_subtitle": "Never run out."
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -243,28 +263,40 @@
               },
               "blocks": {}
             },
-            "luma_bundle_selector_1": {
-              "type": "luma-bundle-selector",
-              "settings": {}
+            "luma_product_bullets_1": {
+              "type": "luma-product-bullets",
+              "settings": {
+                "margin_top": 24,
+                "margin_bottom": 0,
+                "bullet1_bold": "Fades Stubborn Spots",
+                "bullet1_text": "Tyrosinase inhibitor stops the formation of new dark pigment.",
+                "bullet2_bold": "Stabilized Antioxidants",
+                "bullet2_text": "Ethyl Ascorbic Acid (Vitamin C) boosts overall radiance without oxidizing.",
+                "bullet3_bold": "Barrier Safe",
+                "bullet3_text": "Brightens aggressively without the peeling or toxicity of hydroquinone."
+              },
+              "blocks": {}
             },
             "luma_trust_guarantee_1": {
               "type": "luma-trust-guarantee",
-              "settings": {}
-            },
-            "luma_product_bullets_1": {
-              "type": "luma-product-bullets",
-              "settings": {}
+              "settings": {
+                "title": "30-Day Clinical Guarantee",
+                "text": "Don't love the texture or results? We'll refund you 100%. Zero risk.",
+                "margin_top": 16,
+                "margin_bottom": 24
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "group_icgrde",
-            "luma_product_bullets_1",
-            "divider_VJhene",
-            "luma_bundle_selector_1",
-            "luma_trust_guarantee_1",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "luma_bundle_selector_1",
+            "divider_VJhene",
+            "text_aEtTtq",
+            "luma_product_bullets_1",
+            "luma_trust_guarantee_1"
           ]
         }
       },
@@ -274,9 +306,113 @@
         "equal_columns": false,
         "limit_details_width": false,
         "gap": 48,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "luma_comparison": {
+      "type": "luma-comparison",
+      "settings": {
+        "title": "Precision, Not Peeling.",
+        "subtitle": "Why our pathway-blocking approach outperforms traditional skin-bleaching methods.",
+        "our_product_name": "2% Alpha Arbutin",
+        "competitor_name": "Hydroquinone",
+        "competitor_sub": "Standard Focus",
+        "bg_color": "#ffffff",
+        "table_bg": "#f9f8f6"
+      }
+    },
+    "luma_clinical_stats": {
+      "type": "luma-clinical-stats",
+      "settings": {
+        "title": "The Clinical Reality",
+        "subtitle": "After 28 Days of Daily Use",
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_how_to_use": {
+      "type": "luma-how-to-use",
+      "settings": {
+        "title": "How To Protocol",
+        "bg_color": "#f9f8f6",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_potency": {
+      "type": "luma-potency-ideal-section",
+      "settings": {
+        "potency_title": "Why It Works",
+        "center_image_quote": "\"Botanical extracts. Clinical potency.\"",
+        "center_image_caption": "Alpha Arbutin Derived from Bearberry",
+        "ideal_title": "Ideal For",
+        "skin_type_label": "Skin Type",
+        "skin_type_text": "Oily, Combination, Sensitive & Acne-Prone.",
+        "perfect_for_label": "Perfect For",
+        "perfect_for_text": "People who wear makeup (it acts as a primer) and anyone exposed to screens or sun.",
+        "concerns_label": "Targets Concerns",
+        "concerns_list": "Sun Damage,Blue Light,Open Pores,Excess Oil",
+        "bg_color": "#ffffff",
+        "bg_opacity": 100,
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065"
+      }
+    },
+    "luma_ingredients": {
+      "type": "luma-ingredients-section",
+      "settings": {
+        "title": "Ingredients",
+        "bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "section_width": "1280px",
+        "heading_alignment": "left",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_faq": {
+      "type": "luma-faq-section",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_reviews": {
+      "type": "luma-testimonials",
+      "settings": {
+        "eyebrow": "Community Love",
+        "title": "Real Results. Real Skin.",
+        "rating_text": "Based on 1,200+ Reviews",
+        "section_width": "1280px",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
       }
     },
     "product_recommendations_qggXJq": {
@@ -419,34 +555,6 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "luma_comparison": {
-      "type": "luma-comparison",
-      "settings": {}
-    },
-    "luma_clinical_stats": {
-      "type": "luma-clinical-stats",
-      "settings": {}
-    },
-    "luma_how_to_use": {
-      "type": "luma-how-to-use",
-      "settings": {}
-    },
-    "luma_potency": {
-      "type": "luma-potency-ideal-section",
-      "settings": {}
-    },
-    "luma_ingredients": {
-      "type": "luma-ingredients-section",
-      "settings": {}
-    },
-    "luma_faq": {
-      "type": "luma-faq-section",
-      "settings": {}
-    },
-    "luma_reviews": {
-      "type": "luma-testimonials",
-      "settings": {}
     }
   },
   "order": [
