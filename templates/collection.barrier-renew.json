@@ -81,7 +81,7 @@
       "settings": {
         "heading": "The Primary Solution",
         "eyebrow": "Targeted Treatment",
-        "featured_product": "ceramide-hyaluronic-water-gel",
+        "featured_product": "barrier-renew-moisturizer",
         "image_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
         "badge": "Best Seller",
         "volume_text": "50 ml / 1.7 fl oz",
@@ -139,8 +139,6 @@
         "heading": "The Complete Luma Protocol.",
         "description": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection. Combine all three of our master formulas for complete skin transformation.",
         "bundle_product_1": "complete-luma-protocol",
-        "bundle_product_2": "",
-        "bundle_product_3": "",
         "show_bundle": true,
         "btn_text": "Unlock The Complete Protocol",
         "bundle_price": "Rs 3999",
