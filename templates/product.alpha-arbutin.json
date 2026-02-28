@@ -618,6 +618,40 @@
     },
     "luma_reviews": {
       "type": "luma-testimonials",
+      "blocks": {
+        "review_kd3GyW": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"My melasma is finally fading.\"",
+            "quote": "I've tried everything for my post-pregnancy melasma. Hydroquinone was too harsh, and Vitamin C didn't do enough. This serum is the sweet spot. After 4 weeks, the dark patches on my cheeks have visibly lightened.",
+            "author": "Sarah M.",
+            "verified": true
+          }
+        },
+        "review_y3Mpkb": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Finally, a Vitamin C that doesn't smell.\"",
+            "quote": "\"Every other Vit C serum I've tried smells like hot dog water and turns orange. This is crystal clear, smells like nothing, and gives me an insane glow.\"",
+            "author": "Sarah M.",
+            "verified": true
+          }
+        },
+        "review_RyVKc9": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Safe for my sensitive skin.\"",
+            "quote": "\"I wanted to treat my melasma but hydroquinone gave me a rash. Alpha Arbutin is the holy grail. It's so gentle but actually works.\"",
+            "author": "Fatima S.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_kd3GyW",
+        "review_y3Mpkb",
+        "review_RyVKc9"
+      ],
       "settings": {
         "eyebrow": "Community Love",
         "title": "Real Results. Real Skin.",
