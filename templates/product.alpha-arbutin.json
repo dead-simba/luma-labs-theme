@@ -464,10 +464,30 @@
             "title": "Apply to Damp Skin",
             "text": "Dispense 3-4 Drops after cleansing"
           }
+        },
+        "step_HH7p8P": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_2.webp",
+            "step_label": "Step 02",
+            "title": "Pat Gently",
+            "text": "Allow water-light fluid to absorb instantly."
+          }
+        },
+        "step_XTDwcy": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_3.webp",
+            "step_label": "Step 03",
+            "title": "Seal with SPF",
+            "text": "UV triggers pigment. SPF is non-negotiable."
+          }
         }
       },
       "block_order": [
-        "step_CPHBGt"
+        "step_CPHBGt",
+        "step_HH7p8P",
+        "step_XTDwcy"
       ],
       "settings": {
         "title": "How To Use",
