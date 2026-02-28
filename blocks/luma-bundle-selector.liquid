@@ -13,6 +13,11 @@
       "content": "Option 1 (Default)"
     },
     {
+      "type": "product",
+      "id": "opt1_product",
+      "label": "Option 1 Product (Leave blank to use current page product)"
+    },
+    {
       "type": "text",
       "id": "opt1_title",
       "label": "Title",
@@ -27,6 +32,11 @@
     {
       "type": "header",
       "content": "Option 2 (Highlighted)"
+    },
+    {
+      "type": "product",
+      "id": "opt2_product",
+      "label": "Option 2 Product (Bundle App Product)"
     },
     {
       "type": "text",
@@ -55,6 +65,11 @@
     {
       "type": "header",
       "content": "Option 3"
+    },
+    {
+      "type": "product",
+      "id": "opt3_product",
+      "label": "Option 3 Product (Bundle App Product)"
     },
     {
       "type": "text",
@@ -218,128 +233,174 @@
   }
 </style>
 
+{%- liquid
+  assign option1_product = block.settings.opt1_product | default: product
+  assign option2_product = block.settings.opt2_product
+  assign option3_product = block.settings.opt3_product
+
+  assign option1_var = option1_product.selected_or_first_available_variant
+  assign option2_var = option2_product.selected_or_first_available_variant
+  assign option3_var = option3_product.selected_or_first_available_variant
+-%}
+
 <div class="luma-bundle-wrapper" {{ block.shopify_attributes }}>
   {%- if block.settings.title != blank -%}
     <h3 class="luma-bundle-title">{{ block.settings.title | escape }}</h3>
   {%- endif -%}
 
-  {%- if product != blank and product.variants.size > 0 -%}
+  {%- if option1_var != blank -%}
     <luma-bundle-selector class="luma-bundle-options" data-product-id="{{ product.id }}">
-      {%- for variant in product.variants limit: 3 -%}
-        {%- assign index = forloop.index -%}
+      {%- comment -%} OPTION 1 {%- endcomment -%}
+      <label class="luma-bundle-label" for="luma-variant-{{ option1_var.id }}">
+        <input
+          type="radio"
+          name="luma_bundle_selection"
+          value="{{ option1_var.id }}"
+          id="luma-variant-{{ option1_var.id }}"
+          class="luma-bundle-radio"
+          {% if option2_var == blank %}
+            checked
+          {% endif %}
+        >
+        <div class="luma-bundle-card">
+          <div class="luma-bundle-info-left">
+            <div class="luma-radio-circle"></div>
+            <div>
+              <span class="luma-bundle-name">{{ block.settings.opt1_title | default: option1_var.title }}</span>
+              {%- if block.settings.opt1_subtitle != blank -%}
+                <span class="luma-bundle-sub">{{ block.settings.opt1_subtitle }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="luma-bundle-price-right">
+            <span class="luma-bundle-price">{{ option1_var.price | money }}</span>
+            {%- if option1_var.compare_at_price > option1_var.price -%}
+              <span class="luma-bundle-compare-price">{{ option1_var.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+      </label>
 
-        <label class="luma-bundle-label" for="luma-variant-{{ variant.id }}">
+      {%- comment -%} OPTION 2 {%- endcomment -%}
+      {%- if option2_var != blank -%}
+        <label class="luma-bundle-label" for="luma-variant-{{ option2_var.id }}">
           <input
             type="radio"
             name="luma_bundle_selection"
-            value="{{ variant.id }}"
-            id="luma-variant-{{ variant.id }}"
+            value="{{ option2_var.id }}"
+            id="luma-variant-{{ option2_var.id }}"
             class="luma-bundle-radio"
-            data-price="{{ variant.price }}"
-            data-compare-price="{{ variant.compare_at_price | default: variant.price }}"
-            {% if index == 2 %}
-              checked
-            {% elsif index == 1 and product.variants.size < 2 %}
-              checked
-            {% endif %}
+            checked
           >
-
-          {%- capture card_classes -%}
-            luma-bundle-card
-            {% if index == 2 %} luma-bundle-card--highlighted{% endif %}
-          {%- endcapture -%}
-
-          <div class="{{ card_classes | strip_newlines }}">
-            {%- if index == 2 and block.settings.opt2_badge != blank -%}
+          <div class="luma-bundle-card luma-bundle-card--highlighted">
+            {%- if block.settings.opt2_badge != blank -%}
               <div class="luma-bundle-badge">{{ block.settings.opt2_badge }}</div>
             {%- endif -%}
-
-            <div
-              class="luma-bundle-info-left"
-              {% if index == 2 %}
-                style="margin-top: 8px;"
-              {% endif %}
-            >
+            <div class="luma-bundle-info-left" style="margin-top: 8px;">
               <div class="luma-radio-circle"></div>
               <div>
-                <span class="luma-bundle-name">
-                  {%- if index == 1 -%}{{ block.settings.opt1_title | default: variant.title }}{%- endif -%}
-                  {%- if index == 2 -%}{{ block.settings.opt2_title | default: variant.title }}{%- endif -%}
-                  {%- if index == 3 -%}{{ block.settings.opt3_title | default: variant.title }}{%- endif -%}
-                </span>
-
-                {%- capture subtitle_text -%}
-                  {%- if index == 1 -%}{{ block.settings.opt1_subtitle }}{%- endif -%}
-                  {%- if index == 2 -%}{{ block.settings.opt2_subtitle }}{%- endif -%}
-                  {%- if index == 3 -%}{{ block.settings.opt3_subtitle }}{%- endif -%}
-                {%- endcapture -%}
-
-                {%- if subtitle_text != blank -%}
+                <span class="luma-bundle-name">{{ block.settings.opt2_title | default: option2_var.title }}</span>
+                {%- if block.settings.opt2_subtitle != blank -%}
                   <span
                     class="luma-bundle-sub"
-                    {% if index == 2 and block.settings.opt2_subtitle_color != blank %}
+                    {% if block.settings.opt2_subtitle_color != blank %}
                       style="color: {{ block.settings.opt2_subtitle_color }}; font-weight: 700;"
                     {% endif %}
                   >
-                    {{ subtitle_text }}
+                    {{ block.settings.opt2_subtitle }}
                   </span>
                 {%- endif -%}
               </div>
             </div>
-
-            <div
-              class="luma-bundle-price-right"
-              {% if index == 2 %}
-                style="margin-top: 8px;"
-              {% endif %}
-            >
-              <span class="luma-bundle-price">{{ variant.price | money }}</span>
-              {%- if variant.compare_at_price > variant.price -%}
-                <span class="luma-bundle-compare-price">{{ variant.compare_at_price | money }}</span>
+            <div class="luma-bundle-price-right" style="margin-top: 8px;">
+              <span class="luma-bundle-price">{{ option2_var.price | money }}</span>
+              {%- if option2_var.compare_at_price > option2_var.price -%}
+                <span class="luma-bundle-compare-price">{{ option2_var.compare_at_price | money }}</span>
               {%- endif -%}
             </div>
           </div>
         </label>
-      {%- endfor -%}
+      {%- endif -%}
+
+      {%- comment -%} OPTION 3 {%- endcomment -%}
+      {%- if option3_var != blank -%}
+        <label class="luma-bundle-label" for="luma-variant-{{ option3_var.id }}">
+          <input
+            type="radio"
+            name="luma_bundle_selection"
+            value="{{ option3_var.id }}"
+            id="luma-variant-{{ option3_var.id }}"
+            class="luma-bundle-radio"
+          >
+          <div class="luma-bundle-card">
+            <div class="luma-bundle-info-left">
+              <div class="luma-radio-circle"></div>
+              <div>
+                <span class="luma-bundle-name">{{ block.settings.opt3_title | default: option3_var.title }}</span>
+                {%- if block.settings.opt3_subtitle != blank -%}
+                  <span class="luma-bundle-sub">{{ block.settings.opt3_subtitle }}</span>
+                {%- endif -%}
+              </div>
+            </div>
+            <div class="luma-bundle-price-right">
+              <span class="luma-bundle-price">{{ option3_var.price | money }}</span>
+              {%- if option3_var.compare_at_price > option3_var.price -%}
+                <span class="luma-bundle-compare-price">{{ option3_var.compare_at_price | money }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </label>
+      {%- endif -%}
     </luma-bundle-selector>
 
     <script>
-      /* Lightweight script to sync our custom bundle radio buttons with the hidden Shopify variant input */
+      /* Sync custom bundle radio buttons with the hidden Shopify variant input */
       document.addEventListener('DOMContentLoaded', function () {
         const bundleSelector = document.querySelector('luma-bundle-selector');
         if (!bundleSelector) return;
 
         const radios = bundleSelector.querySelectorAll('.luma-bundle-radio');
+        const productForm = document.querySelector('form[action^="/cart/add"]');
 
-        // Find the native hidden input that Shopify uses for adding to cart
-        // Usually it's an input with name="id" inside the product form
-        const productForm = document.querySelector('form[action="/cart/add"]');
+        function updateFormVariant(variantId) {
+          if (productForm) {
+            let idInput = productForm.querySelector('input[name="id"]');
+
+            // If the input doesn't exist (some themes dynamically re-render it), try to find it again or create it
+            if (!idInput) {
+              idInput = document.createElement('input');
+              idInput.type = 'hidden';
+              idInput.name = 'id';
+              productForm.appendChild(idInput);
+            }
+
+            idInput.value = variantId;
+            idInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+            // Support for modern Shopify themes that use variant-id dynamically
+            const url = new URL(window.location.href);
+            url.searchParams.set('variant', variantId);
+            window.history.replaceState({ path: url.href }, '', url.href);
+          }
+        }
 
         radios.forEach((radio) => {
           radio.addEventListener('change', function () {
-            const selectedVariantId = this.value;
-            if (productForm) {
-              const idInput = productForm.querySelector('input[name="id"]');
-              if (idInput) {
-                idInput.value = selectedVariantId;
-                // Dispatch event in case other theme scripts are listening
-                idInput.dispatchEvent(new Event('change', { bubbles: true }));
-              }
-            }
+            updateFormVariant(this.value);
           });
         });
 
-        // Set initial value on load based on checked radio
+        // Set initial value on load
         const initialChecked = bundleSelector.querySelector('.luma-bundle-radio:checked');
-        if (initialChecked && productForm) {
-          const idInput = productForm.querySelector('input[name="id"]');
-          if (idInput) {
-            idInput.value = initialChecked.value;
-          }
+        if (initialChecked) {
+          // Add small delay to ensure theme scripts have loaded the form
+          setTimeout(() => {
+            updateFormVariant(initialChecked.value);
+          }, 100);
         }
       });
     </script>
   {%- else -%}
-    <p style="font-size: 12px; color: red;">Please assign a product to see the bundle selector.</p>
+    <p style="font-size: 12px; color: red;">Please ensure at least the base product is valid.</p>
   {%- endif -%}
 </div>
