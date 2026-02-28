@@ -168,12 +168,13 @@
 
   /* Header Row Styling */
   #shopify-section-{{ section.id }} .comp-th-metric {
-    background-color: {{ section.settings.table_bg }};
-    color: rgba(26, 26, 26, 0.6);
+    background-color: #FFFFFF;
+    color: rgba(26, 26, 26, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
+    justify-content: flex-start;
   }
 
   #shopify-section-{{ section.id }} .comp-th-ours {
@@ -183,24 +184,26 @@
     border-left: 1px solid #1A1A1A;
     border-right: 1px solid #1A1A1A;
     border-bottom-color: #1A1A1A;
+    border-top: 4px solid #C5A065;
   }
 
   #shopify-section-{{ section.id }} .comp-th-ours-text {
-    font-size: 14px;
-    font-weight: 700;
-    color: #D4A340; /* luma-gold */
-    margin-top: 8px;
+    font-family: var(--font-heading--family), serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
   }
 
   #shopify-section-{{ section.id }} .comp-th-theirs {
-    background-color: {{ section.settings.table_bg }};
+    background-color: #FFFFFF;
     flex-direction: column;
   }
 
   #shopify-section-{{ section.id }} .comp-th-theirs-name {
-    font-weight: 700;
-    font-size: 14px;
-    color: #1A1A1A;
+    font-family: var(--font-heading--family), serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(26, 26, 26, 0.4);
   }
 
   #shopify-section-{{ section.id }} .comp-th-theirs-sub {
@@ -210,7 +213,7 @@
 
   /* Body Rows Styling */
   #shopify-section-{{ section.id }} .comp-td-metric {
-    background-color: #FFF;
+    background-color: #FFFFFF;
     font-weight: 700;
     color: #1A1A1A;
     font-size: 14px;
@@ -219,8 +222,8 @@
   }
 
   #shopify-section-{{ section.id }} .comp-td-ours {
-    background-color: rgba(26, 26, 26, 0.05); /* bg-luma-charcoal/5 */
-    font-weight: 600;
+    background-color: #FFFFFF;
+    font-weight: 700;
     color: #1A1A1A;
     font-size: 14px;
     border-left: 1px solid #E5E5E5;
@@ -228,9 +231,24 @@
   }
 
   #shopify-section-{{ section.id }} .comp-td-theirs {
-    background-color: #FFF;
-    color: rgba(26, 26, 26, 0.6);
+    background-color: #FFFFFF;
+    color: rgba(26, 26, 26, 0.4);
     font-size: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .comp-val-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  @media (min-width: 640px) {
+    #shopify-section-{{ section.id }} .comp-val-wrapper {
+        flex-direction: row;
+        gap: 8px;
+    }
   }
 
   @media (max-width: 640px) {
@@ -264,7 +282,7 @@
       <div class="comp-grid">
         <!-- Header Row -->
         <div class="comp-cell comp-th-metric">
-          <span>Metric</span>
+          <span>CLINICAL METRIC</span>
         </div>
         <div class="comp-cell comp-th-ours">
           <!-- SVG Luma Logo Mark or Text -->
@@ -272,7 +290,9 @@
         </div>
         <div class="comp-cell comp-th-theirs">
           <span class="comp-th-theirs-name">{{ section.settings.competitor_name | escape }}</span>
-          <span class="comp-th-theirs-sub">{{ section.settings.competitor_sub | escape }}</span>
+          {%- if section.settings.competitor_sub != blank -%}
+            <span class="comp-th-theirs-sub">{{ section.settings.competitor_sub | escape }}</span>
+          {%- endif -%}
         </div>
 
         <!-- Data Rows -->
@@ -281,10 +301,40 @@
             <span>{{ block.settings.metric | escape }}</span>
           </div>
           <div class="comp-cell comp-td-ours">
-            <span>{{ block.settings.our_value | escape }}</span>
+            <div class="comp-val-wrapper">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#16a34a"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="flex-shrink:0;"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>{{ block.settings.our_value | escape }}</span>
+            </div>
           </div>
           <div class="comp-cell comp-td-theirs">
-            <span>{{ block.settings.competitor_value | escape }}</span>
+            <div class="comp-val-wrapper">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ef4444"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="flex-shrink:0;"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              <span>{{ block.settings.competitor_value | escape }}</span>
+            </div>
           </div>
         {%- endfor -%}
       </div>
