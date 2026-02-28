@@ -149,6 +149,14 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-grow: 1;
+    min-width: 0; /* Prevents flex children from overflowing */
+  }
+
+  .luma-bundle-info-left > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .luma-radio-circle {
@@ -171,17 +179,21 @@
     display: block;
     font-size: 16px;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .luma-bundle-sub {
     font-size: 12px;
     color: rgba(26, 26, 26, 0.6);
     display: block;
-    margin-top: 2px;
   }
 
   .luma-bundle-price-right {
     text-align: right;
+    flex-shrink: 0;
+    margin-left: 12px;
   }
 
   .luma-bundle-price {
@@ -189,6 +201,7 @@
     font-size: 18px;
     color: #1a1a1a;
     display: block;
+    line-height: 1.2;
   }
 
   .luma-bundle-compare-price {
