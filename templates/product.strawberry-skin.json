@@ -12,6 +12,10 @@
     "main": {
       "type": "product-information",
       "blocks": {
+        "bundler_bundler_target_element_yBHYMW": {
+          "type": "shopify://apps/bundler/blocks/bundler-target-element/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {}
+        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -271,6 +275,9 @@
           ]
         }
       },
+      "block_order": [
+        "bundler_bundler_target_element_yBHYMW"
+      ],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
@@ -289,21 +296,18 @@
         "benefit_9ihwWx": {
           "type": "benefit",
           "settings": {
-            "title": "10% Lactic Acid (The Keratin Dissolver)",
             "text": "Unlike physical scrubs that cause micro-tears and more dark spots, this large-molecule acid gently unglues the dead cells trapping your hair, smoothing the bump instantly while hydrating."
           }
         },
         "benefit_gHbhzm": {
           "type": "benefit",
           "settings": {
-            "title": "Tranexamic Acid (The Pigment Blocker)",
             "text": "Most KP products only smooth the texture. We added this powerhouse to stop the inflammatory pathway that turns ingrowns into brown spots. It fixes the color, not just the feel."
           }
         },
         "benefit_wLJE7i": {
           "type": "benefit",
           "settings": {
-            "title": "Water-Break Technology",
             "text": "We know you hate that \"suffocating\" lotion feel. This formula \"breaks\" into a refreshing fluid upon contact, delivering deep hydration (Urea) without the grease trap."
           }
         }
@@ -316,6 +320,8 @@
       "name": "Potency & Ideal For",
       "settings": {
         "potency_title": "Why It Works",
+        "center_image_quote": "\"Botanical extracts. Clinical potency.\"",
+        "center_image_caption": "Alpha Arbutin Derived from Bearberry",
         "ideal_title": "Ideal For",
         "skin_type_label": "Skin Type",
         "skin_type_text": "Oily, Acne-Prone, Sensitive & Dehydrated Skin.",
@@ -501,7 +507,6 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "flex-end",
-        "mobile_content_alignment": "center",
         "gap": 16,
         "section_width": "full-width",
         "section_height": "medium",
@@ -524,32 +529,28 @@
           "type": "ingredient",
           "settings": {
             "title": "10% LACTIC ACID + 1% SALICYLIC ACID (THE EXFOLIATORS)",
-            "description": "A dual-action complex that targets both surface roughness and deep pore congestion. Lactic Acid (AHA) gently dissolves the hard keratin plugs (\"chicken skin\") on the surface to smooth texture instantly. Meanwhile, Salicylic Acid (BHA) is oil-soluble, diving deep into the follicle to clear trapped sebum and prevent the \"red bumps\" (folliculitis) caused by ingrown hairs.",
-            "show_plus": true
+            "description": "A dual-action complex that targets both surface roughness and deep pore congestion. Lactic Acid (AHA) gently dissolves the hard keratin plugs (\"chicken skin\") on the surface to smooth texture instantly. Meanwhile, Salicylic Acid (BHA) is oil-soluble, diving deep into the follicle to clear trapped sebum and prevent the \"red bumps\" (folliculitis) caused by ingrown hairs."
           }
         },
         "ingredient_mj8KjT": {
           "type": "ingredient",
           "settings": {
             "title": "2% TRANEXAMIC ACID + 4% NIACINAMIDE (THE BRIGHTENERS)",
-            "description": "This is your defense against the \"dark dots\" (hyperpigmentation) that scrubs cannot fix. Tranexamic Acid works to inhibit the inflammatory pathway that turns ingrowns into stubborn brown spots. Paired with Niacinamide, it blocks pigment transfer to the surface and repairs the skin barrier, giving legs a \"polished\" and even-toned look.",
-            "show_plus": true
+            "description": "This is your defense against the \"dark dots\" (hyperpigmentation) that scrubs cannot fix. Tranexamic Acid works to inhibit the inflammatory pathway that turns ingrowns into stubborn brown spots. Paired with Niacinamide, it blocks pigment transfer to the surface and repairs the skin barrier, giving legs a \"polished\" and even-toned look."
           }
         },
         "ingredient_4bHNb6": {
           "type": "ingredient",
           "settings": {
             "title": "5% UREA + CERAMIDES (THE HYDRATORS)",
-            "description": "Urea is a \"double agent\"—it intensely hydrates dry skin while simultaneously softening hard, crusty skin cells so they wash away easily. We added a complex of Ceramides (NP, AP, EOP) to immediately seal the skin barrier after exfoliation. This locks in moisture to prevent the \"ashy\" look, without the sticky or greasy feel of traditional creams.",
-            "show_plus": true
+            "description": "Urea is a \"double agent\"—it intensely hydrates dry skin while simultaneously softening hard, crusty skin cells so they wash away easily. We added a complex of Ceramides (NP, AP, EOP) to immediately seal the skin barrier after exfoliation. This locks in moisture to prevent the \"ashy\" look, without the sticky or greasy feel of traditional creams."
           }
         },
         "ingredient_BCfQeV": {
           "type": "ingredient",
           "settings": {
             "title": "All Ingredients",
-            "description": "Key Actives: Lactic Acid (10%), Urea (5%), Niacinamide (4%), Tranexamic Acid (2%), Salicylic Acid (1%), Ceramide Complex.\n\nBase: Purified Water, Propanediol (Humectant), Glycerin, Xanthan Gum (Texture Enhancer), Phenoxyethanol (Preservative), Ethylhexylglycerin.\nFormulated Without: Fragrance, Essential Oils, Sulfates (SLS/SLES), Parabens, or Artificial Dyes.",
-            "show_plus": true
+            "description": "Key Actives: Lactic Acid (10%), Urea (5%), Niacinamide (4%), Tranexamic Acid (2%), Salicylic Acid (1%), Ceramide Complex.\n\nBase: Purified Water, Propanediol (Humectant), Glycerin, Xanthan Gum (Texture Enhancer), Phenoxyethanol (Preservative), Ethylhexylglycerin.\nFormulated Without: Fragrance, Essential Oils, Sulfates (SLS/SLES), Parabens, or Artificial Dyes."
           }
         }
       },
@@ -563,9 +564,10 @@
       "settings": {
         "title": "Ingredients",
         "bg_color": "#ffffff",
-        "bg_opacity": 0,
         "text_color": "#1a1a1a",
         "accent_color": "#c5a065",
+        "padding_top": 60,
+        "padding_bottom": 60,
         "section_width": "1200px",
         "heading_alignment": "left",
         "override_fonts": false,
@@ -625,6 +627,7 @@
         "bg_color": "#f9f7f5",
         "card_bg_color": "#ffffff",
         "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
         "padding_top": 80,
         "padding_bottom": 80,
         "section_width": "800px",
@@ -639,6 +642,7 @@
         "review_44hUgr": {
           "type": "review",
           "settings": {
+            "review_title": "\"My melasma is finally fading.\"",
             "quote": "I thought this was another fake Insta brand. I’ve spent thousands on imported CeraVe SA that I couldn't even use because it was so sticky in Lahore's heat. This actually dries matte, and my legs are smoother than they've been since I was 12",
             "author": "Mahnoor",
             "verified": true
@@ -647,6 +651,7 @@
         "review_4icPXT": {
           "type": "review",
           "settings": {
+            "review_title": "\"My melasma is finally fading.\"",
             "quote": "Used it for 3 weeks before my sister's wedding. The 'kale daane' (dark bumps) are 80% gone. I actually wore a sleeveless kameez without a cover-up for the first time. Best PKR 1,400 I ever spent.",
             "author": "Zara",
             "verified": true
@@ -655,6 +660,7 @@
         "review_tcrTbN": {
           "type": "review",
           "settings": {
+            "review_title": "\"My melasma is finally fading.\"",
             "quote": "Better than the salon 'skin polish' that burned my arms. That cost me 5k per session; this bottle works while I sleep. No brainer.",
             "author": "Fatima",
             "verified": true
