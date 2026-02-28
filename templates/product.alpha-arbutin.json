@@ -16,16 +16,16 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
-            "slideshow_controls_style": "counter",
+            "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
-            "thumbnail_width": 44,
-            "thumbnail_radius": 0,
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 63,
+            "thumbnail_radius": 8,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
@@ -162,6 +162,32 @@
                 "price_tVjtKg"
               ]
             },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -240,32 +266,6 @@
               },
               "blocks": {}
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "luma_product_bullets_1": {
               "type": "luma-product-bullets",
               "settings": {
@@ -293,11 +293,11 @@
           },
           "block_order": [
             "group_icgrde",
+            "text_aEtTtq",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "luma_bundle_selector_1",
             "divider_VJhene",
-            "text_aEtTtq",
             "luma_product_bullets_1",
             "luma_trust_guarantee_1"
           ]
@@ -348,8 +348,27 @@
     },
     "luma_potency": {
       "type": "luma-potency-ideal-section",
+      "blocks": {
+        "benefit_kjkbUT": {
+          "type": "benefit",
+          "settings": {
+            "text": "<strong style=\"font-weight: 600\">Tyrosinase Inhibition:</strong> Alpha Arbutin directly binds to the enzymes responsible for melanin production."
+          }
+        },
+        "benefit_VhAbw9": {
+          "type": "benefit",
+          "settings": {
+            "text": "<strong style=\"font-weight: 600\">Tyrosinase Inhibition:</strong> Alpha Arbutin directly binds to the enzymes responsible for melanin production."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_kjkbUT",
+        "benefit_VhAbw9"
+      ],
       "settings": {
         "potency_title": "Why It Works",
+        "center_image": "shopify://shop_images/Alpha_Arbutin_Section_2.webp",
         "center_image_quote": "\"Botanical extracts. Clinical potency.\"",
         "center_image_caption": "Alpha Arbutin Derived from Bearberry",
         "ideal_title": "Ideal For",
