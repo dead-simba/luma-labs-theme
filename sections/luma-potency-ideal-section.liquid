@@ -151,10 +151,16 @@
       "name": "Benefit Point",
       "settings": [
         {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title (Bold)",
+          "default": "Tyrosinase Inhibition:"
+        },
+        {
           "type": "textarea",
           "id": "text",
-          "label": "Benefit HTML",
-          "default": "<strong style=\"font-weight: 600\">Tyrosinase Inhibition:</strong> Alpha Arbutin directly binds to the enzymes responsible for melanin production."
+          "label": "Benefit Description",
+          "default": " Alpha Arbutin directly binds to the enzymes responsible for melanin production."
         }
       ]
     }
@@ -391,6 +397,9 @@
             {%- when 'benefit' -%}
               <li class="potency-item" {{ block.shopify_attributes }}>
                 <div class="potency-text">
+                  {%- if block.settings.title != blank -%}
+                    <strong style="font-weight: 600;">{{ block.settings.title | escape }}</strong>
+                  {%- endif -%}
                   {{ block.settings.text }}
                 </div>
               </li>
@@ -408,6 +417,8 @@
             class="potency-image"
             loading="lazy"
             alt="{{ section.settings.center_image.alt | escape }}"
+            width="{{ section.settings.center_image.width }}"
+            height="{{ section.settings.center_image.height }}"
           >
           <div class="potency-image-scrim"></div>
 
