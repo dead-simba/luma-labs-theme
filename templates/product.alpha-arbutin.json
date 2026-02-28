@@ -411,6 +411,40 @@
     },
     "luma_clinical_stats": {
       "type": "luma-clinical-stats",
+      "blocks": {
+        "stat_3gMTgq": {
+          "type": "stat",
+          "settings": {
+            "number": "92",
+            "symbol": "%",
+            "label": "Saw faded dark spots",
+            "text": "after 8 weeks of consistent daily use."
+          }
+        },
+        "stat_UPAB3X": {
+          "type": "stat",
+          "settings": {
+            "number": "100",
+            "symbol": "%",
+            "label": "Experienced no irritation",
+            "text": "confirming barrier safety vs hydroquinone"
+          }
+        },
+        "stat_bFcH4a": {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "symbol": "%",
+            "label": "Formula Oxidation",
+            "text": "proving the unmatched stability of EAA"
+          }
+        }
+      },
+      "block_order": [
+        "stat_3gMTgq",
+        "stat_UPAB3X",
+        "stat_bFcH4a"
+      ],
       "settings": {
         "title": "The Clinical Reality",
         "subtitle": "After 28 Days of Daily Use",
@@ -421,8 +455,22 @@
     },
     "luma_how_to_use": {
       "type": "luma-how-to-use",
+      "blocks": {
+        "step_CPHBGt": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_1.webp",
+            "step_label": "Step 01",
+            "title": "Apply to Damp Skin",
+            "text": "Dispense 3-4 Drops after cleansing"
+          }
+        }
+      },
+      "block_order": [
+        "step_CPHBGt"
+      ],
       "settings": {
-        "title": "How To Protocol",
+        "title": "How To Use",
         "bg_color": "#f9f8f6",
         "text_color": "#1a1a1a",
         "accent_color": "#d4a340"
@@ -430,6 +478,42 @@
     },
     "luma_ingredients": {
       "type": "luma-ingredients-section",
+      "blocks": {
+        "ingredient_KF3hzC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "2% Alpha Arbutin",
+            "description": "The gold standard of safe tyrosinase inhibition. It directly binds to the enzymes responsible for melanin production, halting the formation of new dark spots before they ever reach the surface."
+          }
+        },
+        "ingredient_aHGjYC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "TXA + Niacinamide",
+            "description": "Tranexamic Acid interrupts the inflammatory signals that trigger melasma, while Niacinamide acts as a physical roadblock, preventing melanosomes (pigment packages) from transferring into your visible skin cells."
+          }
+        },
+        "ingredient_Vyqmni": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ethyl Ascorbic Acid",
+            "description": "A highly stable, non-irritating derivative of Vitamin C. It acts as an aggressive antioxidant shield against UV-induced free radicals while simultaneously brightening overall skin tone."
+          }
+        },
+        "ingredient_Jpzyr8": {
+          "type": "ingredient",
+          "settings": {
+            "title": "All Ingredients",
+            "description": "Aqua, Niacinamide, Alpha-Arbutin, 3-O-Ethyl Ascorbic Acid, Tranexamic Acid, Propanediol, Glycerin, Sodium Hyaluronate, Glycyrrhiza Glabra (Licorice) Root Extract, Allantoin, Panthenol, Phenoxyethanol, Ethylhexylglycerin, Citric Acid, Sodium Hydroxide."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_KF3hzC",
+        "ingredient_aHGjYC",
+        "ingredient_Vyqmni",
+        "ingredient_Jpzyr8"
+      ],
       "settings": {
         "title": "Ingredients",
         "bg_color": "#ffffff",
