@@ -138,14 +138,14 @@
       "settings": {
         "heading": "The Complete Luma Protocol.",
         "description": "While Barrier Renew reconstructs your skin's foundation, true clinical results require 360° protection. Combine all three of our master formulas for complete skin transformation.",
-        "bundle_product_1": "glutathione-vitamin-c-serum",
-        "bundle_product_2": "ceramide-hyaluronic-water-gel",
-        "bundle_product_3": "strawberry-skin-eraser",
+        "bundle_product_1": "complete-luma-protocol",
+        "bundle_product_2": "",
+        "bundle_product_3": "",
         "show_bundle": true,
         "btn_text": "Unlock The Complete Protocol",
-        "bundle_price": "Rs 4,100",
-        "original_price": "Rs 4960",
-        "savings_text": "Save Rs.860 when you buy the system"
+        "bundle_price": "Rs 3999",
+        "original_price": "Rs 4999",
+        "savings_text": "Save Rs.1000 (20%) when you buy the system"
       }
     }
   },
