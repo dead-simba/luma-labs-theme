@@ -22,8 +22,8 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#F9F7F5",
-      "info": "Default is Luma Sand (#F9F7F5)"
+      "default": "#F9F8F6",
+      "info": "Default is Luma Sand (#F9F8F6)"
     },
     {
       "type": "color",
@@ -38,24 +38,30 @@
       "default": "#1A1A1A"
     },
     {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#D4A340"
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "min": 20,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
-      "default": 80
+      "default": 96
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 20,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
-      "default": 80
+      "default": 96
     },
     {
       "type": "header",
@@ -67,7 +73,7 @@
       "label": "Section Width",
       "options": [
         { "value": "800px", "label": "Narrow (800px)" },
-        { "value": "1200px", "label": "Standard (1200px)" },
+        { "value": "1280px", "label": "Standard (1280px)" },
         { "value": "100%", "label": "Full Width" }
       ],
       "default": "800px"
@@ -122,22 +128,22 @@
         {
           "type": "faq_item",
           "settings": {
-            "question": "Will this leave a white cast on darker skin tones?",
-            "answer": "Absolutely not. The 'Zero White Cast' claim is tested on real skin. The gel formula goes on clear and dries into a natural, matte finish."
+            "question": "Can I use this and the Barrier Renew on the same night?",
+            "answer": "Yes! We specifically designed these formulas to stack. Apply the Alpha Arbutin serum first so the actives can penetrate. Follow up with the Moisturizer 60 seconds later to lock everything in."
           }
         },
         {
           "type": "faq_item",
           "settings": {
-            "question": "Does it protect against Blue Light from devices?",
-            "answer": "Yes. The PA++++ rating confirms protection against High Energy Visible (HEV) light, which comes from the sun and your electronic devices."
+            "question": "When will I see results?",
+            "answer": "Everyone's skin barrier heals at a different rate. However, clinical studies show a noticeable reduction in dark spots and hyperpigmentation after just 28 days of daily use."
           }
         },
         {
           "type": "faq_item",
           "settings": {
-            "question": "Is it suitable for acne-prone skin?",
-            "answer": "Yes. It is non-comedogenic (won't clog pores) and oil-free. The Hyaluronic Acid hydrates without adding grease, making it safe for acne-prone skin."
+            "question": "Is it pregnant/nursing safe?",
+            "answer": "While Alpha Arbutin is generally considered a safer alternative to hydroquinone, we always recommend consulting your physician before introducing any high-potency active into your routine while pregnant."
           }
         }
       ]
@@ -158,7 +164,6 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     color: {{ section.settings.text_color }};
-    border-bottom: 1px solid #e5e7eb;
 
     /* Body Font Logic */
     {%- if section.settings.override_fonts and section.settings.body_font != blank -%}
@@ -180,7 +185,7 @@
 
   /* Heading */
   #shopify-section-{{ section.id }} .faq-title {
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: 48px;
     font-weight: 400;
     text-align: center;
@@ -196,45 +201,92 @@
     {%- endif -%}
   }
 
-  /* FAQ Grid */
+  /* FAQ Accordion Grid */
   #shopify-section-{{ section.id }} .faq-grid {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-width: 768px; /* max-w-3xl approx */
+    margin: 0 auto;
   }
 
-  /* FAQ Card */
+  /* Built-in details/summary elements styling */
   #shopify-section-{{ section.id }} .faq-card {
     background-color: {{ section.settings.card_bg_color }};
-    padding: 24px;
-    border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* shadow-sm */
-    border: 1px solid transparent;
-    transition: border-color 0.3s ease;
+    border-radius: 16px; /* rounded-2xl */
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
   }
 
-  #shopify-section-{{ section.id }} .faq-card:hover {
-    border-color: #e5e7eb; /* border-gray-200 */
+  #shopify-section-{{ section.id }} .faq-card summary {
+    list-style: none; /* Hide default arrow */
+    cursor: pointer;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .faq-card summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .faq-card summary:focus {
+      outline: none;
   }
 
   #shopify-section-{{ section.id }} .faq-question {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-    color: #374151; /* Luma Charcoal approx */
-    display: block;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+  }
+
+  /* Plus / Minus SVG icon */
+  #shopify-section-{{ section.id }} .icon-plus-minus {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: rgba(26, 26, 26, 0.4);
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .faq-card[open] .icon-plus-minus {
+    color: {{ section.settings.accent_color }};
   }
 
   #shopify-section-{{ section.id }} .faq-answer {
+    padding: 0 24px 20px 24px;
     font-size: 14px;
     line-height: 1.6;
     font-weight: 300;
-    color: #4b5563; /* text-gray-600 */
+    color: rgba(26, 26, 26, 0.8);
+    margin: 0;
+  }
+
+  /* Smooth Details Toggle Animation Setup using standard CSS approach (no JS required if basic functionality is ok, but we can do a CSS hack for smooth open) */
+  #shopify-section-{{ section.id }} .faq-card .faq-answer-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease-out;
+  }
+
+  #shopify-section-{{ section.id }} .faq-card[open] .faq-answer-wrapper {
+      grid-template-rows: 1fr;
+  }
+
+  #shopify-section-{{ section.id }} .faq-card .faq-answer-inner {
+      overflow: hidden;
   }
 {%- endstyle -%}
 
-<div class="faq-section">
+<!--
+  Add small script to animate details tag, as CSS grid-template-rows animation doesn't work perfectly on <details> without preventing default behavior.
+  We'll use a tiny vanilla JS snippet to handle the `<details>` accordion smoothness natively.
+-->
+
+<div class="faq-section" id="faq-section-{{ section.id }}">
   <div class="faq-container">
     {%- if section.settings.title != blank -%}
       <h2 class="faq-title">{{ section.settings.title | escape }}</h2>
@@ -242,11 +294,59 @@
 
     <div class="faq-grid">
       {%- for block in section.blocks -%}
-        <div class="faq-card" {{ block.shopify_attributes }}>
-          <h3 class="faq-question">{{ block.settings.question | escape }}</h3>
-          <p class="faq-answer">{{ block.settings.answer | escape }}</p>
-        </div>
+        <details class="faq-card" {{ block.shopify_attributes }}>
+          <summary>
+            <span class="faq-question">{{ block.settings.question | escape }}</span>
+            <svg
+              class="icon-plus-minus icon-plus"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 256"
+              fill="currentColor"
+            >
+              <!-- If closed, we show a Plus. Since we toggle via JS, we'll swap the SVG path visually -->
+              <path class="path-plus" d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+              <path class="path-minus" d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z" style="display:none;"></path>
+            </svg>
+          </summary>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer-inner">
+              <p class="faq-answer">{{ block.settings.answer | escape }}</p>
+            </div>
+          </div>
+        </details>
       {%- endfor -%}
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find all detail blocks in this section
+    const sectionRoot = document.getElementById('faq-section-{{ section.id }}');
+    if (!sectionRoot) return;
+
+    const detailsElements = sectionRoot.querySelectorAll('details.faq-card');
+
+    detailsElements.forEach((detail) => {
+      detail.addEventListener('toggle', function () {
+        const plusPath = detail.querySelector('.path-plus');
+        const minusPath = detail.querySelector('.path-minus');
+
+        if (detail.hasAttribute('open')) {
+          if (plusPath) plusPath.style.display = 'none';
+          if (minusPath) minusPath.style.display = 'block';
+
+          // Close others
+          detailsElements.forEach((other) => {
+            if (other !== detail && other.hasAttribute('open')) {
+              other.removeAttribute('open');
+            }
+          });
+        } else {
+          if (plusPath) plusPath.style.display = 'block';
+          if (minusPath) minusPath.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

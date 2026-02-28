@@ -1,0 +1,293 @@
+{% schema %}
+{
+  "name": "Clinical Comparison",
+  "tag": "section",
+  "class": "section-comparison",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Precision, Not Peeling."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Why our pathway-blocking approach outperforms traditional skin-bleaching methods."
+    },
+    {
+      "type": "text",
+      "id": "our_product_name",
+      "label": "Our Product Name",
+      "default": "2% Alpha Arbutin"
+    },
+    {
+      "type": "text",
+      "id": "competitor_name",
+      "label": "Competitor Name",
+      "default": "Hydroquinone"
+    },
+    {
+      "type": "text",
+      "id": "competitor_sub",
+      "label": "Competitor Subtitle",
+      "default": "Standard Focus"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "table_bg",
+      "label": "Table Outer BG Color",
+      "default": "#F9F8F6"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "metric",
+          "label": "Metric Name",
+          "default": "Targeting Depth"
+        },
+        {
+          "type": "text",
+          "id": "our_value",
+          "label": "Our Value",
+          "default": "Targets Enzyme (Tyrosinase) directly"
+        },
+        {
+          "type": "text",
+          "id": "competitor_value",
+          "label": "Competitor Value",
+          "default": "Bleaches existing cells"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Comparison",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Targeting Depth",
+            "our_value": "Targets Enzyme (Tyrosinase) directly",
+            "competitor_value": "Bleaches existing cells"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Shelf Stability",
+            "our_value": "Highly Stable (24 Months)",
+            "competitor_value": "Oxidizes Rapidly (Turns brown)"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Pathways Blocked",
+            "our_value": "Blocks Tyrosinase & Maturation",
+            "competitor_value": "Single Pathway Inhibition"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .comp-section {
+    background-color: {{ section.settings.bg_color }};
+    padding: 80px 20px;
+    font-family: var(--font-body--family), sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .comp-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .comp-header {
+    text-align: center;
+    max-width: 672px;
+    margin: 0 auto 64px auto;
+  }
+
+  #shopify-section-{{ section.id }} .comp-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: 36px;
+    color: #1A1A1A;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .comp-subtitle {
+    font-size: 18px;
+    color: rgba(26, 26, 26, 0.7);
+  }
+
+  /* Table Layout */
+  #shopify-section-{{ section.id }} .comp-table-wrapper {
+    max-width: 896px; /* max-w-4xl */
+    margin: 0 auto;
+    border: 1px solid #E5E5E5;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* Cells defaults */
+  #shopify-section-{{ section.id }} .comp-cell {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #E5E5E5;
+  }
+
+  #shopify-section-{{ section.id }} .comp-grid > div:nth-last-child(-n+3) {
+      border-bottom: none;
+  }
+
+  /* Header Row Styling */
+  #shopify-section-{{ section.id }} .comp-th-metric {
+    background-color: {{ section.settings.table_bg }};
+    color: rgba(26, 26, 26, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  #shopify-section-{{ section.id }} .comp-th-ours {
+    background-color: #1A1A1A; /* luma-charcoal */
+    color: #FFF;
+    flex-direction: column;
+    border-left: 1px solid #1A1A1A;
+    border-right: 1px solid #1A1A1A;
+    border-bottom-color: #1A1A1A;
+  }
+
+  #shopify-section-{{ section.id }} .comp-th-ours-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #D4A340; /* luma-gold */
+    margin-top: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .comp-th-theirs {
+    background-color: {{ section.settings.table_bg }};
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .comp-th-theirs-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1A1A1A;
+  }
+
+  #shopify-section-{{ section.id }} .comp-th-theirs-sub {
+    font-size: 12px;
+    color: rgba(26, 26, 26, 0.6);
+  }
+
+  /* Body Rows Styling */
+  #shopify-section-{{ section.id }} .comp-td-metric {
+    background-color: #FFF;
+    font-weight: 700;
+    color: #1A1A1A;
+    font-size: 14px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .comp-td-ours {
+    background-color: rgba(26, 26, 26, 0.05); /* bg-luma-charcoal/5 */
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 14px;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+  }
+
+  #shopify-section-{{ section.id }} .comp-td-theirs {
+    background-color: #FFF;
+    color: rgba(26, 26, 26, 0.6);
+    font-size: 14px;
+  }
+
+  @media (max-width: 640px) {
+      #shopify-section-{{ section.id }} .comp-cell {
+          padding: 16px 8px;
+          font-size: 12px;
+      }
+      #shopify-section-{{ section.id }} .comp-td-metric {
+          font-size: 12px;
+      }
+      #shopify-section-{{ section.id }} .comp-td-ours,
+      #shopify-section-{{ section.id }} .comp-td-theirs,
+      #shopify-section-{{ section.id }} .comp-th-theirs-name {
+          font-size: 12px;
+      }
+  }
+{%- endstyle -%}
+
+<div class="comp-section">
+  <div class="comp-container">
+    <div class="comp-header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="comp-title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="comp-subtitle">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="comp-table-wrapper">
+      <div class="comp-grid">
+        <!-- Header Row -->
+        <div class="comp-cell comp-th-metric">
+          <span>Metric</span>
+        </div>
+        <div class="comp-cell comp-th-ours">
+          <!-- SVG Luma Logo Mark or Text -->
+          <span class="comp-th-ours-text">{{ section.settings.our_product_name | escape }}</span>
+        </div>
+        <div class="comp-cell comp-th-theirs">
+          <span class="comp-th-theirs-name">{{ section.settings.competitor_name | escape }}</span>
+          <span class="comp-th-theirs-sub">{{ section.settings.competitor_sub | escape }}</span>
+        </div>
+
+        <!-- Data Rows -->
+        {%- for block in section.blocks -%}
+          <div class="comp-cell comp-td-metric" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.metric | escape }}</span>
+          </div>
+          <div class="comp-cell comp-td-ours">
+            <span>{{ block.settings.our_value | escape }}</span>
+          </div>
+          <div class="comp-cell comp-td-theirs">
+            <span>{{ block.settings.competitor_value | escape }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>

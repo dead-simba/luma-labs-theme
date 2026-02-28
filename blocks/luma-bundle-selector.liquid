@@ -1,0 +1,328 @@
+{% schema %}
+{
+  "name": "Luma Bundle Selector",
+  "target": "section",
+  "javascript": "luma-bundle-selector.js",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Selector Title",
+      "default": "Select Your Protocol"
+    },
+    {
+      "type": "header",
+      "content": "Option 1 (Default)"
+    },
+    {
+      "type": "text",
+      "id": "opt1_title",
+      "label": "Title",
+      "default": "1 Bottle"
+    },
+    {
+      "type": "text",
+      "id": "opt1_subtitle",
+      "label": "Subtitle",
+      "default": "Try it out."
+    },
+    {
+      "type": "header",
+      "content": "Option 2 (Highlighted)"
+    },
+    {
+      "type": "text",
+      "id": "opt2_title",
+      "label": "Title",
+      "default": "2 Bottles (2 Month Supply)"
+    },
+    {
+      "type": "text",
+      "id": "opt2_subtitle",
+      "label": "Subtitle",
+      "default": "Free Shipping Unlocked"
+    },
+    {
+      "type": "color",
+      "id": "opt2_subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#15803d"
+    },
+    {
+      "type": "text",
+      "id": "opt2_badge",
+      "label": "Highlight Badge text",
+      "default": "Most Popular (Save 15%)"
+    },
+    {
+      "type": "header",
+      "content": "Option 3"
+    },
+    {
+      "type": "text",
+      "id": "opt3_title",
+      "label": "Title",
+      "default": "3 Bottles (Save 20%)"
+    },
+    {
+      "type": "text",
+      "id": "opt3_subtitle",
+      "label": "Subtitle",
+      "default": "Never run out."
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  .luma-bundle-wrapper {
+    margin-bottom: 28px;
+    font-family: var(--font-body--family), sans-serif;
+  }
+  .luma-bundle-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+  }
+  .luma-bundle-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .luma-bundle-radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .luma-bundle-card {
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+  }
+
+  .luma-bundle-card:hover {
+    border-color: rgba(26, 26, 26, 0.3);
+  }
+
+  .luma-bundle-card--highlighted {
+    background-color: #fefaeb; /* yellow-50 approx */
+    overflow: hidden;
+  }
+
+  .luma-bundle-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #d4a340;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-bottom-left-radius: 8px;
+  }
+
+  /* Checked States */
+  .luma-bundle-radio:checked + .luma-bundle-card {
+    border-color: #d4a340;
+    background-color: #fffbf0;
+    box-shadow: 0 0 0 2px #d4a340, 0 8px 25px rgba(212, 163, 64, 0.15);
+  }
+
+  .luma-bundle-radio:checked + .luma-bundle-card .luma-radio-circle {
+    border-color: #d4a340;
+    border-width: 5px;
+  }
+
+  .luma-bundle-info-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .luma-radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #e5e5e5;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .luma-bundle-card--highlighted .luma-radio-circle {
+    border-width: 2px;
+    border-color: #d4a340;
+  }
+
+  .luma-bundle-name {
+    font-weight: 700;
+    color: #1a1a1a;
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .luma-bundle-sub {
+    font-size: 12px;
+    color: rgba(26, 26, 26, 0.6);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .luma-bundle-price-right {
+    text-align: right;
+  }
+
+  .luma-bundle-price {
+    font-weight: 700;
+    font-size: 18px;
+    color: #1a1a1a;
+    display: block;
+  }
+
+  .luma-bundle-compare-price {
+    font-size: 12px;
+    color: rgba(26, 26, 26, 0.5);
+    text-decoration: line-through;
+    display: block;
+  }
+{%- endstyle -%}
+
+<div class="luma-bundle-wrapper" {{ block.shopify_attributes }}>
+  {%- if block.settings.title != blank -%}
+    <h3 class="luma-bundle-title">{{ block.settings.title | escape }}</h3>
+  {%- endif -%}
+
+  {%- if product != blank and product.variants.size > 0 -%}
+    <luma-bundle-selector class="luma-bundle-options" data-product-id="{{ product.id }}">
+      {%- for variant in product.variants limit: 3 -%}
+        {%- assign index = forloop.index -%}
+
+        <label class="luma-bundle-label" for="luma-variant-{{ variant.id }}">
+          <input
+            type="radio"
+            name="luma_bundle_selection"
+            value="{{ variant.id }}"
+            id="luma-variant-{{ variant.id }}"
+            class="luma-bundle-radio"
+            data-price="{{ variant.price }}"
+            data-compare-price="{{ variant.compare_at_price | default: variant.price }}"
+            {% if index == 2 %}
+              checked
+            {% elsif index == 1 and product.variants.size < 2 %}
+              checked
+            {% endif %}
+          >
+
+          {%- capture card_classes -%}
+            luma-bundle-card
+            {% if index == 2 %} luma-bundle-card--highlighted{% endif %}
+          {%- endcapture -%}
+
+          <div class="{{ card_classes | strip_newlines }}">
+            {%- if index == 2 and block.settings.opt2_badge != blank -%}
+              <div class="luma-bundle-badge">{{ block.settings.opt2_badge }}</div>
+            {%- endif -%}
+
+            <div
+              class="luma-bundle-info-left"
+              {% if index == 2 %}
+                style="margin-top: 8px;"
+              {% endif %}
+            >
+              <div class="luma-radio-circle"></div>
+              <div>
+                <span class="luma-bundle-name">
+                  {%- if index == 1 -%}{{ block.settings.opt1_title | default: variant.title }}{%- endif -%}
+                  {%- if index == 2 -%}{{ block.settings.opt2_title | default: variant.title }}{%- endif -%}
+                  {%- if index == 3 -%}{{ block.settings.opt3_title | default: variant.title }}{%- endif -%}
+                </span>
+
+                {%- capture subtitle_text -%}
+                  {%- if index == 1 -%}{{ block.settings.opt1_subtitle }}{%- endif -%}
+                  {%- if index == 2 -%}{{ block.settings.opt2_subtitle }}{%- endif -%}
+                  {%- if index == 3 -%}{{ block.settings.opt3_subtitle }}{%- endif -%}
+                {%- endcapture -%}
+
+                {%- if subtitle_text != blank -%}
+                  <span
+                    class="luma-bundle-sub"
+                    {% if index == 2 and block.settings.opt2_subtitle_color != blank %}
+                      style="color: {{ block.settings.opt2_subtitle_color }}; font-weight: 700;"
+                    {% endif %}
+                  >
+                    {{ subtitle_text }}
+                  </span>
+                {%- endif -%}
+              </div>
+            </div>
+
+            <div
+              class="luma-bundle-price-right"
+              {% if index == 2 %}
+                style="margin-top: 8px;"
+              {% endif %}
+            >
+              <span class="luma-bundle-price">{{ variant.price | money }}</span>
+              {%- if variant.compare_at_price > variant.price -%}
+                <span class="luma-bundle-compare-price">{{ variant.compare_at_price | money }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </label>
+      {%- endfor -%}
+    </luma-bundle-selector>
+
+    <script>
+      /* Lightweight script to sync our custom bundle radio buttons with the hidden Shopify variant input */
+      document.addEventListener('DOMContentLoaded', function () {
+        const bundleSelector = document.querySelector('luma-bundle-selector');
+        if (!bundleSelector) return;
+
+        const radios = bundleSelector.querySelectorAll('.luma-bundle-radio');
+
+        // Find the native hidden input that Shopify uses for adding to cart
+        // Usually it's an input with name="id" inside the product form
+        const productForm = document.querySelector('form[action="/cart/add"]');
+
+        radios.forEach((radio) => {
+          radio.addEventListener('change', function () {
+            const selectedVariantId = this.value;
+            if (productForm) {
+              const idInput = productForm.querySelector('input[name="id"]');
+              if (idInput) {
+                idInput.value = selectedVariantId;
+                // Dispatch event in case other theme scripts are listening
+                idInput.dispatchEvent(new Event('change', { bubbles: true }));
+              }
+            }
+          });
+        });
+
+        // Set initial value on load based on checked radio
+        const initialChecked = bundleSelector.querySelector('.luma-bundle-radio:checked');
+        if (initialChecked && productForm) {
+          const idInput = productForm.querySelector('input[name="id"]');
+          if (idInput) {
+            idInput.value = initialChecked.value;
+          }
+        }
+      });
+    </script>
+  {%- else -%}
+    <p style="font-size: 12px; color: red;">Please assign a product to see the bundle selector.</p>
+  {%- endif -%}
+</div>

@@ -1,0 +1,109 @@
+{% schema %}
+{
+  "name": "Luma Clinical Guarantee",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Guarantee Title",
+      "default": "30-Day Clinical Guarantee"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Guarantee Text",
+      "default": "Don't love the texture or results? We'll refund you 100%. Zero risk."
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Margin",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .luma-guarantee-{{ block.id }} {
+    margin-top: {{ block.settings.margin_top }}px;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+    background: linear-gradient(to right, #FEFAEB, #FFF8ED); /* yellow-50 to amber-50 */
+    border: 2px solid rgba(212, 163, 64, 0.5); /* luma-gold/50 */
+    border-radius: 16px; /* 2xl */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-body--family), sans-serif;
+  }
+
+  .luma-guarantee-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: rgba(212, 163, 64, 0.15);
+    border: 1px solid rgba(212, 163, 64, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .luma-guarantee-icon svg {
+    width: 32px;
+    height: 32px;
+    color: #D4A340;
+    fill: currentColor;
+  }
+
+  .luma-guarantee-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: 16px;
+    color: #1A1A1A;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+  }
+
+  .luma-guarantee-text {
+    font-size: 12px;
+    color: rgba(26, 26, 26, 0.6);
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .luma-guarantee-text strong {
+    color: #1A1A1A;
+    font-weight: 600;
+  }
+{% endstyle %}
+
+<div class="luma-guarantee-{{ block.id }}" {{ block.shopify_attributes }}>
+  <div class="luma-guarantee-icon">
+    <!-- SVG for Ph-Shield-Check Fill -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm-34.34,61.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,140.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
+    </svg>
+  </div>
+  <div>
+    <p class="luma-guarantee-title">{{ block.settings.title | escape }}</p>
+    <p class="luma-guarantee-text">{{ block.settings.text }}</p>
+  </div>
+</div>

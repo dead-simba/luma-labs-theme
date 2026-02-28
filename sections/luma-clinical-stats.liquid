@@ -1,0 +1,235 @@
+{% schema %}
+{
+  "name": "Clinical Stats Grid",
+  "tag": "section",
+  "class": "section-clinical-stats",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "The Clinical Reality"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle (Uppercase)",
+      "default": "After 28 Days of Daily Use"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Numbers)",
+      "default": "#D4A340"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number Overlay",
+          "default": "92",
+          "info": "Do not include % symbol here"
+        },
+        {
+          "type": "text",
+          "id": "symbol",
+          "label": "Symbol",
+          "default": "%"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (Bold)",
+          "default": "Noticeable Fading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description Text",
+          "default": "of users reported a visible reduction in stubborn dark spots and hyperpigmentation."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Stats Grid",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "92",
+            "label": "Noticeable Fading",
+            "text": "of users reported a visible reduction in stubborn dark spots and hyperpigmentation."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "100",
+            "label": "Zero Peeling",
+            "text": "of users experienced brightening effects without the irritation, redness, or peeling typical of hydroquinone."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "label": "Rebound Pigment",
+            "text": "cases of rebound pigmentation reported after 8 weeks of continuous use."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .stats-section {
+    background-color: {{ section.settings.bg_color }};
+    padding: 96px 20px;
+    color: {{ section.settings.text_color }};
+    font-family: var(--font-body--family), sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .stats-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .stats-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  #shopify-section-{{ section.id }} .stats-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: 30px;
+    margin-bottom: 16px;
+    font-weight: 400;
+    color: {{ section.settings.text_color }};
+  }
+
+  @media (min-width: 768px) {
+      #shopify-section-{{ section.id }} .stats-title {
+          font-size: 48px;
+      }
+  }
+
+  #shopify-section-{{ section.id }} .stats-subtitle {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Grid Layout */
+  #shopify-section-{{ section.id }} .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    #shopify-section-{{ section.id }} .stats-item {
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    #shopify-section-{{ section.id }} .stats-item:first-child {
+        border-left: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .stats-item {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 32px;
+    }
+    #shopify-section-{{ section.id }} .stats-item:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+  }
+
+  /* Stat Card */
+  #shopify-section-{{ section.id }} .stat-number {
+    font-family: var(--font-heading--family), serif;
+    font-size: 60px;
+    color: {{ section.settings.accent_color }};
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  @media (min-width: 1024px) {
+      #shopify-section-{{ section.id }} .stat-number {
+          font-size: 96px;
+      }
+  }
+
+  #shopify-section-{{ section.id }} .stat-number sup {
+      font-size: 0.5em;
+      vertical-align: super;
+  }
+
+  #shopify-section-{{ section.id }} .stat-label {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .stat-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 250px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+{%- endstyle -%}
+
+<div class="stats-section">
+  <div class="stats-container">
+    <div class="stats-header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="stats-title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="stats-subtitle">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="stats-grid">
+      {%- for block in section.blocks -%}
+        <div class="stats-item" {{ block.shopify_attributes }}>
+          <p class="stat-number">
+            {{ block.settings.number | escape -}}
+            <sup>{{ block.settings.symbol | escape }}</sup>
+          </p>
+          <p class="stat-label">{{ block.settings.label | escape }}</p>
+          <p class="stat-text">{{ block.settings.text | escape }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>

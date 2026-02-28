@@ -16,6 +16,27 @@
     },
     {
       "type": "header",
+      "content": "Center Column (Optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Image"
+    },
+    {
+      "type": "text",
+      "id": "center_image_quote",
+      "label": "Quote Overlay",
+      "default": "\"Botanical extracts. Clinical potency.\""
+    },
+    {
+      "type": "text",
+      "id": "center_image_caption",
+      "label": "Caption Overlay",
+      "default": "Alpha Arbutin Derived from Bearberry"
+    },
+    {
+      "type": "header",
       "content": "Right Column: Ideal For"
     },
     {
@@ -73,7 +94,7 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#F9F8F6"
+      "default": "#FFFFFF"
     },
     {
       "type": "range",
@@ -83,7 +104,7 @@
       "step": 5,
       "unit": "%",
       "label": "Background Opacity",
-      "default": 30
+      "default": 100
     },
     {
       "type": "header",
@@ -118,10 +139,10 @@
       "default": "#1A1A1A"
     },
     {
-        "type": "color",
-        "id": "accent_color",
-        "label": "Accent Color",
-        "default": "#C5A065"
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#C5A065"
     }
   ],
   "blocks": [
@@ -130,16 +151,10 @@
       "name": "Benefit Point",
       "settings": [
         {
-          "type": "text",
-          "id": "title",
-          "label": "Benefit Title",
-          "default": "Total Defense"
-        },
-        {
           "type": "textarea",
           "id": "text",
-          "label": "Benefit Description",
-          "default": "Description of why this matters..."
+          "label": "Benefit HTML",
+          "default": "<strong style=\"font-weight: 600\">Tyrosinase Inhibition:</strong> Alpha Arbutin directly binds to the enzymes responsible for melanin production."
         }
       ]
     }
@@ -147,11 +162,7 @@
   "presets": [
     {
       "name": "Potency & Ideal For",
-      "blocks": [
-        { "type": "benefit", "settings": { "title": "Total Defense (PA++++)", "text": "PA++++ is the highest grade of protection. It doesn't just block the sun's burning rays; it shields you from the Blue Light emitted by your screens." } },
-        { "type": "benefit", "settings": { "title": "The 'Cooling' Texture", "text": "Formulated with a unique 'Aqua Gel' technology. It breaks down into water upon contact with your skin, providing an instant cooling sensation." } },
-        { "type": "benefit", "settings": { "title": "1% Hyaluronic Acid", "text": "Most sunscreens dry you out. Ours locks moisture in. By holding 1,000x its weight in water, Hyaluronic Acid ensures your skin stays plump and hydrated." } }
-      ]
+      "blocks": [{ "type": "benefit" }, { "type": "benefit" }, { "type": "benefit" }]
     }
   ]
 }
@@ -161,7 +172,7 @@
 {%- assign bg_color_rgba = section.settings.bg_color | color_modify: 'alpha', bg_alpha -%}
 
 {%- style -%}
-  /* Font Loading (Only if Override is ON) */
+  /* Font Loading */
   {%- if section.settings.override_fonts -%}
     {{ section.settings.heading_font | font_face: font_display: 'swap' }}
     {{ section.settings.body_font | font_face: font_display: 'swap' }}
@@ -169,12 +180,9 @@
 
   #shopify-section-{{ section.id }} .potency-section {
     background-color: {{ bg_color_rgba }};
-    padding: 60px 20px;
     border-top: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
     color: {{ section.settings.text_color }};
-    
-    /* Body Font Logic: Override -> Global Setting (Body) -> Global Setting (Base) -> Fallback */
+
     {%- if section.settings.override_fonts and section.settings.body_font != blank -%}
       font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
     {%- elsif settings.type_body_font != blank -%}
@@ -186,37 +194,62 @@
     {%- endif -%}
   }
 
-  /* ...Layout Styles... */
+  /* Grid Layout Styles */
   #shopify-section-{{ section.id }} .potency-container {
-    max-width: 1200px;
+    max-width: 1280px; /* max-w-7xl */
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  #shopify-section-{{ section.id }} .potency-col {
-    flex: 1 1 450px; 
-    padding: 20px 0;
-  }
-  
-  @media (min-width: 768px) {
-    #shopify-section-{{ section.id }} .potency-col:first-child {
-      border-right: 1px solid #e5e7eb;
-      padding-right: 40px;
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .potency-container {
+      display: grid;
+      /* If center image is present, 3 cols. Else 2 cols */
+      {% if section.settings.center_image != blank %}
+      grid-template-columns: repeat(3, 1fr);
+      {% else %}
+      grid-template-columns: repeat(2, 1fr);
+      {% endif %}
+      border-left: 1px solid transparent; /* Used for borders */
     }
-    #shopify-section-{{ section.id }} .potency-col:last-child {
-      padding-left: 40px;
+
+    #shopify-section-{{ section.id }} .potency-col-left {
+        padding: 64px 48px 64px 0;
+        border-right: 1px solid #e5e7eb;
+    }
+    #shopify-section-{{ section.id }} .potency-col-right {
+        padding: 64px 0 64px 48px;
+    }
+    #shopify-section-{{ section.id }} .potency-col-center {
+        border-right: 1px solid #e5e7eb;
     }
   }
 
-  #shopify-section-{{ section.id }} h3.potency-title {
-    font-size: 28px;
-    margin-bottom: 24px;
+  @media (max-width: 1023px) {
+    #shopify-section-{{ section.id }} .potency-col-left,
+    #shopify-section-{{ section.id }} .potency-col-right {
+        padding: 48px 0;
+    }
+    #shopify-section-{{ section.id }} .potency-col-left {
+        border-bottom: 1px solid #e5e7eb;
+    }
+    {% if section.settings.center_image != blank %}
+    #shopify-section-{{ section.id }} .potency-col-center {
+        border-bottom: 1px solid #e5e7eb;
+    }
+    {% endif %}
+  }
+
+  /* Headings */
+  #shopify-section-{{ section.id }} h2.potency-title {
+    font-size: 30px;
+    margin-bottom: 40px;
     font-weight: 400;
     line-height: 1.2;
-    
-    /* Heading Font Logic: Override -> Global Setting (Heading) -> Fallback */
+
     {%- if section.settings.override_fonts and section.settings.heading_font != blank -%}
       font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
     {%- elsif settings.type_heading_font != blank -%}
@@ -226,145 +259,209 @@
     {%- endif -%}
   }
 
-
-  /* List Styles */
+  /* Left Column (Why it Works) List Styles */
   #shopify-section-{{ section.id }} ul.potency-list {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* We use custom bullets */
+    padding: 0 0 0 16px;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* space-y-8 */
   }
 
   #shopify-section-{{ section.id }} li.potency-item {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    align-items: flex-start;
+    position: relative;
+    padding-left: 12px;
   }
 
-  #shopify-section-{{ section.id }} .potency-bullet {
-    color: {{ section.settings.accent_color }};
-    font-size: 24px;
-    line-height: 1;
-    margin-top: -4px;
+  #shopify-section-{{ section.id }} li.potency-item::before {
+    content: "•";
+    position: absolute;
+    left: -16px;
+    top: 0;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   #shopify-section-{{ section.id }} .potency-text {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
     font-weight: 300;
-  }
-  
-  #shopify-section-{{ section.id }} .potency-text strong {
-    font-weight: 700;
-    color: inherit;
+    color: rgba(26, 26, 26, 0.8);
   }
 
-  /* Ideal For Styles */
+  /* Center Column Image Styles */
+  #shopify-section-{{ section.id }} .potency-center-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .potency-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .potency-image-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 26, 26, 0.7), transparent, transparent);
+  }
+
+  #shopify-section-{{ section.id }} .potency-image-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .potency-quote {
+      font-family: var(--font-heading--family), serif;
+      font-size: 24px;
+      color: #FFF;
+      font-style: italic;
+      line-height: 1.2;
+      margin: 0 0 4px 0;
+  }
+
+  #shopify-section-{{ section.id }} .potency-caption {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0;
+  }
+
+  /* Right Column Ideal For Styles */
   #shopify-section-{{ section.id }} .ideal-group {
-    margin-bottom: 24px;
+    margin-bottom: 32px; /* mb-8 */
   }
 
   #shopify-section-{{ section.id }} .ideal-label {
-    font-size: 12px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 12px; /* mb-3 */
+    padding-bottom: 8px; /* pb-2 */
+    border-bottom: 1px solid #e5e7eb;
     display: block;
-    color: #111;
+    color: {{ section.settings.text_color }};
   }
 
   #shopify-section-{{ section.id }} .ideal-text {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
     font-weight: 300;
+    color: rgba(26, 26, 26, 0.8);
   }
 
-  #shopify-section-{{ section.id }} .ideal-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+  #shopify-section-{{ section.id }} .ideal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px; /* space-y-2 */
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 300;
+      color: rgba(26, 26, 26, 0.8);
   }
-
-  #shopify-section-{{ section.id }} .ideal-tag {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    padding: 4px 12px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #666;
-  }
-{% endstyle %}
+{%- endstyle -%}
 
 <div class="potency-section">
-    <div class="potency-container">
-        
-        <!-- Left Column: What Makes It Potent -->
-        <div class="potency-col">
-             {%- if section.settings.potency_title != blank -%}
-                <h3 class="potency-title">{{ section.settings.potency_title | escape }}</h3>
-             {%- endif -%}
+  <div class="potency-container">
+    <!-- Left Column: What Makes It Potent -->
+    <div class="potency-col-left">
+      {%- if section.settings.potency_title != blank -%}
+        <h2 class="potency-title">{{ section.settings.potency_title | escape }}</h2>
+      {%- endif -%}
 
-             <ul class="potency-list">
-                {%- for block in section.blocks -%}
-                    {%- case block.type -%}
-                        {%- when 'benefit' -%}
-                            <li class="potency-item" {{ block.shopify_attributes }}>
-                                <span class="potency-bullet">•</span>
-                                <div class="potency-text">
-                                    {%- if block.settings.title != blank -%}
-                                        <strong>{{ block.settings.title | escape }}:</strong>
-                                    {%- endif -%}
-                                    {{ block.settings.text | escape }}
-                                </div>
-                            </li>
-                    {%- endcase -%}
-                {%- endfor -%}
-             </ul>
-        </div>
-
-        <!-- Right Column: Ideal For -->
-        <div class="potency-col">
-            {%- if section.settings.ideal_title != blank -%}
-                <h3 class="potency-title">{{ section.settings.ideal_title | escape }}</h3>
-            {%- endif -%}
-
-            <div class="ideal-wrapper">
-                <!-- Item 1 -->
-                {%- if section.settings.skin_type_text != blank -%}
-                    <div class="ideal-group">
-                        <span class="ideal-label">{{ section.settings.skin_type_label | escape }}</span>
-                        <p class="ideal-text">{{ section.settings.skin_type_text | escape }}</p>
-                    </div>
-                {%- endif -%}
-
-                <!-- Item 2 -->
-                {%- if section.settings.perfect_for_text != blank -%}
-                    <div class="ideal-group">
-                        <span class="ideal-label">{{ section.settings.perfect_for_label | escape }}</span>
-                        <p class="ideal-text">{{ section.settings.perfect_for_text | escape }}</p>
-                    </div>
-                {%- endif -%}
-
-                <!-- Item 3 (Tags) -->
-                {%- if section.settings.concerns_list != blank -%}
-                    <div class="ideal-group">
-                        <span class="ideal-label">{{ section.settings.concerns_label | escape }}</span>
-                        <div class="ideal-tags">
-                            {%- assign concerns = section.settings.concerns_list | split: ',' -%}
-                            {%- for concern in concerns -%}
-                                {%- assign clean_concern = concern | strip -%}
-                                {%- if clean_concern != blank -%}
-                                    <span class="ideal-tag">{{ clean_concern | escape }}</span>
-                                {%- endif -%}
-                            {%- endfor -%}
-                        </div>
-                    </div>
-                {%- endif -%}
-            </div>
-        </div>
-
+      <ul class="potency-list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'benefit' -%}
+              <li class="potency-item" {{ block.shopify_attributes }}>
+                <div class="potency-text">
+                  {{ block.settings.text }}
+                </div>
+              </li>
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
     </div>
+
+    <!-- Center Column: Full Bleed Image (Optional) -->
+    {% if section.settings.center_image != blank %}
+      <div class="potency-col-center">
+        <div class="potency-center-wrapper">
+          <img
+            src="{{ section.settings.center_image | image_url: width: 800 }}"
+            class="potency-image"
+            loading="lazy"
+            alt="{{ section.settings.center_image.alt | escape }}"
+          >
+          <div class="potency-image-scrim"></div>
+
+          <div class="potency-image-content">
+            {% if section.settings.center_image_quote != blank %}
+              <p class="potency-quote">{{ section.settings.center_image_quote | escape }}</p>
+            {% endif %}
+            {% if section.settings.center_image_caption != blank %}
+              <p class="potency-caption">{{ section.settings.center_image_caption | escape }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Right Column: Ideal For -->
+    <div class="potency-col-right">
+      {%- if section.settings.ideal_title != blank -%}
+        <h2 class="potency-title">{{ section.settings.ideal_title | escape }}</h2>
+      {%- endif -%}
+
+      <div class="ideal-wrapper">
+        <!-- Item 1: Skin Type -->
+        {%- if section.settings.skin_type_text != blank -%}
+          <div class="ideal-group">
+            <span class="ideal-label">{{ section.settings.skin_type_label | escape }}</span>
+            <p class="ideal-text">{{ section.settings.skin_type_text | escape }}</p>
+          </div>
+        {%- endif -%}
+
+        <!-- Item 2: Target Concerns (Changed from perfect_for_text to Concerns List in HTML) -->
+        {%- if section.settings.concerns_list != blank -%}
+          <div class="ideal-group">
+            <span class="ideal-label">{{ section.settings.concerns_label | escape }}</span>
+            <ul class="ideal-list">
+              {%- assign concerns = section.settings.concerns_list | split: ',' -%}
+              {%- for concern in concerns -%}
+                {%- assign clean_concern = concern | strip -%}
+                {%- if clean_concern != blank -%}
+                  <li>— {{ clean_concern | escape }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        <!-- Item 3: Texture/Perfect For -->
+        {%- if section.settings.perfect_for_text != blank -%}
+          <div class="ideal-group" style="margin-bottom: 0;">
+            <span class="ideal-label">{{ section.settings.perfect_for_label | escape }}</span>
+            <p class="ideal-text">{{ section.settings.perfect_for_text | escape }}</p>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
 </div>

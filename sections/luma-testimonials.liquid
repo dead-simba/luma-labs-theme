@@ -18,13 +18,13 @@
       "type": "text",
       "id": "title",
       "label": "Main Heading",
-      "default": "Why They Switched to Luma"
+      "default": "Real Results. Real Skin."
     },
     {
       "type": "text",
       "id": "rating_text",
       "label": "Rating Text",
-      "default": "4.9/5 Average Rating"
+      "default": "Based on 1,200+ Reviews"
     },
     {
       "type": "header",
@@ -36,30 +36,30 @@
       "label": "Section Width",
       "options": [
         { "value": "800px", "label": "Narrow (800px)" },
-        { "value": "1200px", "label": "Standard (1200px)" },
+        { "value": "1280px", "label": "Standard (1280px)" },
         { "value": "100%", "label": "Full Width" }
       ],
-      "default": "1200px"
+      "default": "1280px"
     },
     {
       "type": "range",
       "id": "padding_top",
       "min": 20,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
-      "default": 80
+      "default": 96
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 20,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
-      "default": 80
+      "default": 96
     },
     {
       "type": "header",
@@ -69,14 +69,13 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#FFFFFF"
+      "default": "#F9F8F6"
     },
     {
       "type": "color",
       "id": "card_bg_color",
       "label": "Card Background Color",
-      "default": "#F9F7F5",
-      "info": "Luma Sand default"
+      "default": "#FFFFFF"
     },
     {
       "type": "color",
@@ -88,7 +87,7 @@
       "type": "color",
       "id": "accent_color",
       "label": "Accent Color (Star/Gold)",
-      "default": "#C5A065"
+      "default": "#D4A340"
     },
     {
       "type": "header",
@@ -119,16 +118,22 @@
       "name": "Review Card",
       "settings": [
         {
+          "type": "text",
+          "id": "review_title",
+          "label": "Review Title",
+          "default": "\"My melasma is finally fading.\""
+        },
+        {
           "type": "textarea",
           "id": "quote",
           "label": "Review Quote",
-          "default": "I hate the feeling of sunscreen. But this? This feels like water."
+          "default": "I've tried everything for my post-pregnancy melasma. Hydroquinone was too harsh, and Vitamin C didn't do enough. This serum is the sweet spot. After 4 weeks, the dark patches on my cheeks have visibly lightened."
         },
         {
           "type": "text",
           "id": "author",
           "label": "Author Name",
-          "default": "Zara K."
+          "default": "Sarah M."
         },
         {
           "type": "checkbox",
@@ -147,29 +152,7 @@
   "presets": [
     {
       "name": "Community / Reviews",
-      "blocks": [
-        {
-          "type": "review",
-          "settings": {
-            "quote": "I hate the feeling of sunscreen. But this? This feels like water. It cools my skin down instantly.",
-            "author": "Zara K."
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "quote": "I sit in front of a laptop for 9 hours a day. Knowing this protects me from screen light gives me peace of mind.",
-            "author": "Alya M."
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "quote": "No pilling under makeup! It actually works better than my expensive primer. Keeps me matte all day.",
-            "author": "Hania S."
-          }
-        }
-      ]
+      "blocks": [{ "type": "review" }, { "type": "review" }, { "type": "review" }]
     }
   ]
 }
@@ -187,8 +170,7 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     color: {{ section.settings.text_color }};
-    
-    /* Body Font */
+
     {%- if section.settings.override_fonts and section.settings.body_font != blank -%}
       font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
     {%- elsif settings.type_body_font != blank -%}
@@ -209,7 +191,7 @@
   /* Header Styles */
   #shopify-section-{{ section.id }} .section-header {
     text-align: center;
-    max-width: 700px;
+    max-width: 672px; /* max-w-2xl */
     margin: 0 auto 64px auto;
   }
 
@@ -224,13 +206,12 @@
   }
 
   #shopify-section-{{ section.id }} .main-title {
-    font-size: 32px;
+    font-size: 36px; /* text-4xl approx */
     margin-bottom: 16px;
     font-weight: 400;
     line-height: 1.2;
-    color: #374151;
-    
-    /* Heading Font */
+    color: {{ section.settings.text_color }};
+
     {%- if section.settings.override_fonts and section.settings.heading_font != blank -%}
       font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
     {%- elsif settings.type_heading_font != blank -%}
@@ -239,12 +220,6 @@
       font-family: inherit;
     {%- endif -%}
   }
-  
-  @media (min-width: 768px) {
-    #shopify-section-{{ section.id }} .main-title {
-        font-size: 36px;
-    }
-  }
 
   #shopify-section-{{ section.id }} .rating-block {
     display: flex;
@@ -252,17 +227,19 @@
     justify-content: center;
     gap: 8px;
   }
-  
-  #shopify-section-{{ section.id }} .stars {
+
+  #shopify-section-{{ section.id }} .stars svg {
     color: {{ section.settings.accent_color }};
-    font-size: 14px;
-    letter-spacing: 2px;
+    fill: currentColor;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
   }
 
   #shopify-section-{{ section.id }} .rating-text {
-    font-size: 12px;
-    color: #6b7280; /* Gray 500 */
-    font-weight: 500;
+    font-size: 14px;
+    color: rgba(26, 26, 26, 0.7);
+    margin-left: 8px;
   }
 
   /* Grid Styles */
@@ -282,41 +259,49 @@
   #shopify-section-{{ section.id }} .review-card {
     background-color: {{ section.settings.card_bg_color }};
     padding: 32px;
-    border-radius: 2px; /* Small rounded */
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 16px; /* rounded-2xl */
+    border: 1px solid #E5E5E5; /* border-luma-lightGray */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    display: flex;
+    flex-direction: column;
   }
 
-  #shopify-section-{{ section.id }} .review-card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+  #shopify-section-{{ section.id }} .card-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
   }
 
-  #shopify-section-{{ section.id }} .quote-icon {
-    position: absolute;
-    top: -16px;
-    left: -8px;
-    font-size: 60px;
+  #shopify-section-{{ section.id }} .card-stars svg {
     color: {{ section.settings.accent_color }};
-    opacity: 0.2;
-    font-family: serif;
-    line-height: 1;
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .review-title {
+    font-weight: 700;
+    font-size: 18px; /* text-lg */
+    color: {{ section.settings.text_color }};
+    margin: 0 0 8px 0; /* mb-2 */
+    line-height: 1.4;
   }
 
   #shopify-section-{{ section.id }} .review-text {
-    color: #4b5563; /* Gray 600 */
-    font-style: italic;
+    color: rgba(26, 26, 26, 0.8);
     margin-bottom: 24px;
-    position: relative;
-    z-index: 10;
     line-height: 1.6;
     font-size: 16px;
+    flex-grow: 1;
+    /* Optional: implement line-clamp logic if extremely long, but typically handled securely by content. */
   }
 
   #shopify-section-{{ section.id }} .author-block {
     display: flex;
     align-items: center;
     gap: 16px;
+    border-top: 1px solid #E5E5E5; /* border-t pt-4 */
+    padding-top: 16px;
   }
 
   #shopify-section-{{ section.id }} .author-img {
@@ -324,87 +309,124 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    background-color: #e5e7eb;
   }
-  
+
   #shopify-section-{{ section.id }} .author-placeholder {
      width: 40px;
      height: 40px;
      border-radius: 50%;
-     background-color: #e5e7eb;
+     background-color: rgba(212, 163, 64, 0.2); /* bg-luma-gold/20 */
      display: flex;
      align-items: center;
      justify-content: center;
-     font-size: 10px;
-     color: #9ca3af;
-     text-transform: uppercase;
+     font-size: 14px;
+     font-weight: 700;
+     color: {{ section.settings.accent_color }};
   }
 
   #shopify-section-{{ section.id }} .author-name {
     font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #374151;
+    font-size: 14px; /* text-sm */
+    color: {{ section.settings.text_color }};
     display: block;
+    margin: 0 0 2px 0;
   }
 
   #shopify-section-{{ section.id }} .verified-badge {
-    font-size: 10px;
-    color: {{ section.settings.accent_color }};
-    font-weight: 500;
+    font-size: 12px; /* text-xs */
+    color: rgba(26, 26, 26, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
+  #shopify-section-{{ section.id }} .verified-icon {
+      color: #16a34a; /* text-green-600 */
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+  }
 {%- endstyle -%}
 
 <div class="community-section">
-    <div class="community-container">
-        
-        <div class="section-header">
-            {%- if section.settings.eyebrow != blank -%}
-                <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
-            {%- endif -%}
-            
-            {%- if section.settings.title != blank -%}
-                <h2 class="main-title">{{ section.settings.title | escape }}</h2>
-            {%- endif -%}
+  <div class="community-container">
+    <div class="section-header">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
 
-            <div class="rating-block">
-                <div class="stars">★★★★★</div>
-                {%- if section.settings.rating_text != blank -%}
-                    <span class="rating-text">{{ section.settings.rating_text | escape }}</span>
-                {%- endif -%}
-            </div>
+      {%- if section.settings.title != blank -%}
+        <h2 class="main-title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+
+      <div class="rating-block">
+        <div class="stars">
+          <!-- 5 Stars SVG -->
+          {% for i in (1..5) %}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+            </svg>
+          {% endfor %}
         </div>
-
-        <div class="reviews-grid">
-            {%- for block in section.blocks -%}
-                <div class="review-card" {{ block.shopify_attributes }}>
-                    <div class="quote-icon">“</div>
-                    <p class="review-text">"{{ block.settings.quote | escape }}"</p>
-                    
-                    <div class="author-block">
-                        {%- if block.settings.author_image != blank -%}
-                            <img src="{{ block.settings.author_image | image_url: width: 80 }}" 
-                                 alt="{{ block.settings.author }}" 
-                                 class="author-img"
-                                 loading="lazy"
-                                 width="40"
-                                 height="40">
-                        {%- else -%}
-                            <div class="author-placeholder">User</div>
-                        {%- endif -%}
-                        
-                        <div>
-                            <span class="author-name">{{ block.settings.author | escape }}</span>
-                            {%- if block.settings.verified -%}
-                                <span class="verified-badge">Verified Buyer</span>
-                            {%- endif -%}
-                        </div>
-                    </div>
-                </div>
-            {%- endfor -%}
-        </div>
-
+        {%- if section.settings.rating_text != blank -%}
+          <span class="rating-text">{{ section.settings.rating_text | escape }}</span>
+        {%- endif -%}
+      </div>
     </div>
+
+    <div class="reviews-grid">
+      {%- for block in section.blocks -%}
+        <div class="review-card" {{ block.shopify_attributes }}>
+          <div class="card-stars">
+            {% for i in (1..5) %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+              </svg>
+            {% endfor %}
+          </div>
+
+          {%- if block.settings.review_title != blank -%}
+            <h3 class="review-title">{{ block.settings.review_title | escape }}</h3>
+          {%- endif -%}
+
+          <p class="review-text">{{ block.settings.quote | escape }}</p>
+
+          <div class="author-block">
+            {%- if block.settings.author_image != blank -%}
+              <img
+                src="{{ block.settings.author_image | image_url: width: 80 }}"
+                alt="{{ block.settings.author }}"
+                class="author-img"
+                loading="lazy"
+                width="40"
+                height="40"
+              >
+            {%- else -%}
+              <div class="author-placeholder">
+                {%- assign author_parts = block.settings.author | split: ' ' -%}
+                {%- if author_parts.size > 1 -%}
+                  {{ author_parts[0] | slice: 0 | upcase -}}
+                  {{- author_parts[1] | slice: 0 | upcase }}
+                {%- else -%}
+                  {{ block.settings.author | slice: 0, 2 | upcase }}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <div>
+              <span class="author-name">{{ block.settings.author | escape }}</span>
+              {%- if block.settings.verified -%}
+                <span class="verified-badge">
+                  <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
+                  </svg>
+                  Verified Buyer
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
 </div>

@@ -1,0 +1,208 @@
+{% schema %}
+{
+  "name": "How To Protocol",
+  "tag": "section",
+  "class": "section-how-to",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "How To Protocol"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F9F8F6",
+      "info": "Default: Luma Sand"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Step Number Accent Color",
+      "default": "#D4A340"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step Image"
+        },
+        {
+          "type": "text",
+          "id": "step_label",
+          "label": "Step Number/Label",
+          "default": "Step 01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Cleanse & Prep"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step Content",
+          "default": "Start with a gentle cleanser to ensure skin is clear of oils."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How To Protocol",
+      "blocks": [
+        { "type": "step", "settings": { "step_label": "Step 01", "title": "Cleanse & Prep" } },
+        { "type": "step", "settings": { "step_label": "Step 02", "title": "Apply 2-3 Drops" } },
+        { "type": "step", "settings": { "step_label": "Step 03", "title": "Lock It In" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .howto-section {
+    background-color: {{ section.settings.bg_color }};
+    padding: 96px 20px;
+    color: {{ section.settings.text_color }};
+    font-family: var(--font-body--family), sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .howto-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .howto-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: 36px;
+    margin-bottom: 48px;
+    font-weight: 400;
+    color: {{ section.settings.text_color }};
+    text-align: center;
+  }
+
+  /* Grid Layout */
+  #shopify-section-{{ section.id }} .howto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .howto-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Step Card */
+  #shopify-section-{{ section.id }} .howto-card {
+    cursor: default;
+  }
+
+  #shopify-section-{{ section.id }} .howto-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    aspect-ratio: 4 / 5;
+    background-color: rgba(26, 26, 26, 0.05); /* Placeholder BG */
+  }
+
+  #shopify-section-{{ section.id }} .howto-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #shopify-section-{{ section.id }} .howto-card:hover .howto-image {
+      transform: scale(1.05);
+  }
+
+  #shopify-section-{{ section.id }} .howto-step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .howto-step-label {
+    color: {{ section.settings.accent_color }};
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .howto-step-line {
+    height: 1px;
+    background-color: rgba(26, 26, 26, 0.1);
+    flex-grow: 1;
+  }
+
+  #shopify-section-{{ section.id }} .howto-step-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: 24px;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .howto-step-text {
+    font-size: 14px;
+    color: rgba(26, 26, 26, 0.7);
+    line-height: 1.6;
+  }
+{%- endstyle -%}
+
+<div class="howto-section">
+  <div class="howto-container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="howto-title">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="howto-grid">
+      {%- for block in section.blocks -%}
+        <div class="howto-card" {{ block.shopify_attributes }}>
+          <div class="howto-image-wrapper">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 600 }}"
+                alt="{{ block.settings.title | escape }}"
+                class="howto-image"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(26, 26, 26, 0.3);">
+                No Image
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="howto-step-header">
+            <span class="howto-step-label">{{ block.settings.step_label | escape }}</span>
+            <div class="howto-step-line"></div>
+          </div>
+
+          <h3 class="howto-step-title">{{ block.settings.title | escape }}</h3>
+          <p class="howto-step-text">{{ block.settings.text | escape }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
