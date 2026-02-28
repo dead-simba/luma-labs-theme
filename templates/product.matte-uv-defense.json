@@ -298,12 +298,12 @@
               "settings": {
                 "margin_top": 24,
                 "margin_bottom": 0,
-                "bullet1_bold": "Instantly Stops Stinging",
-                "bullet1_text": "Liquid-crystal matrix melts into skin, immediately halting redness and irritation.",
-                "bullet2_bold": "Structural Repair",
-                "bullet2_text": "3:1:1 Golden Ratio of bio-fermented lipids permanently patches micro-tears.",
-                "bullet3_bold": "Dermal Remodeling",
-                "bullet3_text": "Matrixyl 3000™ peptides trick fibroblasts into producing fresh collagen."
+                "bullet1_bold": "No Pilling or Greasiness",
+                "bullet1_text": "Zinc PCA stops midday shine. Replaces your morning moisturizer.",
+                "bullet2_bold": "Cross-Ecosystem Filters",
+                "bullet2_text": "Mexoryl SX & Tinosorb M — fewer than 20 products globally use this combo.",
+                "bullet3_bold": "Zero White Cast",
+                "bullet3_text": "Transparent gel across all Fitzpatrick skin tones (I–VI). Tested & confirmed."
               },
               "blocks": {}
             },
@@ -374,7 +374,7 @@
       ],
       "settings": {
         "potency_title": "Why It Works",
-        "center_image": "",
+        "center_image": "shopify://shop_images/SunScreen_Section_2.webp",
         "center_image_quote": "\"Skin that doesn't need to hide.\"",
         "center_image_caption": "Luma Labs Aqua Gel SPF 50",
         "ideal_title": "Ideal For",
@@ -383,7 +383,7 @@
         "perfect_for_label": "Texture",
         "perfect_for_text": "Water-light, cooling aqua gel. Absorbs instantly, dries to a clear semi-matte velvet finish.",
         "concerns_label": "Skin Concerns",
-        "concerns_list": "Premature Aging & UV Damage\nExcessive Sebum & Greasiness\nWhite-cast from traditional SPFs\nMakeup Pilling during wear",
+        "concerns_list": "Premature Aging & UV Damage,\nExcessive Sebum & Greasiness,\nWhite-cast from traditional SPFs,\nMakeup Pilling during wear",
         "bg_color": "#ffffff",
         "bg_opacity": 100,
         "override_fonts": false,
@@ -449,13 +449,13 @@
       "type": "luma-hero-banner",
       "name": "Luma Hero Banner",
       "settings": {
-        "image_desktop": "",
+        "image_desktop": "shopify://shop_images/SPF_Lifestyle.webp",
         "min_height_desktop": 400,
         "min_height_mobile": 350,
         "heading": "Turn Sun Protection into<br><span class=\"luma-hero-highlight\">Skin Optimization.</span>",
         "subheading": "Zero white cast. Zero stickiness. 100% defense.",
         "overlay_color": "#ffffff",
-        "overlay_opacity": 45,
+        "overlay_opacity": 50,
         "overlay_blur": 2,
         "text_color": "#333333",
         "highlight_color": "#997500"
@@ -615,7 +615,7 @@
         "step_CPHBGt": {
           "type": "step",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/SPF_How_to_use_1.webp",
             "step_label": "Step 01",
             "title": "Cleanse & Pat Dry",
             "text": "Apply to clean, dry skin every morning."
@@ -624,7 +624,7 @@
         "step_HH7p8P": {
           "type": "step",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/SPF_How_to_use_2.webp",
             "step_label": "Step 02",
             "title": "Apply 2 Finger Lengths",
             "text": "Dot across face. Blend outward gently."
@@ -633,7 +633,7 @@
         "step_XTDwcy": {
           "type": "step",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/SPF_How_to_use_3.webp",
             "step_label": "Step 03",
             "title": "Wait 60s, Then Makeup",
             "text": "Acts as a gripping primer base."
