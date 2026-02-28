@@ -363,8 +363,16 @@
     </div>
 
     {% if section.settings.show_bundle %}
+      {%- assign bundle_product = section.settings.bundle_product_1 -%}
       <div class="luma-routine__bundle">
-        <button onclick="addProtocolToCart()" class="luma-routine__btn" id="lumaProtocolBtn">
+        <button
+          class="luma-routine__btn"
+          id="lumaProtocolBtn"
+          onclick="lumaAddBundleToCart()"
+          {%- if bundle_product == blank %}
+            disabled title="Set a Bundle Product in the Customizer"
+          {% endif %}
+        >
           <span>
             {{- section.settings.btn_text }} &mdash;
             <strong class="luma-routine__btn-price">{{ section.settings.bundle_price }}</strong></span
@@ -375,72 +383,66 @@
           <i class="ph-fill ph-tag"></i> <span>{{ section.settings.savings_text }}</span>
         </p>
       </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          {%- if bundle_product != blank -%}
+            var lumaProtocolVariantId = {{ bundle_product.variants.first.id }};
+            var lumaProtocolUrl = '{{ bundle_product.url }}';
+          {%- else -%}
+            var lumaProtocolVariantId = null;
+            var lumaProtocolUrl = '#';
+          {%- endif -%}
+
+          window.lumaAddBundleToCart = function () {
+            if (!lumaProtocolVariantId) {
+              alert('Bundle product not configured. Please set a Bundle Product in the Customizer.');
+              return;
+            }
+
+            var btn = document.getElementById('lumaProtocolBtn');
+            var originalHTML = btn.innerHTML;
+            btn.innerHTML = 'Adding…';
+            btn.style.pointerEvents = 'none';
+
+            fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: lumaProtocolVariantId, quantity: 1 })
+            })
+            .then(function (res) {
+              if (!res.ok) throw new Error('Cart error');
+              return res.json();
+            })
+            .then(function () {
+              btn.innerHTML = 'Added to Cart! <i class="ph-bold ph-check"></i>';
+              btn.style.backgroundColor = '#16a34a';
+              btn.style.color = '#FFFFFF';
+              document.documentElement.dispatchEvent(new CustomEvent('cart:refresh'));
+              setTimeout(function () {
+                btn.innerHTML = originalHTML;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.style.pointerEvents = 'auto';
+              }, 2500);
+            })
+            .catch(function () {
+              btn.innerHTML = 'Error &mdash; try again';
+              btn.style.backgroundColor = '#dc2626';
+              btn.style.color = '#fff';
+              setTimeout(function () {
+                btn.innerHTML = originalHTML;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.style.pointerEvents = 'auto';
+              }, 2500);
+            });
+          };
+        });
+      </script>
     {% endif %}
   </div>
 </section>
-
-{% if section.settings.show_bundle %}
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Collect Variant IDs dynamically from the schema's assigned products
-      const bundleVariants = [];
-      {% if section.settings.bundle_product_1 != blank %}bundleVariants.push({ id: {{ section.settings.bundle_product_1.variants.first.id }}, quantity: 1 });{% endif %}
-      {% if section.settings.bundle_product_2 != blank %}bundleVariants.push({ id: {{ section.settings.bundle_product_2.variants.first.id }}, quantity: 1 });{% endif %}
-      {% if section.settings.bundle_product_3 != blank %}bundleVariants.push({ id: {{ section.settings.bundle_product_3.variants.first.id }}, quantity: 1 });{% endif %}
-
-      window.addProtocolToCart = function() {
-        const btn = document.getElementById('lumaProtocolBtn');
-        if (!btn) return;
-
-        if(bundleVariants.length === 0) {
-          alert("Please map products in the Shopify Customizer to use the Complete Protocol Add-to-Cart functionality.");
-          return;
-        }
-
-        const originalText = btn.innerHTML;
-        btn.innerHTML = 'Adding to Cart... <i class="ph-bold ph-spinner luma-spin" style="animation: spin 1s linear infinite;"></i> <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>';
-        btn.style.pointerEvents = 'none';
-
-        fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: bundleVariants })
-        })
-        .then(response => {
-            if(response.ok) return response.json();
-            throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-            btn.innerHTML = 'Added to Cart! <i class="ph-bold ph-check"></i>';
-            btn.style.backgroundColor = '#16a34a'; // tailwind green-600 equivalent
-            btn.style.color = '#FFFFFF';
-
-            // Trigger Dawn's cart refresh or any global cart update
-            document.documentElement.dispatchEvent(new CustomEvent('cart:refresh'));
-
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.backgroundColor = '';
-                btn.style.color = '';
-                btn.style.pointerEvents = 'auto';
-            }, 2500);
-        })
-        .catch((error) => {
-            console.error('Error adding bundle:', error);
-            btn.innerHTML = 'Error Adding Items <i class="ph-bold ph-warning"></i>';
-            btn.style.backgroundColor = '#dc2626'; // tailwind red-600
-            btn.style.color = '#FFFFFF';
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.backgroundColor = '';
-                btn.style.color = '';
-                btn.style.pointerEvents = 'auto';
-            }, 2500);
-        });
-      }
-    });
-  </script>
-{% endif %}
 
 {% schema %}
 {
@@ -460,22 +462,13 @@
     },
     {
       "type": "header",
-      "content": "Bundle Products Selection"
+      "content": "Bundle Product"
     },
     {
       "type": "product",
       "id": "bundle_product_1",
-      "label": "Bundle Product 1"
-    },
-    {
-      "type": "product",
-      "id": "bundle_product_2",
-      "label": "Bundle Product 2"
-    },
-    {
-      "type": "product",
-      "id": "bundle_product_3",
-      "label": "Bundle Product 3"
+      "label": "Complete Protocol Bundle Product",
+      "info": "Select the single Shopify Bundle product that contains all three items."
     },
     {
       "type": "header",
