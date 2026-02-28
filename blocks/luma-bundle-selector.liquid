@@ -251,12 +251,12 @@
   {%- if option1_var != blank -%}
     <luma-bundle-selector class="luma-bundle-options" data-product-id="{{ product.id }}">
       {%- comment -%} OPTION 1 {%- endcomment -%}
-      <label class="luma-bundle-label" for="luma-variant-{{ option1_var.id }}">
+      <label class="luma-bundle-label" for="luma-bundle-opt1-{{ block.id }}">
         <input
           type="radio"
-          name="luma_bundle_selection"
+          name="luma_bundle_selection_{{ block.id }}"
           value="{{ option1_var.id }}"
-          id="luma-variant-{{ option1_var.id }}"
+          id="luma-bundle-opt1-{{ block.id }}"
           class="luma-bundle-radio"
           {% if option2_var == blank %}
             checked
@@ -283,12 +283,12 @@
 
       {%- comment -%} OPTION 2 {%- endcomment -%}
       {%- if option2_var != blank -%}
-        <label class="luma-bundle-label" for="luma-variant-{{ option2_var.id }}">
+        <label class="luma-bundle-label" for="luma-bundle-opt2-{{ block.id }}">
           <input
             type="radio"
-            name="luma_bundle_selection"
+            name="luma_bundle_selection_{{ block.id }}"
             value="{{ option2_var.id }}"
-            id="luma-variant-{{ option2_var.id }}"
+            id="luma-bundle-opt2-{{ block.id }}"
             class="luma-bundle-radio"
             checked
           >
@@ -324,12 +324,12 @@
 
       {%- comment -%} OPTION 3 {%- endcomment -%}
       {%- if option3_var != blank -%}
-        <label class="luma-bundle-label" for="luma-variant-{{ option3_var.id }}">
+        <label class="luma-bundle-label" for="luma-bundle-opt3-{{ block.id }}">
           <input
             type="radio"
-            name="luma_bundle_selection"
+            name="luma_bundle_selection_{{ block.id }}"
             value="{{ option3_var.id }}"
-            id="luma-variant-{{ option3_var.id }}"
+            id="luma-bundle-opt3-{{ block.id }}"
             class="luma-bundle-radio"
           >
           <div class="luma-bundle-card">
