@@ -12,10 +12,6 @@
     "main": {
       "type": "product-information",
       "blocks": {
-        "bundler_bundler_target_element_yBHYMW": {
-          "type": "shopify://apps/bundler/blocks/bundler-target-element/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
-          "settings": {}
-        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -275,9 +271,6 @@
           ]
         }
       },
-      "block_order": [
-        "bundler_bundler_target_element_yBHYMW"
-      ],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
@@ -320,8 +313,6 @@
       "name": "Potency & Ideal For",
       "settings": {
         "potency_title": "Why It Works",
-        "center_image_quote": "\"Botanical extracts. Clinical potency.\"",
-        "center_image_caption": "Alpha Arbutin Derived from Bearberry",
         "ideal_title": "Ideal For",
         "skin_type_label": "Skin Type",
         "skin_type_text": "Oily, Acne-Prone, Sensitive & Dehydrated Skin.",
@@ -566,8 +557,6 @@
         "bg_color": "#ffffff",
         "text_color": "#1a1a1a",
         "accent_color": "#c5a065",
-        "padding_top": 60,
-        "padding_bottom": 60,
         "section_width": "1200px",
         "heading_alignment": "left",
         "override_fonts": false,
@@ -627,7 +616,6 @@
         "bg_color": "#f9f7f5",
         "card_bg_color": "#ffffff",
         "text_color": "#1a1a1a",
-        "accent_color": "#d4a340",
         "padding_top": 80,
         "padding_bottom": 80,
         "section_width": "800px",
@@ -642,7 +630,6 @@
         "review_44hUgr": {
           "type": "review",
           "settings": {
-            "review_title": "\"My melasma is finally fading.\"",
             "quote": "I thought this was another fake Insta brand. I’ve spent thousands on imported CeraVe SA that I couldn't even use because it was so sticky in Lahore's heat. This actually dries matte, and my legs are smoother than they've been since I was 12",
             "author": "Mahnoor",
             "verified": true
@@ -651,7 +638,6 @@
         "review_4icPXT": {
           "type": "review",
           "settings": {
-            "review_title": "\"My melasma is finally fading.\"",
             "quote": "Used it for 3 weeks before my sister's wedding. The 'kale daane' (dark bumps) are 80% gone. I actually wore a sleeveless kameez without a cover-up for the first time. Best PKR 1,400 I ever spent.",
             "author": "Zara",
             "verified": true
@@ -660,7 +646,6 @@
         "review_tcrTbN": {
           "type": "review",
           "settings": {
-            "review_title": "\"My melasma is finally fading.\"",
             "quote": "Better than the salon 'skin polish' that burned my arms. That cost me 5k per session; this bottle works while I sleep. No brainer.",
             "author": "Fatima",
             "verified": true
