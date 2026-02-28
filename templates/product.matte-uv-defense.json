@@ -242,6 +242,7 @@
               "blocks": {
                 "quantity": {
                   "type": "quantity",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
@@ -270,12 +271,12 @@
                 "opt1_product": "",
                 "opt1_title": "1 Bottle",
                 "opt1_subtitle": "Try it out.",
-                "opt2_product": "test-bundle",
+                "opt2_product": "2x-matter-uv-defense",
                 "opt2_title": "2 Bottles (2 Month Supply)",
                 "opt2_subtitle": "Free Shipping Unlocked",
                 "opt2_subtitle_color": "#15803d",
                 "opt2_badge": "Most Popular (Save 15%)",
-                "opt3_product": "test-bundle",
+                "opt3_product": "3x-matte-uv-defense",
                 "opt3_title": "3 Bottles (Save 20%)",
                 "opt3_subtitle": "Never run out."
               },
