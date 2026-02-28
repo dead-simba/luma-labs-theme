@@ -72,23 +72,27 @@
 }
 {% endschema %}
 
-{%- style -%}
+<style>
   .luma-bundle-wrapper {
     margin-bottom: 28px;
     font-family: var(--font-body--family), sans-serif;
+    width: 100%;
   }
   .luma-bundle-title {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #1a1a1a;
-    margin-bottom: 12px;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: #1a1a1a !important;
+    margin: 0 0 12px 0 !important;
+    line-height: 1.2 !important;
+    font-family: var(--font-body--family), sans-serif !important;
   }
   .luma-bundle-options {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
   }
 
   .luma-bundle-radio {
@@ -108,6 +112,8 @@
     cursor: pointer;
     position: relative;
     background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .luma-bundle-card:hover {
@@ -134,13 +140,13 @@
   }
 
   /* Checked States */
-  .luma-bundle-radio:checked + .luma-bundle-card {
+  .luma-bundle-label:has(.luma-bundle-radio:checked) .luma-bundle-card {
     border-color: #d4a340;
     background-color: #fffbf0;
     box-shadow: 0 0 0 2px #d4a340, 0 8px 25px rgba(212, 163, 64, 0.15);
   }
 
-  .luma-bundle-radio:checked + .luma-bundle-card .luma-radio-circle {
+  .luma-bundle-label:has(.luma-bundle-radio:checked) .luma-radio-circle {
     border-color: #d4a340;
     border-width: 5px;
   }
@@ -150,7 +156,7 @@
     align-items: center;
     gap: 16px;
     flex-grow: 1;
-    min-width: 0; /* Prevents flex children from overflowing */
+    min-width: 0;
   }
 
   .luma-bundle-info-left > div {
@@ -210,7 +216,7 @@
     text-decoration: line-through;
     display: block;
   }
-{%- endstyle -%}
+</style>
 
 <div class="luma-bundle-wrapper" {{ block.shopify_attributes }}>
   {%- if block.settings.title != blank -%}
