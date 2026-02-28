@@ -134,6 +134,32 @@
                   },
                   "blocks": {}
                 },
+                "text_hiR9BA": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.product_subtitle | metafield_tag }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -159,6 +185,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "text_hiR9BA",
                 "price_tVjtKg"
               ]
             },
@@ -271,12 +298,12 @@
               "settings": {
                 "margin_top": 24,
                 "margin_bottom": 0,
-                "bullet1_bold": "Fades Stubborn Spots",
-                "bullet1_text": "Tyrosinase inhibitor stops the formation of new dark pigment.",
-                "bullet2_bold": "Stabilized Antioxidants",
-                "bullet2_text": "Ethyl Ascorbic Acid (Vitamin C) boosts overall radiance without oxidizing.",
-                "bullet3_bold": "Barrier Safe",
-                "bullet3_text": "Brightens aggressively without the peeling or toxicity of hydroquinone."
+                "bullet1_bold": "Instantly Stops Stinging",
+                "bullet1_text": "Liquid-crystal matrix melts into skin, immediately halting redness and irritation.",
+                "bullet2_bold": "Structural Repair",
+                "bullet2_text": "3:1:1 Golden Ratio of bio-fermented lipids permanently patches micro-tears.",
+                "bullet3_bold": "Dermal Remodeling",
+                "bullet3_text": "Matrixyl 3000™ peptides trick fibroblasts into producing fresh collagen."
               },
               "blocks": {}
             },
@@ -321,22 +348,22 @@
         "benefit_kjkbUT": {
           "type": "benefit",
           "settings": {
-            "title": "Tyrosinase Inhibition:",
-            "text": "Alpha Arbutin directly binds to the enzymes responsible for melanin production, halting new dark spots at the source."
+            "title": "Biomimetic Architecture:",
+            "text": "Instead of heavy, pore-clogging waxes, we use an Olivem 1000 emulsion that physically mimics your skin's own lipid bilayer for instant absorption."
           }
         },
         "benefit_VhAbw9": {
           "type": "benefit",
           "settings": {
-            "title": "Signal Interruption:",
-            "text": "Tranexamic Acid (TXA) interrupts the inflammatory signals that trigger melasma deep within the dermis."
+            "title": "The 3:1:1 Golden Ratio: ",
+            "text": "A pharmaceutical-grade complex of Ceramides (NP, AP, EOP), Cholesterol, and Phytosphingosine optimally balanced to fuse the barrier shut."
           }
         },
         "benefit_pM6drf": {
           "type": "benefit",
           "settings": {
-            "title": "Antioxidant Shielding:",
-            "text": "Ethyl Ascorbic Acid (stable Vitamin C) scavenges UV-induced free radicals, boosting overall skin luminosity."
+            "title": "Peptide Matrix Signaling: ",
+            "text": "Advanced signaling peptides (Palmitoyl Tripeptide-1 & Tetrapeptide-7) actively trigger your fibroblasts to rebuild the dermal matrix."
           }
         }
       },
@@ -347,16 +374,16 @@
       ],
       "settings": {
         "potency_title": "Why It Works",
-        "center_image": "shopify://shop_images/Alpha_Arbutin_Section_2.webp",
-        "center_image_quote": "\"Botanical extracts. Clinical potency.\"",
-        "center_image_caption": "Alpha Arbutin Derived from Bearberry",
+        "center_image": "shopify://shop_images/Barrier_Renew_Section_2.webp",
+        "center_image_quote": "\"Deep healing without the heaviness.\"",
+        "center_image_caption": "Barrier Renew Gel-Cream",
         "ideal_title": "Ideal For",
         "skin_type_label": "Skin Type",
-        "skin_type_text": "All Skin Types, Melanin-Rich Skin.",
+        "skin_type_text": "Dry, Dehydrated, Sensitive, Compromised.",
         "perfect_for_label": "Texture",
-        "perfect_for_text": "Water-light, fast-absorbing fluid. Penetrates instantly without leaving a sticky or tacky film.",
+        "perfect_for_text": "Velvety, liquid-crystal gel-cream. Melts effortlessly into a dewy, non-sticky finish.",
         "concerns_label": "Targets Concerns",
-        "concerns_list": "Post-Acne Marks (PIH), Stubborn Melasma\n,Sun Spots & Freckles\n,Overall Dullness",
+        "concerns_list": "Stinging & Severe Redness,\nTightness by mid-day (TEWL),\nOver-exfoliation from acids,\nFine lines & loss of elasticity",
         "bg_color": "#ffffff",
         "bg_opacity": 100,
         "override_fonts": false,
@@ -372,29 +399,29 @@
         "ingredient_KF3hzC": {
           "type": "ingredient",
           "settings": {
-            "title": "2% Alpha Arbutin",
-            "description": "The gold standard of safe tyrosinase inhibition. It directly binds to the enzymes responsible for melanin production, halting the formation of new dark spots before they ever reach the surface."
+            "title": "3:1:1 Biomimetic Lipids",
+            "description": "A pharmaceutical-grade complex of Ceramides (NP, AP, EOP), Cholesterol, and Phytosphingosine. Balanced in the exact physiological ratio required to permanently fuse micro-tears in the stratum corneum."
           }
         },
         "ingredient_aHGjYC": {
           "type": "ingredient",
           "settings": {
-            "title": "TXA + Niacinamide",
-            "description": "Tranexamic Acid interrupts the inflammatory signals that trigger melasma, while Niacinamide acts as a physical roadblock, preventing melanosomes (pigment packages) from transferring into your visible skin cells."
+            "title": "Matrixyl 3000™ Peptides",
+            "description": "Advanced signaling peptides (Palmitoyl Tripeptide-1 & Tetrapeptide-7) that actively mimic natural collagen breakdown, tricking your fibroblasts into rebuilding the dermal matrix for intense firming action."
           }
         },
         "ingredient_Vyqmni": {
           "type": "ingredient",
           "settings": {
-            "title": "Ethyl Ascorbic Acid",
-            "description": "A highly stable, non-irritating derivative of Vitamin C. It acts as an aggressive antioxidant shield against UV-induced free radicals while simultaneously brightening overall skin tone."
+            "title": "5% Niacinamide",
+            "description": "At this exact clinical concentration, Niacinamide stimulates the skin's biological pathways to synthesize its own endogenous ceramides up to 5x faster, while dramatically soothing existing redness."
           }
         },
         "ingredient_Jpzyr8": {
           "type": "ingredient",
           "settings": {
             "title": "All Ingredients",
-            "description": "Aqua, Niacinamide, Alpha-Arbutin, 3-O-Ethyl Ascorbic Acid, Tranexamic Acid, Propanediol, Glycerin, Sodium Hyaluronate, Glycyrrhiza Glabra (Licorice) Root Extract, Allantoin, Panthenol, Phenoxyethanol, Ethylhexylglycerin, Citric Acid, Sodium Hydroxide."
+            "description": "Aqua, Glycerin, Niacinamide, Propanediol, Panthenol, Betaine, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Ceramide NP, Ceramide AP, Ceramide EOP, Cholesterol, Phytosphingosine, Sodium Hyaluronate, Allantoin, Tocopherol, Cetearyl Olivate, Sorbitan Olivate, Carbomer, Xanthan Gum, Sodium Lauroyl Lactylate, Disodium EDTA, 1,2-Hexanediol, Phenoxyethanol, Ethylhexylglycerin."
           }
         }
       },
@@ -422,11 +449,11 @@
       "type": "luma-hero-banner",
       "name": "Luma Hero Banner",
       "settings": {
-        "image_desktop": "shopify://shop_images/Alpha_Arbutin_Lifestyle.webp",
+        "image_desktop": "shopify://shop_images/Barrier_Renew_Lifestyle.webp",
         "min_height_desktop": 400,
         "min_height_mobile": 350,
-        "heading": "Shut Melanin Down<br><span class=\"luma-hero-highlight\">At The Source.</span>",
-        "subheading": "Safe for daily use. No hydroquinone.",
+        "heading": "Reconstruct You<br><span class=\"luma-hero-highlight\">Foundation</span>",
+        "subheading": "The definitive cure for over-exfoliated skin.",
         "overlay_color": "#ffffff",
         "overlay_opacity": 45,
         "overlay_blur": 2,
@@ -440,25 +467,25 @@
         "comparison_row_r868jG": {
           "type": "comparison_row",
           "settings": {
-            "metric": "Targeting Depth",
-            "our_value": "Deep (Enzyme Level)",
-            "competitor_value": "Surface Only"
+            "metric": "Active Repair",
+            "our_value": "3:1:1 Lipids + Peptides",
+            "competitor_value": "Basic Occlusives"
           }
         },
         "comparison_row_6xLXPg": {
           "type": "comparison_row",
           "settings": {
-            "metric": "Shelf Stability",
-            "our_value": "Highly Stable (EAA)",
-            "competitor_value": "Oxidizes / Turns Brown"
+            "metric": "Absorption",
+            "our_value": "Instant (Liquid Crystal)",
+            "competitor_value": "Sits on surface"
           }
         },
         "comparison_row_JDp7VY": {
           "type": "comparison_row",
           "settings": {
-            "metric": "Pathways Blocked",
-            "our_value": "5 Distinct Pathways",
-            "competitor_value": "1 Pathway"
+            "metric": "Anti-Aging",
+            "our_value": "Matrixyl 3000™",
+            "competitor_value": "None"
           }
         }
       },
@@ -468,10 +495,10 @@
         "comparison_row_JDp7VY"
       ],
       "settings": {
-        "title": "Why you're ditching basic Vitamin C.",
-        "subtitle": "Traditional Vitamin C serums oxidize, turn brown, and irritate the skin while only treating surface dullness.nal skin-bleaching methods.",
-        "our_product_name": "Luma 5-Pathway",
-        "competitor_name": "Standard Vit C",
+        "title": "Why you're ditching your heavy night cream.",
+        "subtitle": "Traditional moisturizers just sit on top of your skin. We engineered a formula that actually penetrates.",
+        "our_product_name": "Luma Barrier Renew",
+        "competitor_name": "Standard Creams",
         "competitor_sub": "",
         "bg_color": "#ffffff",
         "table_bg": "#f9f8f6"
@@ -483,10 +510,10 @@
         "stat_3gMTgq": {
           "type": "stat",
           "settings": {
-            "number": "92",
+            "number": "95",
             "symbol": "%",
-            "label": "Saw faded dark spots",
-            "text": "after 8 weeks of consistent daily use."
+            "label": "Saw reduced redness & flaking",
+            "text": "within the first 72 hours of use."
           }
         },
         "stat_UPAB3X": {
@@ -494,17 +521,17 @@
           "settings": {
             "number": "100",
             "symbol": "%",
-            "label": "Experienced no irritation",
-            "text": "confirming barrier safety vs hydroquinone"
+            "label": "Felt instant deep hydration",
+            "text": "without any sticky or greasy residue."
           }
         },
         "stat_bFcH4a": {
           "type": "stat",
           "settings": {
-            "number": "0",
+            "number": "45",
             "symbol": "%",
-            "label": "Formula Oxidation",
-            "text": "proving the unmatched stability of EAA"
+            "label": "Reduction in deep wrinkle area",
+            "text": "after 8 weeks of continuous Matrixyl use."
           }
         }
       },
@@ -514,8 +541,8 @@
         "stat_bFcH4a"
       ],
       "settings": {
-        "title": "The Clinical Reality",
-        "subtitle": "After 28 Days of Daily Use",
+        "title": "Backed by Biological Data.",
+        "subtitle": "",
         "bg_color": "#1a1a1a",
         "text_color": "#ffffff",
         "accent_color": "#d4a340"
@@ -527,29 +554,29 @@
         "faq_item_iGCR7M": {
           "type": "faq_item",
           "settings": {
-            "question": "Is Alpha Arbutin a skin bleaching agent?",
-            "answer": "No. Alpha Arbutin is not a bleach. It is a smart botanical extract that only targets the overproduction of pigment in dark spots, melasma, and acne marks, leaving your natural overall skin tone completely untouched."
+            "question": "Is this cream thick and heavy? Will it clog my pores?",
+            "answer": "Not at all. Unlike traditional, heavy barrier pastes, Barrier Renew is a lightweight, liquid-crystal gel-cream. It absorbs instantly into the skin, leaving a breathable, velvety finish that repairs your barrier without feeling greasy or triggering breakouts."
           }
         },
         "faq_item_JFpHKK": {
           "type": "faq_item",
           "settings": {
-            "question": "How long until my dark spots and acne marks fade?",
-            "answer": "You’ll notice an overall radiant glow within the first 7 to 10 days. For significant fading of stubborn dark spots and deep post-acne marks, expect the most dramatic results between weeks 4 and 8 of consistent use."
+            "question": "Can I use this when my skin is burning from retinol or over-exfoliation?",
+            "answer": "Yes, that is exactly what it is designed for. The 3:1:1 ceramide ratio physically patches micro-tears in your compromised skin barrier, instantly soothing severe redness, stinging, and irritation caused by harsh active ingredients."
           }
         },
         "faq_item_9VknjL": {
           "type": "faq_item",
           "settings": {
-            "question": "Can I use this with exfoliating acids (AHA/BHA) or retinol?",
-            "answer": "Yes! Alpha Arbutin is gentle, non-exfoliating, and barrier-safe. It pairs perfectly with strong actives. Simply apply it after your liquid exfoliants or before your nightly retinol to boost your brightening results."
+            "question": "Is this only for dry, flaky skin, or can oily skin use it too?",
+            "answer": "It is formulated for all skin types. Because it rebuilds your foundational lipid barrier without relying on heavy waxes, it deeply moisturizes dry skin while actually helping oily skin stop overproducing sebum (which often happens when oily skin is secretly dehydrated)."
           }
         },
         "faq_item_i7j737": {
           "type": "faq_item",
           "settings": {
-            "question": "Should I use this in the morning or at night?",
-            "answer": "For maximum clinical results, use it both morning and night. It does not make your skin sensitive to the sun. However, since UV rays cause dark spots, you must always seal your morning routine with SPF 50+."
+            "question": "Does this also work as an anti-aging cream?",
+            "answer": "Absolutely. Alongside barrier repair, it contains clinical-grade Matrixyl 3000™—powerful signal peptides that trick your skin into producing fresh collagen and elastin. It actively firms the skin, reduces fine lines, and rebuilds your dermal matrix over time."
           }
         }
       },
@@ -579,19 +606,19 @@
         "step_CPHBGt": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_1.webp",
+            "image": "shopify://shop_images/Barrier_Renew_How_to_use_1.webp",
             "step_label": "Step 01",
-            "title": "Apply to Damp Skin",
-            "text": "Dispense 3-4 Drops after cleansing"
+            "title": "Leave Skin Damp",
+            "text": "Never Apply to dry skin, Hydration is the key"
           }
         },
         "step_HH7p8P": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_2.webp",
+            "image": "shopify://shop_images/Barrier_Renew_How_to_use_2.webp",
             "step_label": "Step 02",
-            "title": "Pat Gently",
-            "text": "Allow water-light fluid to absorb instantly."
+            "title": "Press, Don't Rub",
+            "text": "Press a pea-sized amount into face and neck."
           }
         },
         "step_XTDwcy": {
@@ -600,7 +627,7 @@
             "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_3.webp",
             "step_label": "Step 03",
             "title": "Seal with SPF",
-            "text": "UV triggers pigment. SPF is non-negotiable."
+            "text": "In the AM, always follow with Suncare."
           }
         }
       },
@@ -622,27 +649,27 @@
         "review_kd3GyW": {
           "type": "review",
           "settings": {
-            "review_title": "\"My melasma is finally fading.\"",
-            "quote": "I've tried everything for my post-pregnancy melasma. Hydroquinone was too harsh, and Vitamin C didn't do enough. This serum is the sweet spot. After 4 weeks, the dark patches on my cheeks have visibly lightened.",
-            "author": "Sarah M.",
+            "review_title": "\"Saved my skin from Retinol burns.\"",
+            "quote": "\"I over-exfoliated my skin to the point where even washing with water stung. This cream healed my barrier in 3 days. It's incredibly soothing and completely weightless.\"",
+            "author": "Laiba B.",
             "verified": true
           }
         },
         "review_y3Mpkb": {
           "type": "review",
           "settings": {
-            "review_title": "\"Finally, a Vitamin C that doesn't smell.\"",
-            "quote": "\"Every other Vit C serum I've tried smells like hot dog water and turns orange. This is crystal clear, smells like nothing, and gives me an insane glow.\"",
-            "author": "Sarah M.",
+            "review_title": "\"Plumped my fine lines.\"",
+            "quote": "\"The Matrixyl in this is no joke. I've been using it for two months and my forehead lines are visibly shallower. Better than my $150 luxury cream.\"",
+            "author": "Shafaq B.",
             "verified": true
           }
         },
         "review_RyVKc9": {
           "type": "review",
           "settings": {
-            "review_title": "\"Safe for my sensitive skin.\"",
-            "quote": "\"I wanted to treat my melasma but hydroquinone gave me a rash. Alpha Arbutin is the holy grail. It's so gentle but actually works.\"",
-            "author": "Fatima S.",
+            "review_title": "\"Zero stickiness.\"",
+            "quote": "\"I have combo skin and usually hate ceramide creams because they feel like paste. This literally melts into a water-like texture. Obsessed.\"",
+            "author": "Mahnoor R.",
             "verified": true
           }
         }
