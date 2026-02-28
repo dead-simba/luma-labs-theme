@@ -24,7 +24,7 @@
     "directory": {
       "type": "luma-ingredient-directory",
       "blocks": {
-        "arbutin": {
+        "ingredient_card_8QrqQw": {
           "type": "ingredient_card",
           "settings": {
             "number": "01",
@@ -57,17 +57,6 @@
             "anchor_id": "vitaminc"
           }
         },
-        "ingredient_card_8QrqQw": {
-          "type": "ingredient_card",
-          "settings": {
-            "number": "01",
-            "symbol": "Aa",
-            "name": "Alpha Arbutin",
-            "subtitle": "Tyrosinase Inhibitor",
-            "hover_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
-            "anchor_id": "arbutin"
-          }
-        },
         "niacinamide": {
           "type": "ingredient_card",
           "settings": {
@@ -97,16 +86,15 @@
             "symbol": "Mx",
             "name": "Matrixyl 3000™",
             "subtitle": "Dermal Peptides",
-            "hover_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "hover_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)",
             "anchor_id": "matrixyl"
           }
         }
       },
       "block_order": [
-        "arbutin",
+        "ingredient_card_8QrqQw",
         "ceramides",
         "vitaminc",
-        "ingredient_card_8QrqQw",
         "niacinamide",
         "licorice",
         "matrixyl"
@@ -120,6 +108,7 @@
           "type": "ingredient_dossier",
           "settings": {
             "anchor_id": "arbutin",
+            "visual_image": "shopify://shop_images/Bearberry.webp",
             "visual_label": "Organic Source: Bearberry",
             "symbol_1": "Aa",
             "symbol_2": "",
@@ -143,6 +132,7 @@
           "type": "ingredient_dossier",
           "settings": {
             "anchor_id": "ceramides",
+            "visual_image": "shopify://shop_images/Organic_Hydrogel_Matrix.webp",
             "visual_label": "Organic Source: Bio-Fermented Yeast",
             "symbol_1": "Ce",
             "symbol_2": "",
@@ -153,7 +143,7 @@
             "text_block_2_title": "Biological Pathway",
             "text_block_2_content": "<p>When applied, these lipids do not just sit on the surface like traditional creams. They physically slip into the micro-tears of a damaged stratum corneum, acting as the \"mortar\" to your skin cell \"bricks,\" permanently fusing the barrier shut.</p>",
             "pairing_product": "",
-            "pairing_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)",
+            "pairing_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)",
             "color_primary_light": "#eff6ff",
             "color_primary_dark": "#2563eb",
             "color_primary_border": "#dbeafe",
@@ -166,6 +156,7 @@
           "type": "ingredient_dossier",
           "settings": {
             "anchor_id": "vitaminc",
+            "visual_image": "shopify://shop_images/Vitamin_C_-_Licorice.webp",
             "visual_label": "Organic Source: Botanical Extracts",
             "symbol_1": "Vc",
             "symbol_2": "Lc",
@@ -176,7 +167,7 @@
             "text_block_2_title": "Biological Pathway",
             "text_block_2_content": "<p>We pair this highly stable Vitamin C with pure Licorice Root extract, an ancient botanical known to naturally disperse existing pigment. Together, they form an impenetrable shield against UV-induced free radicals while boosting luminosity.</p>",
             "pairing_product": "",
-            "pairing_gradient": "linear-gradient(135deg, #FDF0C8 0%, #F9C3B1 100%)",
+            "pairing_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
             "color_primary_light": "#fefce8",
             "color_primary_dark": "#ca8a04",
             "color_primary_border": "#fef9c3",
@@ -189,6 +180,7 @@
           "type": "ingredient_dossier",
           "settings": {
             "anchor_id": "niacinamide",
+            "visual_image": "shopify://shop_images/Hydrogel.webp",
             "visual_label": "Format: Organic Hydrogel Matrix",
             "symbol_1": "Na",
             "symbol_2": "",
@@ -199,7 +191,7 @@
             "text_block_2_title": "Biological Pathway",
             "text_block_2_content": "<p>We supercharge this matrix with Niacinamide (Vitamin B3) to actively repair the cellular inflammation caused by the sun while you wear it. It regulates midday sebum production and instantly soothes UV-induced redness.</p>",
             "pairing_product": "",
-            "pairing_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+            "pairing_gradient": "linear-gradient(135deg, rgba(254, 247, 230, 1), rgba(240, 244, 248, 1) 100%)",
             "color_primary_light": "#f0fdf4",
             "color_primary_dark": "#16a34a",
             "color_primary_border": "#dcfce7",
@@ -207,13 +199,38 @@
             "color_secondary_dark": "#14532d",
             "color_secondary_border": "#dcfce7"
           }
+        },
+        "ingredient_dossier_WQUVHk": {
+          "type": "ingredient_dossier",
+          "settings": {
+            "anchor_id": "matrixyl",
+            "visual_image": "shopify://shop_images/Matrixyl-Lab_Engineered.webp",
+            "visual_label": "Source: Lab Engineered",
+            "symbol_1": "Mx",
+            "symbol_2": "",
+            "heading": "The Matrixyl 3000™",
+            "subtitle": "Dermal Signal Peptides",
+            "text_block_1_title": "Nature Meets Lab",
+            "text_block_1_content": "<p>While many anti-aging ingredients rely on harsh cellular turnover, Matrixyl 3000™ utilizes biomimetic signaling. It is a highly sophisticated, lab-engineered complex comprised of two specific matrikines designed to work with your skin's natural architecture rather than against it.</p>",
+            "text_block_2_title": "Biological Pathway",
+            "text_block_2_content": "<p>Unlike heavy creams that artificially plump the skin, these signal peptides act as biological messengers. They physically mimic the appearance of broken collagen in the dermis, successfully \"tricking\" your fibroblasts into initiating a massive healing cascade to synthesize brand new collagen, elastin, and hyaluronic acid.</p>",
+            "pairing_product": "",
+            "pairing_gradient": "linear-gradient(135deg, rgba(253, 240, 200, 1), rgba(249, 195, 177, 1) 100%)",
+            "color_primary_light": "#fff7ed",
+            "color_primary_dark": "#ea580c",
+            "color_primary_border": "#ffedd5",
+            "color_secondary_light": "#fff7ed",
+            "color_secondary_dark": "#7c2d12",
+            "color_secondary_border": "#ffedd5"
+          }
         }
       },
       "block_order": [
         "arbutin_dossier",
         "ceramides_dossier",
         "vitaminc_dossier",
-        "niacinamide_dossier"
+        "niacinamide_dossier",
+        "ingredient_dossier_WQUVHk"
       ],
       "settings": {}
     }
