@@ -298,7 +298,7 @@
         "luma_collection_card_Yhawbn": {
           "type": "luma-collection-card",
           "settings": {
-            "product": "ceramide-hyaluronic-water-gel",
+            "product": "barrier-renew-moisturizer",
             "card_link": "",
             "background_image": "shopify://shop_images/Barrier_Renew_Moisturizer.webp",
             "gradient_preset": "none",
@@ -314,7 +314,7 @@
         "luma_collection_card_VDGiza": {
           "type": "luma-collection-card",
           "settings": {
-            "product": "glutathione-vitamin-c-serum",
+            "product": "2-percent-alpha-arbutin-vitamin-c",
             "card_link": "",
             "background_image": "shopify://shop_images/2_Alpha_Arbutin.webp",
             "gradient_preset": "none",
@@ -330,7 +330,7 @@
         "luma_collection_card_zCGGkK": {
           "type": "luma-collection-card",
           "settings": {
-            "product": "",
+            "product": "matte-uv-defence-spf-50",
             "card_link": "",
             "background_image": "shopify://shop_images/Matte_UV.webp",
             "gradient_preset": "none",
@@ -688,7 +688,7 @@
         "heading": "Explore the Ingredient Directory",
         "description": "We believe skintellectuals deserve to know exactly what they are applying, why it was chosen, and how it functions biologically. Dive into the deep clinical science behind our active complexes.",
         "button_label": "Enter the Glossary",
-        "button_link": "",
+        "button_link": "shopify://pages/ingredient-hub",
         "padding_top": 128,
         "padding_bottom": 128
       }
