@@ -18,10 +18,17 @@
           "type": "brand_information",
           "settings": {
             "logo_image": "shopify://shop_images/Main_Logo_-_Horizontal_-_Dark_b2ff06dc-bb2a-4009-8704-29214ea99e15.png",
-            "logo_width": 225,
+            "logo_width": 155,
             "logo_icon": "sparkle",
             "title": "LUMA LABS",
             "text": "Redefining skincare with science and luxury."
+          }
+        },
+        "link_list_r98cNK": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer"
           }
         },
         "newsletter_jYPNKm": {
@@ -30,19 +37,12 @@
             "heading": "Newsletter",
             "text": "Subscribe for priority access to new launches."
           }
-        },
-        "link_list_r98cNK": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick Links",
-            "menu": "footer"
-          }
         }
       },
       "block_order": [
         "brand_information_r6VDnj",
-        "newsletter_jYPNKm",
-        "link_list_r98cNK"
+        "link_list_r98cNK",
+        "newsletter_jYPNKm"
       ],
       "name": "Luma Custom Footer",
       "settings": {
