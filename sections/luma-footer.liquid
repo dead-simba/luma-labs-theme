@@ -193,15 +193,14 @@
             <div class="luma-footer__col-brand" {{ block.shopify_attributes }}>
               <a href="{{ routes.root_url }}" class="luma-footer__brand-title">
                 {%- if block.settings.logo_image != blank -%}
-                  {{
-                    block.settings.logo_image
-                    | image_url: width: 400
-                    | image_tag:
-                      width: block.settings.logo_width,
-                      style: 'max-width: 100%; height: auto;',
-                      alt: block.settings.logo_image.alt
-                    | default: shop.name
-                  }}
+                  <div style="width: {{ block.settings.logo_width }}px; max-width: 100%;">
+                    {{
+                      block.settings.logo_image
+                      | image_url: width: 600
+                      | image_tag: style: 'width: 100%; height: auto;', alt: block.settings.logo_image.alt
+                      | default: shop.name
+                    }}
+                  </div>
                 {%- else -%}
                   {%- if block.settings.logo_icon != blank -%}
                     <i
