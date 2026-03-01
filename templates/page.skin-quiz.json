@@ -12,7 +12,7 @@
     "main": {
       "type": "luma-skin-quiz",
       "settings": {
-        "webhook_url": "https://curvy-walls-shake.loca.lt/api/webhook/quiz"
+        "webhook_url": "https://luma-labs-email-marketing-engine.vercel.app/api/webhook/quiz"
       }
     }
   },
