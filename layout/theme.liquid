@@ -81,7 +81,7 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
-    {% unless template.suffix contains 'qr' %}
+    {% unless template.suffix contains 'qr' or template.suffix contains 'quiz' %}
       <div id="header-group">
         {% sections 'header-group' %}
       </div>
@@ -166,7 +166,7 @@
       {{ content_for_layout }}
     </main>
 
-    {% unless template.suffix contains 'qr' %}
+    {% unless template.suffix contains 'qr' or template.suffix contains 'quiz' %}
       <footer>
         {% sections 'footer-group' %}
       </footer>
