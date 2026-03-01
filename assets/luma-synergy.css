@@ -1,0 +1,171 @@
+.luma-synergy {
+    padding-top: var(--padding-top, 60px);
+    padding-bottom: var(--padding-bottom, 60px);
+    background-color: #ffffff;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.luma-synergy__header {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 4rem auto;
+}
+
+.luma-synergy__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 1rem 0;
+}
+
+@media screen and (min-width: 768px) {
+    .luma-synergy__title {
+        font-size: 2.75rem;
+    }
+}
+
+.luma-synergy__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(26, 26, 26, 0.6);
+    font-weight: 300;
+    line-height: 1.625;
+}
+
+.luma-synergy__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+    .luma-synergy__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.luma-synergy__card {
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.luma-synergy__card:hover {
+    transform: translateY(-0.25rem);
+}
+
+/* Color Themes */
+.luma-synergy__card--peach {
+    background-color: #FFF5F2;
+    border: 1px solid rgba(124, 45, 18, 0.05);
+}
+
+.luma-synergy__card--peach .luma-synergy__step {
+    color: rgba(124, 45, 18, 0.2);
+}
+
+.luma-synergy__card--peach .luma-synergy__badge {
+    color: #7c2d12;
+}
+
+.luma-synergy__card--peach .luma-synergy__card-instruction {
+    border-bottom-color: rgba(124, 45, 18, 0.1);
+}
+
+.luma-synergy__card--blue {
+    background-color: #F0F6FA;
+    border: 1px solid rgba(30, 58, 138, 0.05);
+}
+
+.luma-synergy__card--blue .luma-synergy__step {
+    color: rgba(30, 58, 138, 0.2);
+}
+
+.luma-synergy__card--blue .luma-synergy__badge {
+    color: #1e3a8a;
+}
+
+.luma-synergy__card--blue .luma-synergy__card-instruction {
+    border-bottom-color: rgba(30, 58, 138, 0.1);
+}
+
+.luma-synergy__card--yellow {
+    background-color: #FEFDF4;
+    border: 1px solid rgba(113, 63, 18, 0.05);
+}
+
+.luma-synergy__card--yellow .luma-synergy__step {
+    color: rgba(113, 63, 18, 0.2);
+}
+
+.luma-synergy__card--yellow .luma-synergy__badge {
+    color: #713f12;
+}
+
+.luma-synergy__card--yellow .luma-synergy__card-instruction {
+    border-bottom-color: rgba(113, 63, 18, 0.1);
+}
+
+
+.luma-synergy__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.luma-synergy__step {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-style: italic;
+    line-height: 1;
+}
+
+.luma-synergy__badge {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5625rem;
+    /* 9px */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.luma-synergy__card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #1A1A1A;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.luma-synergy__card-instruction {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.625rem;
+    /* 10px */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(26, 26, 26, 0.4);
+    margin: 0 0 1.5rem 0;
+    border-bottom: 1px solid;
+    padding-bottom: 1rem;
+}
+
+.luma-synergy__card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(26, 26, 26, 0.7);
+    font-weight: 300;
+    line-height: 1.625;
+}
+
+.luma-synergy__card-text strong {
+    font-weight: 500;
+    color: #1A1A1A;
+}
