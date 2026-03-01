@@ -2284,5 +2284,50 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "WhatsApp Contact",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_whatsapp",
+        "label": "Enable Floating WhatsApp Button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp Number",
+        "info": "Include country code (e.g., +1234567890)"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "Pre-filled Message",
+        "default": "Hi, I have a question about my skincare routine!"
+      },
+      {
+        "type": "color",
+        "id": "whatsapp_color",
+        "label": "Button Color",
+        "default": "#25D366"
+      },
+      {
+        "type": "select",
+        "id": "whatsapp_position",
+        "label": "Position",
+        "options": [
+          {
+            "value": "bottom_right",
+            "label": "Bottom Right"
+          },
+          {
+            "value": "bottom_left",
+            "label": "Bottom Left"
+          }
+        ],
+        "default": "bottom_right"
+      }
+    ]
   }
 ]
