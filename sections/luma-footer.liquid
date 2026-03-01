@@ -1,54 +1,343 @@
+{%- style -%}
+  .luma-footer {
+    background-color: {{ section.settings.bg_color }};
+    border-top: 1px solid {{ section.settings.border_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    font-family: inherit;
+  }
+  .luma-footer__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .luma-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  @media (min-width: 768px) {
+    .luma-footer__grid {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+    }
+    .luma-footer__col-brand { grid-column: span 4; }
+    .luma-footer__col-links-1 { grid-column: 6 / span 2; }
+    .luma-footer__col-links-2 { grid-column: span 2; }
+    .luma-footer__col-newsletter { grid-column: span 3; }
+  }
+
+  /* Brand Column */
+  .luma-footer__brand-title {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .luma-footer__brand-title span {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .luma-footer__brand-text {
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 300px;
+  }
+  .luma-footer__socials {
+    display: flex;
+    gap: 16px;
+  }
+  .luma-footer__social-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  .luma-footer__social-link:hover {
+    background-color: {{ section.settings.accent_color }};
+  }
+
+  /* Link Columns */
+  .luma-footer__heading {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: {{ section.settings.text_color }};
+    margin: 0 0 16px 0;
+  }
+  .luma-footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .luma-footer__link {
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .luma-footer__link:hover {
+    color: {{ section.settings.accent_color }};
+    opacity: 1;
+  }
+
+  /* Newsletter Column */
+  .luma-footer__newsletter-text {
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.8;
+    margin-bottom: 16px;
+  }
+  .luma-footer__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .luma-footer__input {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid {{ section.settings.border_color }};
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #2C2C2C;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .luma-footer__input:focus {
+    outline: none;
+    border-color: {{ section.settings.accent_color }};
+    box-shadow: 0 0 0 1px {{ section.settings.accent_color }};
+  }
+  .luma-footer__button {
+    width: 100%;
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    font-family: inherit;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .luma-footer__button:hover {
+    background-color: {{ section.settings.accent_color }};
+  }
+
+  /* Copyright Bottom */
+  .luma-footer__bottom {
+    border-top: 1px solid {{ section.settings.border_color }};
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.6;
+  }
+  @media (min-width: 768px) {
+    .luma-footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  .luma-footer__legal-links {
+    display: flex;
+    gap: 16px;
+  }
+  .luma-footer__legal-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .luma-footer__legal-link:hover {
+    color: {{ section.settings.accent_color }};
+    opacity: 1;
+  }
+{%- endstyle -%}
+
+<footer class="luma-footer">
+  <div class="luma-footer__container">
+    <div class="luma-footer__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'brand_information' -%}
+            <div class="luma-footer__col-brand" {{ block.shopify_attributes }}>
+              <a href="{{ routes.root_url }}" class="luma-footer__brand-title">
+                {%- if block.settings.logo_icon != blank -%}
+                  <i
+                    class="ph-fill ph-{{ block.settings.logo_icon }} text-[24px]"
+                    style="color: {{ section.settings.accent_color }}"
+                  ></i>
+                {%- endif -%}
+                {{ block.settings.title }}
+              </a>
+              {%- if block.settings.text != blank -%}
+                <p class="luma-footer__brand-text">{{ block.settings.text }}</p>
+              {%- endif -%}
+              <div class="luma-footer__socials">
+                {%- if settings.social_instagram_link != blank -%}
+                  <a href="{{ settings.social_instagram_link }}" class="luma-footer__social-link" aria-label="Instagram"
+                    ><i class="ph-fill ph-instagram-logo"></i
+                  ></a>
+                {%- endif -%}
+                {%- if settings.social_tiktok_link != blank -%}
+                  <a href="{{ settings.social_tiktok_link }}" class="luma-footer__social-link" aria-label="TikTok"
+                    ><i class="ph-fill ph-tiktok-logo"></i
+                  ></a>
+                {%- endif -%}
+                {%- if settings.social_facebook_link != blank -%}
+                  <a href="{{ settings.social_facebook_link }}" class="luma-footer__social-link" aria-label="Facebook"
+                    ><i class="ph-fill ph-facebook-logo"></i
+                  ></a>
+                {%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'link_list' -%}
+            <div class="luma-footer__col-links-{{ forloop.index | minus: 1 }}" {{ block.shopify_attributes }}>
+              <h3 class="luma-footer__heading">{{ block.settings.heading }}</h3>
+              {%- if block.settings.menu != blank -%}
+                <ul class="luma-footer__list">
+                  {%- for link in block.settings.menu.links -%}
+                    <li>
+                      <a href="{{ link.url }}" class="luma-footer__link">{{ link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
+
+          {%- when 'newsletter' -%}
+            <div class="luma-footer__col-newsletter" {{ block.shopify_attributes }}>
+              <h3 class="luma-footer__heading">{{ block.settings.heading }}</h3>
+              {%- if block.settings.text != blank -%}
+                <p class="luma-footer__newsletter-text">{{ block.settings.text }}</p>
+              {%- endif -%}
+
+              {%- form 'customer', id: 'ContactFooter', class: 'luma-footer__form' -%}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <input
+                  id="NewsletterForm--{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="luma-footer__input"
+                  value="{{ form.email }}"
+                  placeholder="Email Address"
+                  required
+                >
+                <button type="submit" class="luma-footer__button" name="commit">Subscribe</button>
+                {%- if form.errors -%}
+                  <small style="color:red; font-size:12px;"
+                    >⚠ {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </small>
+                {%- endif -%}
+                {%- if form.posted_successfully? -%}
+                  <small style="color:{{ section.settings.accent_color }}; font-size:12px;">✓ Success!</small>
+                {%- endif -%}
+              {%- endform -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="luma-footer__bottom">
+      <p>
+        &copy; {{ 'now' | date: '%Y' }}
+        {{ shop.name }}. All rights reserved.
+      </p>
+      <div class="luma-footer__legal-links">
+        <a href="/policies/privacy-policy" class="luma-footer__legal-link">Privacy Policy</a>
+        <a href="/policies/terms-of-service" class="luma-footer__legal-link">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 {% schema %}
 {
-  "name": "Luma Footer (Native)",
-  "tag": "footer",
-  "class": "section-footer",
+  "name": "Luma Labs Footer",
   "settings": [
-    {
-      "type": "header",
-      "content": "Color Scheme"
-    },
     {
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#1A1A1A"
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#F0F0F0"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "Text Color",
-      "default": "#9ca3af"
+      "default": "#2C2C2C"
     },
     {
       "type": "color",
-      "id": "heading_color",
-      "label": "Heading/Accent Color",
-      "default": "#C5A065"
+      "id": "accent_color",
+      "label": "Accent / Gold Color",
+      "default": "#D4A340"
     },
     {
-      "type": "header",
-      "content": "Layout"
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "min": 0,
+      "min": 20,
       "max": 100,
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
-      "default": 60
+      "default": 64
     },
     {
       "type": "range",
       "id": "padding_bottom",
-      "min": 0,
+      "min": 20,
       "max": 100,
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
-      "default": 60
+      "default": 32
     }
   ],
   "blocks": [
@@ -58,48 +347,39 @@
       "limit": 1,
       "settings": [
         {
-          "type": "image_picker",
-          "id": "logo",
-          "label": "Logo Image"
-        },
-        {
-          "type": "range",
-          "id": "logo_width",
-          "min": 50,
-          "max": 300,
-          "step": 5,
-          "default": 150,
-          "unit": "px",
-          "label": "Logo Width"
-        },
-        {
           "type": "text",
+          "id": "logo_icon",
+          "label": "Phosphor Icon Name (Logo)",
+          "default": "sparkle"
+        },
+        {
+          "type": "html",
           "id": "title",
-          "label": "Heading",
-          "default": "LUMA LABS"
+          "label": "Heading (HTML)",
+          "default": "Luma<span>Labs</span>"
         },
         {
           "type": "textarea",
           "id": "text",
           "label": "Description",
-          "default": "Redefining skincare with science and luxury."
+          "default": "Biomimetic skincare formulated with advanced clinical actives. Safe for all skin types, designed for real results."
         }
       ]
     },
     {
       "type": "link_list",
       "name": "Menu",
+      "limit": 2,
       "settings": [
         {
           "type": "text",
           "id": "heading",
           "label": "Heading",
-          "default": "Quick Links"
+          "default": "Shop"
         },
         {
           "type": "link_list",
           "id": "menu",
-          "default": "footer",
           "label": "Menu"
         }
       ]
@@ -113,219 +393,27 @@
           "type": "text",
           "id": "heading",
           "label": "Heading",
-          "default": "Newsletter"
+          "default": "Join the Lab"
         },
         {
-          "type": "text",
+          "type": "textarea",
           "id": "text",
           "label": "Description",
-          "default": "Subscribe for updates."
+          "default": "Subscribe for skincare education, exclusive drops, and 10% off your first order."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Luma Footer (Native)",
+      "name": "Luma Labs Footer",
       "blocks": [
         { "type": "brand_information" },
-        { "type": "link_list", "settings": { "heading": "Shop" } },
-        { "type": "link_list", "settings": { "heading": "Support" } },
+        { "type": "link_list" },
+        { "type": "link_list" },
         { "type": "newsletter" }
       ]
     }
   ]
 }
 {% endschema %}
-
-{%- style -%}
-  #shopify-section-{{ section.id }} .footer-native {
-    background-color: {{ section.settings.bg_color }};
-    color: {{ section.settings.text_color }};
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
-
-  #shopify-section-{{ section.id }} .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  @media (min-width: 768px) {
-    #shopify-section-{{ section.id }} .footer-grid {
-      grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
-    }
-  }
-
-  /* Typography */
-  #shopify-section-{{ section.id }} h2.footer-block__heading {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: {{ section.settings.heading_color }};
-    margin-bottom: 20px;
-    margin-top: 0;
-  }
-
-  #shopify-section-{{ section.id }} p {
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  #shopify-section-{{ section.id }} a {
-    color: {{ section.settings.text_color }};
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  #shopify-section-{{ section.id }} a:hover {
-    color: white;
-  }
-
-  /* List Styling */
-  #shopify-section-{{ section.id }} ul.footer-block__details-content {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  #shopify-section-{{ section.id }} li {
-    margin-bottom: 10px;
-    font-size: 13px;
-  }
-
-  /* Newsletter Form */
-  #shopify-section-{{ section.id }} .field {
-    display: flex;
-    gap: 10px;
-  }
-
-  #shopify-section-{{ section.id }} .field__input {
-    flex-grow: 1;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    padding: 10px;
-    font-size: 13px;
-  }
-
-  #shopify-section-{{ section.id }} .field__button {
-    background: {{ section.settings.heading_color }};
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-  }
-{%- endstyle -%}
-
-<div class="footer-native">
-  <div class="footer-grid">
-    {%- for block in section.blocks -%}
-      <div class="footer-block grid__item" {{ block.shopify_attributes }}>
-        
-        {%- case block.type -%}
-          
-          {%- when 'brand_information' -%}
-            
-            <div class="footer-block__brand-info">
-              {%- if block.settings.logo != blank -%}
-                {%- assign logo_width = block.settings.logo_width -%}
-                <div class="footer-block__logo-wrapper" style="width: {{ logo_width }}px; max-width: 100%;">
-                    {{ block.settings.logo | image_url: width: 600 | image_tag: 
-                       width: logo_width, 
-                       class: 'footer-block__logo-image', 
-                       loading: 'lazy', 
-                       style: 'width: 100%; height: auto;' 
-                    }}
-                </div>
-              {%- else -%}
-                <h2 class="footer-block__heading" style="color: {{ section.settings.heading_color }}; font-size: 20px;">{{ block.settings.title }}</h2>
-              {%- endif -%}
-              
-              {%- if block.settings.text != blank -%}
-                <div class="rte" style="margin-top: 20px;">
-                  {{ block.settings.text }}
-                </div>
-              {%- endif -%}
-            </div>
-
-          {%- when 'link_list' -%}
-            {%- if block.settings.heading != blank -%}
-              <h2 class="footer-block__heading">{{ block.settings.heading }}</h2>
-            {%- endif -%}
-            {%- if block.settings.menu != blank -%}
-              <ul class="footer-block__details-content list-unstyled">
-                {%- for link in block.settings.menu.links -%}
-                  <li>
-                    <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link">
-                      {{ link.title }}
-                    </a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
-
-          {%- when 'newsletter' -%}
-            {%- if block.settings.heading != blank -%}
-              <h2 class="footer-block__heading">{{ block.settings.heading }}</h2>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <div class="footer-block__newsletter-text rte">{{ block.settings.text }}</div>
-            {%- endif -%}
-            
-            {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <div class="newsletter-form__field-wrapper">
-                <div class="field">
-                  <input
-                    id="NewsletterForm--{{ section.id }}"
-                    type="email"
-                    name="contact[email]"
-                    class="field__input"
-                    value="{{ form.email }}"
-                    aria-required="true"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    autocomplete="email"
-                    {% if form.errors %}
-                      autofocus
-                      aria-invalid="true"
-                      aria-describedby="ContactFooter-error"
-                    {% elsif form.posted_successfully? %}
-                      aria-describedby="ContactFooter-success"
-                    {% endif %}
-                    placeholder="Email Address"
-                    required
-                  >
-                  <button type="submit" class="field__button" name="commit" id="Subscribe" aria-label="Subscribe">
-                    JOIN
-                  </button>
-                </div>
-                {%- if form.errors -%}
-                  <small class="newsletter-form__message form__message" id="ContactFooter-error" style="color:red; display:block; margin-top:5px;">
-                    ⚠ {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
-                  </small>
-                {%- endif -%}
-                {%- if form.posted_successfully? -%}
-                  <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" style="color:#C5A065; display:block; margin-top:5px; font-size:12px;" tabindex="-1" autofocus>
-                    ✓ Success!
-                  </h3>
-                {%- endif -%}
-              </div>
-            {%- endform -%}
-
-        {%- endcase -%}
-      </div>
-    {%- endfor -%}
-  </div>
-</div>

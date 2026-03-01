@@ -1,0 +1,162 @@
+{%- style -%}
+  .luma-trust-badges {
+    background-color: {{ section.settings.bg_color }};
+    border-top: 1px solid {{ section.settings.border_color }};
+    border-bottom: 1px solid {{ section.settings.border_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .luma-trust-badges__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .luma-trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .luma-trust-badges__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .luma-trust-badges__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .luma-trust-badges__icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: {{ section.settings.icon_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ section.settings.icon_color }};
+    border: 1px solid {{ section.settings.border_color }};
+  }
+  .luma-trust-badges__icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .luma-trust-badges__text {
+    font-size: 12px;
+    font-weight: 600;
+    color: {{ section.settings.text_color }};
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+{%- endstyle -%}
+
+<div class="luma-trust-badges">
+  <div class="luma-trust-badges__container">
+    <div class="luma-trust-badges__grid">
+      {%- for block in section.blocks -%}
+        <div class="luma-trust-badges__item" {{ block.shopify_attributes }}>
+          <div class="luma-trust-badges__icon-wrapper">
+            <i class="ph ph-{{ block.settings.icon_name }} luma-trust-badges__icon"></i>
+          </div>
+          <span class="luma-trust-badges__text">{{ block.settings.title }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust Badges Pre-Footer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#F0F0F0"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon Wrapper Background",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#D4A340"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Trust Badge",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_name",
+          "label": "Phosphor Icon Name",
+          "default": "check-circle",
+          "info": "E.g. drop, paw-print, check-circle, shield-check"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Badge Text",
+          "default": "TRUST POINT"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges Pre-Footer",
+      "blocks": [
+        { "type": "badge", "settings": { "icon_name": "drop", "title": "0% Mercury & Steroids" } },
+        { "type": "badge", "settings": { "icon_name": "paw-print", "title": "Cruelty Free" } },
+        { "type": "badge", "settings": { "icon_name": "check-circle", "title": "Halal Certified" } },
+        { "type": "badge", "settings": { "icon_name": "shield-check", "title": "Science Backed" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
