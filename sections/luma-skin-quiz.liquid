@@ -1042,34 +1042,77 @@
       answers.ghl_tag = PRODUCTS[rec].ghlTrack;
       answers.discount_code = PRODUCTS[rec].code;
 
+      // Show result loading immediately
       showStep(7);
       updateProgress(7);
 
       // Fire webhook
       if (WEBHOOK_URL && !WEBHOOK_URL.includes('YOUR_WEBHOOK')) {
+        document.getElementById('LsqLoading').style.display = 'flex';
+        document.getElementById('LsqResult').style.display = 'none';
+
         fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(answers)
-        }).catch(function(err) { console.warn('Luma Quiz webhook error:', err); });
+        })
+        .then(response => response.json())
+        .then(dataResponse => {
+           // We got the AI response back from the Luma Engine middleware
+           var data = PRODUCTS[rec];
+           var aiReason = dataResponse.aiReason || data.desc;
+
+           document.getElementById('LsqResultSub').textContent = data.sub;
+           document.getElementById('LsqResultName').textContent = data.name;
+           document.getElementById('LsqResultActives').textContent = data.actives;
+
+           // Use the AI reason instead of the hardcoded desc
+           document.getElementById('LsqResultDesc').textContent = aiReason;
+
+           document.getElementById('LsqResultPrice').textContent = data.price;
+           document.getElementById('LsqResultDiscountTag').textContent = data.discountTag;
+           document.getElementById('LsqResultImg').src = data.img;
+           document.getElementById('LsqResultCta').href = data.url;
+           document.getElementById('LsqImgWrap').style.background = data.bg;
+
+           document.getElementById('LsqLoading').style.display = 'none';
+           document.getElementById('LsqResult').style.display = 'block';
+        })
+        .catch(function(err) {
+           console.warn('Luma Quiz webhook error:', err);
+           // Fallback to strict hardcoded layout if network fails
+           var data = PRODUCTS[rec];
+           document.getElementById('LsqResultSub').textContent = data.sub;
+           document.getElementById('LsqResultName').textContent = data.name;
+           document.getElementById('LsqResultActives').textContent = data.actives;
+           document.getElementById('LsqResultDesc').textContent = data.desc;
+           document.getElementById('LsqResultPrice').textContent = data.price;
+           document.getElementById('LsqResultDiscountTag').textContent = data.discountTag;
+           document.getElementById('LsqResultImg').src = data.img;
+           document.getElementById('LsqResultCta').href = data.url;
+           document.getElementById('LsqImgWrap').style.background = data.bg;
+
+           document.getElementById('LsqLoading').style.display = 'none';
+           document.getElementById('LsqResult').style.display = 'block';
+        });
+      } else {
+        // Fallback if no webhook url configured
+        setTimeout(function() {
+          var data = PRODUCTS[rec];
+          document.getElementById('LsqResultSub').textContent = data.sub;
+          document.getElementById('LsqResultName').textContent = data.name;
+          document.getElementById('LsqResultActives').textContent = data.actives;
+          document.getElementById('LsqResultDesc').textContent = data.desc;
+          document.getElementById('LsqResultPrice').textContent = data.price;
+          document.getElementById('LsqResultDiscountTag').textContent = data.discountTag;
+          document.getElementById('LsqResultImg').src = data.img;
+          document.getElementById('LsqResultCta').href = data.url;
+          document.getElementById('LsqImgWrap').style.background = data.bg;
+
+          document.getElementById('LsqLoading').style.display = 'none';
+          document.getElementById('LsqResult').style.display = 'block';
+        }, 2600);
       }
-
-      // Show result after delay
-      setTimeout(function() {
-        var data = PRODUCTS[rec];
-        document.getElementById('LsqResultSub').textContent = data.sub;
-        document.getElementById('LsqResultName').textContent = data.name;
-        document.getElementById('LsqResultActives').textContent = data.actives;
-        document.getElementById('LsqResultDesc').textContent = data.desc;
-        document.getElementById('LsqResultPrice').textContent = data.price;
-        document.getElementById('LsqResultDiscountTag').textContent = data.discountTag;
-        document.getElementById('LsqResultImg').src = data.img;
-        document.getElementById('LsqResultCta').href = data.url;
-        document.getElementById('LsqImgWrap').style.background = data.bg;
-
-        document.getElementById('LsqLoading').style.display = 'none';
-        document.getElementById('LsqResult').style.display = 'block';
-      }, 2600);
     };
 
     updateProgress(1);
