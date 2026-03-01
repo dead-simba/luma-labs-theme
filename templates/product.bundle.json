@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -125,6 +134,32 @@
                   },
                   "blocks": {}
                 },
+                "text_pyb4tX": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.product_subtitle | metafield_tag }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -150,6 +185,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "text_pyb4tX",
                 "price_tVjtKg"
               ]
             },
@@ -290,10 +326,6 @@
     },
     "luma_synergy_1": {
       "type": "luma-synergy",
-      "settings": {
-        "title": "The Synergy",
-        "text": "Skincare is an ecosystem. Using a brightening serum without a strong barrier allows hydration to escape. Using actives without SPF causes pigment to return. This is the complete biological loop."
-      },
       "blocks": {
         "treat": {
           "type": "synergy_card",
@@ -330,16 +362,27 @@
         "treat",
         "repair",
         "defend"
-      ]
+      ],
+      "settings": {
+        "title": "The Synergy",
+        "text": "Skincare is an ecosystem. Using a brightening serum without a strong barrier allows hydration to escape. Using actives without SPF causes pigment to return. This is the complete biological loop.",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     },
     "luma_hero_banner_1": {
       "type": "luma-hero-banner",
       "settings": {
+        "image_desktop": "shopify://shop_images/SPF_Lifestyle.webp",
+        "min_height_desktop": 400,
+        "min_height_mobile": 350,
         "heading": "Total Skin Reset.",
         "subheading": "Visible clinical results in 28 days.",
-        "image_overlay_opacity": 40,
-        "desktop_content_position": "bottom-center",
-        "hero_size": "large"
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 25,
+        "overlay_blur": 2,
+        "text_color": "#1a1a1a",
+        "highlight_color": "#c5a065"
       }
     },
     "luma_faq_1": {
