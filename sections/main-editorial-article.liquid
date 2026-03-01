@@ -1,36 +1,31 @@
-<div class="editorial-article bg-[#FAFAFA] text-[#1A1A1A] font-sans antialiased relative min-h-screen">
+{{ 'main-editorial-article.css' | asset_url | stylesheet_tag }}
+
+<div class="editorial-article">
   <!-- Reading Progress Bar -->
-  <div class="fixed top-0 left-0 w-full h-1 bg-[#E5E5E5] z-[60]">
-    <div
-      id="progress-bar"
-      class="h-full bg-[#D4A340] w-full"
-      style="transform-origin: 0% 50%; transform: scaleX(0); transition: transform 0.1s linear;"
-    ></div>
+  <div class="editorial-progress">
+    <div id="progress-bar" class="editorial-progress__bar"></div>
   </div>
 
   <!-- Article Hero -->
-  <header class="max-w-4xl mx-auto px-4 sm:px-6 mt-16 mb-12 text-center">
+  <header class="editorial-hero">
     <!-- Breadcrumb / Category -->
-    <div class="flex items-center justify-center gap-3 mb-8">
+    <div class="editorial-hero__meta editorial-article__uppercase-tracking editorial-article__font-sans">
       {%- if article.tags.size > 0 -%}
-        <a
-          href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}"
-          class="text-[#D4A340] text-[10px] font-bold uppercase tracking-widest hover:text-black transition-colors"
-        >
+        <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="editorial-hero__tag">
           {{- article.tags.first -}}
         </a>
-        <span class="w-1 h-1 rounded-full bg-[#E5E5E5]"></span>
+        <span class="editorial-hero__dot"></span>
       {%- endif -%}
-      <span class="text-[#1A1A1A]/40 text-[10px] uppercase tracking-widest font-bold">
+      <span class="editorial-hero__read-time">
         {{- article.content | strip_html | split: ' ' | size | divided_by: 200 | at_least: 1 }} Min Read</span
       >
     </div>
 
-    <h1 class="font-serif text-5xl md:text-6xl text-[#1A1A1A] leading-tight mb-8">
+    <h1 class="editorial-hero__title editorial-article__font-serif">
       {{ article.title }}
     </h1>
 
-    <p class="font-sans text-[#1A1A1A]/60 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-12">
+    <p class="editorial-hero__excerpt editorial-article__font-sans">
       {%- if article.excerpt.size > 0 -%}
         {{ article.excerpt | strip_html }}
       {%- else -%}
@@ -40,43 +35,43 @@
 
     <!-- Featured Image -->
     {%- if article.image -%}
-      <div class="aspect-[21/9] w-full rounded-2xl overflow-hidden bg-[#F5F5F5] relative border border-[#E5E5E5]">
+      <div class="editorial-hero__image-wrapper">
         <img
           src="{{ article.image | image_url: width: 2000 }}"
           alt="{{ article.image.alt | escape }}"
-          class="w-full h-full object-cover"
+          class="editorial-hero__image"
         >
       </div>
     {%- endif -%}
   </header>
 
   <!-- Article Layout grid -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 flex flex-col lg:flex-row gap-8 xl:gap-16">
+  <main class="editorial-layout">
     <!-- Left Sidebar: Author & Share (Sticky on desktop) -->
-    <aside class="hidden lg:block w-48 shrink-0">
-      <div class="sticky top-32">
+    <aside class="editorial-sidebar editorial-sidebar--left">
+      <div class="editorial-sidebar__sticky">
         <!-- Author Info -->
-        <div class="mb-10 pb-10 border-b border-[#E5E5E5]">
+        <div class="editorial-author-block">
           {%- assign author_name = article.author | handleize -%}
-          <div class="w-16 h-16 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center font-serif text-2xl mb-4 italic text-[#1A1A1A]/50">
+          <div class="editorial-author-block__avatar editorial-article__font-serif">
             {{ article.author | slice: 0, 1 | upcase }}
           </div>
-          <h3 class="font-serif text-lg text-[#1A1A1A] mb-1">{{ article.author }}</h3>
-          <p class="font-sans text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-4 block">
-            Formulation Writer
-          </p>
+          <h3 class="editorial-author-block__name editorial-article__font-serif">{{ article.author }}</h3>
+          <span class="editorial-author-block__title editorial-article__uppercase-tracking editorial-article__font-sans"
+            >Formulation Writer</span
+          >
         </div>
 
         <!-- Share Actions -->
-        <div>
-          <span class="font-sans text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-4 block"
+        <div class="editorial-share">
+          <span class="editorial-share__title editorial-article__uppercase-tracking editorial-article__font-sans"
             >Share Article</span
           >
-          <div class="flex gap-4">
+          <div class="editorial-share__links">
             <a
               href="https://twitter.com/intent/tweet?text={{ article.title | url_param_escape }}&url={{ shop.url | append: article.url }}"
               target="_blank"
-              class="w-8 h-8 rounded-full border border-[#E5E5E5] flex items-center justify-center text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-colors"
+              class="editorial-share__link"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
                 <path d="M214.75,212.65,156.46,128.5,215,62.13a8,8,0,0,0-12-10.61L150.8,109.81,107.57,47.41A8,8,0,0,0,101,44H41a8,8,0,0,0-6.52,12.66l58.29,84.14L34.19,207.13a8,8,0,0,0,12,10.61L98.66,158.4l43.23,62.37A8,8,0,0,0,148.45,224H208.5a8,8,0,0,0,6.25-11.35ZM58,58.8H94l98.3,141.87h-36Z"></path>
@@ -85,7 +80,7 @@
             <a
               href="https://www.facebook.com/sharer.php?u={{ shop.url | append: article.url }}"
               target="_blank"
-              class="w-8 h-8 rounded-full border border-[#E5E5E5] flex items-center justify-center text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-colors"
+              class="editorial-share__link"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
                 <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path>
@@ -97,102 +92,45 @@
     </aside>
 
     <!-- Center content: The Article Body -->
-    <article class="max-w-2xl w-full mx-auto md:mx-0 article-content" style="font-family: 'Inter', sans-serif;">
-      <style>
-        .article-content {
-          font-size: 1.125rem;
-          line-height: 1.75;
-          color: rgba(26, 26, 26, 0.8);
-          font-weight: 300;
-        }
-        .article-content p {
-          margin-bottom: 2rem;
-        }
-        .article-content h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: 2.25rem;
-          color: #1a1a1a;
-          margin-top: 4rem;
-          margin-bottom: 1.5rem;
-          line-height: 1.2;
-        }
-        .article-content h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.75rem;
-          color: #1a1a1a;
-          margin-top: 3rem;
-          margin-bottom: 1rem;
-          font-style: italic;
-        }
-        .article-content blockquote {
-          border-left: 2px solid #d4a340;
-          padding-left: 1.5rem;
-          font-family: 'Playfair Display', serif;
-          font-size: 1.5rem;
-          font-style: italic;
-          color: #1a1a1a;
-          margin: 3rem 0;
-          line-height: 1.4;
-        }
-        .article-content ul,
-        .article-content ol {
-          margin-bottom: 2rem;
-          padding-left: 1.5rem;
-        }
-        .article-content ul {
-          list-style-type: disc;
-        }
-        .article-content ol {
-          list-style-type: decimal;
-        }
-        .article-content li {
-          margin-bottom: 0.5rem;
-        }
-      </style>
-
+    <article class="editorial-content">
       <!-- Mobile Author block (hidden on lg) -->
-      <div class="flex items-center gap-4 mb-12 lg:hidden border-b border-[#E5E5E5] pb-8 mt-[-2rem]">
-        <div class="w-12 h-12 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center font-serif text-xl italic text-[#1A1A1A]/50">
+      <div class="editorial-author-mobile">
+        <div class="editorial-author-mobile__avatar editorial-article__font-serif">
           {{ article.author | slice: 0, 1 | upcase }}
         </div>
         <div>
-          <h3 class="font-serif text-base text-[#1A1A1A] mb-0.5">{{ article.author }}</h3>
-          <span class="font-sans text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block"
+          <h3 class="editorial-author-mobile__name editorial-article__font-serif">{{ article.author }}</h3>
+          <span class="editorial-author-mobile__title editorial-article__uppercase-tracking editorial-article__font-sans"
             >Formulation Writer</span
           >
         </div>
       </div>
 
       <!-- Content -->
-      {{ article.content }}
+      <div class="editorial-prose">
+        {{ article.content }}
+      </div>
 
       {%- if section.settings.show_inline_upsell and section.settings.upsell_product != blank -%}
         {%- assign product = all_products[section.settings.upsell_product] -%}
         <!-- Inline Product Upsell Block -->
-        <div class="my-12 p-8 bg-[#F0F6FA] border border-[#1A1A1A]/5 rounded-2xl flex flex-col md:flex-row gap-8 items-center not-prose hover:shadow-lg transition-shadow">
-          <div class="w-full md:w-1/3 shrink-0">
+        <div class="editorial-inline-upsell">
+          <div class="editorial-inline-upsell__image-wrapper">
             <img
               src="{{ product.featured_image | image_url: width: 400 }}"
-              class="w-full aspect-square object-cover rounded-xl border border-black/5"
+              class="editorial-inline-upsell__image"
               alt="{{ product.title | escape }}"
             >
           </div>
-          <div class="w-full md:w-2/3">
-            <span class="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A]/50 mb-2 block border-b border-[#1A1A1A]/5 pb-2"
+          <div class="editorial-inline-upsell__content">
+            <span class="editorial-inline-upsell__badge editorial-article__uppercase-tracking"
               >⚗️ Clinical Lab Note</span
             >
-            <h4 class="font-serif text-2xl text-[#1A1A1A] mb-2" style="margin-top:0;">{{ product.title }}</h4>
-            <p
-              class="font-sans text-sm font-light text-[#1A1A1A]/80 leading-relaxed mb-6"
-              style="margin-bottom:1.5rem;"
-            >
+            <h4 class="editorial-inline-upsell__title editorial-article__font-serif">{{ product.title }}</h4>
+            <p class="editorial-inline-upsell__desc">
               {{ section.settings.upsell_description | default: product.description | strip_html | truncatewords: 25 }}
             </p>
-            <a
-              href="{{ product.url }}"
-              class="inline-flex items-center justify-center px-6 py-3 bg-white border border-[#E5E5E5] text-xs font-bold uppercase tracking-widest text-[#1A1A1A] rounded hover:bg-[#1A1A1A] hover:text-white transition-colors w-full sm:w-auto"
-              style="text-decoration:none;"
-            >
+            <a href="{{ product.url }}" class="editorial-inline-upsell__btn editorial-article__uppercase-tracking">
               View Formulation
             </a>
           </div>
@@ -201,32 +139,31 @@
     </article>
 
     <!-- Right Sidebar: Read Next / Upsell -->
-    <aside class="hidden xl:block w-72 shrink-0">
-      <div class="sticky top-32">
-        <h4 class="font-serif text-xl text-[#1A1A1A] mb-6 border-b border-[#E5E5E5] pb-4">Read Next</h4>
+    <aside class="editorial-sidebar editorial-sidebar--right">
+      <div class="editorial-sidebar__sticky">
+        <h4 class="editorial-sidebar__heading editorial-article__font-serif">Read Next</h4>
 
         {%- assign current_article_id = article.id -%}
         {%- assign counter = 0 -%}
         {%- for related_article in blog.articles -%}
           {%- if related_article.id != current_article_id and counter < 2 -%}
             <!-- Recirculation Card -->
-            <a href="{{ related_article.url }}" class="block group mb-6">
-              <div class="aspect-[16/9] bg-[#F5F5F5] rounded-lg overflow-hidden mb-3 border border-[#E5E5E5]">
+            <a href="{{ related_article.url }}" class="editorial-read-next">
+              <div class="editorial-read-next__image-wrapper">
                 {%- if related_article.image -%}
                   <img
                     src="{{ related_article.image | image_url: width: 400 }}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    class="editorial-read-next__image"
+                    loading="lazy"
                   >
                 {%- endif -%}
               </div>
               {%- if related_article.tags.size > 0 -%}
-                <span class="text-[9px] font-bold uppercase tracking-widest text-[#D4A340] mb-1 block">
+                <span class="editorial-read-next__tag editorial-article__uppercase-tracking">
                   {{- related_article.tags.first -}}
                 </span>
               {%- endif -%}
-              <h5 class="font-serif text-sm text-[#1A1A1A] group-hover:text-[#D4A340] transition-colors leading-snug">
-                {{ related_article.title }}
-              </h5>
+              <h5 class="editorial-read-next__title editorial-article__font-serif">{{ related_article.title }}</h5>
             </a>
             {%- assign counter = counter | plus: 1 -%}
           {%- endif -%}
@@ -235,15 +172,13 @@
         {%- if section.settings.show_sidebar_upsell and section.settings.sidebar_upsell_product != blank -%}
           {%- assign sidebar_product = all_products[section.settings.sidebar_upsell_product] -%}
           <!-- Protocol CTA -->
-          <div class="bg-[#1A1A1A] rounded-xl p-6 text-center border border-black group mt-8">
-            <span style="font-size: 1.5rem; color: #D4A340; margin-bottom: 0.5rem; display:block;">✨</span>
-            <h4 class="font-serif text-xl text-white mb-2">{{ sidebar_product.title }}</h4>
-            <p class="font-sans text-[10px] text-white/50 uppercase tracking-widest font-bold mb-5 pb-5 border-b border-white/10">
+          <div class="editorial-sidebar-cta">
+            <span class="editorial-sidebar-cta__icon">✨</span>
+            <h4 class="editorial-sidebar-cta__title editorial-article__font-serif">{{ sidebar_product.title }}</h4>
+            <p class="editorial-sidebar-cta__tagline editorial-article__uppercase-tracking">
               {{ section.settings.sidebar_upsell_tagline | default: 'Brighten. Rebuild. Protect.' }}
             </p>
-            <a
-              href="{{ sidebar_product.url }}"
-              class="block w-full bg-white text-[#1A1A1A] text-[10px] font-bold uppercase tracking-widest py-3 rounded hover:bg-[#D4A340] hover:text-white hover:border-[#D4A340] transition-colors border border-transparent text-center"
+            <a href="{{ sidebar_product.url }}" class="editorial-sidebar-cta__btn editorial-article__uppercase-tracking"
               >Shop</a
             >
           </div>
