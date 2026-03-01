@@ -13,7 +13,15 @@
   "sections": {
     "luma_trust_badges_NEW": {
       "type": "luma-trust-badges",
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "border_color": "#f0f0f0",
+        "icon_bg_color": "#fafafa",
+        "icon_color": "#d4a340",
+        "text_color": "#2c2c2c",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
     },
     "luma_footer_GAyFPr": {
       "type": "luma-footer",
@@ -25,7 +33,10 @@
             "logo_width": 155,
             "logo_icon": "sparkle",
             "title": "LUMA LABS",
-            "text": "Biomimetic skincare formulated with advanced clinical actives. Safe for all skin types, designed for real results."
+            "text": "Biomimetic skincare formulated with advanced clinical actives. Safe for all skin types, designed for real results.",
+            "instagram_link": "https://www.instagram.com/lumalabs.skin/",
+            "tiktok_link": "",
+            "facebook_link": "https://www.facebook.com/profile.php?id=61586403814815"
           }
         },
         "link_list_r98cNK": {
@@ -72,18 +83,35 @@
             "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
-          }
+          },
+          "blocks": {}
         },
         "footer_policy_list_VCdnpa": {
           "type": "footer-policy-list",
           "settings": {
             "font_size": "0.75rem",
             "case": "none"
-          }
+          },
+          "blocks": {}
         },
         "social_links_Ew63Kq": {
           "type": "social-links",
-          "settings": {}
+          "settings": {
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": "",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
