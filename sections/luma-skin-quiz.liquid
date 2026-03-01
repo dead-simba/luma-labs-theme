@@ -1063,9 +1063,11 @@
         .then(dataResponse => {
            // We got the AI response back from the Luma Engine middleware
            var data = PRODUCTS[rec];
-           var aiReason = dataResponse.aiReason || data.desc;
+           var ai = dataResponse.ai || {};
+           var aiReason = ai.reason || data.desc;
+           var aiHeadline = ai.headline || data.sub;
 
-           document.getElementById('LsqResultSub').textContent = data.sub;
+           document.getElementById('LsqResultSub').textContent = aiHeadline;
            document.getElementById('LsqResultName').textContent = data.name;
            document.getElementById('LsqResultActives').textContent = data.actives;
 
