@@ -111,8 +111,14 @@
         {{ article.content }}
       </div>
 
-      {%- if section.settings.show_inline_upsell and section.settings.upsell_product != blank -%}
+      {%- assign custom_handle = article.metafields.custom.inline_upsell_product -%}
+      {%- if custom_handle != blank -%}
+        {%- assign product = all_products[custom_handle] -%}
+      {%- else -%}
         {%- assign product = all_products[section.settings.upsell_product] -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_inline_upsell and product != blank -%}
         <!-- Inline Product Upsell Block -->
         <div class="editorial-inline-upsell">
           <div class="editorial-inline-upsell__image-wrapper">
@@ -128,7 +134,17 @@
             >
             <h4 class="editorial-inline-upsell__title editorial-article__font-serif">{{ product.title }}</h4>
             <p class="editorial-inline-upsell__desc">
-              {{ section.settings.upsell_description | default: product.description | strip_html | truncatewords: 25 }}
+              {%- assign custom_desc = article.metafields.custom.inline_upsell_text -%}
+              {%- if custom_desc != blank -%}
+                {{ custom_desc }}
+              {%- else -%}
+                {{
+                  section.settings.upsell_description
+                  | default: product.description
+                  | strip_html
+                  | truncatewords: 25
+                }}
+              {%- endif -%}
             </p>
             <a href="{{ product.url }}" class="editorial-inline-upsell__btn editorial-article__uppercase-tracking">
               View Formulation
