@@ -1,13 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "main": {
-            "type": "luma-skin-quiz",
-            "settings": {
-                "webhook_url": "https://hook.us1.make.com/YOUR_WEBHOOK_ID_HERE"
-            }
-        }
-    },
-    "order": [
-        "main"
-    ]
+  "sections": {
+    "main": {
+      "type": "luma-skin-quiz",
+      "settings": {
+        "webhook_url": "https://curvy-walls-shake.loca.lt/api/webhook/quiz"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
 }
