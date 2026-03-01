@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer",
@@ -8,8 +17,9 @@
         "brand_information_r6VDnj": {
           "type": "brand_information",
           "settings": {
-            "logo": "shopify://shop_images/Main_Logo_-_Horizontal_-_Dark_b2ff06dc-bb2a-4009-8704-29214ea99e15.png",
-            "logo_width": 175,
+            "logo_image": "shopify://shop_images/Main_Logo_-_Horizontal_-_Dark_b2ff06dc-bb2a-4009-8704-29214ea99e15.png",
+            "logo_width": 225,
+            "logo_icon": "sparkle",
             "title": "LUMA LABS",
             "text": "Redefining skincare with science and luxury."
           }
@@ -36,9 +46,15 @@
       ],
       "name": "Luma Custom Footer",
       "settings": {
-        "bg_color": "#1a1a1a",
-        "text_color": "#9ca3af",
-        "heading_color": "#c5a065",
+        "bg_color": "#1b1b1b",
+        "border_color": "#e5e7eb",
+        "text_color": "#d5d6d9",
+        "menu_heading_color": "#c5a065",
+        "accent_color": "#c5a065",
+        "button_bg_color": "#c5a065",
+        "button_text_color": "#ffffff",
+        "desktop_gap": 32,
+        "mobile_gap": 48,
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -49,7 +65,7 @@
         "footer_copyright_jweRK8": {
           "type": "footer-copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -97,14 +113,10 @@
         "padding-block-start": 20,
         "padding-block-end": 48
       }
-    },
-    "luma_trust_badges_NEW": {
-      "type": "luma-trust-badges",
-      "settings": {}
     }
   },
   "order": [
-    "luma_trust_badges_NEW",
-    "luma_footer_GAyFPr"
+    "luma_footer_GAyFPr",
+    "footer_utilities_jLGE8U"
   ]
 }
