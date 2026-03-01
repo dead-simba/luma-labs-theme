@@ -1,56 +1,291 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "product-information",
       "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "bullets": {
-          "type": "luma-product-bullets",
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
           "settings": {
-            "bullet1_bold": "3-Step Protocol",
-            "bullet1_text": "The complete 3-step daily routine.",
-            "bullet2_bold": "Clinical Actives",
-            "bullet2_text": "Dermatologist-validated active percentages.",
-            "bullet3_bold": "Supply",
-            "bullet3_text": "Lasts 45-60 days with consistent daily use."
-          }
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": false,
+            "icons_style": "none",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 63,
+            "thumbnail_radius": 8,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
           "settings": {
-            "show_dynamic_checkout": false
-          }
-        },
-        "guarantee": {
-          "type": "luma-trust-guarantee",
-          "settings": {}
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "price_tVjtKg"
+              ]
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "luma_product_bullets_1": {
+              "type": "luma-product-bullets",
+              "settings": {
+                "margin_top": 24,
+                "margin_bottom": 0,
+                "bullet1_bold": "3-Step Protocol",
+                "bullet1_text": "The complete 3-step daily routine.",
+                "bullet2_bold": "Clinical Actives",
+                "bullet2_text": "Dermatologist-validated active percentages.",
+                "bullet3_bold": "Supply",
+                "bullet3_text": "Lasts 45-60 days with consistent daily use."
+              },
+              "blocks": {}
+            },
+            "luma_trust_guarantee_1": {
+              "type": "luma-trust-guarantee",
+              "settings": {
+                "title": "30-Day Clinical Guarantee",
+                "text": "Don't love the texture or results? We'll refund you 100%. Zero risk.",
+                "margin_top": 16,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "text_aEtTtq",
+            "variant_picker_R3rGDr",
+            "buy_buttons_eYQEYi",
+            "divider_VJhene",
+            "luma_product_bullets_1",
+            "luma_trust_guarantee_1"
+          ]
         }
       },
-      "block_order": [
-        "title",
-        "price",
-        "description",
-        "bullets",
-        "buy_buttons",
-        "guarantee"
-      ],
       "settings": {
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_position": "left",
-        "image_zoom": "none",
-        "mobile_thumbnails": "hide"
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "luma_synergy_1": {
@@ -109,10 +344,6 @@
     },
     "luma_faq_1": {
       "type": "luma-faq-section",
-      "settings": {
-        "title": "Protocol FAQ",
-        "description": "Common Questions"
-      },
       "blocks": {
         "faq1": {
           "type": "faq_item",
@@ -140,7 +371,20 @@
         "faq1",
         "faq2",
         "faq3"
-      ]
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
     }
   },
   "order": [
