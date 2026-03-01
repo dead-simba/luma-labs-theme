@@ -1,0 +1,798 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": false,
+            "icons_style": "none",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 63,
+            "thumbnail_radius": 8,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "price_tVjtKg"
+              ]
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "luma_product_bullets_1": {
+              "type": "luma-product-bullets",
+              "settings": {
+                "margin_top": 24,
+                "margin_bottom": 0,
+                "bullet1_bold": "3-Step Protocol",
+                "bullet1_text": "Cleanse, Treat, and Protect in one complete system.",
+                "bullet2_bold": "Synergistic Ingredients",
+                "bullet2_text": "Ceramides, Alpha Arbutin, and Sunscreen filters work seamlessly together.",
+                "bullet3_bold": "Maximum Efficacy",
+                "bullet3_text": "Achieve your best skin with our carefully curated 3-step routine."
+              },
+              "blocks": {}
+            },
+            "luma_trust_guarantee_1": {
+              "type": "luma-trust-guarantee",
+              "settings": {
+                "title": "30-Day Clinical Guarantee",
+                "text": "Don't love the texture or results? We'll refund you 100%. Zero risk.",
+                "margin_top": 16,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "text_aEtTtq",
+            "variant_picker_R3rGDr",
+            "buy_buttons_eYQEYi",
+            "divider_VJhene",
+            "luma_product_bullets_1",
+            "luma_trust_guarantee_1"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "luma_potency": {
+      "type": "luma-potency-ideal-section",
+      "blocks": {
+        "benefit_kjkbUT": {
+          "type": "benefit",
+          "settings": {
+            "title": "1. Hydrate & Repair:",
+            "text": "Barrier Renew Moisturizer restores the skin defense with Ceramides and Peptides."
+          }
+        },
+        "benefit_VhAbw9": {
+          "type": "benefit",
+          "settings": {
+            "title": "2. Target & Brighten:",
+            "text": "Strawberry Skin Eraser uses Alpha Arbutin and TXA to halt melanin production."
+          }
+        },
+        "benefit_pM6drf": {
+          "type": "benefit",
+          "settings": {
+            "title": "3. Defend & Protect:",
+            "text": "Broad Spectrum SPF 50 shields from UV rays to prevent future damage."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_kjkbUT",
+        "benefit_VhAbw9",
+        "benefit_pM6drf"
+      ],
+      "settings": {
+        "potency_title": "The Complete Routine",
+        "center_image": "shopify://shop_images/Alpha_Arbutin_Section_2.webp",
+        "center_image_quote": "\"The ultimate barrier-safe brightening protocol.\"",
+        "center_image_caption": "Barrier Renew, Skin Eraser, & Sunscreen",
+        "ideal_title": "Ideal For",
+        "skin_type_label": "Skin Type",
+        "skin_type_text": "All Skin Types, Melanin-Rich Skin.",
+        "perfect_for_label": "Texture",
+        "perfect_for_text": "A full AM/PM routine that barrier repairs, fades dark spots, and protects.",
+        "concerns_label": "Targets Concerns",
+        "concerns_list": "Compromised Barrier, Post-Acne Marks, UV Damage, Dullness",
+        "bg_color": "#ffffff",
+        "bg_opacity": 100,
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065"
+      }
+    },
+    "luma_ingredients": {
+      "type": "luma-ingredients-section",
+      "blocks": {
+        "ingredient_KF3hzC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Phase 1: Moisturizer",
+            "description": "5% Ceramide Complex and Peptides rebuild the skin protective lipid layer."
+          }
+        },
+        "ingredient_aHGjYC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Phase 2: Serum",
+            "description": "2% Alpha Arbutin + TXA fade stubborn hyperpigmentation without hydroquinone."
+          }
+        },
+        "ingredient_Vyqmni": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Phase 3: Sunscreen",
+            "description": "Invisible chemical filters provide weightless, white-cast-free UV protection."
+          }
+        },
+        "ingredient_Jpzyr8": {
+          "type": "ingredient",
+          "settings": {
+            "title": "All Ingredients",
+            "description": "Aqua, Niacinamide, Alpha-Arbutin, 3-O-Ethyl Ascorbic Acid, Tranexamic Acid, Propanediol, Glycerin, Sodium Hyaluronate, Glycyrrhiza Glabra (Licorice) Root Extract, Allantoin, Panthenol, Phenoxyethanol, Ethylhexylglycerin, Citric Acid, Sodium Hydroxide."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_KF3hzC",
+        "ingredient_aHGjYC",
+        "ingredient_Vyqmni",
+        "ingredient_Jpzyr8"
+      ],
+      "settings": {
+        "title": "Ingredients",
+        "bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "section_width": "1280px",
+        "heading_alignment": "left",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_hero_banner_CMfQR8": {
+      "type": "luma-hero-banner",
+      "name": "Luma Hero Banner",
+      "settings": {
+        "image_desktop": "shopify://shop_images/Alpha_Arbutin_Lifestyle.webp",
+        "min_height_desktop": 400,
+        "min_height_mobile": 350,
+        "heading": "The Complete<br><span class=\"luma-hero-highlight\">Luma Protocol.</span>",
+        "subheading": "Everything you need for flawless, radiant skin in 3 steps.",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 45,
+        "overlay_blur": 2,
+        "text_color": "#333333",
+        "highlight_color": "#997500"
+      }
+    },
+    "luma_comparison": {
+      "type": "luma-comparison",
+      "blocks": {
+        "comparison_row_r868jG": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Targeting Depth",
+            "our_value": "Deep (Enzyme Level)",
+            "competitor_value": "Surface Only"
+          }
+        },
+        "comparison_row_6xLXPg": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Shelf Stability",
+            "our_value": "Highly Stable (EAA)",
+            "competitor_value": "Oxidizes / Turns Brown"
+          }
+        },
+        "comparison_row_JDp7VY": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Pathways Blocked",
+            "our_value": "5 Distinct Pathways",
+            "competitor_value": "1 Pathway"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_r868jG",
+        "comparison_row_6xLXPg",
+        "comparison_row_JDp7VY"
+      ],
+      "settings": {
+        "title": "Why you're ditching basic Vitamin C.",
+        "subtitle": "Traditional Vitamin C serums oxidize, turn brown, and irritate the skin while only treating surface dullness.nal skin-bleaching methods.",
+        "our_product_name": "Luma 5-Pathway",
+        "competitor_name": "Standard Vit C",
+        "competitor_sub": "",
+        "bg_color": "#ffffff",
+        "table_bg": "#f9f8f6"
+      }
+    },
+    "luma_clinical_stats": {
+      "type": "luma-clinical-stats",
+      "blocks": {
+        "stat_3gMTgq": {
+          "type": "stat",
+          "settings": {
+            "number": "92",
+            "symbol": "%",
+            "label": "Saw faded dark spots",
+            "text": "after 8 weeks of consistent daily use."
+          }
+        },
+        "stat_UPAB3X": {
+          "type": "stat",
+          "settings": {
+            "number": "100",
+            "symbol": "%",
+            "label": "Experienced no irritation",
+            "text": "confirming barrier safety vs hydroquinone"
+          }
+        },
+        "stat_bFcH4a": {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "symbol": "%",
+            "label": "Formula Oxidation",
+            "text": "proving the unmatched stability of EAA"
+          }
+        }
+      },
+      "block_order": [
+        "stat_3gMTgq",
+        "stat_UPAB3X",
+        "stat_bFcH4a"
+      ],
+      "settings": {
+        "title": "The Clinical Reality",
+        "subtitle": "After 28 Days of Daily Use",
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_faq": {
+      "type": "luma-faq-section",
+      "blocks": {
+        "faq_item_iGCR7M": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Alpha Arbutin a skin bleaching agent?",
+            "answer": "No. Alpha Arbutin is not a bleach. It is a smart botanical extract that only targets the overproduction of pigment in dark spots, melasma, and acne marks, leaving your natural overall skin tone completely untouched."
+          }
+        },
+        "faq_item_JFpHKK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until my dark spots and acne marks fade?",
+            "answer": "You\u2019ll notice an overall radiant glow within the first 7 to 10 days. For significant fading of stubborn dark spots and deep post-acne marks, expect the most dramatic results between weeks 4 and 8 of consistent use."
+          }
+        },
+        "faq_item_9VknjL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use this with exfoliating acids (AHA/BHA) or retinol?",
+            "answer": "Yes! Alpha Arbutin is gentle, non-exfoliating, and barrier-safe. It pairs perfectly with strong actives. Simply apply it after your liquid exfoliants or before your nightly retinol to boost your brightening results."
+          }
+        },
+        "faq_item_i7j737": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I use this in the morning or at night?",
+            "answer": "For maximum clinical results, use it both morning and night. It does not make your skin sensitive to the sun. However, since UV rays cause dark spots, you must always seal your morning routine with SPF 50+."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_iGCR7M",
+        "faq_item_JFpHKK",
+        "faq_item_9VknjL",
+        "faq_item_i7j737"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_how_to_use": {
+      "type": "luma-how-to-use",
+      "blocks": {
+        "step_CPHBGt": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_1.webp",
+            "step_label": "Step 01",
+            "title": "Apply to Damp Skin",
+            "text": "Dispense 3-4 Drops after cleansing"
+          }
+        },
+        "step_HH7p8P": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_2.webp",
+            "step_label": "Step 02",
+            "title": "Pat Gently",
+            "text": "Allow water-light fluid to absorb instantly."
+          }
+        },
+        "step_XTDwcy": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_3.webp",
+            "step_label": "Step 03",
+            "title": "Seal with SPF",
+            "text": "UV triggers pigment. SPF is non-negotiable."
+          }
+        }
+      },
+      "block_order": [
+        "step_CPHBGt",
+        "step_HH7p8P",
+        "step_XTDwcy"
+      ],
+      "settings": {
+        "title": "How To Use",
+        "bg_color": "#f9f8f6",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_reviews": {
+      "type": "luma-testimonials",
+      "blocks": {
+        "review_kd3GyW": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"My melasma is finally fading.\"",
+            "quote": "I've tried everything for my post-pregnancy melasma. Hydroquinone was too harsh, and Vitamin C didn't do enough. This serum is the sweet spot. After 4 weeks, the dark patches on my cheeks have visibly lightened.",
+            "author": "Sarah M.",
+            "verified": true
+          }
+        },
+        "review_y3Mpkb": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Finally, a Vitamin C that doesn't smell.\"",
+            "quote": "\"Every other Vit C serum I've tried smells like hot dog water and turns orange. This is crystal clear, smells like nothing, and gives me an insane glow.\"",
+            "author": "Sarah M.",
+            "verified": true
+          }
+        },
+        "review_RyVKc9": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Safe for my sensitive skin.\"",
+            "quote": "\"I wanted to treat my melasma but hydroquinone gave me a rash. Alpha Arbutin is the holy grail. It's so gentle but actually works.\"",
+            "author": "Fatima S.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_kd3GyW",
+        "review_y3Mpkb",
+        "review_RyVKc9"
+      ],
+      "settings": {
+        "eyebrow": "Community Love",
+        "title": "Real Results. Real Skin.",
+        "rating_text": "Based on 120+ Reviews",
+        "section_width": "1280px",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "luma_potency",
+    "luma_ingredients",
+    "luma_hero_banner_CMfQR8",
+    "luma_comparison",
+    "luma_clinical_stats",
+    "luma_faq",
+    "luma_how_to_use",
+    "luma_reviews",
+    "product_recommendations_qggXJq"
+  ]
+}

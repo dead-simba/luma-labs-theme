@@ -183,18 +183,9 @@
                       </p>
                     {% endif %}
 
-                    {%- if item.item_components.size != 0 -%}
-                      <ul class="cart-items__bundle list-unstyled">
-                        {%- for component in item.item_components -%}
-                          <li>
-                            {{- component.title -}}
-                            {%- if component.quantity > 1 -%}
-                              <span> × {{ component.quantity }}</span>
-                            {%- endif -%}
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
+                    {%- comment -%}
+                      Bundle components list removed to show bundle as single line item only
+                    {%- endcomment -%}
                   </div>
 
                   <div class="cart-items__variants-wrapper">
@@ -558,7 +549,6 @@
     display: block;
   }
 
-
   .cart-items__variant {
     display: inline;
   }
@@ -621,7 +611,6 @@
     font-size: var(--font-size--sm);
     line-height: var(--line-height);
   }
-
 
   .cart-items__price-unit {
     font-size: var(--font-size--xs);
