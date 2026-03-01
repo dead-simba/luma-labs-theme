@@ -192,19 +192,24 @@
                 <p class="luma-footer__brand-text">{{ block.settings.text }}</p>
               {%- endif -%}
               <div class="luma-footer__socials">
-                {%- if settings.social_instagram_link != blank -%}
-                  <a href="{{ settings.social_instagram_link }}" class="luma-footer__social-link" aria-label="Instagram"
-                    ><i class="ph ph-instagram-logo"></i
+                {%- assign insta = block.settings.instagram_link | default: settings.social_instagram_link -%}
+                {%- if insta != blank -%}
+                  <a href="{{ insta }}" class="luma-footer__social-link" aria-label="Instagram"
+                    ><i class="ph-fill ph-instagram-logo"></i
                   ></a>
                 {%- endif -%}
-                {%- if settings.social_tiktok_link != blank -%}
-                  <a href="{{ settings.social_tiktok_link }}" class="luma-footer__social-link" aria-label="TikTok"
-                    ><i class="ph ph-tiktok-logo"></i
+
+                {%- assign tiktok = block.settings.tiktok_link | default: settings.social_tiktok_link -%}
+                {%- if tiktok != blank -%}
+                  <a href="{{ tiktok }}" class="luma-footer__social-link" aria-label="TikTok"
+                    ><i class="ph-fill ph-tiktok-logo"></i
                   ></a>
                 {%- endif -%}
-                {%- if settings.social_facebook_link != blank -%}
-                  <a href="{{ settings.social_facebook_link }}" class="luma-footer__social-link" aria-label="Facebook"
-                    ><i class="ph ph-facebook-logo"></i
+
+                {%- assign fb = block.settings.facebook_link | default: settings.social_facebook_link -%}
+                {%- if fb != blank -%}
+                  <a href="{{ fb }}" class="luma-footer__social-link" aria-label="Facebook"
+                    ><i class="ph-fill ph-facebook-logo"></i
                   ></a>
                 {%- endif -%}
               </div>
@@ -391,6 +396,25 @@
           "id": "text",
           "label": "Description",
           "default": "Biomimetic skincare formulated with advanced clinical actives. Safe for all skin types, designed for real results."
+        },
+        {
+          "type": "header",
+          "content": "Social Media Links"
+        },
+        {
+          "type": "url",
+          "id": "instagram_link",
+          "label": "Instagram URL"
+        },
+        {
+          "type": "url",
+          "id": "tiktok_link",
+          "label": "TikTok URL"
+        },
+        {
+          "type": "url",
+          "id": "facebook_link",
+          "label": "Facebook URL"
         }
       ]
     },
