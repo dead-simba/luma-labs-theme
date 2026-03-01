@@ -25,7 +25,7 @@
             "logo_width": 155,
             "logo_icon": "sparkle",
             "title": "LUMA LABS",
-            "text": "Redefining skincare with science and luxury."
+            "text": "Biomimetic skincare formulated with advanced clinical actives. Safe for all skin types, designed for real results."
           }
         },
         "link_list_r98cNK": {
@@ -38,8 +38,8 @@
         "newsletter_jYPNKm": {
           "type": "newsletter",
           "settings": {
-            "heading": "Newsletter",
-            "text": "Subscribe for priority access to new launches."
+            "heading": "Join the Lab",
+            "text": "Subscribe for skincare education, exclusive drops, and 10% off your first order."
           }
         }
       },
@@ -62,10 +62,49 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "footer_utilities_jLGE8U": {
+      "type": "footer-utilities",
+      "blocks": {
+        "footer_copyright_jweRK8": {
+          "type": "footer-copyright",
+          "settings": {
+            "show_powered_by": false,
+            "font_size": "0.75rem",
+            "case": "none"
+          }
+        },
+        "footer_policy_list_VCdnpa": {
+          "type": "footer-policy-list",
+          "settings": {
+            "font_size": "0.75rem",
+            "case": "none"
+          }
+        },
+        "social_links_Ew63Kq": {
+          "type": "social-links",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "footer_copyright_jweRK8",
+        "footer_policy_list_VCdnpa",
+        "social_links_Ew63Kq"
+      ],
+      "name": "Utilities",
+      "settings": {
+        "section_width": "page-width",
+        "gap": 24,
+        "divider_thickness": 1,
+        "color_scheme": "scheme-5",
+        "padding-block-start": 20,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
     "luma_trust_badges_NEW",
-    "luma_footer_GAyFPr"
+    "luma_footer_GAyFPr",
+    "footer_utilities_jLGE8U"
   ]
 }
