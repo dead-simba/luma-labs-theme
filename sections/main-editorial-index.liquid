@@ -1,0 +1,281 @@
+{%- paginate blog.articles by section.settings.number_of_blog_posts -%}
+  <div class="editorial-index bg-[#FAFAFA] text-[#1A1A1A] font-sans antialiased pb-24">
+    <!-- Editorial Header / Manifesto -->
+    <section class="bg-[#1A1A1A] text-white pt-24 pb-32 relative overflow-hidden">
+      <div
+        class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#D4A340] via-transparent to-transparent"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <span class="text-[#D4A340] text-[10px] font-bold uppercase tracking-widest mb-6 block">
+            {{- section.settings.manifesto_kicker -}}
+          </span>
+          <h1 class="font-serif text-5xl md:text-6xl mb-6 leading-tight">{{ section.settings.manifesto_headline }}</h1>
+          <p class="font-sans text-white/70 text-lg font-light leading-relaxed mb-8 max-w-2xl">
+            {{ section.settings.manifesto_text }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+      {%- if section.settings.show_featured_article and blog.articles.size > 0 -%}
+        {%- assign featured_article = blog.articles.first -%}
+        <!-- Featured Hero Article -->
+        <article
+          class="bg-white rounded-2xl shadow-xl shadow-black/5 overflow-hidden border border-[#E5E5E5] group flex flex-col md:flex-row mb-16 cursor-pointer transform transition duration-300 hover:-translate-y-1"
+          onclick="window.location.href='{{ featured_article.url }}'"
+        >
+          <div class="w-full md:w-3/5 shrink-0 overflow-hidden relative">
+            {%- if featured_article.image -%}
+              <img
+                src="{{ featured_article.image | image_url: width: 1600 }}"
+                alt="{{ featured_article.image.alt | escape }}"
+                class="w-full h-full object-cover transition duration-700 min-h-[300px] md:min-h-full group-hover:scale-105"
+                loading="lazy"
+              >
+            {%- endif -%}
+            <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-3 py-1.5 rounded border border-black/5">
+              <span class="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A]">Latest Directive</span>
+            </div>
+          </div>
+
+          <div class="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center bg-white">
+            <div class="flex items-center gap-3 mb-6">
+              {%- if featured_article.tags.size > 0 -%}
+                <span class="text-[#D4A340] text-[10px] font-bold uppercase tracking-widest">
+                  {{- featured_article.tags.first -}}
+                </span>
+                <span class="w-1 h-1 rounded-full bg-[#E5E5E5]"></span>
+              {%- endif -%}
+              <span class="text-[#1A1A1A]/40 text-[10px] uppercase tracking-widest font-bold">
+                {{- featured_article.content | strip_html | split: ' ' | size | divided_by: 200 | at_least: 1 }} Min
+                Read</span
+              >
+            </div>
+
+            <h2 class="font-serif text-3xl text-[#1A1A1A] leading-snug mb-4 group-hover:text-[#D4A340] transition-colors">
+              {{ featured_article.title }}
+            </h2>
+
+            <p
+              class="font-sans text-[#1A1A1A]/70 text-sm font-light leading-relaxed mb-8 line-clamp-3"
+              style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"
+            >
+              {%- if featured_article.excerpt.size > 0 -%}
+                {{ featured_article.excerpt | strip_html | truncatewords: 30 }}
+              {%- else -%}
+                {{ featured_article.content | strip_html | truncatewords: 30 }}
+              {%- endif -%}
+            </p>
+
+            <div class="mt-auto flex items-center justify-between border-t border-[#E5E5E5] pt-6">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center font-serif text-xs italic text-[#1A1A1A]/50">
+                  {{ featured_article.author | slice: 0, 1 | upcase }}
+                </div>
+                <span class="text-xs font-medium text-[#1A1A1A]">{{ featured_article.author }}</span>
+              </div>
+              <span class="text-xs uppercase tracking-widest font-bold text-[#1A1A1A] flex items-center gap-1 group-hover:gap-2 transition-all">
+                Read →
+              </span>
+            </div>
+          </div>
+        </article>
+      {%- endif -%}
+
+      <!-- Category Filters -->
+      {%- if blog.all_tags.size > 0 -%}
+        <div
+          class="flex items-center gap-4 overflow-x-auto pb-4 mb-8 border-b border-[#E5E5E5]"
+          style="scrollbar-width: none;"
+        >
+          <a
+            href="{{ blog.url }}"
+            class="whitespace-nowrap px-4 py-2 rounded-full {% if current_tags == blank %}bg-[#1A1A1A] text-white{% else %}bg-white border border-[#E5E5E5] text-[#1A1A1A] hover:border-[#1A1A1A]{% endif %} text-[10px] font-bold uppercase tracking-widest transition-colors"
+            >All Articles</a
+          >
+          {%- for tag in blog.all_tags -%}
+            <a
+              href="{{ blog.url }}/tagged/{{ tag | handle }}"
+              class="whitespace-nowrap px-4 py-2 rounded-full {% if current_tags contains tag %}bg-[#1A1A1A] text-white{% else %}bg-white border border-[#E5E5E5] text-[#1A1A1A] hover:border-[#1A1A1A]{% endif %} text-[10px] font-bold uppercase tracking-widest transition-colors"
+            >
+              {{- tag -}}
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <!-- Article Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {%- for article in blog.articles -%}
+          {%- if section.settings.show_featured_article and forloop.first == true and current_page == 1 -%}
+            {%- continue -%}
+          {%- endif -%}
+
+          <!-- Standard Article Card -->
+          <article
+            class="group cursor-pointer flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-[#E5E5E5]"
+            onclick="window.location.href='{{ article.url }}'"
+          >
+            <div class="aspect-[4/3] w-full overflow-hidden relative bg-[#F5F5F5]">
+              {%- if article.image -%}
+                <img
+                  src="{{ article.image | image_url: width: 800 }}"
+                  alt="{{ article.image.alt | escape }}"
+                  class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                >
+              {%- endif -%}
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center gap-3 mb-3">
+                {%- if article.tags.size > 0 -%}
+                  <span class="text-[#D4A340] text-[9px] font-bold uppercase tracking-widest">
+                    {{- article.tags.first -}}
+                  </span>
+                  <span class="w-1 h-1 rounded-full bg-[#E5E5E5]"></span>
+                {%- endif -%}
+                <span class="text-[#1A1A1A]/40 text-[9px] uppercase tracking-widest font-bold">
+                  {{- article.content | strip_html | split: ' ' | size | divided_by: 200 | at_least: 1 }} Min Read</span
+                >
+              </div>
+
+              <h3 class="font-serif text-xl text-[#1A1A1A] leading-snug mb-3 group-hover:text-[#D4A340] transition-colors">
+                {{ article.title }}
+              </h3>
+
+              <p
+                class="font-sans text-[#1A1A1A]/70 text-sm font-light leading-relaxed mb-6"
+                style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"
+              >
+                {%- if article.excerpt.size > 0 -%}
+                  {{ article.excerpt | strip_html | truncatewords: 25 }}
+                {%- else -%}
+                  {{ article.content | strip_html | truncatewords: 25 }}
+                {%- endif -%}
+              </p>
+
+              <div class="mt-auto border-t border-[#E5E5E5] pt-4">
+                <span class="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/50 group-hover:text-[#1A1A1A] transition-colors">
+                  {{- article.author -}}
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {%- if forloop.index == 3 and section.settings.show_newsletter -%}
+            <!-- Newsletter Injection -->
+            <div class="bg-[#F0F6FA] border border-[#1A1A1A]/10 rounded-xl p-8 flex flex-col justify-center text-center h-full">
+              <div class="flex justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#D4A340" viewBox="0 0 256 256">
+                  <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a16,16,0,0,0,21.82,0L216,74.19V192Z"></path>
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl text-[#1A1A1A] mb-2">{{ section.settings.newsletter_headline }}</h3>
+              <p class="font-sans text-xs font-light text-[#1A1A1A]/70 mb-6 px-4">
+                {{ section.settings.newsletter_text }}
+              </p>
+              {% form 'customer', class: 'flex flex-col gap-3 w-full' %}
+                <input type="hidden" name="contact[tags]" value="newsletter, blog_subscriber">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  placeholder="Email address"
+                  class="w-full bg-white border border-[#E5E5E5] rounded px-4 py-3 text-sm focus:outline-none focus:border-[#D4A340] transition-colors"
+                  required
+                >
+                <button
+                  type="submit"
+                  class="w-full bg-[#1A1A1A] text-white text-[10px] font-bold uppercase tracking-widest py-3 rounded hover:bg-black transition-colors"
+                >
+                  Subscribe
+                </button>
+              {% endform %}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <!-- Pagination -->
+      {%- if paginate.pages > 1 -%}
+        <div class="mt-16 border-t border-[#E5E5E5] pt-10">
+          {%- render 'pagination', paginate: paginate -%}
+        </div>
+      {%- endif -%}
+    </main>
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Editorial Index",
+  "settings": [
+    {
+      "type": "range",
+      "id": "number_of_blog_posts",
+      "step": 1,
+      "min": 1,
+      "max": 24,
+      "label": "Posts per page",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Manifesto Hero"
+    },
+    {
+      "type": "text",
+      "id": "manifesto_kicker",
+      "label": "Kicker",
+      "default": "The Luma Directives"
+    },
+    {
+      "type": "html",
+      "id": "manifesto_headline",
+      "label": "Headline",
+      "default": "Clinical Truths for <br><i class=\"text-white/60\">South Asian</i> Skin."
+    },
+    {
+      "type": "textarea",
+      "id": "manifesto_text",
+      "label": "Description",
+      "default": "The skincare industry wasn't built for our climate, our biology, or our UV index. We are dismantling the myths and explaining exactly what happens at the cellular level. Unfiltered, biological facts."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_article",
+      "label": "Highlight featured (first) article on page 1",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Newsletter Injection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter block",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_headline",
+      "label": "Headline",
+      "default": "The Formulation Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Body text",
+      "default": "Join 14,000+ others receiving our clinical deep-dives and early access to new protocols."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Index"
+    }
+  ]
+}
+{% endschema %}
