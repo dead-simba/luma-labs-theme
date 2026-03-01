@@ -14,15 +14,15 @@
   .luma-footer__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: {{ section.settings.mobile_gap }}px; /* Adjustable Mobile Gap */
     margin-bottom: 48px;
   }
   @media (min-width: 768px) {
     .luma-footer__grid {
       grid-template-columns: repeat(12, 1fr);
-      gap: 32px;
+      gap: {{ section.settings.desktop_gap }}px; /* Adjustable Desktop Gap */
     }
-    .luma-footer__col-brand { grid-column: span 4; }
+    .luma-footer__col-brand { grid-column: span 5; padding-right: 32px; }
     .luma-footer__col-links-1 { grid-column: 6 / span 2; }
     .luma-footer__col-links-2 { grid-column: span 2; }
     .luma-footer__col-newsletter { grid-column: span 3; }
@@ -30,21 +30,18 @@
 
   /* Brand Column */
   .luma-footer__brand-title {
-    font-family: "Playfair Display", serif;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: -0.02em;
     color: {{ section.settings.text_color }};
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
   }
   .luma-footer__brand-title span {
-    font-family: "Inter", sans-serif;
     font-weight: 300;
-    font-size: 18px;
   }
   .luma-footer__brand-text {
     font-size: 14px;
@@ -52,35 +49,40 @@
     opacity: 0.8;
     line-height: 1.6;
     margin-bottom: 24px;
-    max-width: 300px;
+    max-width: 320px;
   }
   .luma-footer__socials {
     display: flex;
     gap: 16px;
   }
   .luma-footer__social-link {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background-color: {{ section.settings.button_bg_color }};
-    color: {{ section.settings.button_text_color }};
+    background-color: transparent;
+    color: {{ section.settings.text_color }};
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    border: 1px solid {{ section.settings.border_color }};
+    opacity: 0.8;
   }
   .luma-footer__social-link:hover {
     background-color: {{ section.settings.accent_color }};
+    color: #FFFFFF;
+    border-color: {{ section.settings.accent_color }};
+    opacity: 1;
   }
 
   /* Link Columns */
   .luma-footer__heading {
-    font-family: "Playfair Display", serif;
+    font-family: inherit;
     font-weight: 600;
     font-size: 16px;
-    color: {{ section.settings.text_color }};
-    margin: 0 0 16px 0;
+    color: {{ section.settings.menu_heading_color }}; /* Adjustable Heading Color */
+    margin: 0 0 20px 0;
   }
   .luma-footer__list {
     list-style: none;
@@ -93,9 +95,9 @@
   .luma-footer__link {
     font-size: 14px;
     color: {{ section.settings.text_color }};
-    opacity: 0.8;
+    opacity: 0.7;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
   }
   .luma-footer__link:hover {
     color: {{ section.settings.accent_color }};
@@ -107,18 +109,19 @@
     font-size: 14px;
     color: {{ section.settings.text_color }};
     opacity: 0.8;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
   }
   .luma-footer__form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
   .luma-footer__input {
     width: 100%;
     background-color: #FFFFFF;
     border: 1px solid {{ section.settings.border_color }};
-    padding: 10px 16px;
+    padding: 12px 16px;
     border-radius: 4px;
     font-size: 14px;
     color: #2C2C2C;
@@ -134,10 +137,12 @@
     background-color: {{ section.settings.button_bg_color }};
     color: {{ section.settings.button_text_color }};
     font-family: inherit;
-    font-weight: 500;
-    padding: 10px 16px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 12px 16px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
+    text-transform: uppercase;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -187,13 +192,25 @@
           {%- when 'brand_information' -%}
             <div class="luma-footer__col-brand" {{ block.shopify_attributes }}>
               <a href="{{ routes.root_url }}" class="luma-footer__brand-title">
-                {%- if block.settings.logo_icon != blank -%}
-                  <i
-                    class="ph-fill ph-{{ block.settings.logo_icon }} text-[24px]"
-                    style="color: {{ section.settings.accent_color }}"
-                  ></i>
+                {%- if block.settings.logo_image != blank -%}
+                  {{
+                    block.settings.logo_image
+                    | image_url: width: 400
+                    | image_tag:
+                      width: block.settings.logo_width,
+                      style: 'max-width: 100%; height: auto;',
+                      alt: block.settings.logo_image.alt
+                    | default: shop.name
+                  }}
+                {%- else -%}
+                  {%- if block.settings.logo_icon != blank -%}
+                    <i
+                      class="ph-fill ph-{{ block.settings.logo_icon }} text-[28px]"
+                      style="color: {{ section.settings.accent_color }}"
+                    ></i>
+                  {%- endif -%}
+                  {{ block.settings.title }}
                 {%- endif -%}
-                {{ block.settings.title }}
               </a>
               {%- if block.settings.text != blank -%}
                 <p class="luma-footer__brand-text">{{ block.settings.text }}</p>
@@ -201,17 +218,17 @@
               <div class="luma-footer__socials">
                 {%- if settings.social_instagram_link != blank -%}
                   <a href="{{ settings.social_instagram_link }}" class="luma-footer__social-link" aria-label="Instagram"
-                    ><i class="ph-fill ph-instagram-logo"></i
+                    ><i class="ph ph-instagram-logo"></i
                   ></a>
                 {%- endif -%}
                 {%- if settings.social_tiktok_link != blank -%}
                   <a href="{{ settings.social_tiktok_link }}" class="luma-footer__social-link" aria-label="TikTok"
-                    ><i class="ph-fill ph-tiktok-logo"></i
+                    ><i class="ph ph-tiktok-logo"></i
                   ></a>
                 {%- endif -%}
                 {%- if settings.social_facebook_link != blank -%}
                   <a href="{{ settings.social_facebook_link }}" class="luma-footer__social-link" aria-label="Facebook"
-                    ><i class="ph-fill ph-facebook-logo"></i
+                    ><i class="ph ph-facebook-logo"></i
                   ></a>
                 {%- endif -%}
               </div>
@@ -293,25 +310,32 @@
       "type": "color",
       "id": "border_color",
       "label": "Border Color",
-      "default": "#F0F0F0"
+      "default": "#E5E7EB"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "Text Color",
-      "default": "#2C2C2C"
+      "default": "#111827"
+    },
+    {
+      "type": "color",
+      "id": "menu_heading_color",
+      "label": "Menu Heading Color",
+      "default": "#111827",
+      "info": "Color for 'Shop', 'Support', 'Newsletter' columns"
     },
     {
       "type": "color",
       "id": "accent_color",
       "label": "Accent / Gold Color",
-      "default": "#D4A340"
+      "default": "#C5A065"
     },
     {
       "type": "color",
       "id": "button_bg_color",
       "label": "Button Background",
-      "default": "#2C2C2C"
+      "default": "#111827"
     },
     {
       "type": "color",
@@ -321,9 +345,29 @@
     },
     {
       "type": "range",
+      "id": "desktop_gap",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Column Gap",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Column Gap",
+      "default": 48
+    },
+    {
+      "type": "range",
       "id": "padding_top",
       "min": 20,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
@@ -333,7 +377,7 @@
       "type": "range",
       "id": "padding_bottom",
       "min": 20,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
@@ -347,9 +391,29 @@
       "limit": 1,
       "settings": [
         {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image",
+          "info": "If an image is uploaded, it overrides the text logo below."
+        },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "min": 50,
+          "max": 300,
+          "step": 5,
+          "unit": "px",
+          "label": "Custom Logo Width",
+          "default": 140
+        },
+        {
+          "type": "header",
+          "content": "Text Logo Fallback"
+        },
+        {
           "type": "text",
           "id": "logo_icon",
-          "label": "Phosphor Icon Name (Logo)",
+          "label": "Phosphor Icon Name",
           "default": "sparkle"
         },
         {
