@@ -321,6 +321,10 @@
     margin-bottom: 2rem;
 }
 
+.editorial-prose>*:first-child {
+    margin-top: 0;
+}
+
 .editorial-prose h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.25rem;

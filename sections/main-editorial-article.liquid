@@ -111,7 +111,9 @@
         {{ article.content }}
       </div>
 
-      {%- assign custom_handle = article.metafields.custom.inline_upsell_product -%}
+      {%- assign custom_handle = article.metafields.custom.inline_upsell_product.value
+        | default: article.metafields.custom.inline_upsell_product
+      -%}
       {%- if custom_handle != blank -%}
         {%- assign product = all_products[custom_handle] -%}
       {%- else -%}
@@ -134,7 +136,9 @@
             >
             <h4 class="editorial-inline-upsell__title editorial-article__font-serif">{{ product.title }}</h4>
             <p class="editorial-inline-upsell__desc">
-              {%- assign custom_desc = article.metafields.custom.inline_upsell_text -%}
+              {%- assign custom_desc = article.metafields.custom.inline_upsell_text.value
+                | default: article.metafields.custom.inline_upsell_text
+              -%}
               {%- if custom_desc != blank -%}
                 {{ custom_desc }}
               {%- else -%}
