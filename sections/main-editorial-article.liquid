@@ -113,12 +113,17 @@
 
       {%- assign custom_handle = article.metafields.custom.inline_upsell_product.value
         | default: article.metafields.custom.inline_upsell_product
+        | strip
       -%}
       {%- if custom_handle != blank -%}
         {%- assign product = all_products[custom_handle] -%}
       {%- else -%}
         {%- assign product = all_products[section.settings.upsell_product] -%}
       {%- endif -%}
+
+      <!--
+        DEBUG UPSELL: raw handle = '{{ article.metafields.custom.inline_upsell_product }}', custom_handle = '{{ custom_handle }}', product = '{{ product.handle }}', show_inline = {{ section.settings.show_inline_upsell }}
+      -->
 
       {%- if section.settings.show_inline_upsell and product != blank -%}
         <!-- Inline Product Upsell Block -->
