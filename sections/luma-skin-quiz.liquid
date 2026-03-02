@@ -83,8 +83,7 @@
         "img":         {{ barrier_img | json }},
         "variantId":   {{ barrier_vid }},
         "code":        "DATA10",
-        "discountTag": "10% Code Applied!",
-        "handle":      "barrier-renew",
+        "handle":      "barrier-renew-moisturizer",
         "bg":          "#E0EDF8",
         "actives":     "Triple Ceramides + Matrixyl 3000",
         "sub":         "Your stratum corneum requires immediate structural reconstruction.",
@@ -97,8 +96,7 @@
         "img":         {{ arbutin_img | json }},
         "variantId":   {{ arbutin_vid }},
         "code":        "DATA10",
-        "discountTag": "10% Code Applied!",
-        "handle":      "alpha-arbutin",
+        "handle":      "2-percent-alpha-arbutin-vitamin-c",
         "bg":          "#FDF0C8",
         "actives":     "5-Pathway Pigment Interruption",
         "sub":         "Gentle but effective approach to fade hyperpigmentation.",
@@ -111,8 +109,7 @@
         "img":         {{ sunscreen_img | json }},
         "variantId":   {{ sunscreen_vid }},
         "code":        "DATA10",
-        "discountTag": "10% Code Applied!",
-        "handle":      "matte-uv-defense",
+        "handle":      "matte-uv-defence-spf-50",
         "bg":          "#FEF7E6",
         "actives":     "Next-Gen Organic Filters + Niacinamide 5%",
         "sub":         "Your primary goal requires uncompromising daily photoprotection.",
@@ -125,8 +122,7 @@
         "img":         {{ bundle_img | json }},
         "variantId":   {{ bundle_vid }},
         "code":        "DATA15",
-        "discountTag": "15% Bundle Code!",
-        "handle":      "bundle",
+        "handle":      "complete-luma-protocol",
         "bg":          "#F5F5F5",
         "actives":     "Barrier + Brightening + UV Defence",
         "sub":         "A comprehensive 360 degrees protocol optimized for your skin goals.",
@@ -363,6 +359,9 @@
       </div>
       <div class="lsq__result" id="LsqResult">
         <div class="lsq__result-header">
+          <div class="lsq__discount-banner" id="LsqDiscountBanner">
+            <span>EXCLUSIVE GIFT:</span> <strong id="LsqDiscountCode"></strong>
+          </div>
           <span class="lsq__match-badge">98% Match</span>
           <h2 class="lsq__result-title">Your Custom Protocol</h2>
           <p id="LsqResultSub"></p>
@@ -379,9 +378,8 @@
             <div class="lsq__cta-area">
               <div class="lsq__price-row">
                 <span id="LsqResultPrice"></span>
-                <span class="lsq__discount" id="LsqResultDiscountTag"></span>
               </div>
-              <a href="#" id="LsqResultCta" class="lsq__cta-btn">Add to Routine →</a>
+              <a href="#" id="LsqResultCta" class="lsq__cta-btn">View Detailed Formulation & Add →</a>
             </div>
           </div>
         </div>
@@ -947,6 +945,25 @@
   .lsq__cta-btn:hover {
     background: #d4a340;
   }
+
+  /* Discount Banner */
+  .lsq__discount-banner {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  }
+  .lsq__discount-banner strong {
+    color: #d4a340;
+    font-size: 16px;
+  }
 {% endstylesheet %}
 
 {% javascript %}
@@ -1008,24 +1025,45 @@
     }
 
     function fillResult(data, headline, reason) {
-      // Build direct-to-cart URL with discount pre-applied
-      var ctaUrl;
-      if (data.variantId && data.variantId !== 0) {
-        ctaUrl = '/cart/' + data.variantId + ':1?discount=' + data.code;
-      } else {
-        ctaUrl = '/collections/all';
-      }
-
       qs('#LsqResultSub').textContent = headline;
       qs('#LsqResultName').textContent = data.name;
       qs('#LsqResultActives').textContent = data.actives;
       qs('#LsqResultDesc').textContent = reason;
       qs('#LsqResultPrice').textContent = data.price;
-      qs('#LsqResultDiscountTag').textContent = data.discountTag;
+      qs('#LsqDiscountCode').textContent = data.code;
       qs('#LsqResultImg').src = data.img;
       qs('#LsqResultImg').alt = data.name;
-      qs('#LsqResultCta').href = ctaUrl;
       qs('#LsqImgWrap').style.background = data.bg;
+
+      // Update CTA with redirect behavior
+      var cta = qs('#LsqResultCta');
+      cta.addEventListener('click', function (e) {
+        e.preventDefault();
+        cta.textContent = 'Adding to cart...';
+        cta.style.pointerEvents = 'none';
+
+        var formData = {
+          items: [
+            {
+              id: data.variantId,
+              quantity: 1,
+            },
+          ],
+        };
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        })
+          .then(function () {
+            window.location.href = '/products/' + data.handle;
+          })
+          .catch(function () {
+            window.location.href = '/products/' + data.handle;
+          });
+      });
+
       qs('#LsqLoading').style.display = 'none';
       qs('#LsqResult').style.display = 'block';
     }
@@ -1077,30 +1115,50 @@
         var data = PRODUCTS[rec];
 
         var labelMap = {
-          q1: { repair: 'Repair & Soothe', fade: 'Fade Dark Spots', prevent: 'Prevent Aging' },
-          q2: { tight: 'Tight/Dry', oily: 'Oily/Shiny', combo: 'Combination' },
-          q3: { stings: 'Sensitive/Stings', handles: 'Tolerant/Handles Actives' },
-          q4: { low: 'Low Exposure', high: 'High Exposure' },
-          q5: { minimal: 'Minimalist', maximal: 'Maximalist' },
+          q1: {
+            question: 'Primary Skin Goal',
+            repair: 'Repair & Soothe compromised barrier',
+            fade: 'Fade stubborn dark spots & hyperpigmentation',
+            prevent: 'Prevent aging & protect internal structure',
+          },
+          q2: {
+            question: 'Mid-day Skin Texture',
+            tight: 'Tight/Dry/Rough',
+            oily: 'Oily/Shiny/Greasy',
+            combo: 'Combination (Oily T-zone, dry cheeks)',
+          },
+          q3: {
+            question: 'Sensitivity & Actives',
+            stings: 'Highly Sensitive (Regularly stings/turns red)',
+            handles: 'Tolerant (Handles new clinical ingredients perfectly fine)',
+          },
+          q4: {
+            question: 'Daily UV Exposure',
+            low: 'Low Exposure (Mostly indoors/screens)',
+            high: 'High Exposure (Commuting/Outdoors)',
+          },
+          q5: {
+            question: 'Protocol Preference',
+            minimal: 'Minimalist (1 master formula)',
+            maximal: 'Maximalist (Complete 3-step synergy routine)',
+          },
         };
 
         var payload = {
           first_name: name,
           email: email,
           recommendation: rec,
+          recommended_product_name: data.name,
           ghl_tag: data.ghlTrack,
           shopify_tags: 'skin-quiz, ' + data.handle,
           discount_code: data.code,
-          q1: answers.q1,
-          q1_label: labelMap.q1[answers.q1] || answers.q1,
-          q2: answers.q2,
-          q2_label: labelMap.q2[answers.q2] || answers.q2,
-          q3: answers.q3,
-          q3_label: labelMap.q3[answers.q3] || answers.q3,
-          q4: answers.q4,
-          q4_label: labelMap.q4[answers.q4] || answers.q4,
-          q5: answers.q5,
-          q5_label: labelMap.q5[answers.q5] || answers.q5,
+          quiz_results: [
+            { question: labelMap.q1.question, answer: labelMap.q1[answers.q1] },
+            { question: labelMap.q2.question, answer: labelMap.q2[answers.q2] },
+            { question: labelMap.q3.question, answer: labelMap.q3[answers.q3] },
+            { question: labelMap.q4.question, answer: labelMap.q4[answers.q4] },
+            { question: labelMap.q5.question, answer: labelMap.q5[answers.q5] },
+          ],
         };
 
         // Show loading
