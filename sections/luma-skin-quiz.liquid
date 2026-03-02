@@ -4,9 +4,6 @@
   Sends JSON payload to Make.com webhook URL (configurable in theme editor)
 {% endcomment %}
 
-{%- assign webhook_url = section.settings.webhook_url -%}
-{%- assign store_domain = shop.domain -%}
-
 <style>
   .lsq-body {
     min-height: 100vh;
@@ -192,6 +189,7 @@
   .lsq-option {
     display: block;
     cursor: pointer;
+    position: relative;
   }
   .lsq-option input[type='radio'] {
     opacity: 0;
@@ -202,6 +200,7 @@
     left: 0;
     cursor: pointer;
     z-index: 10;
+    margin: 0;
   }
 
   .lsq-option-inner {
@@ -910,7 +909,7 @@
         </div>
         <div class="lsq-prescription">
           <div class="lsq-prescription-img-wrap" id="LsqImgWrap">
-            <img class="lsq-prescription-img" id="LsqResultImg" src="" alt="Product">
+            <img class="lsq-prescription-img" id="LsqResultImg" src="" alt="Product" width="800" height="800">
             <div class="lsq-prescription-overlay"></div>
           </div>
           <div class="lsq-prescription-details">
@@ -948,57 +947,57 @@
 
     var PRODUCTS = {
       barrier: {
-        name: {{ p_barrier.title | default: "Barrier Renew Gel-Cream" | json }},
+        name: {% if p_barrier %}{{ p_barrier.title | json }}{% else %}"Barrier Renew Gel-Cream"{% endif %},
         actives: "Triple Ceramides + Matrixyl 3000™",
         sub: "Your stratum corneum requires immediate structural reconstruction.",
         desc: "Based on your answers, your lipid barrier is compromised and allowing hydration to escape. This specific 3:1:1 biomimetic lipid formula physically patches micro-tears while remaining light enough for your skin type.",
-        price: {{ p_barrier.price | money | default: "Rs. 4,598" | json }},
+        price: {% if p_barrier %}{{ p_barrier.price | money | json }}{% else %}"Rs. 4,598"{% endif %},
         discountTag: "10% Code Applied!",
-        img: {{ p_barrier.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop" | json }},
+        img: {% if p_barrier.featured_image %}{{ p_barrier.featured_image | image_url: width: 800 | json }}{% else %}"https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop"{% endif %},
         bg: "#E0EDF8",
-        url: {{ p_barrier.url | default: "/products/barrier-renew" | append: "?discount=DATA10" | json }},
+        url: {% if p_barrier %}{{ p_barrier.url | append: "?discount=DATA10" | json }}{% else %}"/products/barrier-renew?discount=DATA10"{% endif %},
         handle: "barrier-renew",
         code: "DATA10",
         ghlTrack: "quiz_result_barrier"
       },
       arbutin: {
-        name: {{ p_arbutin.title | default: "2% Alpha Arbutin + Vitamin C" | json }},
+        name: {% if p_arbutin %}{{ p_arbutin.title | json }}{% else %}"2% Alpha Arbutin + Vitamin C"{% endif %},
         actives: "5-Pathway Pigment Interruption",
         sub: "You need a gentle but effective approach to fade hyperpigmentation.",
         desc: "Because your barrier is intact and handles actives well, we can safely deploy our most potent brightening compound. This serum shuts down melanin production at the source, effectively fading existing spots without irritation.",
-        price: {{ p_arbutin.price | money | default: "Rs. 3,998" | json }},
+        price: {% if p_arbutin %}{{ p_arbutin.price | money | json }}{% else %}"Rs. 3,998"{% endif %},
         discountTag: "10% Code Applied!",
-        img: {{ p_arbutin.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800&auto=format&fit=crop" | json }},
+        img: {% if p_arbutin.featured_image %}{{ p_arbutin.featured_image | image_url: width: 800 | json }}{% else %}"https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800&auto=format&fit=crop"{% endif %},
         bg: "#FDF0C8",
-        url: {{ p_arbutin.url | default: "/products/alpha-arbutin" | append: "?discount=DATA10" | json }},
+        url: {% if p_arbutin %}{{ p_arbutin.url | append: "?discount=DATA10" | json }}{% else %}"/products/alpha-arbutin?discount=DATA10"{% endif %},
         handle: "alpha-arbutin",
         code: "DATA10",
         ghlTrack: "quiz_result_arbutin"
       },
       sunscreen: {
-        name: {{ p_sunscreen.title | default: "Matte UV Defence SPF 50+" | json }},
+        name: {% if p_sunscreen %}{{ p_sunscreen.title | json }}{% else %}"Matte UV Defence SPF 50+"{% endif %},
         actives: "Next-Gen Organic Filters + Niacinamide 5%",
         sub: "Your primary goal requires uncompromising daily photoprotection.",
         desc: "To prevent structural aging based on your daily routine, SPF is your highest priority active ingredient. This non-comedogenic hydrogel defends against UV degradation while actively repairing cellular inflammation with Niacinamide.",
-        price: {{ p_sunscreen.price | money | default: "Rs. 3,498" | json }},
+        price: {% if p_sunscreen %}{{ p_sunscreen.price | money | json }}{% else %}"Rs. 3,498"{% endif %},
         discountTag: "10% Code Applied!",
-        img: {{ p_sunscreen.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop" | json }},
+        img: {% if p_sunscreen.featured_image %}{{ p_sunscreen.featured_image | image_url: width: 800 | json }}{% else %}"https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop"{% endif %},
         bg: "#FEF7E6",
-        url: {{ p_sunscreen.url | default: "/products/matte-uv-defense" | append: "?discount=DATA10" | json }},
+        url: {% if p_sunscreen %}{{ p_sunscreen.url | append: "?discount=DATA10" | json }}{% else %}"/products/matte-uv-defense?discount=DATA10"{% endif %},
         handle: "matte-uv-defense",
         code: "DATA10",
         ghlTrack: "quiz_result_sunscreen"
       },
       bundle: {
-        name: {{ p_bundle.title | default: "The Complete Luma Protocol" | json }},
+        name: {% if p_bundle %}{{ p_bundle.title | json }}{% else %}"The Complete Luma Protocol"{% endif %},
         actives: "Barrier + Brightening + UV Defence",
         sub: "A comprehensive 360° protocol optimized for your skin goals.",
         desc: "You requested the maximalist approach. This 3-step synergy targets pigment production, reconstructs your lipid barrier, and provides a hydrogel shield against UV triggers. It is the ultimate clinical daily routine.",
-        price: {{ p_bundle.price | money | default: "Rs. 9,998 (Save 15%)" | json }},
+        price: {% if p_bundle %}{{ p_bundle.price | money | json }}{% else %}"Rs. 9,998"{% endif %},
         discountTag: "15% Bundle Code!",
-        img: {{ p_bundle.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop" | json }},
+        img: {% if p_bundle.featured_image %}{{ p_bundle.featured_image | image_url: width: 800 | json }}{% else %}"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop"{% endif %},
         bg: "#F5F5F5",
-        url: {{ p_bundle.url | default: "/products/bundle" | append: "?discount=DATA15" | json }},
+        url: {% if p_bundle %}{{ p_bundle.url | append: "?discount=DATA15" | json }}{% else %}"/products/bundle?discount=DATA15"{% endif %},
         handle: "bundle",
         code: "DATA15",
         ghlTrack: "quiz_result_bundle"
