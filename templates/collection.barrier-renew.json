@@ -24,18 +24,6 @@
         "cta_link": "#solution"
       }
     },
-    "education": {
-      "type": "luma-collection-education",
-      "settings": {
-        "icon_class": "ph-shield-warning",
-        "icon_color": "#1e40af",
-        "icon_bg_color": "#eff6ff",
-        "heading": "Why is my barrier damaged?",
-        "text": "A compromised stratum corneum occurs when your skin's natural lipid ratio is stripped away by harsh active ingredients, over-exfoliation, or environmental stressors. Our barrier collection replenishes these exact physiological lipids to instantly halt trans-epidermal water loss and soothe inflammation.",
-        "quote_text": "I ruined my skin with harsh peeling acids. This liquid-crystal formula stopped the stinging and redness in exactly 48 hours.",
-        "quote_author": "Sarah T., Verified Buyer"
-      }
-    },
     "featured": {
       "type": "luma-collection-featured",
       "blocks": {
@@ -88,6 +76,18 @@
         "review_count": "128",
         "fallback_title": "Barrier Renew Moisturizer",
         "fallback_desc": "Our clinical masterpiece. A liquid-crystal emulsion delivering physiological lipids and Matrixyl 3000™ peptides to deeply reconstruct compromised barriers without clogging pores."
+      }
+    },
+    "education": {
+      "type": "luma-collection-education",
+      "settings": {
+        "icon_class": "ph-shield-warning",
+        "icon_color": "#1e40af",
+        "icon_bg_color": "#eff6ff",
+        "heading": "Why is my barrier damaged?",
+        "text": "A compromised stratum corneum occurs when your skin's natural lipid ratio is stripped away by harsh active ingredients, over-exfoliation, or environmental stressors. Our barrier collection replenishes these exact physiological lipids to instantly halt trans-epidermal water loss and soothe inflammation.",
+        "quote_text": "I ruined my skin with harsh peeling acids. This liquid-crystal formula stopped the stinging and redness in exactly 48 hours.",
+        "quote_author": "Sarah T., Verified Buyer"
       }
     },
     "routine": {
@@ -149,8 +149,8 @@
   },
   "order": [
     "hero",
-    "education",
     "featured",
+    "education",
     "routine"
   ]
 }
