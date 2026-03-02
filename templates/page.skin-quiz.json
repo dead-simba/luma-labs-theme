@@ -12,7 +12,7 @@
     "main": {
       "type": "luma-skin-quiz",
       "settings": {
-        "webhook_url": "https://luma-labs-email-marketing-engine.vercel.app/api/webhook/quiz"
+        "webhook_url": "https://n8n.srv826531.hstgr.cloud/webhook/b619e90d-9fef-4c85-8bed-ace38d396cb7"
       }
     }
   },
