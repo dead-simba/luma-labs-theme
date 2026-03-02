@@ -930,60 +930,69 @@
     var WEBHOOK_URL = {{ section.settings.webhook_url | json }};
     var STORE = {{ shop.domain | json }};
 
+    {%- assign p_barrier = all_products['barrier-renew-moisturizer'] -%}
+    {%- assign p_arbutin = all_products['alpha-arbutin'] -%}
+    {%- assign p_sunscreen = all_products['matte-uv-defense'] -%}
+    {%- assign p_bundle = all_products['bundle'] -%}
+
     var answers = {};
     var currentStep = 1;
     var totalSteps = 6;
 
     var PRODUCTS = {
       barrier: {
-        name: "Barrier Renew Gel-Cream",
+        name: {{ p_barrier.title | json | default: "Barrier Renew Gel-Cream" }},
         actives: "Triple Ceramides + Matrixyl 3000™",
         sub: "Your stratum corneum requires immediate structural reconstruction.",
         desc: "Based on your answers, your lipid barrier is compromised and allowing hydration to escape. This specific 3:1:1 biomimetic lipid formula physically patches micro-tears while remaining light enough for your skin type.",
-        price: "Rs. 4,598",
+        price: {{ p_barrier.price | money | json | default: "Rs. 4,598" }},
         discountTag: "10% Code Applied!",
-        img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop",
+        img: {{ p_barrier.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop" }},
         bg: "#E0EDF8",
-        url: "https://" + STORE + "/products/barrier-renew-moisturizer?discount=DATA10",
+        url: {{ p_barrier.url | append: "?discount=DATA10" | json | default: "https://" | append: shop.domain | append: "/products/barrier-renew-moisturizer?discount=DATA10" }},
+        handle: "barrier-renew-moisturizer",
         code: "DATA10",
         ghlTrack: "quiz_result_barrier"
       },
       arbutin: {
-        name: "2% Alpha Arbutin + Vitamin C",
+        name: {{ p_arbutin.title | json | default: "2% Alpha Arbutin + Vitamin C" }},
         actives: "5-Pathway Pigment Interruption",
         sub: "You need a gentle but effective approach to fade hyperpigmentation.",
         desc: "Because your barrier is intact and handles actives well, we can safely deploy our most potent brightening compound. This serum shuts down melanin production at the source, effectively fading existing spots without irritation.",
-        price: "Rs. 3,998",
+        price: {{ p_arbutin.price | money | json | default: "Rs. 3,998" }},
         discountTag: "10% Code Applied!",
-        img: "https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800&auto=format&fit=crop",
+        img: {{ p_arbutin.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800&auto=format&fit=crop" }},
         bg: "#FDF0C8",
-        url: "https://" + STORE + "/products/2-percent-alpha-arbutin-vitamin-c?discount=DATA10",
+        url: {{ p_arbutin.url | append: "?discount=DATA10" | json | default: "https://" | append: shop.domain | append: "/products/2-percent-alpha-arbutin-vitamin-c?discount=DATA10" }},
+        handle: "alpha-arbutin",
         code: "DATA10",
         ghlTrack: "quiz_result_arbutin"
       },
       sunscreen: {
-        name: "Matte UV Defence SPF 50+",
+        name: {{ p_sunscreen.title | json | default: "Matte UV Defence SPF 50+" }},
         actives: "Next-Gen Organic Filters + Niacinamide 5%",
         sub: "Your primary goal requires uncompromising daily photoprotection.",
         desc: "To prevent structural aging based on your daily routine, SPF is your highest priority active ingredient. This non-comedogenic hydrogel defends against UV degradation while actively repairing cellular inflammation with Niacinamide.",
-        price: "Rs. 3,498",
+        price: {{ p_sunscreen.price | money | json | default: "Rs. 3,498" }},
         discountTag: "10% Code Applied!",
-        img: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop",
+        img: {{ p_sunscreen.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop" }},
         bg: "#FEF7E6",
-        url: "https://" + STORE + "/products/matte-uv-defence?discount=DATA10",
+        url: {{ p_sunscreen.url | append: "?discount=DATA10" | json | default: "https://" | append: shop.domain | append: "/products/matte-uv-defence?discount=DATA10" }},
+        handle: "matte-uv-defense",
         code: "DATA10",
         ghlTrack: "quiz_result_sunscreen"
       },
       bundle: {
-        name: "The Complete Luma Protocol",
+        name: {{ p_bundle.title | json | default: "The Complete Luma Protocol" }},
         actives: "Barrier + Brightening + UV Defence",
         sub: "A comprehensive 360° protocol optimized for your skin goals.",
         desc: "You requested the maximalist approach. This 3-step synergy targets pigment production, reconstructs your lipid barrier, and provides a hydrogel shield against UV triggers. It is the ultimate clinical daily routine.",
-        price: "Rs. 9,998 (Save 15%)",
+        price: {{ p_bundle.price | money | json | default: "Rs. 9,998 (Save 15%)" }},
         discountTag: "15% Bundle Code!",
-        img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop",
+        img: {{ p_bundle.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop" }},
         bg: "#F5F5F5",
-        url: "https://" + STORE + "/products/complete-luma-protocol?discount=DATA15",
+        url: {{ p_bundle.url | append: "?discount=DATA15" | json | default: "https://" | append: shop.domain | append: "/products/complete-luma-protocol?discount=DATA15" }},
+        handle: "bundle",
         code: "DATA15",
         ghlTrack: "quiz_result_bundle"
       }
@@ -1027,20 +1036,46 @@
       answers.first_name = document.getElementById('lsq-name').value.trim();
       answers.email = document.getElementById('lsq-email').value.trim();
 
-      // Determine recommendation
+      // Readable Answer Mapping
+      var mappings = {
+        q1: { repair: "Repair & Soothe", fade: "Fade Dark Spots", prevent: "Prevent Aging" },
+        q2: { tight: "Tight/Dry", oily: "Oily/Shiny", combo: "Combination" },
+        q3: { stings: "Sensitive/Stings", handles: "Tolerant/Handles Actives" },
+        q4: { low: "Low Exposure", high: "High Exposure" },
+        q5: { minimal: "Minimalist", maximal: "Maximalist" }
+      };
+
+      answers.q1_label = mappings.q1[answers.q1] || answers.q1;
+      answers.q2_label = mappings.q2[answers.q2] || answers.q2;
+      answers.q3_label = mappings.q3[answers.q3] || answers.q3;
+      answers.q4_label = mappings.q4[answers.q4] || answers.q4;
+      answers.q5_label = mappings.q5[answers.q5] || answers.q5;
+
+      // Determine recommendation based on exact logic
       var rec = 'barrier';
       if (answers.q5 === 'maximal') {
         rec = 'bundle';
-      } else if (answers.q3 === 'stings' || answers.q1 === 'repair') {
+      } else if (answers.q3 === 'stings') {
+        rec = 'barrier'; // Override for sensitivity
+      } else if (answers.q1 === 'repair') {
         rec = 'barrier';
       } else if (answers.q1 === 'fade' && answers.q3 === 'handles') {
         rec = 'arbutin';
       } else if (answers.q1 === 'prevent') {
         rec = 'sunscreen';
+      } else {
+        rec = 'barrier'; // Safe default
       }
       answers.recommendation = rec;
       answers.ghl_tag = PRODUCTS[rec].ghlTrack;
       answers.discount_code = PRODUCTS[rec].code;
+
+      // Shopify Tags
+      var shopifyTags = "skin-quiz, " + PRODUCTS[rec].handle;
+      answers.shopify_tags = shopifyTags;
+
+      // Register in Shopify via hidden form
+      registerInShopify(answers.first_name, answers.email, shopifyTags);
 
       // Show result loading immediately
       showStep(7);
@@ -1120,9 +1155,37 @@
       }
     };
 
+    function registerInShopify(name, email, tags) {
+      var formData = new FormData();
+      formData.append('form_type', 'customer');
+      formData.append('utf8', '✓');
+      formData.append('contact[first_name]', name);
+      formData.append('contact[email]', email);
+      formData.append('contact[tags]', tags);
+
+      fetch('/contact', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res) {
+        console.log('Shopify Registration Status:', res.status);
+      })
+      .catch(function(err) {
+        console.warn('Shopify Registration Error:', err);
+      });
+    }
+
     updateProgress(1);
   })();
 </script>
+
+<div style="display:none;">
+  {% form 'customer' %}
+    <input type="email" name="contact[email]" value="">
+    <input type="text" name="contact[first_name]" value="">
+    <input type="text" name="contact[tags]" value="">
+  {% endform %}
+</div>
 
 {% schema %}
 {
