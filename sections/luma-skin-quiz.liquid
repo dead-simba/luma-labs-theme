@@ -6,10 +6,34 @@
 
 {%- assign p_barrier = all_products['barrier-renew'] -%}
 {%- assign p_arbutin = all_products['alpha-arbutin'] -%}
+
+{%- comment -%} Try multiple common handles for Sunscreen {%- endcomment -%}
 {%- assign p_sunscreen = all_products['matte-uv-defense'] -%}
-{%- assign p_bundle = all_products['the-complete-luma-protocol'] -%}
+{%- if p_sunscreen.id == blank -%}
+  {%- assign p_sunscreen = all_products['spf-50'] -%}
+{%- endif -%}
+
+{%- comment -%} Try multiple common handles for Bundle {%- endcomment -%}
+{%- assign p_bundle = all_products.bundle -%}
+{%- if p_bundle.id == blank -%}
+  {%- assign p_bundle = all_products['the-complete-luma-protocol'] -%}
+{%- endif -%}
+{%- if p_bundle.id == blank -%}
+  {%- assign p_bundle = all_products['complete-luma-protocol'] -%}
+{%- endif -%}
 
 {%- comment -%} Images — prefer Shopify CDN, fall back to Unsplash {%- endcomment -%}
+{%- if p_barrier.featured_image -%}
+  {%- assign barrier_img = p_barrier.featured_image | image_url: width: 800 | prepend: 'https:' -%}
+{%- else -%}
+  {%- assign barrier_img = 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800' -%}
+{%- endif -%}
+{%- if p_arbutin.featured_image -%}
+  {%- assign arbutin_img = p_arbutin.featured_image | image_url: width: 800 | prepend: 'https:' -%}
+{%- else -%}
+  {%- assign arbutin_img = 'https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800' -%}
+{%- endif -%}
+{%- comment -%} Images — prepend https to ensure display {%- endcomment -%}
 {%- if p_barrier.featured_image -%}
   {%- assign barrier_img = p_barrier.featured_image | image_url: width: 800 | prepend: 'https:' -%}
 {%- else -%}
@@ -31,58 +55,45 @@
   {%- assign bundle_img = 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800' -%}
 {%- endif -%}
 
-{%- comment -%} Variant IDs for direct-to-cart URL {%- endcomment -%}
-{%- if p_barrier -%}
-  {%- assign barrier_vid = p_barrier.variants.first.id -%}
-{%- else -%}
-  {%- assign barrier_vid = 0 -%}
-{%- endif -%}
-{%- if p_arbutin -%}
-  {%- assign arbutin_vid = p_arbutin.variants.first.id -%}
-{%- else -%}
-  {%- assign arbutin_vid = 0 -%}
-{%- endif -%}
-{%- if p_sunscreen -%}
-  {%- assign sunscreen_vid = p_sunscreen.variants.first.id -%}
-{%- else -%}
-  {%- assign sunscreen_vid = 0 -%}
-{%- endif -%}
-{%- if p_bundle -%}
-  {%- assign bundle_vid = p_bundle.variants.first.id -%}
-{%- else -%}
-  {%- assign bundle_vid = 0 -%}
-{%- endif -%}
-
-{%- if p_barrier -%}
+{%- comment -%} Prices and Names with Robust Fallbacks {%- endcomment -%}
+{%- if p_barrier.id != blank -%}
   {%- assign barrier_price = p_barrier.price | money -%}
   {%- assign barrier_name = p_barrier.title -%}
+  {%- assign barrier_vid = p_barrier.variants.first.id -%}
 {%- else -%}
   {%- assign barrier_price = 'Rs. 4,598' -%}
   {%- assign barrier_name = 'Barrier Renew Gel-Cream' -%}
+  {%- assign barrier_vid = 0 -%}
 {%- endif -%}
 
-{%- if p_arbutin -%}
+{%- if p_arbutin.id != blank -%}
   {%- assign arbutin_price = p_arbutin.price | money -%}
   {%- assign arbutin_name = p_arbutin.title -%}
+  {%- assign arbutin_vid = p_arbutin.variants.first.id -%}
 {%- else -%}
   {%- assign arbutin_price = 'Rs. 3,998' -%}
   {%- assign arbutin_name = '2% Alpha Arbutin + Vitamin C' -%}
+  {%- assign arbutin_vid = 0 -%}
 {%- endif -%}
 
-{%- if p_sunscreen -%}
+{%- if p_sunscreen.id != blank -%}
   {%- assign sunscreen_price = p_sunscreen.price | money -%}
   {%- assign sunscreen_name = p_sunscreen.title -%}
+  {%- assign sunscreen_vid = p_sunscreen.variants.first.id -%}
 {%- else -%}
   {%- assign sunscreen_price = 'Rs. 3,498' -%}
   {%- assign sunscreen_name = 'Matte UV Defence SPF 50+' -%}
+  {%- assign sunscreen_vid = 0 -%}
 {%- endif -%}
 
-{%- if p_bundle -%}
+{%- if p_bundle.id != blank -%}
   {%- assign bundle_price = p_bundle.price | money -%}
   {%- assign bundle_name = p_bundle.title -%}
+  {%- assign bundle_vid = p_bundle.variants.first.id -%}
 {%- else -%}
   {%- assign bundle_price = 'Rs. 9,998' -%}
   {%- assign bundle_name = 'The Complete Luma Protocol' -%}
+  {%- assign bundle_vid = 0 -%}
 {%- endif -%}
 
 <!-- Product data island — read by JS below -->
