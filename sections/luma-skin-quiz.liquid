@@ -194,7 +194,9 @@
     cursor: pointer;
   }
   .lsq-option input[type='radio'] {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
   }
 
   .lsq-option-inner {
@@ -672,7 +674,7 @@
       </div>
       <div class="lsq-options">
         <label class="lsq-option">
-          <input type="radio" name="q1" value="repair" onchange="lsqSelect(1, 'repair')">
+          <input type="radio" name="q1" value="repair" onclick="lsqSelect(1, 'repair')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div class="lsq-option-icon">⊕</div>
@@ -685,7 +687,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q1" value="fade" onchange="lsqSelect(1, 'fade')">
+          <input type="radio" name="q1" value="fade" onclick="lsqSelect(1, 'fade')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div class="lsq-option-icon">◎</div>
@@ -698,7 +700,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q1" value="prevent" onchange="lsqSelect(1, 'prevent')">
+          <input type="radio" name="q1" value="prevent" onclick="lsqSelect(1, 'prevent')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div class="lsq-option-icon">⊛</div>
@@ -729,7 +731,7 @@
       </div>
       <div class="lsq-options">
         <label class="lsq-option">
-          <input type="radio" name="q2" value="tight" onchange="lsqSelect(2, 'tight')">
+          <input type="radio" name="q2" value="tight" onclick="lsqSelect(2, 'tight')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Tight, dry, and thirsty.</span></div>
@@ -738,7 +740,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q2" value="oily" onchange="lsqSelect(2, 'oily')">
+          <input type="radio" name="q2" value="oily" onclick="lsqSelect(2, 'oily')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Oily, shiny, or congested.</span></div>
@@ -747,7 +749,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q2" value="combo" onchange="lsqSelect(2, 'combo')">
+          <input type="radio" name="q2" value="combo" onclick="lsqSelect(2, 'combo')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Combination (Oily T-zone, dry cheeks).</span></div>
@@ -776,7 +778,7 @@
       </div>
       <div class="lsq-options">
         <label class="lsq-option">
-          <input type="radio" name="q3" value="stings" onchange="lsqSelect(3, 'stings')">
+          <input type="radio" name="q3" value="stings" onclick="lsqSelect(3, 'stings')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">It regularly stings, turns red, or breaks out.</span></div>
@@ -785,7 +787,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q3" value="handles" onchange="lsqSelect(3, 'handles')">
+          <input type="radio" name="q3" value="handles" onclick="lsqSelect(3, 'handles')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">It handles new ingredients perfectly fine.</span></div>
@@ -810,7 +812,7 @@
       </div>
       <div class="lsq-options">
         <label class="lsq-option">
-          <input type="radio" name="q4" value="low" onchange="lsqSelect(4, 'low')">
+          <input type="radio" name="q4" value="low" onclick="lsqSelect(4, 'low')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Low (Mostly indoors, away from windows).</span></div>
@@ -819,7 +821,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q4" value="high" onchange="lsqSelect(4, 'high')">
+          <input type="radio" name="q4" value="high" onclick="lsqSelect(4, 'high')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Moderate/High (Commuting, outdoors, near windows).</span></div>
@@ -845,7 +847,7 @@
       </div>
       <div class="lsq-options">
         <label class="lsq-option">
-          <input type="radio" name="q5" value="minimal" onchange="lsqSelect(5, 'minimal')">
+          <input type="radio" name="q5" value="minimal" onclick="lsqSelect(5, 'minimal')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Minimalist (Just give me the single most important step).</span></div>
@@ -854,7 +856,7 @@
           </div>
         </label>
         <label class="lsq-option">
-          <input type="radio" name="q5" value="maximal" onchange="lsqSelect(5, 'maximal')">
+          <input type="radio" name="q5" value="maximal" onclick="lsqSelect(5, 'maximal')">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
               <div><span class="lsq-option-title">Comprehensive (I want the complete 3-step synergy).</span></div>
@@ -930,7 +932,7 @@
     var WEBHOOK_URL = {{ section.settings.webhook_url | json }};
     var STORE = {{ shop.domain | json }};
 
-    {%- assign p_barrier = all_products['barrier-renew-moisturizer'] -%}
+    {%- assign p_barrier = all_products['barrier-renew'] -%}
     {%- assign p_arbutin = all_products['alpha-arbutin'] -%}
     {%- assign p_sunscreen = all_products['matte-uv-defense'] -%}
     {%- assign p_bundle = all_products['bundle'] -%}
@@ -941,57 +943,57 @@
 
     var PRODUCTS = {
       barrier: {
-        name: {{ p_barrier.title | json | default: "Barrier Renew Gel-Cream" }},
+        name: {{ p_barrier.title | default: "Barrier Renew Gel-Cream" | json }},
         actives: "Triple Ceramides + Matrixyl 3000™",
         sub: "Your stratum corneum requires immediate structural reconstruction.",
         desc: "Based on your answers, your lipid barrier is compromised and allowing hydration to escape. This specific 3:1:1 biomimetic lipid formula physically patches micro-tears while remaining light enough for your skin type.",
-        price: {{ p_barrier.price | money | json | default: "Rs. 4,598" }},
+        price: {{ p_barrier.price | money | default: "Rs. 4,598" | json }},
         discountTag: "10% Code Applied!",
-        img: {{ p_barrier.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop" }},
+        img: {{ p_barrier.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop" | json }},
         bg: "#E0EDF8",
-        url: {{ p_barrier.url | append: "?discount=DATA10" | json | default: "https://" | append: shop.domain | append: "/products/barrier-renew-moisturizer?discount=DATA10" }},
-        handle: "barrier-renew-moisturizer",
+        url: {{ p_barrier.url | default: "/products/barrier-renew" | append: "?discount=DATA10" | json }},
+        handle: "barrier-renew",
         code: "DATA10",
         ghlTrack: "quiz_result_barrier"
       },
       arbutin: {
-        name: {{ p_arbutin.title | json | default: "2% Alpha Arbutin + Vitamin C" }},
+        name: {{ p_arbutin.title | default: "2% Alpha Arbutin + Vitamin C" | json }},
         actives: "5-Pathway Pigment Interruption",
         sub: "You need a gentle but effective approach to fade hyperpigmentation.",
         desc: "Because your barrier is intact and handles actives well, we can safely deploy our most potent brightening compound. This serum shuts down melanin production at the source, effectively fading existing spots without irritation.",
-        price: {{ p_arbutin.price | money | json | default: "Rs. 3,998" }},
+        price: {{ p_arbutin.price | money | default: "Rs. 3,998" | json }},
         discountTag: "10% Code Applied!",
-        img: {{ p_arbutin.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800&auto=format&fit=crop" }},
+        img: {{ p_arbutin.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800&auto=format&fit=crop" | json }},
         bg: "#FDF0C8",
-        url: {{ p_arbutin.url | append: "?discount=DATA10" | json | default: "https://" | append: shop.domain | append: "/products/2-percent-alpha-arbutin-vitamin-c?discount=DATA10" }},
+        url: {{ p_arbutin.url | default: "/products/alpha-arbutin" | append: "?discount=DATA10" | json }},
         handle: "alpha-arbutin",
         code: "DATA10",
         ghlTrack: "quiz_result_arbutin"
       },
       sunscreen: {
-        name: {{ p_sunscreen.title | json | default: "Matte UV Defence SPF 50+" }},
+        name: {{ p_sunscreen.title | default: "Matte UV Defence SPF 50+" | json }},
         actives: "Next-Gen Organic Filters + Niacinamide 5%",
         sub: "Your primary goal requires uncompromising daily photoprotection.",
         desc: "To prevent structural aging based on your daily routine, SPF is your highest priority active ingredient. This non-comedogenic hydrogel defends against UV degradation while actively repairing cellular inflammation with Niacinamide.",
-        price: {{ p_sunscreen.price | money | json | default: "Rs. 3,498" }},
+        price: {{ p_sunscreen.price | money | default: "Rs. 3,498" | json }},
         discountTag: "10% Code Applied!",
-        img: {{ p_sunscreen.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop" }},
+        img: {{ p_sunscreen.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop" | json }},
         bg: "#FEF7E6",
-        url: {{ p_sunscreen.url | append: "?discount=DATA10" | json | default: "https://" | append: shop.domain | append: "/products/matte-uv-defence?discount=DATA10" }},
+        url: {{ p_sunscreen.url | default: "/products/matte-uv-defense" | append: "?discount=DATA10" | json }},
         handle: "matte-uv-defense",
         code: "DATA10",
         ghlTrack: "quiz_result_sunscreen"
       },
       bundle: {
-        name: {{ p_bundle.title | json | default: "The Complete Luma Protocol" }},
+        name: {{ p_bundle.title | default: "The Complete Luma Protocol" | json }},
         actives: "Barrier + Brightening + UV Defence",
         sub: "A comprehensive 360° protocol optimized for your skin goals.",
         desc: "You requested the maximalist approach. This 3-step synergy targets pigment production, reconstructs your lipid barrier, and provides a hydrogel shield against UV triggers. It is the ultimate clinical daily routine.",
-        price: {{ p_bundle.price | money | json | default: "Rs. 9,998 (Save 15%)" }},
+        price: {{ p_bundle.price | money | default: "Rs. 9,998 (Save 15%)" | json }},
         discountTag: "15% Bundle Code!",
-        img: {{ p_bundle.featured_image | image_url: width: 800 | json | default: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop" }},
+        img: {{ p_bundle.featured_image | image_url: width: 800 | default: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop" | json }},
         bg: "#F5F5F5",
-        url: {{ p_bundle.url | append: "?discount=DATA15" | json | default: "https://" | append: shop.domain | append: "/products/complete-luma-protocol?discount=DATA15" }},
+        url: {{ p_bundle.url | default: "/products/bundle" | append: "?discount=DATA15" | json }},
         handle: "bundle",
         code: "DATA15",
         ghlTrack: "quiz_result_bundle"
