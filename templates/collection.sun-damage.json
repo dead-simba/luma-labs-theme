@@ -24,18 +24,6 @@
         "cta_link": "#solution"
       }
     },
-    "education": {
-      "type": "luma-collection-education",
-      "settings": {
-        "icon_class": "ph-shield-check",
-        "icon_color": "#af931e",
-        "icon_bg_color": "#fff8ef",
-        "heading": "Why is daily SPF non-negotiable?",
-        "text": "The \"exposome\" (UV rays, HEV blue light, and pollution) is responsible for 80% of visible facial aging. Our cross-ecosystem 6-filter shield quenches this energy before it triggers inflammation. Combined with Zinc PCA and Aquaxyl™, it actively treats oily skin while defending it.",
-        "quote_text": "\"Finally, a sunscreen that acts like an acne-treatment serum. The Zinc PCA stopped my afternoon shine, and there's zero white cast.\"",
-        "quote_author": "Jessica M., Verified Buyer"
-      }
-    },
     "featured": {
       "type": "luma-collection-featured",
       "blocks": {
@@ -88,6 +76,18 @@
         "review_count": "35",
         "fallback_title": "Barrier Renew Moisturizer",
         "fallback_desc": "A breakthrough in UV protection. Utilizing 6 advanced filters (including Mexoryl SX and Tinosorb M), this non-comedogenic aqua gel provides broad-spectrum defense while actively regulating sebum with Zinc PCA."
+      }
+    },
+    "education": {
+      "type": "luma-collection-education",
+      "settings": {
+        "icon_class": "ph-shield-check",
+        "icon_color": "#af931e",
+        "icon_bg_color": "#fff8ef",
+        "heading": "Why is daily SPF non-negotiable?",
+        "text": "The \"exposome\" (UV rays, HEV blue light, and pollution) is responsible for 80% of visible facial aging. Our cross-ecosystem 6-filter shield quenches this energy before it triggers inflammation. Combined with Zinc PCA and Aquaxyl™, it actively treats oily skin while defending it.",
+        "quote_text": "\"Finally, a sunscreen that acts like an acne-treatment serum. The Zinc PCA stopped my afternoon shine, and there's zero white cast.\"",
+        "quote_author": "Jessica M., Verified Buyer"
       }
     },
     "routine": {
@@ -149,8 +149,8 @@
   },
   "order": [
     "hero",
-    "education",
     "featured",
+    "education",
     "routine"
   ]
 }
