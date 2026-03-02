@@ -677,7 +677,7 @@
         <p class="lsq-step-sub">This helps us determine the core active ingredient for your clinical routine.</p>
       </div>
       <div class="lsq-options">
-        <label class="lsq-option" onclick="lsqSelect(1, 'repair')">
+        <label class="lsq-option">
           <input type="radio" name="q1" value="repair">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -690,7 +690,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(1, 'fade')">
+        <label class="lsq-option">
           <input type="radio" name="q1" value="fade">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -703,7 +703,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(1, 'prevent')">
+        <label class="lsq-option">
           <input type="radio" name="q1" value="prevent">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -718,7 +718,7 @@
         </label>
       </div>
       <div class="lsq-nav">
-        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-1" onclick="lsqNext(2)">
+        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-1" data-next="2">
           Continue →
         </button>
       </div>
@@ -734,7 +734,7 @@
         </div>
       </div>
       <div class="lsq-options">
-        <label class="lsq-option" onclick="lsqSelect(2, 'tight')">
+        <label class="lsq-option">
           <input type="radio" name="q2" value="tight">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -743,7 +743,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(2, 'oily')">
+        <label class="lsq-option">
           <input type="radio" name="q2" value="oily">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -752,7 +752,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(2, 'combo')">
+        <label class="lsq-option">
           <input type="radio" name="q2" value="combo">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -763,8 +763,8 @@
         </label>
       </div>
       <div class="lsq-nav">
-        <button type="button" class="lsq-btn-back" onclick="lsqBack(1)">←</button>
-        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-2" onclick="lsqNext(3)">
+        <button type="button" class="lsq-btn-back" data-back="1">←</button>
+        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-2" data-next="3">
           Continue →
         </button>
       </div>
@@ -781,7 +781,7 @@
         </div>
       </div>
       <div class="lsq-options">
-        <label class="lsq-option" onclick="lsqSelect(3, 'stings')">
+        <label class="lsq-option">
           <input type="radio" name="q3" value="stings">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -790,7 +790,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(3, 'handles')">
+        <label class="lsq-option">
           <input type="radio" name="q3" value="handles">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -801,8 +801,8 @@
         </label>
       </div>
       <div class="lsq-nav">
-        <button type="button" class="lsq-btn-back" onclick="lsqBack(2)">←</button>
-        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-3" onclick="lsqNext(4)">
+        <button type="button" class="lsq-btn-back" data-back="2">←</button>
+        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-3" data-next="4">
           Continue →
         </button>
       </div>
@@ -815,7 +815,7 @@
         <h1 class="lsq-step-title">How much sun exposure do you get on an average day?</h1>
       </div>
       <div class="lsq-options">
-        <label class="lsq-option" onclick="lsqSelect(4, 'low')">
+        <label class="lsq-option">
           <input type="radio" name="q4" value="low">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -824,7 +824,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(4, 'high')">
+        <label class="lsq-option">
           <input type="radio" name="q4" value="high">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -835,8 +835,8 @@
         </label>
       </div>
       <div class="lsq-nav">
-        <button type="button" class="lsq-btn-back" onclick="lsqBack(3)">←</button>
-        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-4" onclick="lsqNext(5)">
+        <button type="button" class="lsq-btn-back" data-back="3">←</button>
+        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-4" data-next="5">
           Continue →
         </button>
       </div>
@@ -850,7 +850,7 @@
         <p class="lsq-step-sub">This helps us recommend a routine you will actually enjoy doing every day.</p>
       </div>
       <div class="lsq-options">
-        <label class="lsq-option" onclick="lsqSelect(5, 'minimal')">
+        <label class="lsq-option">
           <input type="radio" name="q5" value="minimal">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -859,7 +859,7 @@
             <div class="lsq-check">✓</div>
           </div>
         </label>
-        <label class="lsq-option" onclick="lsqSelect(5, 'maximal')">
+        <label class="lsq-option">
           <input type="radio" name="q5" value="maximal">
           <div class="lsq-option-inner">
             <div class="lsq-option-left">
@@ -870,8 +870,8 @@
         </label>
       </div>
       <div class="lsq-nav">
-        <button type="button" class="lsq-btn-back" onclick="lsqBack(4)">←</button>
-        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-5" onclick="lsqNext(6)">
+        <button type="button" class="lsq-btn-back" data-back="4">←</button>
+        <button type="button" class="lsq-btn-next lsq-btn-next--disabled" id="lsq-btn-5" data-next="6">
           See My Results →
         </button>
       </div>
@@ -885,7 +885,7 @@
         <p class="lsq-gate-sub">
           Where should we send your personalized lab routine and your <strong>10% welcome code</strong>?
         </p>
-        <form onsubmit="lsqSubmit(event)">
+        <form id="lsq-gate-form">
           <input type="text" id="lsq-name" class="lsq-gate-input" placeholder="First Name" required>
           <input type="email" id="lsq-email" class="lsq-gate-input" placeholder="Email Address" required>
           <button type="submit" class="lsq-gate-submit">Unlock My Routine 🔑</button>
@@ -1187,6 +1187,51 @@
       })
       .catch(function(err) {
         console.warn('Shopify Registration Error:', err);
+      });
+    }
+
+    // ── Event Binding (CSP-safe, no inline handlers) ──────────────────────
+
+    // Option card clicks → enable Continue button
+    document.querySelectorAll('.lsq-option').forEach(function(label) {
+      label.addEventListener('click', function() {
+        var input = label.querySelector('input[type="radio"]');
+        if (!input) return;
+        var stepNum = parseInt(input.name.replace('q', ''), 10);
+        var val = input.value;
+        lsqSelect(stepNum, val);
+      });
+      // Belt-and-suspenders: also listen for change on the radio
+      var radio = label.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.addEventListener('change', function() {
+          var stepNum = parseInt(this.name.replace('q', ''), 10);
+          lsqSelect(stepNum, this.value);
+        });
+      }
+    });
+
+    // Next buttons
+    document.querySelectorAll('[data-next]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var nextStep = parseInt(btn.getAttribute('data-next'), 10);
+        lsqNext(nextStep);
+      });
+    });
+
+    // Back buttons
+    document.querySelectorAll('[data-back]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var prevStep = parseInt(btn.getAttribute('data-back'), 10);
+        lsqBack(prevStep);
+      });
+    });
+
+    // Gate form submit
+    var gateForm = document.getElementById('lsq-gate-form');
+    if (gateForm) {
+      gateForm.addEventListener('submit', function(e) {
+        lsqSubmit(e);
       });
     }
 
