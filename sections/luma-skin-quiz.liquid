@@ -7,66 +7,81 @@
 {%- assign p_barrier = all_products['barrier-renew'] -%}
 {%- assign p_arbutin = all_products['alpha-arbutin'] -%}
 {%- assign p_sunscreen = all_products['matte-uv-defense'] -%}
-{%- assign p_bundle = all_products.bundle -%}
+{%- assign p_bundle = all_products['the-complete-luma-protocol'] -%}
 
+{%- comment -%} Images — prefer Shopify CDN, fall back to Unsplash {%- endcomment -%}
 {%- if p_barrier.featured_image -%}
-  {%- assign barrier_img = p_barrier.featured_image | image_url: width: 800 -%}
+  {%- assign barrier_img = p_barrier.featured_image | image_url: width: 800 | prepend: 'https:' -%}
 {%- else -%}
   {%- assign barrier_img = 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800' -%}
 {%- endif -%}
 {%- if p_arbutin.featured_image -%}
-  {%- assign arbutin_img = p_arbutin.featured_image | image_url: width: 800 -%}
+  {%- assign arbutin_img = p_arbutin.featured_image | image_url: width: 800 | prepend: 'https:' -%}
 {%- else -%}
   {%- assign arbutin_img = 'https://images.unsplash.com/photo-1580870058864-16f947ee37dd?q=80&w=800' -%}
 {%- endif -%}
 {%- if p_sunscreen.featured_image -%}
-  {%- assign sunscreen_img = p_sunscreen.featured_image | image_url: width: 800 -%}
+  {%- assign sunscreen_img = p_sunscreen.featured_image | image_url: width: 800 | prepend: 'https:' -%}
 {%- else -%}
   {%- assign sunscreen_img = 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800' -%}
 {%- endif -%}
 {%- if p_bundle.featured_image -%}
-  {%- assign bundle_img = p_bundle.featured_image | image_url: width: 800 -%}
+  {%- assign bundle_img = p_bundle.featured_image | image_url: width: 800 | prepend: 'https:' -%}
 {%- else -%}
   {%- assign bundle_img = 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800' -%}
 {%- endif -%}
 
+{%- comment -%} Variant IDs for direct-to-cart URL {%- endcomment -%}
+{%- if p_barrier -%}
+  {%- assign barrier_vid = p_barrier.variants.first.id -%}
+{%- else -%}
+  {%- assign barrier_vid = 0 -%}
+{%- endif -%}
+{%- if p_arbutin -%}
+  {%- assign arbutin_vid = p_arbutin.variants.first.id -%}
+{%- else -%}
+  {%- assign arbutin_vid = 0 -%}
+{%- endif -%}
+{%- if p_sunscreen -%}
+  {%- assign sunscreen_vid = p_sunscreen.variants.first.id -%}
+{%- else -%}
+  {%- assign sunscreen_vid = 0 -%}
+{%- endif -%}
+{%- if p_bundle -%}
+  {%- assign bundle_vid = p_bundle.variants.first.id -%}
+{%- else -%}
+  {%- assign bundle_vid = 0 -%}
+{%- endif -%}
+
 {%- if p_barrier -%}
   {%- assign barrier_price = p_barrier.price | money -%}
-  {%- assign barrier_url = p_barrier.url | append: '?discount=DATA10' -%}
   {%- assign barrier_name = p_barrier.title -%}
 {%- else -%}
   {%- assign barrier_price = 'Rs. 4,598' -%}
-  {%- assign barrier_url = '/products/barrier-renew?discount=DATA10' -%}
   {%- assign barrier_name = 'Barrier Renew Gel-Cream' -%}
 {%- endif -%}
 
 {%- if p_arbutin -%}
   {%- assign arbutin_price = p_arbutin.price | money -%}
-  {%- assign arbutin_url = p_arbutin.url | append: '?discount=DATA10' -%}
   {%- assign arbutin_name = p_arbutin.title -%}
 {%- else -%}
   {%- assign arbutin_price = 'Rs. 3,998' -%}
-  {%- assign arbutin_url = '/products/alpha-arbutin?discount=DATA10' -%}
   {%- assign arbutin_name = '2% Alpha Arbutin + Vitamin C' -%}
 {%- endif -%}
 
 {%- if p_sunscreen -%}
   {%- assign sunscreen_price = p_sunscreen.price | money -%}
-  {%- assign sunscreen_url = p_sunscreen.url | append: '?discount=DATA10' -%}
   {%- assign sunscreen_name = p_sunscreen.title -%}
 {%- else -%}
   {%- assign sunscreen_price = 'Rs. 3,498' -%}
-  {%- assign sunscreen_url = '/products/matte-uv-defense?discount=DATA10' -%}
   {%- assign sunscreen_name = 'Matte UV Defence SPF 50+' -%}
 {%- endif -%}
 
 {%- if p_bundle -%}
   {%- assign bundle_price = p_bundle.price | money -%}
-  {%- assign bundle_url = p_bundle.url | append: '?discount=DATA15' -%}
   {%- assign bundle_name = p_bundle.title -%}
 {%- else -%}
   {%- assign bundle_price = 'Rs. 9,998' -%}
-  {%- assign bundle_url = '/products/bundle?discount=DATA15' -%}
   {%- assign bundle_name = 'The Complete Luma Protocol' -%}
 {%- endif -%}
 
@@ -79,12 +94,12 @@
         "name":        {{ barrier_name | json }},
         "price":       {{ barrier_price | json }},
         "img":         {{ barrier_img | json }},
-        "url":         {{ barrier_url | json }},
-        "handle":      "barrier-renew",
+        "variantId":   {{ barrier_vid }},
         "code":        "DATA10",
         "discountTag": "10% Code Applied!",
+        "handle":      "barrier-renew",
         "bg":          "#E0EDF8",
-        "actives":     "Triple Ceramides + Matrixyl 3000™",
+        "actives":     "Triple Ceramides + Matrixyl 3000",
         "sub":         "Your stratum corneum requires immediate structural reconstruction.",
         "desc":        "Your lipid barrier is compromised and allowing hydration to escape. This biomimetic lipid formula physically patches micro-tears while remaining light enough for your skin type.",
         "ghlTrack":    "quiz_result_barrier"
@@ -93,13 +108,13 @@
         "name":        {{ arbutin_name | json }},
         "price":       {{ arbutin_price | json }},
         "img":         {{ arbutin_img | json }},
-        "url":         {{ arbutin_url | json }},
-        "handle":      "alpha-arbutin",
+        "variantId":   {{ arbutin_vid }},
         "code":        "DATA10",
         "discountTag": "10% Code Applied!",
+        "handle":      "alpha-arbutin",
         "bg":          "#FDF0C8",
         "actives":     "5-Pathway Pigment Interruption",
-        "sub":         "You need a gentle but effective approach to fade hyperpigmentation.",
+        "sub":         "Gentle but effective approach to fade hyperpigmentation.",
         "desc":        "Because your barrier is intact and handles actives well, we can safely deploy our most potent brightening compound. This serum shuts down melanin production at the source.",
         "ghlTrack":    "quiz_result_arbutin"
       },
@@ -107,10 +122,10 @@
         "name":        {{ sunscreen_name | json }},
         "price":       {{ sunscreen_price | json }},
         "img":         {{ sunscreen_img | json }},
-        "url":         {{ sunscreen_url | json }},
-        "handle":      "matte-uv-defense",
+        "variantId":   {{ sunscreen_vid }},
         "code":        "DATA10",
         "discountTag": "10% Code Applied!",
+        "handle":      "matte-uv-defense",
         "bg":          "#FEF7E6",
         "actives":     "Next-Gen Organic Filters + Niacinamide 5%",
         "sub":         "Your primary goal requires uncompromising daily photoprotection.",
@@ -121,13 +136,13 @@
         "name":        {{ bundle_name | json }},
         "price":       {{ bundle_price | json }},
         "img":         {{ bundle_img | json }},
-        "url":         {{ bundle_url | json }},
-        "handle":      "bundle",
+        "variantId":   {{ bundle_vid }},
         "code":        "DATA15",
         "discountTag": "15% Bundle Code!",
+        "handle":      "bundle",
         "bg":          "#F5F5F5",
         "actives":     "Barrier + Brightening + UV Defence",
-        "sub":         "A comprehensive 360° protocol optimized for your skin goals.",
+        "sub":         "A comprehensive 360 degrees protocol optimized for your skin goals.",
         "desc":        "You requested the maximalist approach. This 3-step synergy targets pigment production, reconstructs your lipid barrier, and provides a hydrogel shield against UV triggers.",
         "ghlTrack":    "quiz_result_bundle"
       }
@@ -854,11 +869,11 @@
     }
   }
   .lsq__prescription-img img {
-    position: absolute;
-    inset: 0;
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.7s;
   }
   .lsq__prescription:hover img {
@@ -1006,6 +1021,14 @@
     }
 
     function fillResult(data, headline, reason) {
+      // Build direct-to-cart URL with discount pre-applied
+      var ctaUrl;
+      if (data.variantId && data.variantId !== 0) {
+        ctaUrl = '/cart/' + data.variantId + ':1?discount=' + data.code;
+      } else {
+        ctaUrl = '/collections/all';
+      }
+
       qs('#LsqResultSub').textContent = headline;
       qs('#LsqResultName').textContent = data.name;
       qs('#LsqResultActives').textContent = data.actives;
@@ -1013,7 +1036,8 @@
       qs('#LsqResultPrice').textContent = data.price;
       qs('#LsqResultDiscountTag').textContent = data.discountTag;
       qs('#LsqResultImg').src = data.img;
-      qs('#LsqResultCta').href = data.url;
+      qs('#LsqResultImg').alt = data.name;
+      qs('#LsqResultCta').href = ctaUrl;
       qs('#LsqImgWrap').style.background = data.bg;
       qs('#LsqLoading').style.display = 'none';
       qs('#LsqResult').style.display = 'block';
@@ -1095,14 +1119,18 @@
         // Show loading
         showStep(7);
 
-        // Register in Shopify
+        // Register customer in Shopify via account creation form
+        // This creates an actual Shopify customer record.
+        // Note: Shopify storefront cannot set customer tags (admin-only).
+        // Tags are applied by the webhook server via Admin API.
         var fd = new FormData();
-        fd.append('form_type', 'customer');
-        fd.append('utf8', '✓');
-        fd.append('contact[first_name]', name);
-        fd.append('contact[email]', email);
-        fd.append('contact[tags]', payload.shopify_tags);
-        fetch('/contact', { method: 'POST', body: fd });
+        fd.append('form_type', 'create_customer');
+        fd.append('utf8', '\u2713');
+        fd.append('customer[first_name]', name);
+        fd.append('customer[email]', email);
+        fd.append('customer[password]', Math.random().toString(36).slice(2) + '!Luma1');
+        fd.append('customer[password_confirmation]', fd.get('customer[password]'));
+        fetch('/account', { method: 'POST', body: fd });
 
         // Fire webhook
         if (WEBHOOK_URL && WEBHOOK_URL.indexOf('YOUR') === -1) {
