@@ -22,12 +22,13 @@
         "subheading": "Successful.",
         "welcome_text": "Welcome to the Luma family.",
         "description": "You are now holding our 6-filter Hyaluronic Aqua Gel. Prepare for total UV and HEV blue light defense.",
-        "product_bg_gradient": "linear-gradient(135deg, #FEF7E6 0%, #F0F4F8 100%)",
+        "product_image": "shopify://shop_images/Matte_SPF_Main.webp",
+        "product_bg_gradient": "linear-gradient(135deg, rgba(254, 247, 230, 1), rgba(240, 244, 248, 1) 100%)",
         "vip_title": "Your VIP Perk",
         "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
         "vip_button_label": "Review & Unlock",
         "vip_button_link": "/pages/luma-vip-review?product=Defense+Aqua+SPF",
-        "vip_bg_gradient": "linear-gradient(135deg, #E0EDF8 0%, #E6DEF2 100%)"
+        "vip_bg_gradient": "linear-gradient(135deg, rgba(224, 237, 248, 1), rgba(230, 222, 242, 1) 100%)"
       }
     },
     "secrets": {
