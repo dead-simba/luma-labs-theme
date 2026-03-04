@@ -27,7 +27,7 @@
         "vip_title": "Your VIP Perk",
         "vip_description": "Review this formula to instantly unlock 15% off your next routine upgrade.",
         "vip_button_label": "Review & Unlock",
-        "vip_button_link": "/pages/luma-vip-review?product=2%25+Alpha+Arbutin",
+        "vip_button_link": "https://judge.me/product_reviews/a406c0ba-6be8-4272-b165-e4cf793b603f/new?id=8412349693997&source=shareable-link",
         "vip_bg_gradient": "linear-gradient(135deg, rgba(248, 245, 224, 1), rgba(255, 205, 136, 1) 100%)"
       }
     },
