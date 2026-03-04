@@ -341,12 +341,9 @@
         <p class="lsq__gate-sub">
           Where should we send your personalized lab routine and your <strong>10% welcome code</strong>?
         </p>
-        {% form 'customer', id: 'lsq-form', class: 'lsq-form', novalidate: 'novalidate' %}
-          <input type="hidden" name="contact[tags]" value="newsletter, skin-quiz">
-          <input type="hidden" name="contact[accepts_marketing]" value="true">
+        <form id="lsq-form" novalidate>
           <input
             type="text"
-            name="contact[first_name]"
             id="lsq-name"
             class="lsq__input"
             placeholder="First Name"
@@ -354,14 +351,13 @@
           >
           <input
             type="email"
-            name="contact[email]"
             id="lsq-email"
             class="lsq__input"
             placeholder="Email Address"
             required
           >
           <button type="submit" class="lsq__submit">Unlock My Routine 🔑</button>
-        {% endform %}
+        </form>
         <p class="lsq__privacy">We respect your inbox. Unsubscribe anytime.</p>
       </div>
     </div>
@@ -1192,9 +1188,17 @@
         // Show loading
         showStep(7);
 
-        // Submit the native Shopify customer form via AJAX
-        // This registers the customer to Shopify without creating a password account.
-        var formData = new FormData(form);
+        // Submit the custom form directly to Shopify's /contact endpoint
+        // This manually constructs the customer data to bypass marketing app redirects
+        // while still registering the customer correctly.
+        var formData = new FormData();
+        formData.append('form_type', 'customer');
+        formData.append('utf8', '✓');
+        formData.append('contact[first_name]', name);
+        formData.append('contact[email]', email);
+        formData.append('contact[accepts_marketing]', 'true');
+        formData.append('contact[tags]', 'newsletter, skin-quiz');
+
         fetch('/contact', { method: 'POST', body: formData });
 
         // Fire webhook
