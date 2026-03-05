@@ -11,18 +11,6 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
-    "luma_trust_badges_NEW": {
-      "type": "luma-trust-badges",
-      "settings": {
-        "bg_color": "#ffffff",
-        "border_color": "#f0f0f0",
-        "icon_bg_color": "#fafafa",
-        "icon_color": "#d4a340",
-        "text_color": "#2c2c2c",
-        "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
     "luma_footer_GAyFPr": {
       "type": "luma-footer",
       "blocks": {
@@ -131,7 +119,6 @@
     }
   },
   "order": [
-    "luma_trust_badges_NEW",
     "luma_footer_GAyFPr",
     "footer_utilities_jLGE8U"
   ]
