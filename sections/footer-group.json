@@ -34,6 +34,13 @@
             "menu": "footer"
           }
         },
+        "link_list_qMqjxt": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "footer-support"
+          }
+        },
         "newsletter_jYPNKm": {
           "type": "newsletter",
           "settings": {
@@ -45,6 +52,7 @@
       "block_order": [
         "brand_information_r6VDnj",
         "link_list_r98cNK",
+        "link_list_qMqjxt",
         "newsletter_jYPNKm"
       ],
       "name": "Luma Custom Footer",
