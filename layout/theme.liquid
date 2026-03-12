@@ -49,7 +49,79 @@
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
+    <!-- Analytics UTM Persistence -->
+    <script>
+      (function () {
+        function getQueryParam(name) {
+          var urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name);
+        }
 
+        var utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+        var hasNewUtms = false;
+
+        // Capture from URL
+        utms.forEach(function (utm) {
+          var val = getQueryParam(utm);
+          if (val) {
+            localStorage.setItem('luma_' + utm, val);
+            hasNewUtms = true;
+          }
+        });
+
+        var gaClientId = localStorage.getItem('luma___ga_client_id');
+
+        // Wait for GA4 to load to grab the client_id
+        function getGaClientId() {
+          try {
+            if (typeof gtag === 'function') {
+              gtag('get', 'G-XXXXXX', 'client_id', function (id) {
+                gaClientId = id;
+                localStorage.setItem('luma___ga_client_id', id);
+              });
+            }
+          } catch (e) {}
+        }
+
+        setTimeout(getGaClientId, 2000);
+
+        // Hook into Shopify cart API/Checkout process to send the attributes
+        function updateCartAttributes() {
+          var attributes = {};
+          utms.forEach(function (utm) {
+            var val = localStorage.getItem('luma_' + utm);
+            if (val) attributes[utm] = val;
+          });
+          if (gaClientId) {
+            attributes['__ga_client_id'] = gaClientId;
+          }
+
+          // Only send if we have attributes
+          if (Object.keys(attributes).length === 0) return;
+
+          fetch('/cart/update.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ attributes: attributes }),
+          }).catch(function (e) {
+            console.error(e);
+          });
+        }
+
+        // Update attributes globally on load (to ensure cart always has it ready for checkout)
+        if (hasNewUtms || gaClientId || window.location.pathname === '/cart') {
+          setTimeout(updateCartAttributes, 1500);
+        }
+
+        // Also intercept add-to-cart form submissions
+        document.addEventListener('submit', function (e) {
+          if (e.target.action && e.target.action.indexOf('/cart/add') > -1) {
+            updateCartAttributes();
+          }
+        });
+      })();
+    </script>
+    <!-- End Analytics UTM Persistence -->
     {{ content_for_header }}
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" async></script>
     {%- if template.suffix contains 'qr' -%}
