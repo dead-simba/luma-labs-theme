@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Free Shipping on Orders Over Rs. 4,000 | Sweat & Humidity Resistant Formulation",
+            "text": "Free Delivery all over pakistan",
             "link": "",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -84,6 +84,7 @@
         "logo_position": "left",
         "menu_position": "center",
         "menu_row": "top",
+        "customer_account_menu": "customer-account-main-menu",
         "show_search": true,
         "search_position": "right",
         "search_row": "top",
@@ -100,6 +101,10 @@
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
         "color_scheme_top": "scheme-536fba22-2310-4efd-947d-75fc779babe4",
         "color_scheme_bottom": "",
         "color_scheme_transparent": "scheme-6",
