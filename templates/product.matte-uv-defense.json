@@ -422,7 +422,7 @@
           "type": "ingredient",
           "settings": {
             "title": "All Ingredients",
-            "description": "Aqua, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Butyl Methoxydibenzoylmethane, Phenylbenzimidazole Sulfonic Acid, Glycerin, Ethylhexyl Methoxycinnamate, Caprylic/Capric Triglyceride, Triethanolamine, Tapioca Starch, Ammonium Acryloyldimethyltaurate/VP Copolymer, Ethylhexyl Salicylate, Methylene Bis-Benzotriazolyl Tetramethylbutylphenol, Decyl Glucoside, Xanthan Gum, Sodium Hyaluronate, Niacinamide, Xylitylglucoside, Anhydroxylitol, Xylitol, Capsicum Annuum Fruit Extract, Zinc PCA, Sodium Gluconate, Tocopheryl Acetate, BHT."
+            "description": "Aqua, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Butyl Methoxydibenzoylmethane, Phenylbenzimidazole Sulfonic Acid, Glycerin, Ethylhexyl Methoxycinnamate, Caprylic/Capric Triglyceride, Triethanolamine, Tapioca Starch, Ammonium Acryloyldimethyltaurate/VP Copolymer, Ethylhexyl Salicylate, Methylene Bis-Benzotriazolyl Tetramethylbutylphenol, Decyl Glucoside, Xanthan Gum, Sodium Hyaluronate, Niacinamide, Xylitylglucoside, Anhydroxylitol, Xylitol, Capsicum Annuum Fruit Extract, Zinc PCA, Sodium Gluconate, Tocopheryl Acetate, BHT, Fragrance."
           }
         }
       },
