@@ -134,6 +134,10 @@
                   },
                   "blocks": {}
                 },
+                "judge_me_reviews_preview_badge_nYAtwy": {
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "settings": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -159,6 +163,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "judge_me_reviews_preview_badge_nYAtwy",
                 "price_tVjtKg"
               ]
             },
@@ -629,15 +634,6 @@
             "verified": true
           }
         },
-        "review_y3Mpkb": {
-          "type": "review",
-          "settings": {
-            "review_title": "\"Finally, a Vitamin C that doesn't smell.\"",
-            "quote": "\"Every other Vit C serum I've tried smells like hot dog water and turns orange. This is crystal clear, smells like nothing, and gives me an insane glow.\"",
-            "author": "Sarah M.",
-            "verified": true
-          }
-        },
         "review_RyVKc9": {
           "type": "review",
           "settings": {
@@ -650,7 +646,6 @@
       },
       "block_order": [
         "review_kd3GyW",
-        "review_y3Mpkb",
         "review_RyVKc9"
       ],
       "settings": {
@@ -667,6 +662,50 @@
         "override_fonts": false,
         "heading_font": "serif",
         "body_font": "system_ui_n4"
+      }
+    },
+    "17749524831849d53f": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_reviews_review_widget_W8QxFq": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_W8QxFq"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "product_recommendations_qggXJq": {
@@ -821,6 +860,7 @@
     "luma_faq",
     "luma_how_to_use",
     "luma_reviews",
+    "17749524831849d53f",
     "product_recommendations_qggXJq"
   ]
 }
