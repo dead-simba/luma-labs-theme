@@ -84,8 +84,8 @@ export default class VariantPicker extends Component {
     const morphElementSelector = loadsNewProduct
       ? 'main'
       : isOnFeaturedProductSection
-      ? 'featured-product-information'
-      : undefined;
+        ? 'featured-product-information'
+        : undefined;
 
     this.fetchUpdatedSection(this.buildRequestUrl(selectedOption), morphElementSelector);
 

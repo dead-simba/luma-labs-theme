@@ -255,9 +255,7 @@
           value="{{ option1_var.id }}"
           id="luma-bundle-opt1-{{ block.id }}"
           class="luma-bundle-radio"
-          {% if option2_var == blank %}
-            checked
-          {% endif %}
+          checked
         >
         <div class="luma-bundle-card">
           <div class="luma-bundle-info-left">
@@ -287,7 +285,6 @@
             value="{{ option2_var.id }}"
             id="luma-bundle-opt2-{{ block.id }}"
             class="luma-bundle-radio"
-            checked
           >
           <div class="luma-bundle-card luma-bundle-card--highlighted">
             {%- if block.settings.opt2_badge != blank -%}
