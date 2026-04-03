@@ -5,7 +5,16 @@
 {%- endcomment -%}
 
 {% stylesheet %}
-  /* ── B Variant: Sticky bar always shows full text on mobile ── */
+  /* ── B Variant: Always-visible sticky bar ── */
+
+  /* Force the bar to be visible at all times (not just after scrolling past buy button) */
+  sticky-add-to-cart[data-variant-available='true'] .sticky-add-to-cart__bar {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0%) !important;
+    display: block !important;
+  }
+
+  /* Mobile: show full "Add to Cart" text, not icon-only */
   @media screen and (max-width: 749px) {
     .sticky-add-to-cart__bar .add-to-cart-text__content {
       display: inline !important;
@@ -17,12 +26,10 @@
       padding-inline: var(--padding-lg) !important;
     }
 
-    /* Tighten sticky bar gap on small screens */
     .sticky-add-to-cart__bar {
       gap: var(--gap-sm) !important;
     }
 
-    /* Hide product image in sticky bar on very small screens to give more room to button */
     @media screen and (max-width: 390px) {
       .sticky-add-to-cart__image {
         display: none;

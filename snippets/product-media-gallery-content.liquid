@@ -99,22 +99,37 @@
     endif
   endif
 
-  assign sorted_media = '' | split: ','
-  if selected_variant_media
-    assign sorted_media = sorted_media | concat: selected_product.media | where: 'id', selected_variant_media.id
+  assign override_media = null
+  if block_settings.override_metafield != blank
+    assign override_parts = block_settings.override_metafield | split: '.'
+    if override_parts.size == 2
+      assign override_ns = override_parts[0]
+      assign override_key = override_parts[1]
+      assign override_media = selected_product.metafields[override_ns][override_key].value
+    endif
+  endif
 
-    for media in selected_product.media
-      if block_settings.hide_variants and variant_images contains media.src and sorted_media.size > 0
-        continue
-      endif
-
-      if media.id != selected_variant_media.id
-        assign found_media = selected_product.media | where: 'id', media.id
-        assign sorted_media = sorted_media | concat: found_media
-      endif
-    endfor
+  if override_media != null and override_media != blank
+    assign sorted_media = override_media
+    assign first_3d_model = override_media | where: 'media_type', 'model' | first
   else
-    assign sorted_media = selected_product.media
+    assign sorted_media = '' | split: ','
+    if selected_variant_media
+      assign sorted_media = sorted_media | concat: selected_product.media | where: 'id', selected_variant_media.id
+
+      for media in selected_product.media
+        if block_settings.hide_variants and variant_images contains media.src and sorted_media.size > 0
+          continue
+        endif
+
+        if media.id != selected_variant_media.id
+          assign found_media = selected_product.media | where: 'id', media.id
+          assign sorted_media = sorted_media | concat: found_media
+        endif
+      endfor
+    else
+      assign sorted_media = selected_product.media
+    endif
   endif
   assign has_image_drop = sorted_media | has: 'media_type', 'image'
 

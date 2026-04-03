@@ -20,6 +20,7 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
+            "override_metafield": "custom.b_variant_media",
             "media_presentation": "carousel",
             "media_columns": "one",
             "image_gap": 4,
