@@ -1,0 +1,39 @@
+{%- comment -%}
+  A/B Test — Variant B CSS Overrides
+  Injected as the first section in all *-b product templates.
+  Fixes mobile sticky bar and tightens mobile layout.
+{%- endcomment -%}
+
+{% stylesheet %}
+  /* ── B Variant: Sticky bar always shows full text on mobile ── */
+  @media screen and (max-width: 749px) {
+    .sticky-add-to-cart__bar .add-to-cart-text__content {
+      display: inline !important;
+    }
+
+    .sticky-add-to-cart__button {
+      width: auto !important;
+      min-width: 120px !important;
+      padding-inline: var(--padding-lg) !important;
+    }
+
+    /* Tighten sticky bar gap on small screens */
+    .sticky-add-to-cart__bar {
+      gap: var(--gap-sm) !important;
+    }
+
+    /* Hide product image in sticky bar on very small screens to give more room to button */
+    @media screen and (max-width: 390px) {
+      .sticky-add-to-cart__image {
+        display: none;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "PDP B Overrides",
+  "settings": []
+}
+{% endschema %}

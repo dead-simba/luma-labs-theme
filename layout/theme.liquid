@@ -122,6 +122,7 @@
       })();
     </script>
     <!-- End Analytics UTM Persistence -->
+    {%- render 'ab-test-router' -%}
     {{ content_for_header }}
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" async></script>
     {%- if template.suffix contains 'qr' -%}

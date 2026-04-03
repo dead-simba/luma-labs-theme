@@ -1,0 +1,894 @@
+{
+  "sections": {
+    "luma_pdp_b_overrides": {
+      "type": "luma-pdp-b-overrides",
+      "settings": {}
+    },
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "one",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "none",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 63,
+            "thumbnail_radius": 8,
+            "aspect_ratio": "portrait",
+            "constrain_to_viewport": true,
+            "media_fit": "cover",
+            "media_radius": 0,
+            "extend_media": true,
+            "zoom": false,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 20,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_hiR9BA": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.product_subtitle | metafield_tag }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "text_hiR9BA",
+                "price_tVjtKg"
+              ]
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "luma_bundle_selector_1": {
+              "type": "luma-bundle-selector",
+              "settings": {
+                "title": "Select Your Protocol",
+                "opt1_product": "",
+                "opt1_title": "1 Bottle",
+                "opt1_subtitle": "Try it out.",
+                "opt2_product": "2x-barrier-renew",
+                "opt2_title": "2 Bottles (2 Month Supply)",
+                "opt2_subtitle": "Free Shipping Unlocked",
+                "opt2_subtitle_color": "#15803d",
+                "opt2_badge": "Most Popular (Save 15%)",
+                "opt3_product": "3x-barrier-renew",
+                "opt3_title": "3 Bottles (Save 20%)",
+                "opt3_subtitle": "Never run out."
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "luma_product_bullets_1": {
+              "type": "luma-product-bullets",
+              "settings": {
+                "margin_top": 24,
+                "margin_bottom": 0,
+                "bullet1_bold": "Instantly Stops Stinging",
+                "bullet1_text": "Liquid-crystal matrix melts into skin, immediately halting redness and irritation.",
+                "bullet2_bold": "Structural Repair",
+                "bullet2_text": "3:1:1 Golden Ratio of bio-fermented lipids permanently patches micro-tears.",
+                "bullet3_bold": "Dermal Remodeling",
+                "bullet3_text": "Matrixyl 3000™ peptides trick fibroblasts into producing fresh collagen."
+              },
+              "blocks": {}
+            },
+            "luma_trust_guarantee_1": {
+              "type": "luma-trust-guarantee",
+              "settings": {
+                "title": "30-Day Clinical Guarantee",
+                "text": "Don't love the texture or results? We'll refund you 100%. Zero risk.",
+                "margin_top": 16,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "buy_buttons_eYQEYi",
+            "luma_bundle_selector_1",
+            "divider_VJhene",
+            "luma_product_bullets_1",
+            "luma_trust_guarantee_1",
+            "variant_picker_R3rGDr",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "luma_ingredients": {
+      "type": "luma-ingredients-section",
+      "blocks": {
+        "ingredient_KF3hzC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "3:1:1 Biomimetic Lipids",
+            "description": "A pharmaceutical-grade complex of Ceramides (NP, AP, EOP), Cholesterol, and Phytosphingosine. Balanced in the exact physiological ratio required to permanently fuse micro-tears in the stratum corneum."
+          }
+        },
+        "ingredient_aHGjYC": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Matrixyl 3000™ Peptides",
+            "description": "Advanced signaling peptides (Palmitoyl Tripeptide-1 & Tetrapeptide-7) that actively mimic natural collagen breakdown, tricking your fibroblasts into rebuilding the dermal matrix for intense firming action."
+          }
+        },
+        "ingredient_Vyqmni": {
+          "type": "ingredient",
+          "settings": {
+            "title": "5% Niacinamide",
+            "description": "At this exact clinical concentration, Niacinamide stimulates the skin's biological pathways to synthesize its own endogenous ceramides up to 5x faster, while dramatically soothing existing redness."
+          }
+        },
+        "ingredient_Jpzyr8": {
+          "type": "ingredient",
+          "settings": {
+            "title": "All Ingredients",
+            "description": "Aqua, Glycerin, Niacinamide, Propanediol, Panthenol, Betaine, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Ceramide NP, Ceramide AP, Ceramide EOP, Cholesterol, Phytosphingosine, Sodium Hyaluronate, Allantoin, Tocopherol, Cetearyl Olivate, Sorbitan Olivate, Carbomer, Xanthan Gum, Sodium Lauroyl Lactylate, Disodium EDTA, 1,2-Hexanediol, Phenoxyethanol, Ethylhexylglycerin, Fragrance."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_KF3hzC",
+        "ingredient_aHGjYC",
+        "ingredient_Vyqmni",
+        "ingredient_Jpzyr8"
+      ],
+      "settings": {
+        "title": "Ingredients",
+        "bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "section_width": "1280px",
+        "heading_alignment": "left",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "judgeme_reviews": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "product_reviews",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_widget"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "luma_potency": {
+      "type": "luma-potency-ideal-section",
+      "blocks": {
+        "benefit_kjkbUT": {
+          "type": "benefit",
+          "settings": {
+            "title": "Biomimetic Architecture:",
+            "text": "Instead of heavy, pore-clogging waxes, we use an Olivem 1000 emulsion that physically mimics your skin's own lipid bilayer for instant absorption."
+          }
+        },
+        "benefit_VhAbw9": {
+          "type": "benefit",
+          "settings": {
+            "title": "The 3:1:1 Golden Ratio: ",
+            "text": "A pharmaceutical-grade complex of Ceramides (NP, AP, EOP), Cholesterol, and Phytosphingosine optimally balanced to fuse the barrier shut."
+          }
+        },
+        "benefit_pM6drf": {
+          "type": "benefit",
+          "settings": {
+            "title": "Peptide Matrix Signaling: ",
+            "text": "Advanced signaling peptides (Palmitoyl Tripeptide-1 & Tetrapeptide-7) actively trigger your fibroblasts to rebuild the dermal matrix."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_kjkbUT",
+        "benefit_VhAbw9",
+        "benefit_pM6drf"
+      ],
+      "settings": {
+        "potency_title": "Why It Works",
+        "center_image": "shopify://shop_images/Barrier_Renew_Section_2.webp",
+        "center_image_quote": "\"Deep healing without the heaviness.\"",
+        "center_image_caption": "Barrier Renew Gel-Cream",
+        "ideal_title": "Ideal For",
+        "skin_type_label": "Skin Type",
+        "skin_type_text": "Dry, Dehydrated, Sensitive, Compromised.",
+        "perfect_for_label": "Texture",
+        "perfect_for_text": "Velvety, liquid-crystal gel-cream. Melts effortlessly into a dewy, non-sticky finish.",
+        "concerns_label": "Targets Concerns",
+        "concerns_list": "Stinging & Severe Redness,\nTightness by mid-day (TEWL),\nOver-exfoliation from acids,\nFine lines & loss of elasticity",
+        "bg_color": "#ffffff",
+        "bg_opacity": 100,
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4",
+        "text_color": "#1a1a1a",
+        "accent_color": "#c5a065"
+      }
+    },
+    "luma_how_to_use": {
+      "type": "luma-how-to-use",
+      "blocks": {
+        "step_CPHBGt": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Barrier_Renew_How_to_use_1.webp",
+            "step_label": "Step 01",
+            "title": "Leave Skin Damp",
+            "text": "Never Apply to dry skin, Hydration is the key"
+          }
+        },
+        "step_HH7p8P": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Barrier_Renew_How_to_use_2.webp",
+            "step_label": "Step 02",
+            "title": "Press, Don't Rub",
+            "text": "Press a pea-sized amount into face and neck."
+          }
+        },
+        "step_XTDwcy": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Alpha_Arbutin_How_to_use_3.webp",
+            "step_label": "Step 03",
+            "title": "Seal with SPF",
+            "text": "In the AM, always follow with Suncare."
+          }
+        }
+      },
+      "block_order": [
+        "step_CPHBGt",
+        "step_HH7p8P",
+        "step_XTDwcy"
+      ],
+      "settings": {
+        "title": "How To Use",
+        "bg_color": "#f9f8f6",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_comparison": {
+      "type": "luma-comparison",
+      "blocks": {
+        "comparison_row_r868jG": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Active Repair",
+            "our_value": "3:1:1 Lipids + Peptides",
+            "competitor_value": "Basic Occlusives"
+          }
+        },
+        "comparison_row_6xLXPg": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Absorption",
+            "our_value": "Instant (Liquid Crystal)",
+            "competitor_value": "Sits on surface"
+          }
+        },
+        "comparison_row_JDp7VY": {
+          "type": "comparison_row",
+          "settings": {
+            "metric": "Anti-Aging",
+            "our_value": "Matrixyl 3000™",
+            "competitor_value": "None"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_r868jG",
+        "comparison_row_6xLXPg",
+        "comparison_row_JDp7VY"
+      ],
+      "settings": {
+        "title": "Why you're ditching your heavy night cream.",
+        "subtitle": "Traditional moisturizers just sit on top of your skin. We engineered a formula that actually penetrates.",
+        "our_product_name": "Luma Barrier Renew",
+        "competitor_name": "Standard Creams",
+        "competitor_sub": "",
+        "bg_color": "#ffffff",
+        "table_bg": "#f9f8f6"
+      }
+    },
+    "luma_clinical_stats": {
+      "type": "luma-clinical-stats",
+      "blocks": {
+        "stat_3gMTgq": {
+          "type": "stat",
+          "settings": {
+            "number": "95",
+            "symbol": "%",
+            "label": "Saw reduced redness & flaking",
+            "text": "within the first 72 hours of use."
+          }
+        },
+        "stat_UPAB3X": {
+          "type": "stat",
+          "settings": {
+            "number": "100",
+            "symbol": "%",
+            "label": "Felt instant deep hydration",
+            "text": "without any sticky or greasy residue."
+          }
+        },
+        "stat_bFcH4a": {
+          "type": "stat",
+          "settings": {
+            "number": "45",
+            "symbol": "%",
+            "label": "Reduction in deep wrinkle area",
+            "text": "after 8 weeks of continuous Matrixyl use."
+          }
+        }
+      },
+      "block_order": [
+        "stat_3gMTgq",
+        "stat_UPAB3X",
+        "stat_bFcH4a"
+      ],
+      "settings": {
+        "title": "Backed by Biological Data.",
+        "subtitle": "",
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "accent_color": "#d4a340"
+      }
+    },
+    "luma_hero_banner_CMfQR8": {
+      "type": "luma-hero-banner",
+      "name": "Luma Hero Banner",
+      "settings": {
+        "image_desktop": "shopify://shop_images/Barrier_Renew_Lifestyle.webp",
+        "min_height_desktop": 400,
+        "min_height_mobile": 350,
+        "heading": "Reconstruct Your<br><span class=\"luma-hero-highlight\">Foundation.</span>",
+        "subheading": "The definitive cure for over-exfoliated skin.",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 45,
+        "overlay_blur": 2,
+        "text_color": "#333333",
+        "highlight_color": "#997500"
+      }
+    },
+    "luma_faq": {
+      "type": "luma-faq-section",
+      "blocks": {
+        "faq_item_iGCR7M": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this cream thick and heavy? Will it clog my pores?",
+            "answer": "Not at all. Unlike traditional, heavy barrier pastes, Barrier Renew is a lightweight, liquid-crystal gel-cream. It absorbs instantly into the skin, leaving a breathable, velvety finish that repairs your barrier without feeling greasy or triggering breakouts."
+          }
+        },
+        "faq_item_JFpHKK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use this when my skin is burning from retinol or over-exfoliation?",
+            "answer": "Yes, that is exactly what it is designed for. The 3:1:1 ceramide ratio physically patches micro-tears in your compromised skin barrier, instantly soothing severe redness, stinging, and irritation caused by harsh active ingredients."
+          }
+        },
+        "faq_item_9VknjL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this only for dry, flaky skin, or can oily skin use it too?",
+            "answer": "It is formulated for all skin types. Because it rebuilds your foundational lipid barrier without relying on heavy waxes, it deeply moisturizes dry skin while actually helping oily skin stop overproducing sebum (which often happens when oily skin is secretly dehydrated)."
+          }
+        },
+        "faq_item_i7j737": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does this also work as an anti-aging cream?",
+            "answer": "Absolutely. Alongside barrier repair, it contains clinical-grade Matrixyl 3000™—powerful signal peptides that trick your skin into producing fresh collagen and elastin. It actively firms the skin, reduces fine lines, and rebuilds your dermal matrix over time."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_iGCR7M",
+        "faq_item_JFpHKK",
+        "faq_item_9VknjL",
+        "faq_item_i7j737"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "section_width": "800px",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "luma_reviews": {
+      "type": "luma-testimonials",
+      "blocks": {
+        "review_kd3GyW": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Saved my skin from Retinol burns.\"",
+            "quote": "\"I over-exfoliated my skin to the point where even washing with water stung. This cream healed my barrier in 3 days. It's incredibly soothing and completely weightless.\"",
+            "author": "Laiba B.",
+            "verified": true
+          }
+        },
+        "review_y3Mpkb": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Plumped my fine lines.\"",
+            "quote": "\"The Matrixyl in this is no joke. I've been using it for two months and my forehead lines are visibly shallower. Better than my $150 luxury cream.\"",
+            "author": "Shafaq B.",
+            "verified": true
+          }
+        },
+        "review_RyVKc9": {
+          "type": "review",
+          "settings": {
+            "review_title": "\"Zero stickiness.\"",
+            "quote": "\"I have combo skin and usually hate ceramide creams because they feel like paste. This literally melts into a water-like texture. Obsessed.\"",
+            "author": "Mahnoor R.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_kd3GyW",
+        "review_y3Mpkb",
+        "review_RyVKc9"
+      ],
+      "settings": {
+        "eyebrow": "Community Love",
+        "title": "Real Results. Real Skin.",
+        "rating_text": "Based on 120+ Reviews",
+        "section_width": "1280px",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "bg_color": "#f9f8f6",
+        "card_bg_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#d4a340",
+        "override_fonts": false,
+        "heading_font": "serif",
+        "body_font": "system_ui_n4"
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "luma_pdp_b_overrides",
+    "main",
+    "luma_ingredients",
+    "judgeme_reviews",
+    "luma_potency",
+    "luma_how_to_use",
+    "luma_comparison",
+    "luma_clinical_stats",
+    "luma_hero_banner_CMfQR8",
+    "luma_faq",
+    "luma_reviews",
+    "product_recommendations_qggXJq"
+  ]
+}

@@ -1,0 +1,152 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════
+  Luma Labs — A/B Test Router
+  ══════════════════════════════════════════════════════════
+
+  HOW IT WORKS
+  ─────────────
+  1. Runs only on the 3 test product templates (detected by template.suffix).
+  2. On first visit: randomly assigns visitor to 'a' or 'b' (50/50).
+  3. Stores assignment in a 30-day cookie scoped per product.
+  4. If assigned 'b' but viewing the A template → redirects to ?view={suffix}-b
+  5. If assigned 'a' but somehow landed on B → redirects back to canonical URL.
+  6. Fires GA4 (via dataLayer) + Meta Pixel custom event on every page load.
+
+  HOW TO ACCESS EACH VARIANT IN THEME EDITOR
+  ─────────────────────────────────────────────
+  Go to: Shopify Admin → Online Store → Themes → Customize
+  Then set the preview URL to:
+    /products/matte-uv-defense?view=matte-uv-defense-b
+    /products/barrier-renew-gel-cream?view=barrier-renew-b
+    /products/alpha-arbutin-serum?view=alpha-arbutin-b
+
+  HOW TO LINK FROM PAID ADS (bypass router, always land on B)
+  ─────────────────────────────────────────────────────────────
+  Just append ?view={suffix}-b to the product URL in your ad.
+  The router detects the ?view= param and respects it, setting
+  the cookie to 'b' so the user stays on B for the session.
+
+  TRACKING
+  ─────────
+  GA4  → event "ab_test_variant" with params: test_name, variant, product_handle
+  Meta → custom event "ABTestVariant" with same params
+  Both fire on every page load (A and B), not just on redirect.
+
+  TO ADD MORE VARIANTS IN FUTURE
+  ────────────────────────────────
+  1. Create product.{handle}-c.json template
+  2. Add the new suffix to the variantMap below
+  3. Update the random assignment logic to pick from ['a','b','c']
+{%- endcomment -%}
+
+{%- if template.name == 'product' and request.design_mode == false -%}
+
+  {%- comment -%} Map A-template suffix → B-template suffix {%- endcomment -%}
+  {%- assign ab_a_suffix = '' -%}
+  {%- assign ab_b_suffix = '' -%}
+  {%- assign is_ab_product = false -%}
+
+  {%- if template.suffix == 'matte-uv-defense' or template.suffix == 'matte-uv-defense-b' -%}
+    {%- assign is_ab_product = true -%}
+    {%- assign ab_a_suffix = 'matte-uv-defense' -%}
+    {%- assign ab_b_suffix = 'matte-uv-defense-b' -%}
+  {%- elsif template.suffix == 'barrier-renew' or template.suffix == 'barrier-renew-b' -%}
+    {%- assign is_ab_product = true -%}
+    {%- assign ab_a_suffix = 'barrier-renew' -%}
+    {%- assign ab_b_suffix = 'barrier-renew-b' -%}
+  {%- elsif template.suffix == 'alpha-arbutin' or template.suffix == 'alpha-arbutin-b' -%}
+    {%- assign is_ab_product = true -%}
+    {%- assign ab_a_suffix = 'alpha-arbutin' -%}
+    {%- assign ab_b_suffix = 'alpha-arbutin-b' -%}
+  {%- endif -%}
+
+  {%- if is_ab_product -%}
+    {%- assign is_b_template = false -%}
+    {%- if template.suffix == ab_b_suffix -%}
+      {%- assign is_b_template = true -%}
+    {%- endif -%}
+
+    <script>
+      (function () {
+        var COOKIE_NAME  = 'luma_ab_{{ ab_a_suffix | replace: "-", "_" }}';
+        var COOKIE_DAYS  = 30;
+        var B_VIEW_PARAM = '{{ ab_b_suffix }}';
+        var IS_B         = {{ is_b_template }};
+        var PRODUCT      = '{{ product.handle }}';
+        var TEST_NAME    = 'pdp_restructure_v1';
+
+        /* ── Helpers ─────────────────────────────────────────── */
+        function getCookie(name) {
+          var match = document.cookie.match(
+            new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)')
+          );
+          return match ? decodeURIComponent(match[1]) : null;
+        }
+
+        function setCookie(name, value, days) {
+          var expires = new Date(Date.now() + days * 864e5).toUTCString();
+          document.cookie =
+            name + '=' + encodeURIComponent(value) +
+            '; expires=' + expires +
+            '; path=/; SameSite=Lax';
+        }
+
+        function fireTracking(variant) {
+          /* GA4 via GTM dataLayer */
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'ab_test_variant',
+            ab_test_name: TEST_NAME,
+            ab_test_variant: variant,
+            ab_test_product: PRODUCT
+          });
+
+          /* Meta Pixel */
+          if (typeof fbq === 'function') {
+            fbq('trackCustom', 'ABTestVariant', {
+              test_name: TEST_NAME,
+              variant: variant,
+              product: PRODUCT
+            });
+          }
+        }
+
+        /* ── Check if visitor came via a direct ?view= link (e.g. from a paid ad) ── */
+        var urlParams    = new URLSearchParams(window.location.search);
+        var viewParam    = urlParams.get('view');
+        var forcedToB    = viewParam === B_VIEW_PARAM;
+
+        /* ── Read or assign variant ─────────────────────────── */
+        var assigned = getCookie(COOKIE_NAME);
+
+        if (forcedToB) {
+          /* Paid-ad direct link always lands on B and locks the cookie */
+          assigned = 'b';
+          setCookie(COOKIE_NAME, 'b', COOKIE_DAYS);
+        } else if (!assigned) {
+          /* First organic visit — 50 / 50 assignment */
+          assigned = Math.random() < 0.5 ? 'a' : 'b';
+          setCookie(COOKIE_NAME, assigned, COOKIE_DAYS);
+        }
+
+        /* ── Redirect if template doesn't match assignment ───── */
+        if (assigned === 'b' && !IS_B) {
+          var url = new URL(window.location.href);
+          url.searchParams.set('view', B_VIEW_PARAM);
+          window.location.replace(url.toString());
+          return; /* Stop execution — page is reloading */
+        }
+
+        if (assigned === 'a' && IS_B) {
+          var url = new URL(window.location.href);
+          url.searchParams.delete('view');
+          window.location.replace(url.toString());
+          return;
+        }
+
+        /* ── Track (only fires when no redirect needed) ─────── */
+        fireTracking(assigned);
+      })();
+    </script>
+  {%- endif -%}
+{%- endif -%}
