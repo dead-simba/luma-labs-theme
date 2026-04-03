@@ -138,6 +138,10 @@
                   },
                   "blocks": {}
                 },
+                "judge_me_reviews_preview_badge_LHiDUA": {
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "settings": {}
+                },
                 "text_hiR9BA": {
                   "type": "text",
                   "name": "t:names.text",
@@ -189,6 +193,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "judge_me_reviews_preview_badge_LHiDUA",
                 "text_hiR9BA",
                 "price_tVjtKg"
               ]
@@ -456,14 +461,14 @@
         "benefit_VhAbw9": {
           "type": "benefit",
           "settings": {
-            "title": "The 3:1:1 Golden Ratio: ",
+            "title": "The 3:1:1 Golden Ratio:",
             "text": "A pharmaceutical-grade complex of Ceramides (NP, AP, EOP), Cholesterol, and Phytosphingosine optimally balanced to fuse the barrier shut."
           }
         },
         "benefit_pM6drf": {
           "type": "benefit",
           "settings": {
-            "title": "Peptide Matrix Signaling: ",
+            "title": "Peptide Matrix Signaling:",
             "text": "Advanced signaling peptides (Palmitoyl Tripeptide-1 & Tetrapeptide-7) actively trigger your fibroblasts to rebuild the dermal matrix."
           }
         }
