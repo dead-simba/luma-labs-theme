@@ -138,6 +138,10 @@
                   },
                   "blocks": {}
                 },
+                "judge_me_reviews_preview_badge_ewFRgm": {
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "settings": {}
+                },
                 "text_hiR9BA": {
                   "type": "text",
                   "name": "t:names.text",
@@ -189,6 +193,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "judge_me_reviews_preview_badge_ewFRgm",
                 "text_hiR9BA",
                 "price_tVjtKg"
               ]
@@ -701,58 +706,6 @@
         "body_font": "system_ui_n4"
       }
     },
-    "luma_reviews": {
-      "type": "luma-testimonials",
-      "blocks": {
-        "review_kd3GyW": {
-          "type": "review",
-          "settings": {
-            "review_title": "\"The only SPF that doesn't break me out.\"",
-            "quote": "\"The Zinc PCA is a game changer. My skin is actually less oily at 4 PM than when I woke up. It's totally replaced my morning moisturizer.\"",
-            "author": "Aisha M.",
-            "verified": true
-          }
-        },
-        "review_y3Mpkb": {
-          "type": "review",
-          "settings": {
-            "review_title": "\"No purple cast at all.\"",
-            "quote": "\"I have very deep skin, and every 'clear' SPF still made me look ashy until this one. It truly dries invisible and leaves a nice satin finish.\"",
-            "author": "Fatima K.",
-            "verified": true
-          }
-        },
-        "review_RyVKc9": {
-          "type": "review",
-          "settings": {
-            "review_title": "\"Perfect under makeup.\"",
-            "quote": "\"It grips my foundation so well it doubles as my primer. Plus, my pores look smaller where I used to get so congested wearing sunscreen every day.\"",
-            "author": "Sara V.",
-            "verified": true
-          }
-        }
-      },
-      "block_order": [
-        "review_kd3GyW",
-        "review_y3Mpkb",
-        "review_RyVKc9"
-      ],
-      "settings": {
-        "eyebrow": "Community Love",
-        "title": "Why They Switched to Luma",
-        "rating_text": "Based on 1,240+ Reviews",
-        "section_width": "1280px",
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "bg_color": "#f9f8f6",
-        "card_bg_color": "#ffffff",
-        "text_color": "#1a1a1a",
-        "accent_color": "#d4a340",
-        "override_fonts": false,
-        "heading_font": "serif",
-        "body_font": "system_ui_n4"
-      }
-    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -906,7 +859,6 @@
     "luma_clinical_stats",
     "luma_hero_banner_CMfQR8",
     "luma_faq",
-    "luma_reviews",
     "product_recommendations_qggXJq"
   ]
 }
