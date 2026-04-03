@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "luma_pdp_b_overrides": {
@@ -656,48 +665,6 @@
         "body_font": "system_ui_n4"
       }
     },
-    "luma_reviews": {
-      "type": "luma-testimonials",
-      "blocks": {
-        "review_kd3GyW": {
-          "type": "review",
-          "settings": {
-            "review_title": "\"My melasma is finally fading.\"",
-            "quote": "I've tried everything for my post-pregnancy melasma. Hydroquinone was too harsh, and Vitamin C didn't do enough. This serum is the sweet spot. After 4 weeks, the dark patches on my cheeks have visibly lightened.",
-            "author": "Sarah M.",
-            "verified": true
-          }
-        },
-        "review_RyVKc9": {
-          "type": "review",
-          "settings": {
-            "review_title": "\"Safe for my sensitive skin.\"",
-            "quote": "\"I wanted to treat my melasma but hydroquinone gave me a rash. Alpha Arbutin is the holy grail. It's so gentle but actually works.\"",
-            "author": "Fatima S.",
-            "verified": true
-          }
-        }
-      },
-      "block_order": [
-        "review_kd3GyW",
-        "review_RyVKc9"
-      ],
-      "settings": {
-        "eyebrow": "Community Love",
-        "title": "Real Results. Real Skin.",
-        "rating_text": "Based on 120+ Reviews",
-        "section_width": "1280px",
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "bg_color": "#f9f8f6",
-        "card_bg_color": "#ffffff",
-        "text_color": "#1a1a1a",
-        "accent_color": "#d4a340",
-        "override_fonts": false,
-        "heading_font": "serif",
-        "body_font": "system_ui_n4"
-      }
-    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -851,7 +818,6 @@
     "luma_clinical_stats",
     "luma_hero_banner_CMfQR8",
     "luma_faq",
-    "luma_reviews",
     "product_recommendations_qggXJq"
   ]
 }
