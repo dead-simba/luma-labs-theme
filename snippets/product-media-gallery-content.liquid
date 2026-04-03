@@ -871,4 +871,36 @@
       opacity: 0;
     }
   }
+
+  /* Desktop Zoom Gallery Constraint - Fit full image to screen height */
+  @media screen and (min-width: 750px) {
+    .dialog-zoomed-gallery .product-media-container {
+      height: 100vh; /* Make each slide fit the full viewport */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start; /* Optional: adds snap to each image */
+    }
+    
+    .dialog-zoomed-gallery {
+      scroll-snap-type: y mandatory; /* Makes scrolling snap vertically on desktop */
+    }
+
+    .dialog-zoomed-gallery .product-media__drag-zoom-wrapper .product-media__image {
+      object-fit: contain !important; /* Force image to scale down */
+      max-height: 100vh;
+      max-width: 100%;
+      width: auto !important;
+      height: 100% !important;
+    }
+    
+    .dialog-zoomed-gallery .product-media-container--image .product-media {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 {% endstylesheet %}
