@@ -1,0 +1,504 @@
+<style>
+  reward-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+  }
+  reward-popup[is-open='true'] {
+    display: flex;
+  }
+  .reward-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  reward-popup[is-open='true'] .reward-popup-overlay {
+    opacity: 1;
+  }
+  .reward-popup-modal {
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Spring bounce physics */
+  }
+  reward-popup[is-open='true'] .reward-popup-modal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .reward-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+    padding: 0;
+  }
+  .reward-popup-close:hover {
+    opacity: 1;
+  }
+  .reward-popup-close svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .reward-popup-image {
+    width: 100%;
+    height: 160px;
+    position: relative;
+  }
+  .reward-popup-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .reward-popup-content {
+    padding: 40px 40px 50px 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .reward-popup-title {
+    font-family: var(--font-heading-family);
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    line-height: 1.1;
+    color: #000;
+  }
+  .reward-popup-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+  }
+  .reward-popup-text p {
+    margin: 0;
+  }
+  .reward-popup-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+  }
+  .reward-popup-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fafafa;
+    color: #000;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    box-sizing: border-box;
+    font-family: var(--font-body-family);
+  }
+  .reward-popup-input::placeholder {
+    color: #999;
+  }
+  .reward-popup-input:focus {
+    border-color: #000;
+    background: #fff;
+  }
+
+  .reward-popup-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .reward-popup-consent input[type='checkbox'] {
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: rgb(var(--color-primary-button-background, 0, 0, 0));
+  }
+
+  .reward-popup-success-block {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .reward-popup-code {
+    display: inline-block;
+    background: rgb(var(--color-primary-button-background, 240, 240, 240), 0.08); /* Faint tint of primary color */
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    border: 1px dashed rgb(var(--color-primary-button-background, 0, 0, 0));
+    color: #000;
+  }
+  .reward-popup-errors {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff0f0;
+    color: #d32f2f;
+    border-radius: 6px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .reward-popup-content {
+      padding: 30px 25px 40px 25px;
+    }
+    .reward-popup-title {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+
+<reward-popup
+  data-trigger="{{ section.settings.trigger_pattern }}"
+  data-delay="{{ section.settings.timer_delay }}"
+  data-cookie="{{ section.settings.cookie_days }}"
+>
+  <div class="reward-popup-overlay"></div>
+  <div class="reward-popup-modal">
+    <button class="reward-popup-close" aria-label="Close">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    {% if section.settings.image != blank %}
+      <div class="reward-popup-image" style="background-color: rgb(var(--color-background));">
+        {{
+          section.settings.image
+          | image_url: width: 600
+          | image_tag: loading: 'lazy', alt: section.settings.image.alt
+          | escape
+        }}
+      </div>
+    {% endif %}
+
+    <div class="reward-popup-content">
+      {% form 'customer', id: 'RewardPopupForm' %}
+        {% if form.posted_successfully? %}
+          <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+          <div class="reward-popup-success-block">
+            <h3 class="reward-popup-title">{{ section.settings.success_heading }}</h3>
+            <div class="reward-popup-text">{{ section.settings.success_subtext }}</div>
+            {% if section.settings.success_code != blank %}
+              <div class="reward-popup-code">{{ section.settings.success_code }}</div>
+            {% endif %}
+          </div>
+        {% else %}
+          <h2 class="reward-popup-title">{{ section.settings.heading }}</h2>
+          <div class="reward-popup-text">{{ section.settings.subtext }}</div>
+
+          {% if form.errors %}
+            <div class="reward-popup-errors">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <input type="hidden" id="RewardTags" name="contact[tags]" value="prospect, reward_popup, whatsapp_consent">
+
+          <div class="reward-popup-fields">
+            <input class="reward-popup-input" type="email" name="contact[email]" placeholder="Email Address" required>
+            <input class="reward-popup-input" type="tel" name="contact[phone]" placeholder="WhatsApp Number" required>
+
+            <label class="reward-popup-consent">
+              <input
+                type="checkbox"
+                name="customer[accepts_marketing]"
+                checked="checked"
+                onchange="document.getElementById('RewardTags').value = this.checked ? 'prospect, reward_popup, whatsapp_consent' : 'prospect, reward_popup';"
+              >
+              <span>{{ section.settings.consent_text }}</span>
+            </label>
+
+            <button type="submit" class="button button--primary" style="width: 100%; margin-top: 5px; height: 50px;">
+              {{ section.settings.button_label }}
+            </button>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</reward-popup>
+
+<script>
+  if (!customElements.get('reward-popup')) {
+    customElements.define(
+      'reward-popup',
+      class extends HTMLElement {
+        constructor() {
+          super();
+          this.cookieName = 'lumalabs_reward_dismissed';
+          this.handleScroll = this.handleScroll.bind(this);
+          this.handleMouseLeave = this.handleMouseLeave.bind(this);
+        }
+
+        connectedCallback() {
+          this.closeBtn = this.querySelector('.reward-popup-close');
+          this.overlay = this.querySelector('.reward-popup-overlay');
+
+          if (this.closeBtn) this.closeBtn.addEventListener('click', () => this.dismiss());
+          if (this.overlay) this.overlay.addEventListener('click', () => this.dismiss());
+
+          const isSuccess = !!this.querySelector('.reward-popup-success-block');
+          const hasErrors = !!this.querySelector('.reward-popup-errors');
+
+          // If form was just submitted, open immediately
+          if (isSuccess || hasErrors) {
+            this.show();
+
+            if (isSuccess) {
+              this.setCookie();
+
+              // Trigger Confetti!
+              if (typeof confetti === 'function') {
+                setTimeout(() => {
+                  confetti({
+                    particleCount: 150,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    zIndex: 999999,
+                    colors: ['#000000', '#ffffff', '#2b2b2b', '#f4f4f4'],
+                  });
+                }, 400); // Wait for modal to pop in
+              }
+            }
+            return;
+          }
+
+          if (this.hasCookie()) return;
+          this.initTriggers();
+        }
+
+        initTriggers() {
+          const trigger = this.dataset.trigger;
+          const delay = parseInt(this.dataset.delay) * 1000;
+
+          if (trigger.includes('timer')) {
+            setTimeout(() => this.show(), delay);
+          }
+
+          if (trigger.includes('exit')) {
+            document.addEventListener('mouseleave', this.handleMouseLeave);
+          }
+
+          if (trigger.includes('scroll')) {
+            document.addEventListener('scroll', this.handleScroll);
+          }
+        }
+
+        handleScroll() {
+          if (this.hasCookie() || this.getAttribute('is-open')) return;
+
+          const h = document.documentElement;
+          const b = document.body;
+          const st = 'scrollTop';
+          const sh = 'scrollHeight';
+
+          // Calculate scroll percentage
+          const scrollPercent = ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+
+          if (scrollPercent >= 40) {
+            this.show();
+            document.removeEventListener('scroll', this.handleScroll);
+          }
+        }
+
+        handleMouseLeave(e) {
+          if (e.clientY <= 0 && !this.hasCookie() && !this.getAttribute('is-open')) {
+            this.show();
+            document.removeEventListener('mouseleave', this.handleMouseLeave);
+          }
+        }
+
+        show() {
+          if (
+            this.hasCookie() &&
+            !this.querySelector('.reward-popup-success-block') &&
+            !this.querySelector('.reward-popup-errors')
+          )
+            return;
+          this.setAttribute('is-open', 'true');
+        }
+
+        dismiss() {
+          this.removeAttribute('is-open');
+          this.setCookie();
+          // Remove listeners
+          document.removeEventListener('scroll', this.handleScroll);
+          document.removeEventListener('mouseleave', this.handleMouseLeave);
+        }
+
+        setCookie() {
+          const days = parseInt(this.dataset.cookie) || 7;
+          const date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          document.cookie = `${this.cookieName}=true;expires=${date.toUTCString()};path=/`;
+        }
+
+        hasCookie() {
+          return document.cookie.indexOf(`${this.cookieName}=true`) !== -1;
+        }
+      }
+    );
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Reward Pop-up",
+  "settings": [
+    {
+      "type": "select",
+      "id": "trigger_pattern",
+      "label": "Trigger Logic",
+      "options": [
+        {
+          "value": "scroll",
+          "label": "Scroll 40% Down"
+        },
+        {
+          "value": "timer",
+          "label": "Timer Delay Only"
+        },
+        {
+          "value": "exit",
+          "label": "Exit Intent Only"
+        },
+        {
+          "value": "scroll_timer",
+          "label": "Scroll 40% OR Timer (whichever first)"
+        },
+        {
+          "value": "scroll_exit_timer",
+          "label": "All (Scroll OR Exit OR Timer)"
+        }
+      ],
+      "default": "scroll"
+    },
+    {
+      "type": "range",
+      "id": "timer_delay",
+      "label": "Timer Delay (Seconds)",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 8,
+      "info": "Only applies if logic includes Timer."
+    },
+    {
+      "type": "range",
+      "id": "cookie_days",
+      "label": "Dismissal Memory (Days)",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 7,
+      "info": "How long to keep hidden after user closes it."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Scientific Start to Your Protocol"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>Unlock 10% off your first clinical regimen. Engineered for <b>melanin-rich skin</b> and Pakistan's extreme climate.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Reveal My Protocol"
+    },
+    {
+      "type": "text",
+      "id": "consent_text",
+      "label": "Consent Text",
+      "default": "I agree to receive the Luma Protocol via email and WhatsApp. No spam, just science."
+    },
+    {
+      "type": "header",
+      "content": "Success State"
+    },
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "Success Heading",
+      "default": "Protocol Unlocked"
+    },
+    {
+      "type": "richtext",
+      "id": "success_subtext",
+      "label": "Success Subtext",
+      "default": "<p>Your journey to a repaired barrier begins now. Use this code at checkout—valid for exactly 72 hours.</p>"
+    },
+    {
+      "type": "text",
+      "id": "success_code",
+      "label": "Discount Code",
+      "default": "LUMA10",
+      "info": "Create this code in Shopify: 10% off, limit to one use per customer."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reward Pop-up"
+    }
+  ]
+}
+{% endschema %}
