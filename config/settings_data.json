@@ -88,6 +88,23 @@
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
     "whatsapp_number": "+923277771047",
+    "sections": {
+      "reward-popup": {
+        "type": "reward-popup",
+        "settings": {
+          "trigger_pattern": "scroll",
+          "timer_delay": 8,
+          "cookie_days": 7,
+          "heading": "A Scientific Start to Your Protocol",
+          "subtext": "<p>Unlock 15% off your first clinical regimen. Engineered for <strong>melanin-rich skin</strong> and Pakistan's extreme climate.</p>",
+          "button_label": "Reveal My Protocol",
+          "consent_text": "I agree to receive the Luma Protocol via email and WhatsApp. No spam, just science.",
+          "success_heading": "Protocol Unlocked",
+          "success_subtext": "<p>Your journey to a repaired barrier begins now. Use this code at checkout—valid for exactly 72 hours.</p>",
+          "success_code": "LUMA-15"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "2567389343055140935": {
