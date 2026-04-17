@@ -940,6 +940,17 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "custom_liquid_faViWB": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<style>\nvideo {\nwidth: 100%;\nheight: auto;\ndisplay: block;\nmargin: 0 auto;\n}\n</style>\n<video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n</video>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
@@ -950,6 +961,7 @@
     "luma_scroll_stopper_NEW",
     "luma_science_pillars_C3RyAH",
     "luma_ingredient_teaser_NEW",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "custom_liquid_faViWB"
   ]
 }
