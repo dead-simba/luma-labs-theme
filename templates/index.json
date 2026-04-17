@@ -945,9 +945,9 @@
       "type": "custom-liquid",
       "name": "t:names.custom_liquid",
       "settings": {
-        "custom_liquid": "<style>\nvideo {\nwidth: 100%;\nheight: auto;\ndisplay: block;\nmargin: 0 auto;\n}\n</style>\n<video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n</video>",
+        "custom_liquid": "<style>\nvideo {\nwidth: 33%;\nheight: 33%;\ndisplay: block;\nmargin: 10 auto;\n}\n</style>\n<video muted autoplay playsinline loop>\n    <source src=https://cdn.shopify.com/videos/c/o/v/acf2d548ccf14c0a9878af224293e8ed.mp4\n                  type=\"video/mp4\">\n    <source src=https://cdn.shopify.com/videos/c/o/v/acf2d548ccf14c0a9878af224293e8ed.mp4\n                  type=\"video/mp4\">\n</video>\n<style>\nvideo {\nwidth: 100%;\nheight: auto;\ndisplay: block;\nmargin: 0 auto;\n}\n</style>\n<video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n</video>",
         "color_scheme": "",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
