@@ -945,9 +945,9 @@
       "type": "custom-liquid",
       "name": "t:names.custom_liquid",
       "settings": {
-        "custom_liquid": "<style>\nvideo {\nwidth: 33%;\nheight: 33%;\ndisplay: block;\nmargin: 10 auto;\n}\n</style>\n<video muted autoplay playsinline loop>\n    <source src=https://cdn.shopify.com/videos/c/o/v/acf2d548ccf14c0a9878af224293e8ed.mp4\n                  type=\"video/mp4\">\n    <source src=https://cdn.shopify.com/videos/c/o/v/acf2d548ccf14c0a9878af224293e8ed.mp4\n                  type=\"video/mp4\">\n</video>\n<style>\nvideo {\nwidth: 100%;\nheight: auto;\ndisplay: block;\nmargin: 0 auto;\n}\n</style>\n<video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n    <source src=\"PASTE LINK HERE\"\n                  type=\"video/mp4\">\n</video>",
+        "custom_liquid": "<style>\n.video-row {\n  display: flex;\n  gap: 16px;\n  width: 100%;\n}\n.video-row video {\n  width: 33.33%;\n  height: auto;\n  display: block;\n}\n@media (max-width: 768px) {\n  .video-row {\n    flex-direction: column;\n  }\n  .video-row video {\n    width: 100%;\n  }\n}\n</style>\n\n<div class=\"video-row\">\n  <video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK 1 HERE\" type=\"video/mp4\">\n  </video>\n  <video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK 2 HERE\" type=\"video/mp4\">\n  </video>\n  <video muted autoplay playsinline loop>\n    <source src=\"PASTE LINK 3 HERE\" type=\"video/mp4\">\n  </video>\n</div>",
         "color_scheme": "",
-        "section_width": "full-width",
+        "section_width": "page-width",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
