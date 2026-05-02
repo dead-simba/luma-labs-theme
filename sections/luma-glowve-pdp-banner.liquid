@@ -10,29 +10,67 @@
   endcase
 -%}
 
-<div class="glowve-pdp">
+<style>
+  #shopify-section-{{ section.id }} {
+    position: sticky !important;
+    top: var(--glowve-nav-height, 86px) !important;
+    z-index: 97 !important;
+  }
+</style>
+
+<div class="glowve-pdp" id="glowvePdpBanner">
   <div class="glowve-pdp__shimmer" aria-hidden="true"></div>
+  <div class="glowve-pdp__stars" aria-hidden="true"></div>
+
   <div class="glowve-pdp__inner">
-    <span class="glowve-pdp__spark" aria-hidden="true">✨</span>
-    <div class="glowve-pdp__copy">
-      <strong class="glowve-pdp__headline">This product just got a glow-up.</strong>
-      <span class="glowve-pdp__sub">Same formula, same results — now with stunning new packaging at Glowvé.</span>
+
+    <div class="glowve-pdp__badge">
+      <span class="glowve-pdp__badge-spark">✨</span>
+      <span class="glowve-pdp__badge-label">Glow-up</span>
     </div>
+
+    <div class="glowve-pdp__body">
+      <span class="glowve-pdp__headline">This product just got a glow-up.</span>
+      <span class="glowve-pdp__divider" aria-hidden="true">—</span>
+      <span class="glowve-pdp__sub">Same formula, same results — now with stunning new packaging.</span>
+    </div>
+
     <a
       href="{{ glowve_url }}"
-      class="glowve-pdp__btn"
+      class="glowve-pdp__cta"
       id="glowvePdpBtn"
       rel="noopener noreferrer"
     >
       See it on Glowvé →
     </a>
+
   </div>
 </div>
 
 <script>
   (function () {
+    var banner = document.getElementById('glowvePdpBanner');
     var btn = document.getElementById('glowvePdpBtn');
-    if (!btn) return;
+    if (!banner || !btn) return;
+
+    // Set sticky top below the nav — reuse CSS var if sitewide banner already set it,
+    // otherwise measure directly
+    function pinBelowNav() {
+      if (!getComputedStyle(document.documentElement).getPropertyValue('--glowve-nav-height').trim()) {
+        var navHeight = 0;
+        document.querySelectorAll('.shopify-section-group-header-group').forEach(function(s) {
+          if (window.getComputedStyle(s).position === 'sticky') {
+            navHeight = Math.max(navHeight, s.offsetHeight);
+          }
+        });
+        if (navHeight > 0) {
+          document.documentElement.style.setProperty('--glowve-nav-height', navHeight + 'px');
+        }
+      }
+    }
+    pinBelowNav();
+    window.addEventListener('resize', pinBelowNav);
+
     var going = false;
     btn.addEventListener('click', function (e) {
       if (going) return;
@@ -48,102 +86,176 @@
 
 {% stylesheet %}
   .glowve-pdp {
-    position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, #1a1205 0%, #c49a3c 28%, #d4615a 62%, #c44b78 100%);
+    background: linear-gradient(110deg, #F04C1A 0%, #E83860 40%, #C02E74 72%, #8E1858 100%);
+    max-height: 300px;
+    transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease;
   }
 
   .glowve-pdp__shimmer {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+    background: linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.12) 50%, transparent 75%);
     animation: gpdp-shimmer 4s ease-in-out infinite;
     pointer-events: none;
   }
 
   @keyframes gpdp-shimmer {
-    from { transform: translateX(-100%); }
-    to   { transform: translateX(220%); }
+    0%   { transform: translateX(-120%) skewX(-12deg); }
+    100% { transform: translateX(260%) skewX(-12deg); }
+  }
+
+  .glowve-pdp__stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 200px 64px, 130px 48px, 95px 36px;
+    background-position: 24px 16px, 70px 32px, 12px 6px;
+    opacity: 0.55;
   }
 
   .glowve-pdp__inner {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
-    padding: 18px 28px;
-    max-width: 1200px;
+    padding: 22px 28px;
+    max-width: 1280px;
     margin: 0 auto;
     position: relative;
+    flex-wrap: wrap;
   }
 
-  .glowve-pdp__spark {
-    font-size: 26px;
+  .glowve-pdp__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+    padding: 6px 14px 6px 10px;
     flex-shrink: 0;
+    backdrop-filter: blur(6px);
+  }
+
+  .glowve-pdp__badge-spark {
+    font-size: 17px;
     display: inline-block;
-    animation: gpdp-spark 2.6s ease-in-out infinite;
-    line-height: 1;
+    animation: gpdp-spark 2.2s ease-in-out infinite;
   }
 
   @keyframes gpdp-spark {
     0%, 100% { transform: scale(1) rotate(0deg); }
-    50%       { transform: scale(1.22) rotate(8deg); }
+    40%       { transform: scale(1.35) rotate(14deg); }
+    60%       { transform: scale(1.1) rotate(-6deg); }
   }
 
-  .glowve-pdp__copy {
-    flex: 1;
-    min-width: 0;
+  .glowve-pdp__badge-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .glowve-pdp__body {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .glowve-pdp__headline {
-    display: block;
-    color: #fff;
-    font-size: 15px;
+    font-size: 19px;
     font-weight: 700;
-    line-height: 1.3;
+    color: #fff;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .glowve-pdp__divider {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 18px;
   }
 
   .glowve-pdp__sub {
-    display: block;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 13px;
-    line-height: 1.45;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.3;
+    white-space: nowrap;
   }
 
-  .glowve-pdp__btn {
+  .glowve-pdp__cta {
     display: inline-flex;
     align-items: center;
     background: #fff;
-    color: #1a1205;
-    padding: 10px 22px;
+    color: #8E1858;
+    padding: 12px 26px;
     border-radius: 100px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     text-decoration: none;
     white-space: nowrap;
-    flex-shrink: 0;
     letter-spacing: 0.02em;
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: gpdp-pulse 2.8s ease-in-out infinite;
   }
 
-  .glowve-pdp__btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  @keyframes gpdp-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+    50%       { box-shadow: 0 0 0 9px rgba(255,255,255,0); }
   }
 
-  @media screen and (max-width: 749px) {
-    .glowve-pdp__inner {
-      flex-wrap: wrap;
-      padding: 16px;
-      gap: 12px;
+  .glowve-pdp__cta:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    animation: none;
+    color: #6E1040;
+  }
+
+  @media screen and (max-width: 900px) {
+    .glowve-pdp__sub,
+    .glowve-pdp__divider {
+      display: none;
     }
 
-    .glowve-pdp__btn {
+    .glowve-pdp__inner {
+      gap: 14px;
+      padding: 18px 20px;
+    }
+
+    .glowve-pdp__headline {
+      font-size: 17px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .glowve-pdp__badge {
+      display: none;
+    }
+
+    .glowve-pdp__headline {
+      font-size: 15px;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .glowve-pdp__cta {
       width: 100%;
       justify-content: center;
-      padding: 12px;
+      font-size: 13px;
+      padding: 13px;
+    }
+
+    .glowve-pdp__inner {
+      gap: 12px;
+      padding: 16px;
     }
   }
 {% endstylesheet %}
