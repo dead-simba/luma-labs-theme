@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "glowve_pdp_banner": {
+      "type": "luma-glowve-pdp-banner",
+      "settings": {}
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -844,6 +848,7 @@
     }
   },
   "order": [
+    "glowve_pdp_banner",
     "main",
     "custom_liquid_8BenzG",
     "luma_potency",

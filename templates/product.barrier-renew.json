@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "glowve_pdp_banner": {
+      "type": "luma-glowve-pdp-banner",
+      "settings": {}
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -851,6 +855,7 @@
     }
   },
   "order": [
+    "glowve_pdp_banner",
     "main",
     "luma_potency",
     "custom_liquid_RyGq49",

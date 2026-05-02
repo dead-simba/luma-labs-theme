@@ -11,6 +11,12 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "glowve_migration_banner": {
+      "type": "luma-glowve-migration-banner",
+      "settings": {
+        "is_hidden": false
+      }
+    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -118,6 +124,7 @@
     }
   },
   "order": [
+    "glowve_migration_banner",
     "header_announcements_9jGBFp",
     "header_section"
   ]

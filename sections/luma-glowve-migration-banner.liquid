@@ -1,0 +1,203 @@
+{%- unless section.settings.is_hidden -%}
+<div class="glowve-ann" id="glowveAnn">
+  <div class="glowve-ann__shimmer" aria-hidden="true"></div>
+  <div class="glowve-ann__inner">
+    <p class="glowve-ann__text">
+      <span class="glowve-ann__spark" aria-hidden="true">✨</span>
+      <strong>Exciting news —</strong> Luma Labs is now <strong>Glowvé</strong>. Same formula, same results. Packaging got a huge glow-up.
+      <a href="https://glowve.skin" class="glowve-ann__link" id="glowveAnnLink" rel="noopener noreferrer">
+        Shop at Glowvé →
+      </a>
+    </p>
+    <button class="glowve-ann__close" id="glowveAnnClose" type="button" aria-label="Close announcement">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var KEY = 'gla_dismissed_v1';
+    var ann = document.getElementById('glowveAnn');
+    if (!ann) return;
+
+    if (localStorage.getItem(KEY)) {
+      ann.remove();
+      return;
+    }
+
+    document.getElementById('glowveAnnClose').addEventListener('click', function () {
+      ann.classList.add('glowve-ann--out');
+      localStorage.setItem(KEY, '1');
+      setTimeout(function () { ann.remove(); }, 380);
+    });
+
+    var going = false;
+    document.getElementById('glowveAnnLink').addEventListener('click', function (e) {
+      if (going) return;
+      going = true;
+      e.preventDefault();
+      var href = this.href;
+      document.body.style.transition = 'opacity 0.32s ease';
+      document.body.style.opacity = '0';
+      setTimeout(function () { window.location.href = href; }, 330);
+    });
+  })();
+</script>
+
+{% stylesheet %}
+  .glowve-ann {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #1a1205 0%, #c49a3c 28%, #d4615a 62%, #c44b78 100%);
+    max-height: 120px;
+    transition: max-height 0.38s ease, opacity 0.38s ease, padding 0.38s ease;
+  }
+
+  .glowve-ann--out {
+    max-height: 0 !important;
+    opacity: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .glowve-ann__shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.13) 50%, transparent 100%);
+    animation: gla-shimmer 3.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes gla-shimmer {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(220%); }
+  }
+
+  .glowve-ann__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 52px 12px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .glowve-ann__text {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13.5px;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  .glowve-ann__spark {
+    display: inline-block;
+    animation: gla-spark 2.4s ease-in-out infinite;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  @keyframes gla-spark {
+    0%, 100% { transform: scale(1) rotate(0deg);    opacity: 1; }
+    50%       { transform: scale(1.28) rotate(8deg); opacity: 0.82; }
+  }
+
+  .glowve-ann__text strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .glowve-ann__link {
+    display: inline-block;
+    padding: 5px 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    flex-shrink: 0;
+  }
+
+  .glowve-ann__link:hover {
+    background: rgba(255, 255, 255, 0.24);
+    border-color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .glowve-ann__close {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, background 0.2s ease;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .glowve-ann__close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  @media screen and (max-width: 749px) {
+    .glowve-ann__inner {
+      padding: 10px 42px 10px 12px;
+    }
+
+    .glowve-ann__text {
+      font-size: 12.5px;
+      gap: 8px;
+    }
+
+    .glowve-ann__link {
+      font-size: 12px;
+      padding: 4px 13px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Glowvé Migration Banner",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_hidden",
+      "label": "Hide banner",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Glowvé Migration Banner"
+    }
+  ]
+}
+{% endschema %}
+{%- endunless -%}
