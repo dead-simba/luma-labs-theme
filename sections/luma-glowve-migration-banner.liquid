@@ -1,4 +1,13 @@
 {%- unless section.settings.is_hidden or template.name == 'product' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    position: sticky !important;
+    top: var(--glowve-nav-height, 86px) !important;
+    z-index: 98 !important;
+  }
+</style>
+
 <div class="glowve-ann" id="glowveAnn">
   <div class="glowve-ann__shimmer" aria-hidden="true"></div>
   <div class="glowve-ann__stars" aria-hidden="true"></div>
@@ -40,13 +49,17 @@
       return;
     }
 
-    // Pin banner directly below the sticky nav
+    // Measure the sticky nav section and set CSS variable for correct top offset
     function pinBelowNav() {
-      var nav = document.querySelector('sticky-header') ||
-                document.querySelector('.header-wrapper') ||
-                document.querySelector('[class*="site-header"]') ||
-                document.querySelector('header');
-      if (nav) ann.style.top = nav.offsetHeight + 'px';
+      var navHeight = 0;
+      document.querySelectorAll('.shopify-section-group-header-group').forEach(function(s) {
+        if (window.getComputedStyle(s).position === 'sticky' && s.id.indexOf('glowve') === -1) {
+          navHeight = Math.max(navHeight, s.offsetHeight);
+        }
+      });
+      if (navHeight > 0) {
+        document.documentElement.style.setProperty('--glowve-nav-height', navHeight + 'px');
+      }
     }
     pinBelowNav();
     window.addEventListener('resize', pinBelowNav);
@@ -73,12 +86,9 @@
 
 {% stylesheet %}
   .glowve-ann {
-    position: sticky;
-    top: 0;
-    z-index: 98;
     overflow: hidden;
     background: linear-gradient(110deg, #F04C1A 0%, #E83860 40%, #C02E74 72%, #8E1858 100%);
-    max-height: 200px;
+    max-height: 300px;
     transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease;
   }
 
@@ -118,8 +128,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
-    padding: 16px 68px 16px 24px;
+    gap: 20px;
+    padding: 22px 80px 22px 28px;
     max-width: 1280px;
     margin: 0 auto;
     position: relative;
@@ -129,17 +139,17 @@
   .glowve-ann__badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     background: rgba(255, 255, 255, 0.18);
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 100px;
-    padding: 4px 12px 4px 8px;
+    padding: 6px 14px 6px 10px;
     flex-shrink: 0;
     backdrop-filter: blur(6px);
   }
 
   .glowve-ann__badge-spark {
-    font-size: 14px;
+    font-size: 17px;
     display: inline-block;
     animation: gla-spark 2.2s ease-in-out infinite;
   }
@@ -151,7 +161,7 @@
   }
 
   .glowve-ann__badge-label {
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -161,13 +171,13 @@
   .glowve-ann__body {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .glowve-ann__headline {
-    font-size: 15.5px;
+    font-size: 19px;
     font-weight: 700;
     color: #fff;
     line-height: 1.2;
@@ -181,11 +191,11 @@
 
   .glowve-ann__divider {
     color: rgba(255, 255, 255, 0.35);
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .glowve-ann__sub {
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.88);
     line-height: 1.3;
     white-space: nowrap;
@@ -196,9 +206,9 @@
     align-items: center;
     background: #fff;
     color: #8E1858;
-    padding: 9px 22px;
+    padding: 12px 26px;
     border-radius: 100px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     text-decoration: none;
     white-space: nowrap;
@@ -210,7 +220,7 @@
 
   @keyframes gla-pulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
-    50%       { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+    50%       { box-shadow: 0 0 0 9px rgba(255,255,255,0); }
   }
 
   .glowve-ann__cta:hover {
@@ -222,14 +232,14 @@
 
   .glowve-ann__close {
     position: absolute;
-    right: 18px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: rgba(255, 255, 255, 0.85);
     cursor: pointer;
-    padding: 7px;
+    padding: 8px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -252,8 +262,12 @@
     }
 
     .glowve-ann__inner {
-      gap: 12px;
-      padding: 14px 56px 14px 16px;
+      gap: 14px;
+      padding: 18px 64px 18px 18px;
+    }
+
+    .glowve-ann__headline {
+      font-size: 17px;
     }
   }
 
@@ -263,17 +277,17 @@
     }
 
     .glowve-ann__headline {
-      font-size: 13.5px;
+      font-size: 15px;
     }
 
     .glowve-ann__cta {
-      font-size: 12.5px;
-      padding: 8px 16px;
+      font-size: 13px;
+      padding: 10px 18px;
     }
 
     .glowve-ann__inner {
-      gap: 10px;
-      padding: 13px 48px 13px 12px;
+      gap: 12px;
+      padding: 16px 52px 16px 14px;
     }
   }
 {% endstylesheet %}
