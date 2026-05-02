@@ -125,8 +125,8 @@
     }
   },
   "order": [
-    "glowve_migration_banner",
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "glowve_migration_banner"
   ]
 }
